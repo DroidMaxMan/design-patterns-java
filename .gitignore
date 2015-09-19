@@ -10,4 +10,5 @@
 zip/*.zip
 dist/*
 *.iml
+out/
 
