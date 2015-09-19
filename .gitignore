@@ -1,0 +1,13 @@
+*.DS_Store
+*.sublime-*
+.idea/*
+.gradle/*
+/css/*
+/bower_components/*
+/node_modules/*
+.sass-cache/*
+.tmp/*
+zip/*.zip
+dist/*
+*.iml
+
