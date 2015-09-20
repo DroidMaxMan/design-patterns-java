@@ -25,11 +25,11 @@ import creational.abstractFactory.example.Rider;
  * @author alejandro
  * Date 19/09/15
  */
-public abstract class SoldierFactory {
+public interface SoldierFactory {
 
     //Abstract method
-    public abstract Archer makeArcher();
+    Archer makeArcher();
 
     //Abstract method
-    public abstract Rider makeRider();
+    Rider makeRider();
 }

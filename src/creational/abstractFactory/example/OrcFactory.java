@@ -23,7 +23,7 @@ package creational.abstractFactory.example;
  *
  * @author alejandro
  */
-public class OrcFactory extends SoldierFactory {
+public class OrcFactory implements SoldierFactory {
 
     @Override
     public Archer makeArcher() {
