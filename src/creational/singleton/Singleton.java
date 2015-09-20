@@ -66,7 +66,7 @@ public class Singleton {
     private Singleton() {}
 
 
-    public Singleton getINSTANCE(){
+    public Singleton getINSTANCE() {
         if(INSTANCE == null){
             INSTANCE = new Singleton();
         }

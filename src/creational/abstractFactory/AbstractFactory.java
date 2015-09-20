@@ -62,7 +62,7 @@ import creational.abstractFactory.example.SoldierFactory;
  */
 public class AbstractFactory {
 
-    public static void main (String[] args){
+    public static void main(String[] args) {
 
         // Factory
         SoldierFactory factory;
@@ -80,4 +80,5 @@ public class AbstractFactory {
         Soldier oRider = factory.makeRider();
 
     }
+
 }

@@ -56,7 +56,7 @@ import creational.factoryMethod.example.Product;
  */
 public class FactoryMethod {
 
-    public static void main (String[] args){
+    public static void main(String[] args){
         // Creator A
         Creator creatorA = new ConcreteCreatorA();
         // Product A
@@ -69,5 +69,7 @@ public class FactoryMethod {
 
         productA.operacion();
         productB.operacion();
+
     }
+
 }
