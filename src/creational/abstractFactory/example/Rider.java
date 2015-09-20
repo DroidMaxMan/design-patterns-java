@@ -15,7 +15,9 @@
  *
  */
 
-package creational.abstractFactory;
+package creational.abstractFactory.example;
+
+import creational.abstractFactory.example.Soldier;
 
 /**
  * Project Learning_Design_Patterns_Java
@@ -23,21 +25,17 @@ package creational.abstractFactory;
  * @author alejandro
  * Date 19/09/15
  */
-public class ManFactory extends SoldierFactory{
+public class Rider extends Soldier {
 
+    /**
+     * Number of shots per second
+     *
+     * @return number of shots
+     */
     @Override
-    public Archer makeArcher() {
-        Archer archer = new Archer();
-        archer.setLife(100);
-        archer.setName("Man");
-        return archer;
+    public int shot() {
+        return 5;
     }
 
-    @Override
-    public Rider makeRider() {
-        Rider rider = new Rider();
-        rider.setLife(150);
-        rider.setName("Man");
-        return rider;
-    }
+
 }

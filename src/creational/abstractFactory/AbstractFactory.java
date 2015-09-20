@@ -17,6 +17,11 @@
 
 package creational.abstractFactory;
 
+import creational.abstractFactory.example.ManFactory;
+import creational.abstractFactory.example.OrcFactory;
+import creational.abstractFactory.example.Soldier;
+import creational.abstractFactory.example.SoldierFactory;
+
 /**
  *
  * Project Learning_Design_Patterns_Java
@@ -39,7 +44,17 @@ package creational.abstractFactory;
  *  - Factoría abstracta que defina una interfaz para que los clientes puedan crear los distintos tipos de objetos.
  *  - Factorías concretas que realmente crean las instancias finales y que son hijas de la factoría abstracta.
  *
- * see Example.md
+ * El patrón <i>Abstract Factory</i> puede ser aplicable cuando:
+ *  - el sistema de creación de instancias debe aislarse.
+ *  - es necesaria la creación de varias instancias de objetos para tener el sistema configurado.
+ *  - cuando la creación de instancias implican la imposición de restricciones y otras particularidades propias de los
+ *  objetos que se construyen.
+ *  - los objetos que deben construirse en las factorías no cambian excesivamente en el tiempo. Añadir nuevos tipos
+ *  implica cambiar todas las factorías. Por ello, se recomienda aplicar este patrón sobre diseños con un cierto grado
+ *  de estabilidad.
+ *
+ *
+ * SEE {EXAMPLE.md}
  *
  * Links:
  * https://es.wikipedia.org/wiki/Abstract_Factory

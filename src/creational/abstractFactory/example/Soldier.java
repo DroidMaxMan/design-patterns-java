@@ -15,7 +15,7 @@
  *
  */
 
-package creational.abstractFactory;
+package creational.abstractFactory.example;
 
 /**
  * Project Learning_Design_Patterns_Java

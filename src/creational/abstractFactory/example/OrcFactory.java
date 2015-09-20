@@ -15,7 +15,7 @@
  *
  */
 
-package creational.abstractFactory;
+package creational.abstractFactory.example;
 
 /**
  * Project: Learning_Design_Patterns_Java
@@ -23,7 +23,7 @@ package creational.abstractFactory;
  *
  * @author alejandro
  */
-public class OrcFactory extends SoldierFactory{
+public class OrcFactory extends SoldierFactory {
 
     @Override
     public Archer makeArcher() {

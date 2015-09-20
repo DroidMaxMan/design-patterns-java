@@ -15,7 +15,9 @@
  *
  */
 
-package creational.abstractFactory;
+package creational.abstractFactory.example;
+
+import creational.abstractFactory.example.Soldier;
 
 /**
  * Project Learning_Design_Patterns_Java
