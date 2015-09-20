@@ -4,7 +4,7 @@
 Conforme un programa crece, el número de clases que representan los diferentes tipos de objetos suele también crecer. 
 Muchos de los diseños tienen jerarquías de  objetos tales como la que se muestra en la figura 4.2.
 
-![Abstract Factory](imgs/abstractFactory_01.png)
+![Abstract Factory](imgs/Abstract_Factory_01.png)
 
 En ella, se muestra jerarquías de clases que modelan los diferentes tipos de personajes de un juego y algunas de sus armas. 
 Para construir cada tipo de personaje es necesario saber cómo construirlo y con qué otro tipo de objetos tiene relación. 
@@ -28,4 +28,4 @@ objetos.**CharFactory** es una factoría que sólo define métodos abstractos y 
 Éstas son factorías concretas a cada tipo de raza (*ManFactory* y *OrcFactory*) y ellas son las que crean las instancias
 concretas de objetos *Archer* y *Rider* para cada una de las razas.
 
-![Abstract Factory](imgs/abstractFactory_01.png)
+![Abstract Factory](imgs/Abstract_Factory_01.png)
