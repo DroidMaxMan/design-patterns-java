@@ -36,22 +36,7 @@ import creational.abstractFactory.example.SoldierFactory;
  *
  * Permite crear diferentes tipos o familias de instancias, aislando al cliente sobre cómo se debe crear cada una de ellas.
  *
- * Por ejemplo, las bibliotecas para crear interfaces gráficas suelen utilizar este patrón y cada familia sería un
- * SO distinto. Así pues, el usuario declara un elemento como podría ser un Button pero de forma más interna lo que está
- * creando es un WindowsButton o un LinuxButton según el SO, siendo transparente para el cliente o usuario.
- *
- * En definitiva, el patroón <i>Abstract Factory</i> recomienda crear las siguientes entidades:
- *  - Factoría abstracta que defina una interfaz para que los clientes puedan crear los distintos tipos de objetos.
- *  - Factorías concretas que realmente crean las instancias finales y que son hijas de la factoría abstracta.
- *
- * El patrón <i>Abstract Factory</i> puede ser aplicable cuando:
- *  - el sistema de creación de instancias debe aislarse.
- *  - es necesaria la creación de varias instancias de objetos para tener el sistema configurado.
- *  - cuando la creación de instancias implican la imposición de restricciones y otras particularidades propias de los
- *  objetos que se construyen.
- *  - los objetos que deben construirse en las factorías no cambian excesivamente en el tiempo. Añadir nuevos tipos
- *  implica cambiar todas las factorías. Por ello, se recomienda aplicar este patrón sobre diseños con un cierto grado
- *  de estabilidad.
+
  *
  *
  * SEE {THEORY.md}
