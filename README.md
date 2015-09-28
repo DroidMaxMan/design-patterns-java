@@ -46,6 +46,8 @@ interfaz que, a priori, no lo es. [Wikipedia](https://es.wikipedia.org/wiki/Adap
 
 ## Behavioral Patterns
 
+* [Observer](src/behavioral/observer) - Se utiliza para definir relaciones 1 a *n* de forma que un objeto pueda notificar
+y/o actualizar el estado de otros automáticamente. [Wikipedia](https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29)
 
 
 ## Copyright & License
