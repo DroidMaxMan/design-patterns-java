@@ -15,35 +15,19 @@
  *
  */
 
-package structural.facade;
-
+package structural.facade.example;
 
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
  * @author alejandro
- *
- *
- * Patrones ESTRUCTURALES
- * --------------------
- * Son los patrones de diseño software que solucionan problemas de composición (agregación) de clases y objetos.
- *
- *
- * Pattern [FACADE] (fachada)
- *
- * Provee de una interfaz unificada simple para acceder a una interfaz o grupo de interfaces de un subsistema.
  */
-public class Facade {
-
-    public static void main( String[] args) {
-
-        // Crear la fachada
-        structural.facade.example.Facade facade = new structural.facade.example.Facade();
-
-        // Llamar a los métodos
-        System.out.println( facade.getInfoA() );
-        System.out.println( facade.getInfoB() );
-        System.out.println( facade.getInfoC() );
+public class ModuleB {
+    /**
+     * @return module name
+     */
+    public String getInfo() {
+        return "MODULEB";
     }
 }
