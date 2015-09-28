@@ -17,7 +17,6 @@
 package creational.singleton;
 
 /**
- *
  * Project Learning_Design_Patterns_Java
  * @author alejandro
  * Date 19/09/15
