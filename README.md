@@ -40,6 +40,9 @@ negocio de una aplicación de la interfaz de usuario y el módulo encargado de g
 proporcionar una interfaz que, por un lado, cumpla con las demandas de los clientes y, por otra, haga compatible otra 
 interfaz que, a priori, no lo es. [Wikipedia](https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29)
 
+* [Proxy](src/structural/proxy) - Proporciona mecanismos de abstracción y control para acceder a un determinado objeto
+"simulando" que se trata del objeto real. [Wikipedia](https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
 
 ## Behavioral Patterns
 

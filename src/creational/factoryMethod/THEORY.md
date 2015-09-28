@@ -10,9 +10,9 @@ instancias de objetos abstrayendo la forma en que realmente se crean.
 
 ## Solución
 
-El patrón <i>Factory Method</i> consiste en utilizar una clase constructora abstracta (al estilo <i>Abstract Factory</i>
+El patrón *Factory Method* consiste en utilizar una clase constructora abstracta (al estilo *Abstract Factory*
 con métodos definidos y otro(s) abstracto(s) dedicado(s) a la construcción de objetos de un subtipo de un tipo determinado.
-Es una simplificación del <i>Abstract Factory</i> en la que la clase abstracta tiene métodos concretos.
+Es una simplificación del *Abstract Factory* en la que la clase abstracta tiene métodos concretos.
 
 Este patrón tiene las siguientes características:
 * No es necesario tener una factoría o una jerarquía de factorías para la creación de objetos. Permite diseños más 

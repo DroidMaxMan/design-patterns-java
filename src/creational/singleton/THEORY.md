@@ -11,7 +11,7 @@ necesario que sólo exista una instancia de una clase concreta (prevención de e
 ## Solución
 
 Para garantizar que sólo existe una instancia de una clase es necesario que los clientes no puedan acceder directamente
-al constructor. Por ello, en un singleton el constructor es, por lo menos, <i>protected</i> o inferior. A cambio se
+al constructor. Por ello, en un singleton el constructor es, por lo menos, *protected* o inferior. A cambio se
 debe proporcionar un único punto (controlado) por el cual se pide la instancia única.
 
 La instrumentación del patrón puede ser delicada en programas con múltiples hilos de ejecución. Si dos hilos de
@@ -27,7 +27,7 @@ El patrón *Singleton* provee una única instancia global gracias a que:
  - permite el acceso global a dicha instancia mediante un método de clase
  - declara el contructor de clase como privado para que no sea instanciable directamente.
  
- El patrón <i>Singleton</i> es un caso particular de un patrón de diseño más general llamado *Object Pool*,  que permite 
+ El patrón *Singleton* es un caso particular de un patrón de diseño más general llamado *Object Pool*,  que permite 
  crear *n* instancias de objetos de forma controlada.
 
 ## Enlaces

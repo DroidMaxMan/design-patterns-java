@@ -17,7 +17,7 @@ La clase de los objetos que servirán de prototipo para la copia deberán inclui
 esa copia, que será desarrollada luego por las clases concretas de prototipos.
 
 Este patrón se utiliza en casos como:
-- Evitar las subclases de un objeto creador como hace el patrón <i>Abstract Factory</i>
+- Evitar las subclases de un objeto creador como hace el patrón *Abstract Factory*
 - Evitar el costo inherente a la creación de un objeto nuevo mediante el operador <b>new</b> cuando esto es demasiado costoso para la aplicación.
 -  La decisión del tipo de objeto necesario se decide en tiempo de ejecución en función de determinados parámetros, 
 configuraciones o condiciones en un momento dado.

@@ -41,10 +41,10 @@ es deseable aislar la forma en que se construye cada clase de objeto.
 
 ## Solución
 
-En primer lugar se define una factoría abstracta que será la que utilice el cliente (*Game*) para crear los diferentes
-objetos.**CharFactory** es una factoría que sólo define métodos abstractos y que serán implementados por sus clases hijas.
+En primer lugar se define una factoría abstracta que será la que utilice el cliente *(Game)* para crear los diferentes
+objetos. **CharFactory** es una factoría que sólo define métodos abstractos y que serán implementados por sus clases hijas.
 
-Éstas son factorías concretas a cada tipo de raza (*ManFactory* y *OrcFactory*) y ellas son las que crean las instancias
+Éstas son factorías concretas a cada tipo de raza ( *ManFactory* y *OrcFactory* ) y ellas son las que crean las instancias
 concretas de objetos *Archer* y *Rider* para cada una de las razas.
 
 ![Abstract Factory](example/imgs/Abstract_Factory_01.png)
