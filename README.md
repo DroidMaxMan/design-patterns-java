@@ -18,7 +18,7 @@ de manera que las familias no se mezclen entre sí y haciendo transparente el ti
 ## Structural Patterns
 
 * [Composite](https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29) - sirve para construir objetos complejos a partir de otros más simples y similares entre sí, gracias a la composición recursiva y a una estructura en forma de árbol.
-
+* [Decorator](https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29) - Añade funcionalidad a una clase dinámicamente
 
 ## Behavioral Patterns
 
