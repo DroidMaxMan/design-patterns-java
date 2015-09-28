@@ -17,6 +17,9 @@
 
 package structural.composite;
 
+import structural.composite.example.Bag;
+import structural.composite.example.Clock;
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 22/09/15
@@ -34,14 +37,20 @@ package structural.composite;
  * Este patrón sirve para construir objetos complejos a partir de otros más simples y similares entre sí gracias a la
  * composición recursiva y a una estructura en forma de árbol.
  *
- * Esto simplifica el tratamiento de los objetos creados ya que al poseer todos ellos una interfaz común, se tratan todos
- * de la misma manera.
- *
- * Una buena manera de identificar la situación en que se puede aplicar este patrón es cuando tengo "un X y tiene varios objetos X"
- *
- * Links:
- *  - https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29
- *
  */
 public class Composite {
+
+    public static void main( String[] args ) {
+        // Objetos
+        Clock relojBolsillo = new Clock();
+        Clock reloj = new Clock();
+
+        // Bolsa
+        Bag bolsa = new Bag();
+
+        // Guardar objetos
+        bolsa.addItem(reloj);
+        bolsa.addItem(relojBolsillo);
+    }
+
 }

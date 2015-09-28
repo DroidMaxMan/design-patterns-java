@@ -54,7 +54,7 @@ import creational.abstractFactory.example.SoldierFactory;
  *  de estabilidad.
  *
  *
- * SEE {EXAMPLE.md}
+ * SEE {THEORY.md}
  *
  * Links:
  * https://es.wikipedia.org/wiki/Abstract_Factory
