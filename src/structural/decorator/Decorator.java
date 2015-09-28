@@ -39,7 +39,6 @@ import structural.decorator.example.Silencer;
  *
  * Sirve para añadir y/o modificar la responsabilidad, funcionalidad o propiedades de un objeto en tiempo de ejecución.
  *
- *
  */
 public class Decorator {
 
