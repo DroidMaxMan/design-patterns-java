@@ -38,21 +38,6 @@ import creational.factoryMethod.example.Product;
  * Centraliza en una clase constructora la creación de objetos de un subtipo de un un tipo determinado, ocultando al
  * usuario la diversidad de casos particulares que se pueden prever en la elección del subtipo.
  *
- * El patrón <i>Factory Method</i> consiste en utilizar una clase constructora abstracta (al estilo <i>Abstract Factory</i>
- * con métodos definidos y otro(s) abstracto(s) dedicado(s) a la construcción de objetos de un subtipo de un tipo determinado.
- * Es una simplificación del <i>Abstract Factory</i> en la que la clase abstracta tiene métodos concretos.
- *
- * Este patrón tiene las siguientes características:
- *  - No es necesario tener una factoría o una jerarquía de factorías para la creación de objetos. Permite diseños más
- *  adaptados a la realidad.
- *   - El método factoría o <i>Factory Method</i> al estar integrado en una clase, hace posible conectar dos jerarquías
- *   de objetos distintas.
- *
- * Nótese que el patrón <i>Factory Method</i> se utiliza para implementar el patrón <i>Abstract Factory</i> ya que la
- * factoría abstracta define una interfaz con métodos de construcción de objetos que son implementados por las subclases.
- *
- * Links:
- * https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29
  */
 public class FactoryMethod {
 
