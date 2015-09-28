@@ -1,6 +1,6 @@
 # Design Patterns with Java
 
-Examples of design patterns made with Java.
+Teoría y ejemplos de patrones de diseño de software en Java.
 
 ## Creational Patterns
 
@@ -48,6 +48,30 @@ interfaz que, a priori, no lo es. [Wikipedia](https://es.wikipedia.org/wiki/Adap
 
 * [Observer](src/behavioral/observer) - Se utiliza para definir relaciones 1 a *n* de forma que un objeto pueda notificar
 y/o actualizar el estado de otros automáticamente. [Wikipedia](https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
+* [State](src/behavioral/state) - Permite que un objeto modifique su comportamiento cada vez que cambie su estado interno. 
+[Wikipedia](https://es.wikipedia.org/wiki/State_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
+* [Iterator](src/behavioral/iterator) - Permite realizar recorridos sobre objetos compuestos independientemente de la implementación de éstos. 
+[Wikipedia](https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
+* [Template Method](src/behavioral/templateMethod) - Se puede utilizar cuando es necesario redefinir algunos pasos de un determinado algoritmo utilizando herencia. 
+[Wikipedia](https://es.wikipedia.org/wiki/Template_Method_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
+* [Strategy](src/behavioral/strategy) - Se utiliza para encapsular el funcionamiento de una familia de algoritmos, de forma que
+se pueda intercambiar su uso sin necesidad de modificar los clientes. [Wikipedia](https://es.wikipedia.org/wiki/Strategy_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
+* [Reactor](src/behavioral/reactor) - Es un patrón de programación concurrente para manejar los pedidos de servicio 
+entregados de forma concurrente a un manejador de servicio desde una o más entradas. El manejador de servicio demultiplexa 
+los pedidos entrantes y los entrega de forma sincrónica a los manejadores de pedidos asociados. [Wikipedia](https://es.wikipedia.org/wiki/Reactor_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
+* [Visitor](src/behavioral/visitor) - Proporciona un mecanismo para realizar diferentes operaciones sobre una jerarquía de
+objetos de forma que añadir nuevas operaciones no haga necesario cambiar las clases de los objetos sobre los que se realizan
+las operaciones. [Wikipedia](https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
+* [Command](src/behavioral/command) - Este patrón permite solicitar una operación a un objeto sin conocer realmente el 
+contenido de esta operación, ni el receptor real de la misma. Para ello se encapsula la petición como un objeto, con lo 
+que además facilita la parametrización de los métodos. [Wikipedia](https://es.wikipedia.org/wiki/Command_%28patr%C3%B3n_de_dise%C3%B1o%29)
 
 
 ## Copyright & License
