@@ -4,34 +4,42 @@ Examples of design patterns made with Java.
 
 ## Creational Patterns
 
-* [Singleton](https://es.wikipedia.org/wiki/Singleton) - garantiza la existencia de una única instancia para una clase 
-y la creación de un mecanismo de acceso global a dicha instancia. Restringe la instanciación de una clase o valor de un tipo a un solo objeto.
+* [Singleton](src/creational/singleton) - garantiza la existencia de una única instancia para una clase 
+y la creación de un mecanismo de acceso global a dicha instancia. Restringe la instanciación de una clase o valor de un 
+tipo a un solo objeto. [Wikipedia](https://es.wikipedia.org/wiki/Singleton)
 
-* [Abstract Factory](https://es.wikipedia.org/wiki/Abstract_Factory) - permite trabajar con objetos de distintas familias 
+* [Abstract Factory](src/creational/abstractFactory) - permite trabajar con objetos de distintas familias 
 de manera que las familias no se mezclen entre sí y haciendo transparente el tipo de familia concreta que se esté usando.
+[Wikipedia](https://es.wikipedia.org/wiki/Abstract_Factory)
 
-* [Factory Method](https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29) - consiste en utilizar una clase constructora (al estilo del Abstract Factory) abstracta con unos cuantos métodos definidos y otro(s) abstracto(s): el dedicado a la construcción de objetos de un subtipo de un tipo determinado
+* [Factory Method](src/creational/factoryMethod) - consiste en utilizar una clase constructora (al estilo del Abstract Factory) 
+abstracta con unos cuantos métodos definidos y otro(s) abstracto(s): el dedicado a la construcción de objetos de un 
+subtipo de un tipo determinado. [Wikipedia](https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29)
 
-* [Prototype]() -  crea nuevos objetos clonándolos de una instancia ya existente.
+* [Prototype](src/creational/prototype) -  crea nuevos objetos clonándolos de una instancia ya existente. 
+[Wikipedia](https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29)
 
 
 ## Structural Patterns
 
-* [Composite](https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29) - sirve para construir objetos 
+* [Composite](src/structural/composite) - sirve para construir objetos 
 complejos a partir de otros más simples y similares entre sí, gracias a la composición recursiva y a una estructura en 
-forma de árbol. [Example](src/structural/composite)
+forma de árbol. [Wikipedia](https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29)
 
-* [Decorator](https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29) - Añade funcionalidad a una 
-clase dinámicamente
+* [Decorator](src/structural/decorator) - Añade funcionalidad a una 
+clase dinámicamente. [Wikipedia](https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29)
 
-* [Facade](https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29) - Provee de una interfaz unificada 
-simple para acceder a una interfaz o grupo de interfaces de un sistema
+* [Facade](src/structural/facade) - Provee de una interfaz unificada 
+simple para acceder a una interfaz o grupo de interfaces de un sistema. [Wikipedia](https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29)
 
-* [MVC](https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador) - Separa los datos y la lógica de 
-negocio de una aplicación de la interfaz de usuario y el módulo encargado de gestionar los eventos y las comunicaciones.
+* [MVC](src/structural/mvc) - Separa los datos y la lógica de 
+negocio de una aplicación de la interfaz de usuario y el módulo encargado de gestionar los eventos y las comunicaciones. 
+[Wikipedia](https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador)
 
-* [Adapter](https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29) - Este patrón se utiliza para 
-proporcionar una interfaz que, por un lado, cumpla con las demandas de los clientes y, por otra, haga compatible otra interfaz que, a priori, no lo es.
+* [Adapter](src/structural/adapter) - Este patrón se utiliza para 
+proporcionar una interfaz que, por un lado, cumpla con las demandas de los clientes y, por otra, haga compatible otra 
+interfaz que, a priori, no lo es. [Wikipedia](https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
 
 ## Behavioral Patterns
 
