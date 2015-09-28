@@ -35,6 +35,6 @@ Crear clases fachada con un tamaño desproporcionado, conteniendo demasiado func
 responsabilidades.
 
 
-## Links
+## Enlaces
 * [Facade Pattern](https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29)
 

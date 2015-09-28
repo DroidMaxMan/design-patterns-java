@@ -48,5 +48,5 @@ Aunque en un principio este patrón parece que entra en conflicto con *Abstract 
 aproximaciones en una *Prototype Abstract Factory* de forma que la factoría se configura con los prototipos concretos
 que puede crear y ésta sólo invoca al método *clone()*
 
-## Links
+## Enlaces
 * [Prototype](https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29)

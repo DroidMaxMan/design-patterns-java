@@ -31,5 +31,5 @@ Naturalmente, los objetos compuestos suelen ofrecer también operaciones para a�
 Por otro lado, hay *objetos hoja* que no contienen más objetos, como es el caso de *Clock*
 
 
-## Links
+## Enlaces
 * [Composite](https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29)

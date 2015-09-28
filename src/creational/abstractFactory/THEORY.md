@@ -49,5 +49,5 @@ concretas de objetos *Archer* y *Rider* para cada una de las razas.
 
 ![Abstract Factory](example/imgs/Abstract_Factory_01.png)
 
-## Links
+## Enlaces
 * [Abstract Factory](https://es.wikipedia.org/wiki/Abstract_Factory)

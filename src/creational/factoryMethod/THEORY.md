@@ -35,5 +35,5 @@ La solución para esto es hacer un método abstracto (el método de la fábrica)
 se define para que devuelva un producto. Las subclases del creador pueden sobreescribir este método para devolver subclases 
 apropiadas del producto.
 
-## Links
+## Enlaces
 * [Factory Method](https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29)

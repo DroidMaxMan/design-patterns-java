@@ -36,14 +36,6 @@ import creational.abstractFactory.example.SoldierFactory;
  *
  * Permite crear diferentes tipos o familias de instancias, aislando al cliente sobre cómo se debe crear cada una de ellas.
  *
-
- *
- *
- * SEE {THEORY.md}
- *
- * Links:
- * https://es.wikipedia.org/wiki/Abstract_Factory
- *
  */
 public class AbstractFactory {
 

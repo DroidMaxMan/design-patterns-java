@@ -30,5 +30,5 @@ El patrón *Singleton* provee una única instancia global gracias a que:
  El patrón <i>Singleton</i> es un caso particular de un patrón de diseño más general llamado *Object Pool*,  que permite 
  crear *n* instancias de objetos de forma controlada.
 
-## Links
+## Enlaces
 * [Singleton](https://es.wikipedia.org/wiki/Singleton#Java)

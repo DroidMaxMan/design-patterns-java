@@ -19,13 +19,19 @@ de manera que las familias no se mezclen entre sí y haciendo transparente el ti
 
 * [Composite](https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29) - sirve para construir objetos 
 complejos a partir de otros más simples y similares entre sí, gracias a la composición recursiva y a una estructura en 
-forma de árbol.
+forma de árbol. [Example](src/structural/composite)
+
 * [Decorator](https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29) - Añade funcionalidad a una 
 clase dinámicamente
+
 * [Facade](https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29) - Provee de una interfaz unificada 
 simple para acceder a una interfaz o grupo de interfaces de un sistema
+
 * [MVC](https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador) - Separa los datos y la lógica de 
 negocio de una aplicación de la interfaz de usuario y el módulo encargado de gestionar los eventos y las comunicaciones.
+
+* [Adapter](https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29) - Este patrón se utiliza para 
+proporcionar una interfaz que, por un lado, cumpla con las demandas de los clientes y, por otra, haga compatible otra interfaz que, a priori, no lo es.
 
 ## Behavioral Patterns
 

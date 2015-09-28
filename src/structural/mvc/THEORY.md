@@ -38,5 +38,5 @@ El patrón MVC se utiliza en un gran número de entornos de ventanas y sobretodo
 Sin embargo, es la estructura más utilizada en los videojuegos: la interfaz gráfica utilizando gráficos 2D/3D (vista),
 bucle de eventos (controlador) y las estructuras de datos internas (modelo).
 
-## Links
+## Enlaces
 * [MVC Pattern](https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador)

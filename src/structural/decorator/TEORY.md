@@ -21,6 +21,7 @@ Básicamente, los diferentes tipos de armas de fuego implementan una clase abstr
 es *FirearmDecorator* que es el padre de todos los componentes que "decoran" a un objeto *Firearm*. Nótese que este 
 decorador implementa la interfaz propuesta por *Firearm* y está compuesto por un objeto *gun*, el cual decora.
 
+
 ## Consideraciones
 
 Es un patrón similar al Composite pero con diferencias:
@@ -37,5 +38,5 @@ Además, evita la utilización de la herencia con muchas clases y también, la h
 Este patrón puede generar gran cantidad de objetos pequeños y parecidos que dificulta su identificación. 
 
 
-## Links
+## Enlaces
 * [Decorator Pattern](https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29)
