@@ -17,6 +17,9 @@
 
 package behavioral.command;
 
+import behavioral.command.example.*;
+import behavioral.command.example.Character;
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
@@ -26,13 +29,37 @@ package behavioral.command;
  *
  * Patrones de COMPORTAMIENTO
  * --------------------
- * Son los patrones de diseño software que se centran en cómo diseñar los sistemas para obtener cierta funcioanlidad y,
+ * Son los patrones de diseño software que se centran en cómo diseñar los sistemas para obtener cierta funcionalidad y,
  * al mismo tiempo, un diseño escalable.
  *
  *
  * Pattern [Command] (Orden)
  *
  * Encapsula una operación en un objeto, permitiendo ejecutar dicha operación sin necesidad de conocer el contenido de la misma.
+ *
  */
 public class Command {
+
+    public static void main( String[] args ) {
+
+        // Receiver
+        Character character = new Character();
+
+        // Commands
+        behavioral.command.example.Command jump = new Jump(character);
+        behavioral.command.example.Command run = new Run(character);
+        behavioral.command.example.Command walk = new Walk(character);
+
+        // Invoker
+        Engine engine = new Engine(jump, walk, run);
+
+        // Call to jump
+        engine.jump();
+
+        // Call to walk
+        engine.walk();
+
+        // Call to run
+        engine.run();
+    }
 }
