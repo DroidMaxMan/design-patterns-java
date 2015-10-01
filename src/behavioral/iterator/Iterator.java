@@ -17,6 +17,9 @@
 
 package behavioral.iterator;
 
+import behavioral.iterator.example.IteradorVector;
+import behavioral.iterator.example.Vector2;
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
@@ -36,4 +39,15 @@ package behavioral.iterator;
  * y la forma en que realmente se accede.
  */
 public class Iterator {
+
+    public static void main(String[] args) {
+        Vector2 vector = new Vector2(5);
+
+        //Creación del iterador
+        IteradorVector iterador = vector.iterador();
+
+        //Recorrido con el iterador
+        while (iterador.hasNext())
+            System.out.println(iterador.next());
+    }
 }
