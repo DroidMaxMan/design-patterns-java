@@ -17,6 +17,14 @@
 
 package behavioral.reactor;
 
+import behavioral.reactor.example.ConcreteEventHandler;
+import behavioral.reactor.example.Event;
+import behavioral.reactor.example.EventHandler;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
@@ -35,4 +43,34 @@ package behavioral.reactor;
  * Es un patrón arquitectural para resolver el problema de cómo atender peticiones concurrentes a través de señales y manejadores de señales.
  */
 public class Reactor {
+
+    /** Manejadores registrados **/
+    private static List<EventHandler> handlers = new ArrayList<>();
+
+    /**
+     * Registrar un manejador
+     * @param eventHandler to add
+     */
+    public static void regHandler(EventHandler eventHandler) {
+        handlers.add(eventHandler);
+    }
+
+    public static void main( String[] args ) {
+        // Handler registration
+        EventHandler eventHandler = new ConcreteEventHandler();
+        regHandler(eventHandler);
+
+        // Bucle
+        while (true) {
+            // Simulate event
+            if (new Random().nextInt(10000000) == 50) {
+                // Event occurs.
+                Event event = new Event();
+                // Notify
+                for (EventHandler handler : handlers) {
+                    handler.handle(event);
+                }
+            }
+        }
+    }
 }
