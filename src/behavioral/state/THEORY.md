@@ -6,23 +6,26 @@ Se utiliza cuando el comportamiento de un objeto cambia dependiendo del estado d
 
 Es muy común que en cualquier aplicación, incluído los videojuegos, existan estructuras que pueden ser modeladas 
 directamente como un autómata, es decir, una colección de estados y unas transiciones dependientes de una entrada. 
-En este caso, la entrada pueden ser invocaciones y/o eventos recibidos. Por ejemplo, los estados de un personaje de un 
-videojuego podrían ser: de pie, tumbado, andando y saltando. Dependiendo del estado en el que se encuentre y de la invocación 
-recibida, el siguiente estado será uno u otro. Por ejemplo, si está de pie y recibe la orden de tumbarse, ésta se podrá 
-realizar. Sin embargo, si ya está tumbado no tiene sentido volver a tumbarse, por lo que debe permanecer en ese estado.
+En este caso, la entrada pueden ser invocaciones y/o eventos recibidos. 
+
+Por ejemplo, los estados de un personaje de un videojuego podrían ser: de pie, tumbado, andando y saltando. 
+Dependiendo del estado en el que se encuentre y de la invocación recibida, el siguiente estado será uno u otro. Si por ejemplo, 
+está de pie y recibe la orden de tumbarse, ésta se podrá realizar. Sin embargo, si ya está tumbado no tiene sentido volver 
+a tumbarse, por lo que debe permanecer en ese estado.
 
 
 ## Solución
 
 El patrón State permite encapsular el mecanismo de las transiciones que sufre un objeto a partir de los estímulos externos. 
-A continuación se muestra un ejemplo de aplicación del mismo. La idea es crear una clase abstracta que representa al estado 
+A continuación se muestra un ejemplo de aplicación del mismo. La idea es crear una clase abstracta o interfaz que representa al estado 
 del personaje (CharacterState). En ella se definen las mismas operaciones que puede recibir el personaje con una 
 implementación por defecto. En este caso, la implementación es vacía.
 
 ![State](example/imgs/State.png)
 
 Por cada estado en el que puede encontrarse el personaje, se crea una clase que hereda de la clase abstracta anterior, 
-de forma que en cada una de ellas se implementen los métodos que producen cambio de estado.
+de forma que en cada una de ellas se implementen los métodos que producen cambio de estado, es decir, contendrán un método
+por cada posible transición.
 
 Por ejemplo, según el diagrama, en el estado "de pie" se puede recibir la orden de caminar, tumbarse y saltar, pero no 
 de levantarse. En caso de recibir esta última, se ejecutará la implementación por defecto, es decir, no hacer nada.
@@ -32,6 +35,10 @@ personaje, de forma que los cambios de estados quedan encapsulados y delegados a
 
 
 ## Consideraciones
+
+Este patrón puede usarse cuando un determinado objeto tiene diferentes estados y también diferentes responsabilidades según
+el estado en que se encuentre en determinado instante. También puede utilizarse para simplificar casos en los que se tiene
+un complicado y extenso código de decisión que depende del estado del objeto.
 
 Los componentes de diseño que se comporten como autómatas son buenos candidatos a ser modelos con el patrón *State*
 

@@ -17,6 +17,9 @@
 
 package behavioral.state;
 
+import behavioral.state.example.*;
+import behavioral.state.example.Character;
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
@@ -35,4 +38,35 @@ package behavioral.state;
  * Permite que un objeto modifique su comportamiento cada vez que cambie su estado interno.
  */
 public class State {
+
+    public static void main( String[] args ) {
+
+        // Personaje (Contexto)
+        Character character = new Character();
+
+        // Estado actual
+        System.out.println(character.getState().toString());
+
+        // El personaje se pone en marcha
+        character.walk();
+
+        // Estado actual
+        System.out.println(character.getState().toString());
+
+        // El personaje salta
+        character.jump();
+
+        // Estado actual
+        System.out.println(character.getState().toString());
+
+        /* Para el ejemplo se hace manual pero en el caso del salto, se comprueba que el character colisione con el suelo
+        y el estado se cambia cuando se produzca ese circumstancia
+         */
+        character.getUp();
+
+        // Estado actual
+        System.out.println(character.getState().toString());
+
+    }
+
 }
