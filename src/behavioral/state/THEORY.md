@@ -50,3 +50,4 @@ que dependan de un contexto.
 
 ## Enlaces
 * [State](https://es.wikipedia.org/wiki/State_%28patr%C3%B3n_de_dise%C3%B1o%29)
+* [Ejemplo patrón State](https://danielggarcia.wordpress.com/2014/05/20/patrones-de-comportamiento-v-patron-state/)

@@ -17,6 +17,10 @@
 
 package behavioral.strategy;
 
+import behavioral.strategy.example.GamePlayer;
+import behavioral.strategy.example.Movement;
+import behavioral.strategy.example.RandomMovement;
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
@@ -35,4 +39,16 @@ package behavioral.strategy;
  * Permite disponer de varios métodos para resolver un problema y elegir cuál utilizar en tiempo de ejecución.
  */
 public class Strategy {
+
+    public static void main( String[] args ) {
+        // Movimiento aleatorio
+        Movement movement = new RandomMovement();
+
+        // Asignar la estrategia
+        GamePlayer player = new GamePlayer();
+        player.setMovement(movement);
+
+        player.doBestMove();
+    }
+
 }
