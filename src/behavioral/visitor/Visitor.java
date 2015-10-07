@@ -17,6 +17,8 @@
 
 package behavioral.visitor;
 
+import behavioral.visitor.example.*;
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
@@ -35,4 +37,20 @@ package behavioral.visitor;
  * Permite definir nuevas operaciones sobre una jerarquía de clases sin modificar las clases sobre las que opera.
  */
 public class Visitor {
+
+    public static void main( String[] args ) {
+
+        // Visitantes
+        ConcreteVisitor1 concreteVisitor1 = new ConcreteVisitor1();
+        ConcreteVisitor2 concreteVisitor2 = new ConcreteVisitor2();
+
+        // Visitables
+        ElementA elementA = new ElementA();
+        ElementB elementB = new ElementB();
+
+        // Visitar elementos
+        concreteVisitor1.visitElementA(elementA);
+        concreteVisitor2.visitElementB(elementB);
+
+    }
 }
