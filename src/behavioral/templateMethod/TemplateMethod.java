@@ -17,6 +17,10 @@
 
 package behavioral.templateMethod;
 
+import behavioral.templateMethod.example.CheckersPlayer;
+import behavioral.templateMethod.example.ChessPlayer;
+import behavioral.templateMethod.example.GamePlayer;
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
@@ -36,4 +40,21 @@ package behavioral.templateMethod;
  * que las subclases redefinan ciertos pasos de un algoritmo sin cambiar su estructura.
  */
 public class TemplateMethod {
+
+    public static void main( String[] args ) {
+        // Ajedrez
+        GamePlayer gamePlayer = new ChessPlayer();
+        System.out.println("[CHESS]");
+
+        // Jugar al juego
+        gamePlayer.play();
+
+        // Damas
+        gamePlayer = new CheckersPlayer();
+        System.out.println("[CHECKERS]");
+
+        // Jugar
+        gamePlayer.play();
+    }
+
 }
