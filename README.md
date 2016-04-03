@@ -76,7 +76,7 @@ que además facilita la parametrización de los métodos. [Wikipedia](https://es
 
 ## Copyright & License
 
-Copyright 2015 Codessus. All rights reserved.
+Copyright 2015 @codetplace. All rights reserved.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
