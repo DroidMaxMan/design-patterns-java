@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,11 +17,12 @@ package structural.adapter;
 
 import structural.adapter.example.Target;
 
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  *
  * Patrones ESTRUCTURALES
@@ -33,7 +34,6 @@ import structural.adapter.example.Target;
  *
  * Se utiliza para transformar una interfaz en otra, de tal modo que una clase que no pudiera utilizar la primera,
  * haga uso de ella a través de la segunda.
- *
  */
 public class Adapter {
 
@@ -43,6 +43,6 @@ public class Adapter {
         Target target = new structural.adapter.example.Adapter();
 
         // Llamada al método
-        System.out.println("Método adaptado: " + target.method());
+        System.out.println( "Método adaptado: " + target.method() );
     }
 }

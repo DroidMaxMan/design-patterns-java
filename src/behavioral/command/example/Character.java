@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,34 +19,40 @@ package behavioral.command.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 29/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Receiver
  */
 public class Character {
 
-    /** Constructor **/
-    public Character() {}
+    /**
+     * Constructor
+     **/
+    public Character() {
+    }
+
 
     /**
      * Action: Walk
      */
     public void walk() {
-        System.out.println("WALKING");
+        System.out.println( "WALKING" );
     }
+
 
     /**
      * Action: Run
      */
     public void run() {
-        System.out.println("RUNNING");
+        System.out.println( "RUNNING" );
     }
+
 
     /**
      * Action: Walk
      */
     public void jump() {
-        System.out.println("JUMPING");
+        System.out.println( "JUMPING" );
     }
 
 }

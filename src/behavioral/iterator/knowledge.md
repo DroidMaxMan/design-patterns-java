@@ -28,6 +28,7 @@ de fabricación que cree un iterador concreto.
 Diferentes iteradores pueden presentar diferentes tipos de recorrido sobre la estructura. No sólo eso, sino que podrían incorporar
 funcionalidad extra como por ejemplo filtrado de elementos, etc..
 
+
 ## Implementación
 
 ![Proxy](example/imgs/Iterador.png)
@@ -36,5 +37,23 @@ Como puede verse, la estructura de datos es la encargada de crear el iterador ad
 *iterator()*. Una vez que el cliente ha obtenido el iterador, puede utilizar los métodos de acceso que ofrecen tales como
 *next()* (para obtener el siguiente elemento) o *isDone()* para comprobar si existen más elementos.
 
+
 ## Enlaces
 * [Iterator](https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
+
+License
+-------
+    Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+       http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.

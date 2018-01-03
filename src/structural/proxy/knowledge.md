@@ -2,6 +2,7 @@
 
 Es un patrón estructural que tiene como propósito proporcionar un subrogado o intermediario de un objeto para controlar su acceso.
 
+
 ## Problema
 
 Muchos de los objetos de los que puede constar una aplicación pueden representar diferentes problemas a la hora de ser utilizados
@@ -25,6 +26,7 @@ De esta forma, el objeto *proxy* puede cargar una única vez la imagen y mostrar
 
 ![Proxy](example/imgs/Proxy.png)
 
+
 ## Consideraciones
 
 Existen ejemplos donde se hace un uso intensivo del patrón *Proxy* en diferentes sistemas:
@@ -35,3 +37,20 @@ que permiten realizar más o menos operaciones.
 
 ## Enlaces
 * [Proxy Pattern](https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
+
+License
+-------
+    Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+       http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.

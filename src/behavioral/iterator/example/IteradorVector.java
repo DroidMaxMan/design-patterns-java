@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,25 +19,29 @@ package behavioral.iterator.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 1/10/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Iterador sobre la estructura
  */
 public class IteradorVector {
 
     private int[] _vector;
+
     private int _posicion;
 
-    public IteradorVector(Vector2 vector) {
+
+    public IteradorVector( Vector2 vector ) {
         _vector = vector._datos;
         _posicion = 0;
     }
 
-    public boolean hasNext(){
+
+    public boolean hasNext() {
         return _posicion < _vector.length;
     }
 
-    public Object next(){
+
+    public Object next() {
         // Recupera el valor de la posición actual
         int valor = _vector[_posicion];
         // Aumenta la posición en una unidad

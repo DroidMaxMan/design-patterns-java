@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,12 +19,12 @@ package creational.factoryMethod.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 20/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  */
-public class ConcreteProductA implements Product{
+public class ConcreteProductA implements Product {
 
     @Override
     public void operacion() {
-       System.out.println("ConcreteProductA");
+        System.out.println( "ConcreteProductA" );
     }
 }

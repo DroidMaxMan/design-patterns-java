@@ -3,10 +3,12 @@
 Centraliza en una clase constructora la creación de objetos de un subtipo de un un tipo determinado, ocultando al 
 usuario la diversidad de casos particulares que se pueden prever en la elección del subtipo.
 
+
 ## Problema
 
 Al igual que ocurre con el patrón *Abstract Factory* el problema que se pretende resolver es la creación de diferentes
 instancias de objetos abstrayendo la forma en que realmente se crean.
+
 
 ## Solución
 
@@ -23,6 +25,7 @@ de objetos distintas.
 Nótese que el patrón *Factory Method* se utiliza para implementar el patrón *Abstract Factory* ya que la
 factoría abstracta define una interfaz con métodos de construcción de objetos que son implementados por las subclases.
 
+
 ## Implementación
 
 Las clases principales de este patrón son el **creador** y el **producto**. El creador necesita crear instancias de productos,
@@ -35,5 +38,23 @@ La solución para esto es hacer un método abstracto (el método de la fábrica)
 se define para que devuelva un producto. Las subclases del creador pueden sobreescribir este método para devolver subclases 
 apropiadas del producto.
 
+
 ## Enlaces
 * [Factory Method](https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
+
+License
+-------
+    Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+       http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.

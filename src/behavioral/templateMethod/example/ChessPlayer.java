@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,42 +19,47 @@ package behavioral.templateMethod.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 7/10/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  */
 public class ChessPlayer extends GamePlayer {
 
     private static int movements = 0;
 
+
     /**
      * Como ejemplo, daremos por hecho que en el ajedrez no movemos primero
+     *
      * @return false
      */
     @Override
     boolean moveFirst() {
-        System.out.println("El rival mueve primero");
+        System.out.println( "El rival mueve primero" );
         return false;
     }
+
 
     /**
      * Cada juego mueve las fichas de distinta forma
      */
     @Override
     void doBestMove() {
-        System.out.println("Moviendo ficha - Movimiento " + movements);
+        System.out.println( "Moviendo ficha - Movimiento " + movements );
         // Aumentamos el contador de movimientos
         movements++;
     }
 
+
     /**
      * Como convención para el ejemplo, la partida acaba al alcanzar 50 movimientos
+     *
      * @return true if game is over
      */
     @Override
     boolean isOver() {
-        if(movements < 50) {
+        if ( movements < 50 ) {
             return false;
         } else {
-            System.out.println("Fin de la partida - Alcanzado los " + movements + " como máximo");
+            System.out.println( "Fin de la partida - Alcanzado los " + movements + " como máximo" );
             return true;
         }
     }

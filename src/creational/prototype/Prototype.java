@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,11 +18,12 @@ package creational.prototype;
 import creational.prototype.example.FactoriaPrototipo;
 import creational.prototype.example.Producto;
 
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 20/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  *
  * Patrones de CREACIÓN
@@ -35,11 +36,10 @@ import creational.prototype.example.Producto;
  * Proporciona abstracción a la hora de crear diferentes objetos en un contexto donde se desconoce cúantos y cuáles
  * deben ser creados a priori. La idea principal es que los objetos deben poder clonarse en tiempo de ejecución.
  * Por tanto, este patrón tiene como finalidad crear nuevos objetos duplicándolos, clonando una instancia creada previamente.
- *
  */
 public class Prototype {
 
-    public static void main(String[] args) {
+    public static void main( String[] args ) {
 
         // Instancia de la factoría
         FactoriaPrototipo factoriaPrototipo = new FactoriaPrototipo();
@@ -47,7 +47,7 @@ public class Prototype {
         // Producto clonado
         Producto producto = (Producto) factoriaPrototipo.create();
 
-        System.out.println(producto.toString());
+        System.out.println( producto.toString() );
 
     }
 

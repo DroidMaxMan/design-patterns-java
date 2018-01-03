@@ -3,10 +3,12 @@
 Garantiza la existencia de una única instancia para una clase y la creación de un mecanismo de acceso global
 a dicha instancia. Restringe la instanciación de una clase o valor de un tipo a un solo objeto.
 
+
 ## Problema
 
 Los objetos normalmente se crean con el operador **new**. Sin embargo, es posible que en un determinado momento es
 necesario que sólo exista una instancia de una clase concreta (prevención de errores, seguridad, etc..)
+
 
 ## Solución
 
@@ -30,5 +32,23 @@ El patrón *Singleton* provee una única instancia global gracias a que:
  El patrón *Singleton* es un caso particular de un patrón de diseño más general llamado *Object Pool*,  que permite 
  crear *n* instancias de objetos de forma controlada.
 
+
 ## Enlaces
 * [Singleton](https://es.wikipedia.org/wiki/Singleton#Java)
+
+
+License
+-------
+    Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+       http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.

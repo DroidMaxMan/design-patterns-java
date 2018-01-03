@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,7 @@ package behavioral.templateMethod.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 7/10/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Clase abstracta que ejecuta el algoritmo. Las clases hijas redefinen los métodos
  * para ajustarse a su algoritmo
@@ -27,15 +27,15 @@ package behavioral.templateMethod.example;
 public abstract class GamePlayer {
 
     public void play() {
-        if (moveFirst()) {
+        if ( moveFirst() ) {
             doBestMove();
         }
 
-        while (!isOver()) {
+        while ( !isOver() ) {
             // Movimiento del rival
             //....
 
-            if(!isOver()) {
+            if ( !isOver() ) {
                 doBestMove();
             }
         }

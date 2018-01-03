@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,7 @@ package behavioral.state.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 6/10/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Clase de contexto que almacena el estado actual junto al resto de atributos que se considere oportuno.
  */
@@ -31,27 +31,35 @@ public class Character {
     // Other var
     // ......
 
-    /** Constructor **/
+
+    /**
+     * Constructor
+     **/
     public Character() {
         // Estado actual que por defecto puede ser de pie y quieto
-        cState = new CharacterStanding(this);
+        cState = new CharacterStanding( this );
     }
+
 
     /**
      * Set current state
+     *
      * @param cState to set
      */
     public void setState( CharacterState cState ) {
         this.cState = cState;
     }
 
+
     /**
      * Get current state
+     *
      * @return cState
      */
     public CharacterState getState() {
         return cState;
     }
+
 
     /**
      * Se invoca al método de la interfaz CharacterState y que se codificará
@@ -61,6 +69,7 @@ public class Character {
         cState.walk();
     }
 
+
     /**
      * Se invoca al método de la interfaz CharacterState y que se codificará
      * por las clases que implementen dicha interfaz
@@ -69,6 +78,7 @@ public class Character {
         cState.getUp();
     }
 
+
     /**
      * Se invoca al método de la interfaz CharacterState y que se codificará
      * por las clases que implementen dicha interfaz
@@ -76,6 +86,7 @@ public class Character {
     public void getDown() {
         cState.getDown();
     }
+
 
     /**
      * Se invoca al método de la interfaz CharacterState y que se codificará

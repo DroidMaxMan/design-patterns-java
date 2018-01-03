@@ -9,6 +9,7 @@ por un lado define componentes para la representación de la información, y por
 Este patrón de arquitectura de software se basa en las ideas de reutilización de código y la separación de conceptos, 
 características que buscan facilitar la tarea de desarrollo de aplicaciones y su posterior mantenimiento.
 
+
 ## Implementación
 
 * **Vista** - se trata de la interfaz de usuario que interactúa con el usuario y recibe las órdenes (pulsar un botón,
@@ -38,5 +39,23 @@ El patrón MVC se utiliza en un gran número de entornos de ventanas y sobretodo
 Sin embargo, es la estructura más utilizada en los videojuegos: la interfaz gráfica utilizando gráficos 2D/3D (vista),
 bucle de eventos (controlador) y las estructuras de datos internas (modelo).
 
+
 ## Enlaces
 * [MVC Pattern](https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador)
+
+
+License
+-------
+    Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+       http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.

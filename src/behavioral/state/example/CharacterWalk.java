@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,19 +19,25 @@ package behavioral.state.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 6/10/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Estado: [CAMINANDO]
  */
 public class CharacterWalk extends CharacterState {
 
-    /** Referencia a la clase de contexto Character **/
+    /**
+     * Referencia a la clase de contexto Character
+     **/
     private Character character;
 
-    /** Constructor **/
-    public CharacterWalk(Character character) {
+
+    /**
+     * Constructor
+     **/
+    public CharacterWalk( Character character ) {
         this.character = character;
     }
+
 
     /**
      * Implementación de quedarse quieto.
@@ -41,11 +47,12 @@ public class CharacterWalk extends CharacterState {
     public void getUp() {
         super.getUp();
 
-        System.out.println("Transición: Andando -> Quieto");
+        System.out.println( "Transición: Andando -> Quieto" );
 
         // Se actualiza el estado en el personaje (contexto) con el nuevo estado
-        character.setState(new CharacterStanding(character));
+        character.setState( new CharacterStanding( character ) );
     }
+
 
     /**
      * Implementación de saltar.
@@ -55,11 +62,12 @@ public class CharacterWalk extends CharacterState {
     public void jump() {
         super.jump();
 
-        System.out.println("Transición: Andando -> Saltando");
+        System.out.println( "Transición: Andando -> Saltando" );
 
         // Se actualiza el estado en el personaje (contexto) con el nuevo estado
-        character.setState(new CharacterJump(character));
+        character.setState( new CharacterJump( character ) );
     }
+
 
     @Override
     public String toString() {

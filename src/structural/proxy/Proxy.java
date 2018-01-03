@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,11 +18,12 @@ package structural.proxy;
 import structural.proxy.example.Graphic;
 import structural.proxy.example.ImageProxy;
 
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  *
  * Patrones ESTRUCTURALES
@@ -33,7 +34,6 @@ import structural.proxy.example.ImageProxy;
  * Pattern [Proxy]
  *
  * Es un patrón estructural que tiene como propósito proporcionar un subrogado o intermediario de un objeto para controlar su acceso.
- *
  */
 public class Proxy {
 
@@ -43,8 +43,8 @@ public class Proxy {
         Graphic image = new ImageProxy();
 
         // Display
-        System.out.println(image.display()); // loading and display
-        System.out.println(image.display()); // display
-        System.out.println(image.display()); // display
+        System.out.println( image.display() ); // loading and display
+        System.out.println( image.display() ); // display
+        System.out.println( image.display() ); // display
     }
 }

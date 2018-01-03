@@ -30,6 +30,7 @@ es su ejecución se hace independiente, de manera que el código que utiliza est
 que necesite. En este contexto, una copia significa otra instancia del objeto. El único requisito que debe cumplir
 este objeto es suministrar la funcionalidad de clonarse.
 
+
 ## Implementación
 
 Para implementar este patrón se declara una clase base abstracta que tiene un método *clone()*. Cualquier clase que
@@ -48,5 +49,23 @@ Aunque en un principio este patrón parece que entra en conflicto con *Abstract 
 aproximaciones en una *Prototype Abstract Factory* de forma que la factoría se configura con los prototipos concretos
 que puede crear y ésta sólo invoca al método *clone()*
 
+
 ## Enlaces
 * [Prototype](https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29)
+
+
+License
+-------
+    Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+       http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.

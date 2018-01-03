@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,11 +20,12 @@ import creational.factoryMethod.example.ConcreteCreatorB;
 import creational.factoryMethod.example.Creator;
 import creational.factoryMethod.example.Product;
 
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 20/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Patrones de CREACIÓN
  * --------------------
@@ -35,11 +36,10 @@ import creational.factoryMethod.example.Product;
  *
  * Centraliza en una clase constructora la creación de objetos de un subtipo de un un tipo determinado, ocultando al
  * usuario la diversidad de casos particulares que se pueden prever en la elección del subtipo.
- *
  */
 public class FactoryMethod {
 
-    public static void main(String[] args){
+    public static void main( String[] args ) {
         // Creator A
         Creator creatorA = new ConcreteCreatorA();
         // Product A

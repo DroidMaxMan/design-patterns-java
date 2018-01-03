@@ -1,5 +1,6 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,14 +16,14 @@
 
 package behavioral.state;
 
-import behavioral.state.example.*;
 import behavioral.state.example.Character;
+
 
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  *
  * Patrones de COMPORTAMIENTO
@@ -43,19 +44,19 @@ public class State {
         Character character = new Character();
 
         // Estado actual
-        System.out.println(character.getState().toString());
+        System.out.println( character.getState().toString() );
 
         // El personaje se pone en marcha
         character.walk();
 
         // Estado actual
-        System.out.println(character.getState().toString());
+        System.out.println( character.getState().toString() );
 
         // El personaje salta
         character.jump();
 
         // Estado actual
-        System.out.println(character.getState().toString());
+        System.out.println( character.getState().toString() );
 
         /* Para el ejemplo se hace manual pero en el caso del salto, se comprueba que el character colisione con el suelo
         y el estado se cambia cuando se produzca ese circumstancia
@@ -63,7 +64,7 @@ public class State {
         character.getUp();
 
         // Estado actual
-        System.out.println(character.getState().toString());
+        System.out.println( character.getState().toString() );
 
     }
 

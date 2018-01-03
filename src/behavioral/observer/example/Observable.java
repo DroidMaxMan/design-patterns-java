@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,11 +17,12 @@ package behavioral.observer.example;
 
 import java.util.ArrayList;
 
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Esta clase abstracta representa los objetos susceptibles de ser
  * observados. Incorpora metodos para agregar y eliminar observadores
@@ -35,21 +36,25 @@ public class Observable {
         _observadores = new ArrayList<Observador>();
     }
 
+
     //Agregar y eliminar sencillamente operan sobre vector _observadores...
-    public void agregarObservador(Observador o) {
-        _observadores.add(o);
+    public void agregarObservador( Observador o ) {
+        _observadores.add( o );
     }
 
-    public void eliminarObservador(Observador o) {
-        _observadores.remove(o);
+
+    public void eliminarObservador( Observador o ) {
+        _observadores.remove( o );
     }
+
 
     //Notificacion: Para cada observador se invoca el método actualizar().
     public void notificarObservadores() {
-        for (Observador o:_observadores) {
+        for ( Observador o : _observadores ) {
             o.actualizar();
         }
     }
+
 
     //Este atributo privado mantiene el vector con los observadores
     private ArrayList<Observador> _observadores;

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,11 +18,12 @@ package structural.composite.example;
 import java.util.ArrayList;
 import java.util.List;
 
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  */
 public class Bag extends Item {
 
@@ -31,28 +32,33 @@ public class Bag extends Item {
      */
     private List<Item> bag = new ArrayList<>();
 
+
     @Override
     public void value() {
         super.value();
     }
+
 
     @Override
     public void description() {
         super.description();
     }
 
+
     /**
      * Añadir un item a la lista
+     *
      * @param item to add
      */
-    public void addItem(Item item) {
-        bag.add(item);
+    public void addItem( Item item ) {
+        bag.add( item );
     }
+
 
     /**
      * Return true deleted item
      */
-    public boolean removeItem(Item item) {
-        return bag.contains(item) && bag.remove(item);
+    public boolean removeItem( Item item ) {
+        return bag.contains( item ) && bag.remove( item );
     }
 }

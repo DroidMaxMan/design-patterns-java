@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,14 +19,17 @@ package structural.proxy.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
- *  Proxy
+ * Proxy
  */
 public class ImageProxy extends Graphic {
 
-    /** Image **/
+    /**
+     * Image
+     **/
     private Image image;
+
 
     /**
      * Muestra una imagen. Sólo se carga una vez
@@ -35,7 +38,7 @@ public class ImageProxy extends Graphic {
      */
     @Override
     public String display() {
-        if (image == null) {
+        if ( image == null ) {
             image = new Image();
             image.load();
         }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,25 +19,27 @@ package behavioral.observer.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Un ejemplo de observador concreto de la clase contador.
  */
 public class Medidor implements Observador {
 
     //El constructor de Medidor establece la asociacion entre Medidor-Contador
-    public Medidor(Contador contador) {
+    public Medidor( Contador contador ) {
         _contador = contador;
     }
 
     /*Tras ser notificado de un cambio, un observador Medidor accede
-    *al estado del Contador utilizando la asociacion
-    */
+     *al estado del Contador utilizando la asociacion
+     */
+
 
     public void actualizar() {
         int porcentaje = _contador.valor() * 100 / _contador.maximo();
-        System.out.println("Porcentaje del contador es " + porcentaje + "%");
+        System.out.println( "Porcentaje del contador es " + porcentaje + "%" );
     }
+
 
     //Mantiene la asociacion con el contador
     private Contador _contador;

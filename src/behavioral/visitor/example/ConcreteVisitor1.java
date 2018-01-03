@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,19 +19,20 @@ package behavioral.visitor.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 7/10/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Visitante que implementa la interfaz Visitor
  */
 public class ConcreteVisitor1 implements Visitor {
 
     @Override
-    public void visitElementA(Element element) {
-        System.out.println("Visitando " + element.toString());
+    public void visitElementA( Element element ) {
+        System.out.println( "Visitando " + element.toString() );
     }
 
+
     @Override
-    public void visitElementB(Element element) {
+    public void visitElementB( Element element ) {
         // Implementación vacía
     }
 }

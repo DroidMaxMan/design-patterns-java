@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,7 @@ package structural.decorator.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Clase decorada
  */
@@ -27,13 +27,16 @@ public class FirearmDecorator extends Firearm {
 
     protected Firearm gun;
 
+
     /**
      * Constructor
+     *
      * @param gun gun
      */
-    public FirearmDecorator(Firearm gun) {
+    public FirearmDecorator( Firearm gun ) {
         this.gun = gun;
     }
+
 
     /**
      * Ruido básico de una arma
@@ -44,6 +47,7 @@ public class FirearmDecorator extends Firearm {
     public float noise() {
         return gun.noise();
     }
+
 
     /**
      * Número de balas

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,13 +15,17 @@
 
 package behavioral.visitor;
 
-import behavioral.visitor.example.*;
+import behavioral.visitor.example.ConcreteVisitor1;
+import behavioral.visitor.example.ConcreteVisitor2;
+import behavioral.visitor.example.ElementA;
+import behavioral.visitor.example.ElementB;
+
 
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  *
  * Patrones de COMPORTAMIENTO
@@ -47,8 +51,8 @@ public class Visitor {
         ElementB elementB = new ElementB();
 
         // Visitar elementos
-        concreteVisitor1.visitElementA(elementA);
-        concreteVisitor2.visitElementB(elementB);
+        concreteVisitor1.visitElementA( elementA );
+        concreteVisitor2.visitElementB( elementB );
 
     }
 }

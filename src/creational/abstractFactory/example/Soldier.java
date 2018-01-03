@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,14 +18,16 @@ package creational.abstractFactory.example;
 /**
  * Project Learning_Design_Patterns_Java
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  * Date 19/09/15
  */
 public abstract class Soldier {
 
     // Variables
     private String name;
+
     protected int life;
+
 
     /**
      * Number of shots per second
@@ -38,9 +40,10 @@ public abstract class Soldier {
     /**
      * @param name the name
      */
-    public void setName(String name) {
+    public void setName( String name ) {
         this.name = name;
     }
+
 
     /**
      * @return name
@@ -49,12 +52,14 @@ public abstract class Soldier {
         return this.name;
     }
 
+
     /**
      * @param life the life
      */
-    public void setLife(int life) {
+    public void setLife( int life ) {
         this.life = life;
     }
+
 
     /**
      * @return life

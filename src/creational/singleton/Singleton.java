@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,9 +15,9 @@
 package creational.singleton;
 
 /**
- *
  * Project Learning_Design_Patterns_Java
- * @author DroidMaxMan
+ *
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  * Date 19/09/15
  *
  *
@@ -30,19 +30,20 @@ package creational.singleton;
  *
  * Garantiza la existencia de una única instancia para una clase y la creación de un mecanismo de acceso global
  * a dicha instancia. Restringe la instanciación de una clase o valor de un tipo a un solo objeto.
- *
  */
 public class Singleton {
 
     private static Singleton INSTANCE = null;
 
+
     // El constructor privado no permite que se genere un constructor por defecto.
     // (con mismo modificador de acceso que la definición de la clase)
-    private Singleton() {}
+    private Singleton() {
+    }
 
 
     public Singleton getINSTANCE() {
-        if(INSTANCE == null){
+        if ( INSTANCE == null ) {
             INSTANCE = new Singleton();
         }
         return INSTANCE;
@@ -51,6 +52,7 @@ public class Singleton {
 
     //Así se podría clonar el objeto y no tendría unicidad.
     //Singleton clonedObject = (Singleton) new Singleton().clone();
+
 
     //El método "clone" es sobreescrito por el siguiente que arroja una excepción:
     public Object clone() throws CloneNotSupportedException {

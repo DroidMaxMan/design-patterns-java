@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,22 +19,37 @@ package behavioral.state.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 4/10/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Interfaz común que todos los estados deberán implementar.
  */
 public abstract class CharacterState {
 
-    /** Implementar **/
-    public void walk() {}
+    /**
+     * Implementar
+     **/
+    public void walk() {
+    }
 
-    /** Implementar **/
-    public void getUp() {}
 
-    /** Implementar **/
-    public void getDown() {}
+    /**
+     * Implementar
+     **/
+    public void getUp() {
+    }
 
-    /** Implementar **/
-    public void jump() {}
+
+    /**
+     * Implementar
+     **/
+    public void getDown() {
+    }
+
+
+    /**
+     * Implementar
+     **/
+    public void jump() {
+    }
 
 }

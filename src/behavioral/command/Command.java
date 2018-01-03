@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,14 +15,18 @@
 
 package behavioral.command;
 
-import behavioral.command.example.*;
 import behavioral.command.example.Character;
+import behavioral.command.example.Engine;
+import behavioral.command.example.Jump;
+import behavioral.command.example.Run;
+import behavioral.command.example.Walk;
+
 
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  *
  * Patrones de COMPORTAMIENTO
@@ -34,7 +38,6 @@ import behavioral.command.example.Character;
  * Pattern [Command] (Orden)
  *
  * Encapsula una operación en un objeto, permitiendo ejecutar dicha operación sin necesidad de conocer el contenido de la misma.
- *
  */
 public class Command {
 
@@ -44,12 +47,12 @@ public class Command {
         Character character = new Character();
 
         // Commands
-        behavioral.command.example.Command jump = new Jump(character);
-        behavioral.command.example.Command run = new Run(character);
-        behavioral.command.example.Command walk = new Walk(character);
+        behavioral.command.example.Command jump = new Jump( character );
+        behavioral.command.example.Command run = new Run( character );
+        behavioral.command.example.Command walk = new Walk( character );
 
         // Invoker
-        Engine engine = new Engine(jump, walk, run);
+        Engine engine = new Engine( jump, walk, run );
 
         // Call to jump
         engine.jump();

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,12 +15,10 @@
 
 package creational.abstractFactory.example;
 
-import creational.abstractFactory.example.Archer;
-import creational.abstractFactory.example.Rider;
-
 /**
  * Project Learning_Design_Patterns_Java
- * @author DroidMaxMan
+ *
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  * Date 19/09/15
  */
 public interface SoldierFactory {

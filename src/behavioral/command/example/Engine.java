@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,30 +15,39 @@
 
 package behavioral.command.example;
 
-import java.util.Random;
-
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 29/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Invoker
  */
 public class Engine {
 
-    /** Commands **/
+    /**
+     * Commands
+     **/
     private Command jump;
+
     private Command walk;
+
     private Command run;
 
-    /** Delay **/
+    /**
+     * Delay
+     **/
     long time;
 
-    /** Constructor **/
-    public Engine() {}
 
-    public Engine(Command jump, Command walk, Command run) {
+    /**
+     * Constructor
+     **/
+    public Engine() {
+    }
+
+
+    public Engine( Command jump, Command walk, Command run ) {
         this.jump = jump;
         this.walk = walk;
         this.run = run;
@@ -47,33 +56,42 @@ public class Engine {
         time = System.currentTimeMillis();
     }
 
-    /** Jump **/
+
+    /**
+     * Jump
+     **/
     public void jump() {
         // Delay
-        while(true){
-            if(System.currentTimeMillis() >= time + 2000) {
+        while ( true ) {
+            if ( System.currentTimeMillis() >= time + 2000 ) {
                 jump.execute();
                 break;
             }
         }
     }
 
-    /** Walk **/
+
+    /**
+     * Walk
+     **/
     public void walk() {
         // Delay
-        while(true){
-            if(System.currentTimeMillis() >= time + 8000) {
+        while ( true ) {
+            if ( System.currentTimeMillis() >= time + 8000 ) {
                 walk.execute();
                 break;
             }
         }
     }
 
-    /** Run **/
+
+    /**
+     * Run
+     **/
     public void run() {
         // Delay
-        while(true){
-            if(System.currentTimeMillis() >= time + 12000) {
+        while ( true ) {
+            if ( System.currentTimeMillis() >= time + 12000 ) {
                 run.execute();
                 break;
             }

@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,20 +19,25 @@ package behavioral.strategy.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 7/10/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  */
 public class GamePlayer {
 
-    /** Estrategia actual **/
+    /**
+     * Estrategia actual
+     **/
     private Movement movement;
+
 
     /**
      * Set movement
+     *
      * @param movement
      */
-    public void setMovement(Movement movement) {
+    public void setMovement( Movement movement ) {
         this.movement = movement;
     }
+
 
     public void doBestMove() {
         movement.move();

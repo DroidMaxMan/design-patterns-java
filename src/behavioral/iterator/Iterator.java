@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -18,11 +18,12 @@ package behavioral.iterator;
 import behavioral.iterator.example.IteradorVector;
 import behavioral.iterator.example.Vector2;
 
+
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  *
  * Patrones de COMPORTAMIENTO
@@ -38,14 +39,14 @@ import behavioral.iterator.example.Vector2;
  */
 public class Iterator {
 
-    public static void main(String[] args) {
-        Vector2 vector = new Vector2(5);
+    public static void main( String[] args ) {
+        Vector2 vector = new Vector2( 5 );
 
         //Creación del iterador
         IteradorVector iterador = vector.iterador();
 
         //Recorrido con el iterador
-        while (iterador.hasNext())
-            System.out.println(iterador.next());
+        while ( iterador.hasNext() )
+            System.out.println( iterador.next() );
     }
 }

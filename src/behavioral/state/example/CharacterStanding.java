@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,7 @@ package behavioral.state.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 4/10/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Se implementan los métodos de los estados que se pueden dar en este modo
  *
@@ -27,13 +27,19 @@ package behavioral.state.example;
  */
 public class CharacterStanding extends CharacterState {
 
-    /** Referencia a la clase de contexto Character **/
+    /**
+     * Referencia a la clase de contexto Character
+     **/
     private Character character;
 
-    /** Constructor **/
-    public CharacterStanding(Character character) {
+
+    /**
+     * Constructor
+     **/
+    public CharacterStanding( Character character ) {
         this.character = character;
     }
+
 
     /**
      * Implementación de andando.
@@ -43,11 +49,12 @@ public class CharacterStanding extends CharacterState {
     public void walk() {
         super.walk();
 
-        System.out.println("Transición: De pie -> Andar");
+        System.out.println( "Transición: De pie -> Andar" );
 
         // Se actualiza el estado en el personaje (contexto) con el nuevo estado
-        character.setState(new CharacterWalk(character));
+        character.setState( new CharacterWalk( character ) );
     }
+
 
     /**
      * Implementación de agacharse.
@@ -57,11 +64,12 @@ public class CharacterStanding extends CharacterState {
     public void getDown() {
         super.getDown();
 
-        System.out.println("Transición: De pie -> Agachado");
+        System.out.println( "Transición: De pie -> Agachado" );
 
         // Se actualiza el estado en el personaje (contexto) con el nuevo estado
-        character.setState(new CharacterLying(character));
+        character.setState( new CharacterLying( character ) );
     }
+
 
     /**
      * Implementación de saltar.
@@ -71,11 +79,12 @@ public class CharacterStanding extends CharacterState {
     public void jump() {
         super.jump();
 
-        System.out.println("Transición: De pie -> Saltando");
+        System.out.println( "Transición: De pie -> Saltando" );
 
         // Se actualiza el estado en el personaje (contexto) con el nuevo estado
-        character.setState(new CharacterJump(character));
+        character.setState( new CharacterJump( character ) );
     }
+
 
     @Override
     public String toString() {

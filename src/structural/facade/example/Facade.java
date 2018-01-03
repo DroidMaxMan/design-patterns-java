@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,20 +19,27 @@ package structural.facade.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Clase que se comunica con los módulos o clases de ejemplo
  */
 public class Facade {
 
-    /** MODULE_A **/
+    /**
+     * MODULE_A
+     **/
     private ModuleA moduleA;
 
-    /** MODULE_B **/
+    /**
+     * MODULE_B
+     **/
     private ModuleB moduleB;
 
-    /** MODULE_C **/
+    /**
+     * MODULE_C
+     **/
     private ModuleC moduleC;
+
 
     /**
      * Constructor
@@ -43,24 +50,30 @@ public class Facade {
         moduleC = new ModuleC();
     }
 
+
     /**
      * Get Info From Module A
+     *
      * @return Info
      */
     public String getInfoA() {
         return moduleA.getInfo();
     }
 
+
     /**
      * Get Info From Module B
+     *
      * @return Info
      */
     public String getInfoB() {
         return moduleB.getInfo();
     }
 
+
     /**
      * Get Info From Module C
+     *
      * @return Info
      */
     public String getInfoC() {

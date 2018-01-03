@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,7 @@ package structural.decorator.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  */
 public class Magazine extends FirearmDecorator {
 
@@ -28,9 +28,10 @@ public class Magazine extends FirearmDecorator {
      *
      * @param gun gun
      */
-    public Magazine(Firearm gun) {
-        super(gun);
+    public Magazine( Firearm gun ) {
+        super( gun );
     }
+
 
     /**
      * Ruido básico de una arma
@@ -41,6 +42,7 @@ public class Magazine extends FirearmDecorator {
     public float noise() {
         return super.noise();
     }
+
 
     /**
      * Número de balas ampliado en 5 balas

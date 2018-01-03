@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,7 +19,7 @@ package creational.prototype.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 20/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Prototipo que será clonado
  */
@@ -27,6 +27,7 @@ public class ProductoA implements Producto {
 
     // Name
     private String name = "ProductoA";
+
 
     /**
      * Clone productA
@@ -37,6 +38,7 @@ public class ProductoA implements Producto {
     public Object clone() {
         return new ProductoA();
     }
+
 
     @Override
     public String toString() {

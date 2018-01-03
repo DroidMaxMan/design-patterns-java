@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -19,23 +19,25 @@ package behavioral.observer.example;
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  * Un ejemplo de observador concreto de la clase contador.
  */
 public class ValorContador implements Observador {
 
     //El constructor establece la asociacion entre ValorContador-Contador
-    public ValorContador(Contador contador) {
+    public ValorContador( Contador contador ) {
         _contador = contador;
     }
 
+
     /*Tras ser notificado de un cambio, un observador ValorContador accede
-    *al estado del Contador utilizando la asociacion
-    */
+     *al estado del Contador utilizando la asociacion
+     */
     public void actualizar() {
-        System.out.println("Valor del contador es " + _contador.valor() );
+        System.out.println( "Valor del contador es " + _contador.valor() );
     }
+
 
     //Mantiene asociacion con el sujeto observable
     private Contador _contador;

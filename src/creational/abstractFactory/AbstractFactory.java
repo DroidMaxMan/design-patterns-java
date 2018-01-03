@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -20,10 +20,11 @@ import creational.abstractFactory.example.OrcFactory;
 import creational.abstractFactory.example.Soldier;
 import creational.abstractFactory.example.SoldierFactory;
 
+
 /**
- *
  * Project Learning_Design_Patterns_Java
- * @author DroidMaxMan
+ *
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  * Date 19/09/15
  *
  * Patrones de CREACIÓN
@@ -33,11 +34,10 @@ import creational.abstractFactory.example.SoldierFactory;
  * Pattern [ABSTRACT FACTORY] (fábrica abstracta)
  *
  * Permite crear diferentes tipos o familias de instancias, aislando al cliente sobre cómo se debe crear cada una de ellas.
- *
  */
 public class AbstractFactory {
 
-    public static void main(String[] args) {
+    public static void main( String[] args ) {
 
         // Factory
         SoldierFactory factory;

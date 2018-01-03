@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2016 @DroidMaxMan. All rights reserved.
+ * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,19 +15,19 @@
 
 package behavioral.reactor;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import behavioral.reactor.example.ConcreteEventHandler;
 import behavioral.reactor.example.Event;
 import behavioral.reactor.example.EventHandler;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
 
 /**
  * Project: Learning_Design_Patterns_Java
  * Date: 28/09/15
  *
- * @author DroidMaxMan
+ * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
  *
  *
  * Patrones de COMPORTAMIENTO
@@ -42,31 +42,36 @@ import java.util.Random;
  */
 public class Reactor {
 
-    /** Manejadores registrados **/
+    /**
+     * Manejadores registrados
+     **/
     private static List<EventHandler> handlers = new ArrayList<>();
+
 
     /**
      * Registrar un manejador
+     *
      * @param eventHandler to add
      */
-    public static void regHandler(EventHandler eventHandler) {
-        handlers.add(eventHandler);
+    public static void regHandler( EventHandler eventHandler ) {
+        handlers.add( eventHandler );
     }
+
 
     public static void main( String[] args ) {
         // Handler registration
         EventHandler eventHandler = new ConcreteEventHandler();
-        regHandler(eventHandler);
+        regHandler( eventHandler );
 
         // Bucle
-        while (true) {
+        while ( true ) {
             // Simulate event
-            if (new Random().nextInt(10000000) == 50) {
+            if ( new Random().nextInt( 10000000 ) == 50 ) {
                 // Event occurs.
                 Event event = new Event();
                 // Notify
-                for (EventHandler handler : handlers) {
-                    handler.handle(event);
+                for ( EventHandler handler : handlers ) {
+                    handler.handle( event );
                 }
             }
         }
