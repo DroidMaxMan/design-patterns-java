@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="123.0">solid.ocp.solution.Economy</node>
+    <node x="227.0" y="123.0">solid.ocp.solution.Comfort</node>
+    <node x="0.0" y="286.0">solid.ocp.solution.Vehicle</node>
+    <node x="227.0" y="0.0">solid.ocp.solution.DrivingMode</node>
+    <node x="454.0" y="123.0">solid.ocp.solution.Sport</node>
+    <node x="273.0" y="286.0">solid.ocp.solution.EventHandler</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="solid.ocp.solution.Sport" target="solid.ocp.solution.DrivingMode">
+      <point x="0.0" y="-59.0" />
+      <point x="557.5" y="98.0" />
+      <point x="399.5" y="98.0" />
+      <point x="69.0" y="36.5" />
+    </edge>
+    <edge source="solid.ocp.solution.Economy" target="solid.ocp.solution.DrivingMode">
+      <point x="0.0" y="-59.0" />
+      <point x="103.5" y="98.0" />
+      <point x="261.5" y="98.0" />
+      <point x="-69.0" y="36.5" />
+    </edge>
+    <edge source="solid.ocp.solution.Comfort" target="solid.ocp.solution.DrivingMode">
+      <point x="0.0" y="-59.0" />
+      <point x="0.0" y="36.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="330.5" y="224.0" />
+  <SelectedNodes>
+    <node>solid.ocp.solution.Economy</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

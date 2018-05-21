@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>solid.lsp.solution</OriginalElement>
+  <nodes>
+    <node x="43.25" y="0.0">solid.lsp.solution.Vehicle</node>
+    <node x="0.0" y="374.0">solid.lsp.solution.Gear</node>
+    <node x="0.0" y="267.0">solid.lsp.solution.Plane</node>
+    <node x="97.0" y="234.0">solid.lsp.solution.Car</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="solid.lsp.solution.Plane" target="solid.lsp.solution.Vehicle">
+      <point x="0.0" y="-14.5" />
+      <point x="38.5" y="209.0" />
+      <point x="90.75" y="209.0" />
+      <point x="-47.5" y="92.0" />
+    </edge>
+    <edge source="solid.lsp.solution.Car" target="solid.lsp.solution.Vehicle">
+      <point x="0.0" y="-47.5" />
+      <point x="238.0" y="209.0" />
+      <point x="185.75" y="209.0" />
+      <point x="47.5" y="92.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="74.0" y="56.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
