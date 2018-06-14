@@ -1,69 +1,47 @@
 /*
- * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * ************************************************************************
+ *  Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  *
- *        https://www.apache.org/licenses/LICENSE-2.0
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ * ***********************************************************************
  */
 
 package behavioral.command.example;
 
-/**
- * Project: Learning_Design_Patterns_Java
- * Date: 29/09/15
- *
- * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
- *
- * Invoker
- */
 public class Engine {
 
-    /**
-     * Commands
-     **/
     private Command jump;
-
     private Command walk;
-
     private Command run;
 
-    /**
-     * Delay
-     **/
-    long time;
+    private long shortDelay = 2000;
+    private long mediumDelay = shortDelay * 4;
+    private long longDelay = shortDelay * 6;
+    private long savedTime;
 
 
-    /**
-     * Constructor
-     **/
-    public Engine() {
-    }
-
-
-    public Engine( Command jump, Command walk, Command run ) {
+    public Engine(Command jump, Command walk, Command run) {
         this.jump = jump;
         this.walk = walk;
         this.run = run;
 
-        // Time
-        time = System.currentTimeMillis();
+        savedTime = System.currentTimeMillis();
     }
 
 
-    /**
-     * Jump
-     **/
     public void jump() {
-        // Delay
-        while ( true ) {
-            if ( System.currentTimeMillis() >= time + 2000 ) {
+        while (true) {
+            if (System.currentTimeMillis() >= savedTime + shortDelay) {
                 jump.execute();
                 break;
             }
@@ -71,13 +49,9 @@ public class Engine {
     }
 
 
-    /**
-     * Walk
-     **/
     public void walk() {
-        // Delay
-        while ( true ) {
-            if ( System.currentTimeMillis() >= time + 8000 ) {
+        while (true) {
+            if (System.currentTimeMillis() >= savedTime + mediumDelay) {
                 walk.execute();
                 break;
             }
@@ -85,13 +59,9 @@ public class Engine {
     }
 
 
-    /**
-     * Run
-     **/
     public void run() {
-        // Delay
-        while ( true ) {
-            if ( System.currentTimeMillis() >= time + 12000 ) {
+        while (true) {
+            if (System.currentTimeMillis() >= savedTime + longDelay) {
                 run.execute();
                 break;
             }

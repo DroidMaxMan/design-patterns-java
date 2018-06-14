@@ -1,8 +1,25 @@
-# Design Patterns with Java
+# Patrones de diseño de software (JAVA)
 
 Los patrones de diseño son unas técnicas para resolver problemas comunes en el desarrollo de software y otros ámbitos referentes al diseño de interacción o interfaces.
 
-## Creational Patterns
+Los patrones de diseño pretenden:
+
+* Proporcionar catálogos de elementos reusables en el diseño de sistemas software.
+* Evitar la reiteración en la búsqueda de soluciones a problemas ya conocidos y solucionados anteriormente.
+* Formalizar un vocabulario común entre diseñadores.
+* Estandarizar el modo en que se realiza el diseño.
+* Facilitar el aprendizaje de las nuevas generaciones de diseñadores condensando conocimiento ya existente.
+
+Asimismo, no pretenden:
+
+* Imponer ciertas alternativas de diseño frente a otras.
+* Eliminar la creatividad inherente al proceso de diseño.
+
+No es obligatorio utilizar los patrones, solo es aconsejable en el caso de tener el mismo problema o similar que soluciona el patrón, siempre teniendo en cuenta que en un caso particular puede no ser aplicable. "Abusar o forzar el uso de los patrones puede ser un error".
+
+## Patrones creacionales
+
+Corresponden a patrones de diseño de software que solucionan problemas de creación de instancias. Nos ayudan a encapsular y abstraer dicha creación.
 
 * [Singleton](https://es.wikipedia.org/wiki/Singleton) - garantiza la existencia de una única instancia para una clase y la creación de un mecanismo de acceso global a dicha instancia. Restringe la instanciación de una clase o valor de un tipo a un solo objeto.
 
@@ -12,7 +29,9 @@ Los patrones de diseño son unas técnicas para resolver problemas comunes en el
 
 * [Prototype](https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29) -  crea nuevos objetos clonándolos de una instancia ya existente.
 
-## Structural Patterns
+## Patrones estructurales
+
+Son los patrones de diseño software que solucionan problemas de composición (agregación) de clases y objetos.
 
 * [Composite](https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29) - sirve para construir objetos complejos a partir de otros más simples y similares entre sí, gracias a la composición recursiva y a una estructura en forma de árbol.
 
@@ -26,7 +45,9 @@ Los patrones de diseño son unas técnicas para resolver problemas comunes en el
 
 * [Proxy](https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29) - Proporciona mecanismos de abstracción y control para acceder a un determinado objeto "simulando" que se trata del objeto real.
 
-## Behavioral Patterns
+## Patrones de comportamiento
+
+Se definen como patrones de diseño software que ofrecen soluciones respecto a la interacción y responsabilidades entre clases y objetos, así como los algoritmos que encapsulan.
 
 * [Observer](https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29) - Se utiliza para definir relaciones 1 a *n* de forma que un objeto pueda notificar y/o actualizar el estado de otros automáticamente.
 
