@@ -16,19 +16,29 @@
  * ***********************************************************************
  */
 
-package behavioral.iterator;
+package behavioral.iterator.example;
 
-import behavioral.iterator.example.IteratorData;
-import behavioral.iterator.example.RandomData;
+public class IteratorData {
 
-public class Iterator {
+    private int[] data;
+    private int pos;
 
-    public static void main(String[] args) {
-        RandomData vector = new RandomData(5);
 
-        IteratorData iterator = vector.iterator();
-
-        while (iterator.hasNext())
-            System.out.println(iterator.next());
+    IteratorData(RandomData randomData) {
+        data = randomData.data;
+        pos = 0;
     }
+
+
+    public boolean hasNext() {
+        return pos < data.length;
+    }
+
+
+    public Object next() {
+        int valor = data[pos];
+        pos++;
+        return valor;
+    }
+
 }

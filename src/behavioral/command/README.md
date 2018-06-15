@@ -1,6 +1,6 @@
 # Command (Patrón de comportamiento)
 
-Los patrones de comportamiento se definen como patrones de diseño software que ofrecen soluciones respecto a la interacción y responsabilidades entre clases y objetos, así como los algoritmos que encapsulan
+Los patrones de comportamiento se definen como patrones de diseño software que ofrecen soluciones respecto a la interacción y responsabilidades entre clases y objetos, así como los algoritmos que encapsulan.
 
 El **patrón Command (Orden)** encapsula una operación en un objeto, permitiendo ejecutar dicha operación sin necesidad de conocer el contenido de la misma.
 
@@ -25,7 +25,7 @@ es insuficiente:
 
 ## Solución
 
-![Proxy](example/imgs/Command.png)
+![Command](example/imgs/Command.png)
 
 El cliente crea los objetos *command* concretos y los asocia con el receptor de la acción. Posteriormente, y de forma totalmente
 desacoplada, será un invocador el que llamará al método *execute()* de cada objeto *command* creado.
@@ -35,7 +35,7 @@ a realizar.
 
 ## Ejemplo
 
-![Proxy](example/imgs/Command_ex.png)
+![Command](example/imgs/Command_ex.png)
 
 El intefaz de usuario (UI) crea las órdenes a realizar por el personaje y el motor del juego va procesando las órdenes.
 
@@ -53,10 +53,10 @@ En términos generales, el patrón *Command* la relación entre el *ConcreteComm
 
 * El objeto *ConcreteCommand* no realiza ninguna función por sí mismo, sino ue delega todas las acciones en el objeto *Receiver*. Este tipo de órdenes se les llama **forwarding commands.**
 
-* El objeto *ConcreteCommand* implementa absolutamente todo, sin delegar nada en el objeto *Receiver*
+* El objeto *ConcreteCommand* implementa absolutamente todo, sin delegar nada en el objeto *Receiver*.
 
 Entre ambas aproximanciones se encuentran las órdenes que realizan algunas funciones en una parte y delegan otras en el receptor.
-En general, a este tipo de órdenes se les denomina *active commands*
+En general, a este tipo de órdenes se les denomina *active commands*.
 
 ## Enlaces
 
