@@ -16,25 +16,18 @@
  * ***********************************************************************
  */
 
-package behavioral.template;
+package creational.abstractfactory.example;
 
-import behavioral.template.example.CheckersPlayer;
-import behavioral.template.example.ChessPlayer;
-import behavioral.template.example.GamePlayer;
+public class ManFactory implements SoldierFactory {
 
-public class TemplateMethod {
+    @Override
+    public Archer makeArcher() {
+        return new Archer("Man Archer", 100);
+    }
 
-    public static void main(String[] args) {
-
-        GamePlayer chessGame = new ChessPlayer();
-        System.out.println("[CHESS]");
-
-        chessGame.play();
-
-        GamePlayer checkersPlayer = new CheckersPlayer();
-        System.out.println("[CHECKERS]");
-
-        checkersPlayer.play();
+    @Override
+    public Rider makeRider() {
+        return new Rider("Man Rider", 150);
     }
 
 }

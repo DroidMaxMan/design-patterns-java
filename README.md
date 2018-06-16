@@ -1,4 +1,4 @@
-# Patrones de diseño de software (JAVA)
+# Patrones de diseño de software (Java)
 
 Los patrones de diseño son unas técnicas para resolver problemas comunes en el desarrollo de software y otros ámbitos referentes al diseño de interacción o interfaces.
 

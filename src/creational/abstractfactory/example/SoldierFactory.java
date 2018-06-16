@@ -16,29 +16,11 @@
  * ***********************************************************************
  */
 
-package behavioral.template.example;
+package creational.abstractfactory.example;
 
-public abstract class GamePlayer {
+public interface SoldierFactory {
 
-    public void play() {
-        if (moveFirst()) {
-            doBestMove();
-        }
+    Archer makeArcher();
 
-        while (!isOver()) {
-            // Movimiento del rival
-            //....
-
-            if (!isOver()) {
-                doBestMove();
-            }
-        }
-    }
-
-
-    abstract void doBestMove();
-
-    abstract boolean moveFirst();
-
-    abstract boolean isOver();
+    Rider makeRider();
 }

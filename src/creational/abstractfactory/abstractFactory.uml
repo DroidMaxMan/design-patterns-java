@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="423.0" y="242.0">creational.abstractFactory.AbstractFactory</node>
+    <node x="199.0" y="365.0">creational.abstractFactory.example.OrcFactory</node>
+    <node x="68.5" y="0.0">creational.abstractFactory.example.Soldier</node>
+    <node x="99.5" y="242.0">creational.abstractFactory.example.SoldierFactory</node>
+    <node x="0.0" y="146.0">creational.abstractFactory.example.Rider</node>
+    <node x="0.0" y="365.0">creational.abstractFactory.example.ManFactory</node>
+    <node x="137.0" y="146.0">creational.abstractFactory.example.Archer</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="creational.abstractFactory.example.Archer" target="creational.abstractFactory.example.Soldier">
+      <point x="0.0" y="-25.5" />
+      <point x="195.5" y="121.0" />
+      <point x="156.25" y="121.0" />
+      <point x="29.25" y="48.0" />
+    </edge>
+    <edge source="creational.abstractFactory.example.Rider" target="creational.abstractFactory.example.Soldier">
+      <point x="0.0" y="-25.5" />
+      <point x="58.5" y="121.0" />
+      <point x="97.75" y="121.0" />
+      <point x="-29.25" y="48.0" />
+    </edge>
+    <edge source="creational.abstractFactory.example.ManFactory" target="creational.abstractFactory.example.SoldierFactory">
+      <point x="0.0" y="-36.5" />
+      <point x="89.5" y="340.0" />
+      <point x="144.25" y="340.0" />
+      <point x="-44.75" y="36.5" />
+    </edge>
+    <edge source="creational.abstractFactory.example.OrcFactory" target="creational.abstractFactory.example.SoldierFactory">
+      <point x="0.0" y="-36.5" />
+      <point x="288.5" y="340.0" />
+      <point x="233.75" y="340.0" />
+      <point x="44.75" y="36.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="165.5" y="190.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

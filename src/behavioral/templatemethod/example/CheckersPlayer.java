@@ -16,7 +16,7 @@
  * ***********************************************************************
  */
 
-package behavioral.template.example;
+package behavioral.templatemethod.example;
 
 public class CheckersPlayer extends GamePlayer {
 
