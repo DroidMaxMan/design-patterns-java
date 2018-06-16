@@ -1,4 +1,4 @@
-# Command (Patrón de comportamiento)
+# Command (patrón de comportamiento)
 
 Los patrones de comportamiento se definen como patrones de diseño software que ofrecen soluciones respecto a la interacción y responsabilidades entre clases y objetos, así como los algoritmos que encapsulan.
 
