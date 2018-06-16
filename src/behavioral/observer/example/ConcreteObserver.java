@@ -16,30 +16,21 @@
  * ***********************************************************************
  */
 
-package behavioral.observer;
+package behavioral.observer.example;
 
-import behavioral.observer.example.ConcreteObserver;
-import behavioral.observer.example.Observable;
+public class ConcreteObserver implements Observador {
 
-public class Observer {
+    private String code;
 
-    public static void main(String[] args) {
 
-        Observable observable = new Observable();
-
-        ConcreteObserver concreteObserver = new ConcreteObserver("UA4844");
-        ConcreteObserver concreteObserver2 = new ConcreteObserver("CG9840");
-        ConcreteObserver concreteObserver3 = new ConcreteObserver("YR3089");
-
-        observable.agregarObservador(concreteObserver);
-        observable.agregarObservador(concreteObserver2);
-        observable.agregarObservador(concreteObserver3);
-
-        observable.notificarObservadores();
-
-        observable.eliminarObservador(concreteObserver);
-
-        observable.notificarObservadores();
-
+    public ConcreteObserver(String code) {
+        super();
+        this.code = code;
     }
+
+
+    public void update() {
+        System.out.println("ConcreteObserver with code " + code + " is notified!!");
+    }
+
 }
