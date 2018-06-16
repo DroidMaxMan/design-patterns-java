@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="0.0" y="101.0">creational.factorymethod.example.ConcreteCreatorA</node>
+    <node x="110.5" y="0.0">creational.factorymethod.example.Creator</node>
+    <node x="221.0" y="101.0">creational.factorymethod.example.ConcreteCreatorB</node>
+    <node x="88.0" y="197.0">creational.factorymethod.example.Product</node>
+    <node x="0.0" y="298.0">creational.factorymethod.example.ConcreteProductB</node>
+    <node x="176.0" y="298.0">creational.factorymethod.example.ConcreteProductA</node>
+    <node x="0.0" y="394.0">creational.factorymethod.FactoryMethod</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="creational.factorymethod.example.ConcreteProductB" target="creational.factorymethod.example.Product">
+      <point x="0.0" y="-25.5" />
+      <point x="78.0" y="273.0" />
+      <point x="127.0" y="273.0" />
+      <point x="-39.0" y="25.5" />
+    </edge>
+    <edge source="creational.factorymethod.example.ConcreteProductA" target="creational.factorymethod.example.Product">
+      <point x="0.0" y="-25.5" />
+      <point x="254.0" y="273.0" />
+      <point x="205.0" y="273.0" />
+      <point x="39.0" y="25.5" />
+    </edge>
+    <edge source="creational.factorymethod.example.ConcreteCreatorB" target="creational.factorymethod.example.Creator">
+      <point x="0.0" y="-25.5" />
+      <point x="321.5" y="76.0" />
+      <point x="261.25" y="76.0" />
+      <point x="50.25" y="25.5" />
+    </edge>
+    <edge source="creational.factorymethod.example.ConcreteCreatorA" target="creational.factorymethod.example.Creator">
+      <point x="0.0" y="-25.5" />
+      <point x="100.5" y="76.0" />
+      <point x="160.75" y="76.0" />
+      <point x="-50.25" y="25.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="155.5" y="167.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
