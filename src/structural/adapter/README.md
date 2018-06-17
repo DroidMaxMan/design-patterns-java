@@ -1,6 +1,6 @@
 # Adapter (patrón estructural)
 
-Son los patrones de diseño software que solucionan problemas de composición (agregación) de clases y objetos.
+Los patrones estructurales son los patrones de diseño software que solucionan problemas de composición (agregación) de clases y objetos.
 
 Este patrón, también conocido como *Wrapper* (envoltorio), se utiliza para proporcionar una interfaz que, por un lado, cumpla con las demandas de los clientes y, por otra, haga compatible otra interfaz que, a priori, no lo es. Dicho de otra forma, se utiliza para transformar una interfaz en otra, de tal modo que una clase que no pudiera utilizar la primera, haga uso de ella a través de la segunda.
 
