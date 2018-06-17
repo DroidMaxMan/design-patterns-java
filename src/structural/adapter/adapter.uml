@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="184.0" y="0.0">structural.adapter.example.Target</node>
+    <node x="37.375" y="101.0">structural.adapter.example.Adapter</node>
+    <node x="126.375" y="202.0">structural.adapter.Adapter</node>
+    <node x="0.0" y="0.0">structural.adapter.example.OtherSystem</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="structural.adapter.Adapter" target="structural.adapter.example.Target">
+      <point x="42.25" y="-25.5" />
+      <point x="253.125" y="177.0" />
+      <point x="298.75" y="177.0" />
+      <point x="38.25" y="25.5" />
+    </edge>
+    <edge source="structural.adapter.example.Adapter" target="structural.adapter.example.OtherSystem">
+      <point x="0.0" y="-25.5" />
+      <point x="113.875" y="76.0" />
+      <point x="123.0" y="76.0" />
+      <point x="41.0" y="25.5" />
+    </edge>
+    <edge source="structural.adapter.Adapter" target="structural.adapter.example.Adapter">
+      <point x="-42.25" y="-25.5" />
+      <point x="168.625" y="177.0" />
+      <point x="113.875" y="177.0" />
+      <point x="0.0" y="25.5" />
+    </edge>
+    <edge source="structural.adapter.example.Adapter" target="structural.adapter.example.Target">
+      <point x="51.0" y="-25.5" />
+      <point x="164.875" y="76.0" />
+      <point x="222.25" y="76.0" />
+      <point x="-38.25" y="25.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="0.0" y="0.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
