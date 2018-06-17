@@ -1,46 +1,34 @@
 /*
- * Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
+ * ************************************************************************
+ *  Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
  *
- *        https://www.apache.org/licenses/LICENSE-2.0
+ *  Licensed under the Apache License, Version 2.0 (the "License");
+ *  you may not use this file except in compliance with the License.
+ *  You may obtain a copy of the License at
  *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License
+ *         http://www.apache.org/licenses/LICENSE-2.0
+ *
+ *  Unless required by applicable law or agreed to in writing, software
+ *  distributed under the License is distributed on an "AS IS" BASIS,
+ *  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ *  See the License for the specific language governing permissions and
+ *  limitations under the License.
+ * ***********************************************************************
  */
 
 package structural.decorator.example;
 
-/**
- * Project: Learning_Design_Patterns_Java
- * Date: 28/09/15
- *
- * @author "Álex García (@alxgcrz) <alxgcrz@outlook.com"
- *
- * Clase padre de la cual heredan el resto de objetos
- */
 public class Firearm {
 
-    /**
-     * Ruido
-     *
-     * @return ruido
-     */
+    private static final int MAX_BULLETS = 5;
+    private static final float GENERIC_NOISE = 150.0f;
+
     public float noise() {
-        return 150.0f;
+        return GENERIC_NOISE;
     }
 
-
-    /**
-     * Balas
-     *
-     * @return balas
-     */
     public int bullets() {
-        return 5;
+        return MAX_BULLETS;
     }
+
 }
