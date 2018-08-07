@@ -10,14 +10,12 @@ El mayor beneficio es que las interfaces introducen una capa extra de abstració
 
 En el caso de que fuera beneficioso el compartir código sería mejor optar por la herencia o la composición.
 
-### Clases de ejemplo
-
-En el ejemplo tenemos la clase [EventHandler](violation/EventHandler.java) con un método _changeDrivingMode_ que permite cambiar ciertos parámetros de la clase [Vehicle](violation/Vehicle.java) según el modo de conducción. Este modo de conducción se codifica en una enumeración. 
+En el ejemplo tenemos la clase [EventHandler](violation/EventHandler.java) con un método _changeDrivingMode_ que permite cambiar ciertos parámetros de la clase [Vehicle](violation/Vehicle.java) según el modo de conducción. Este modo de conducción se codifica en una enumeración.
 
 El **_Open/Closed Principle_** se incumple ya que si tenemos que añadir un nuevo modo de conducción, deberemos añadir el nuevo modo en la enumeración y deberemos modificar el método _changeDrivingMode_ para tener en cuenta este nuevo modo.  
 ![Diagram](ocp_violation_diagram.png)
 
-Para cumplir el **_Open/Closed Principle_** deberemos refactorizar el código de forma que el método _changeDrivingMode_ no necesite ser modificado si se añade nueva funcionalidad. Por tanto debe permanecer cerrado a la modificación.
+Para cumplir el **_Open/Closed Principle_** deberemos refactorizar el código de forma que el método _changeDrivingMode(DrivingMode)_ no necesite ser modificado si se añade nueva funcionalidad. Por tanto debe permanecer cerrado a la modificación.
 
-Esto lo conseguimos haciendo uso de las _interfaces_ (en vez del uso de la herencia) de modo que en el método _changeDrivingMode_ utilizamos la interfaz [DrivingMode](solution/DrivingMode.java). Si necesitamos añadir un nuevo modo de conducción como por ejemplo [Economy](solution/Economy.java) únicamente será necesario añadir la nueva clase que herede de la interfaz [DrivingMode](solution/DrivingMode.java) para que el sistema tenga en cuenta el nuevo modo. El método _changeDrivingMode_ permanece inalterado y plenamente funcional ya que este método hace uso de la interfaz y ésta no se ha modificado.   
+Esto lo conseguimos haciendo uso de las _interfaces_ (en vez del uso de la herencia) de modo que en el método _changeDrivingMode(DrivingMode)_ utilicemos la interfaz [DrivingMode](solution/DrivingMode.java). Si necesitamos añadir un nuevo modo de conducción como por ejemplo [Economy](solution/Economy.java) únicamente será necesario añadir la nueva clase que herede de la interfaz [DrivingMode](solution/DrivingMode.java) para que el sistema tenga en cuenta el nuevo modo. El método _changeDrivingMode(DrivingMode)_ permanece inalterado y plenamente funcional ya que este método hace uso de la interfaz y ésta no se ha modificado.  
 ![Diagram](ocp_solution_diagram.png)

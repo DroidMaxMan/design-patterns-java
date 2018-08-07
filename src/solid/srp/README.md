@@ -1,7 +1,7 @@
 # SRP (Single Responsibility Principle)
 
 > A class should have one, and only one, reason to change.  
-> -- <cite>Robert C. Martin</cite>
+> -- Robert C. Martin
 
 Aplicable a clases, componentes de software o microservicios.
 
@@ -13,11 +13,8 @@ Si una clase tiene muchas responsabilidades deberá cambiar más a menudo que si
 
 Las clases con una única responsabilidad son más fáciles de mantener y más fáciles de explicar.
 
-### Clases de ejemplo
+En el ejemplo tenemos la clase [Vehicle](violation/Vehicle.java) que modela un objeto de tipo _Vehicle_ y que además tiene la responsabilidad del repostar el vehículo. Por tanto si cambia el modelo _Vehicle_ o si cambia la forma de repostar combustible esta clase tendrá dos motivos para cambiar y por tanto no cumple el *Principio de Responsabilidad Única*.  
+![Diagram](srp_violation_diagram.png)
 
-En el ejemplo tenemos la clase [Vehicle](violation/Vehicle.java) que modela un objeto de tipo _Vehicle_ y que además tiene la responsabilidad del repostar el vehículo. Por tanto si cambia el modelo _Vehicle_ o si cambia la forma de repostar combustible esta clase tendrá dos motivos para cambiar y por tanto no cumple el *Principio de Responsabilidad Única*. 
-![Diagram](srp_violation_diagram.png) 
-
-Para aplicar el *Principio de Responsabilidad Única* deberemos crear una clase como por ejemplo [FuelPump](solution/FuelPump.java) cuya responsabilidad sea el repostaje de combustible del vehículo.
+Para aplicar el *Principio de Responsabilidad Única* deberemos crear una clase como por ejemplo [FuelPump](solution/FuelPump.java) cuya responsabilidad sea el repostaje de combustible del vehículo.  
 ![Diagram](srp_solution_diagram.png)
-

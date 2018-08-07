@@ -10,12 +10,10 @@ Para conseguir esto las subclases deberían seguir estas reglas:
 
 * Aplicar al menos las mismas reglas a todos los parámetros de salida aplicados por la clase base.
 
-### Clases de ejemplo
-
-En el ejemplo tenemos las clases [Car](violation/Car.java) y [Airplane](violation/Airplane.java) que heredan de la clase [Vehicle](violation/Vehicle.java)   
+En el ejemplo tenemos las clases [Car](violation/Car.java) y [Airplane](violation/Airplane.java) que heredan de la clase [Vehicle](violation/Vehicle.java)  
 ![Diagram](lsp_violation_diagram.png)
 
-Según el **_Liskov Substitution Principle_** deberíamos poder utilizar las clases _Car_ o _Airplane_ en lugar de la superclase _Vehicle_. La realidad es que no se podría hacer sin generar errores en la aplicación ya que la subclase _Car_ tiene unas restricciones superiores a la clase base. En concreto y siguiendo el ejemplo si se cambia a la marcha atrás (R) circulando el vehículo hacia adelante se genera una RuntimeException. Esta excepción no se genera ni en la subclase _Airplane_ ni en la superclase _Vehicle_.
+Según el **_Liskov Substitution Principle_** deberíamos poder utilizar las clases [Car](violation/Car.java) o [Airplane](violation/Airplane.java) en lugar de la superclase [Vehicle](violation/Vehicle.java). Debido a que no se cumple este principio no se puede usar de forma indistinta la superclase o las subclases sin generar errores en la aplicación ya que la subclase [Car](violation/Car.java) tiene unas restricciones superiores a la superclase en el método _changeGear(Gear)_. En este método se lanza una _RuntimeException_ en función de ciertos parámetros de entrada. Esta excepción no se genera ni en la subclase [Airplane](violation/Airplane.java) ni en la superclase [Vehicle](violation/Vehicle.java) y por tanto no se pueden usar de forma indistinta. Si usamos la subclase [Car](violation/Car.java) deberemos captura o relanzar dicha excepción.
 
-Si refactorizamos el método _changeGear_ en la subclase _Car_ de forma que no se lancen excepciones de modo que ni los parámetros de entrada ni los parámetros de salida sean más restrictivos que la superclase conseguimos que se aplique el **_Liskov Substitution Principle_**   
+Si refactorizamos el método _changeGear_ en la subclase [Car](solution/Car.java) de forma que no se lancen excepciones de modo que ni los parámetros de entrada ni los parámetros de salida sean más restrictivos que la superclase conseguimos que se aplique el **_Liskov Substitution Principle_**  
 ![Diagram](lsp_solution_diagram.png)
