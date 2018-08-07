@@ -27,12 +27,12 @@ public class Vehicle {
         return power;
     }
 
-    public int getSuspensionHeight() {
-        return suspensionHeight;
-    }
-
     public void setPower(final int power) {
         this.power = power;
+    }
+
+    public int getSuspensionHeight() {
+        return suspensionHeight;
     }
 
     public void setSuspensionHeight(final int suspensionHeight) {

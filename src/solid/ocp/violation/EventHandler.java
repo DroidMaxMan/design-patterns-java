@@ -37,8 +37,8 @@ public class EventHandler {
                 vehicle.setSuspensionHeight(20);
                 break;
             default:
-                vehicle.setPower(400);
-                vehicle.setSuspensionHeight(20);
+                vehicle.setPower(200);
+                vehicle.setSuspensionHeight(30);
                 break;
             // when we need to add another mode (e.g. ECONOMY) 2 classes will change DrivingMode and EventHandler.
         }
