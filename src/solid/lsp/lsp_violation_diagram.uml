@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="106.5" y="0.0">solid.lsp.violation.Gear</node>
+    <node x="36.625" y="313.0">solid.lsp.violation.Car</node>
+    <node x="0.0" y="167.0">solid.lsp.violation.Vehicle</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="solid.lsp.violation.Vehicle" target="solid.lsp.violation.Gear">
+      <point x="-47.5" y="-48.0" />
+      <point x="47.5" y="142.0" />
+      <point x="118.5" y="142.0" />
+      <point x="-24.0" y="58.5" />
+    </edge>
+    <edge source="solid.lsp.violation.Car" target="solid.lsp.violation.Vehicle">
+      <point x="0.0" y="-25.5" />
+      <point x="131.625" y="288.0" />
+      <point x="142.5" y="288.0" />
+      <point x="47.5" y="48.0" />
+    </edge>
+    <edge source="solid.lsp.violation.Car" target="solid.lsp.violation.Gear">
+      <point x="63.33333333333334" y="-25.5" />
+      <point x="194.95833333333334" y="288.0" />
+      <point x="200.5" y="288.0" />
+      <point x="200.5" y="142.0" />
+      <point x="166.5" y="142.0" />
+      <point x="24.0" y="58.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="133.5" y="179.5" />
+  <SelectedNodes>
+    <node>solid.lsp.violation.Vehicle</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+    <Category>Inner Classes</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

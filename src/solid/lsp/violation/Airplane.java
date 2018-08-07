@@ -16,9 +16,9 @@
  * ***********************************************************************
  */
 
-package solid.lsp.solution;
+package solid.lsp.violation;
 
-public class Plane extends Vehicle {
+public class Airplane extends Vehicle {
 
     // A plane can reverse engine gear while moving forward, no problem here
 }
