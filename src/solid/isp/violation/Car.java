@@ -18,12 +18,13 @@
 
 package solid.isp.violation;
 
-public class Car extends Vehicle {
+class Car implements Switches {
 
     private boolean radioOn;
 
-    public boolean isRadioOn() {
-        return radioOn;
+    @Override
+    public void startEngine() {
+        // ...
     }
 
     @Override
@@ -45,4 +46,5 @@ public class Car extends Vehicle {
     public void turnCameraOff() {
         // nothing to do here
     }
+
 }

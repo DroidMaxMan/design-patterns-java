@@ -18,7 +18,7 @@
 
 package solid.ocp.solution;
 
-public class EventHandler {
+class EventHandler {
 
     private Vehicle vehicle;
 
@@ -31,4 +31,5 @@ public class EventHandler {
         vehicle.setSuspensionHeight(drivingMode.getSuspensionHeight());
         // now, when we need to add another mode (e.g. ECONOMY) just create a new class: Economy.
     }
+
 }

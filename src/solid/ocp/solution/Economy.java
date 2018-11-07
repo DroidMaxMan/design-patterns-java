@@ -18,7 +18,7 @@
 
 package solid.ocp.solution;
 
-public class Economy implements DrivingMode {
+class Economy implements DrivingMode {
 
     private static final int POWER = 300;
     private static final int SUSPENSION_HEIGHT = 20;
@@ -32,4 +32,5 @@ public class Economy implements DrivingMode {
     public int getSuspensionHeight() {
         return SUSPENSION_HEIGHT;
     }
+
 }

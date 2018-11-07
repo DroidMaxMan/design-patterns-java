@@ -18,11 +18,9 @@
 
 package solid.isp.violation;
 
-public interface Switches {
+interface Switches {
 
     void startEngine();
-
-    void shutDownEngine();
 
     void turnRadioOn();
 
@@ -31,6 +29,7 @@ public interface Switches {
     void turnCameraOn();
 
     void turnCameraOff();
+
 }
 
 

@@ -18,7 +18,7 @@
 
 package solid.ocp.solution;
 
-public class Comfort implements DrivingMode {
+class Comfort implements DrivingMode {
 
     private static final int POWER = 400;
     private static final int SUSPENSION_HEIGHT = 20;
@@ -32,5 +32,6 @@ public class Comfort implements DrivingMode {
     public int getSuspensionHeight() {
         return SUSPENSION_HEIGHT;
     }
+
 }
 

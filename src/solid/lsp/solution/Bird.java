@@ -16,11 +16,10 @@
  * ***********************************************************************
  */
 
-package solid.lsp.violation;
+package solid.lsp.solution;
 
-public enum Gear {
-    P, // Parking
-    R, // Reverse
-    N, // Neutral
-    D // Drive
+class Bird {
+
+    void eat() {}
+
 }

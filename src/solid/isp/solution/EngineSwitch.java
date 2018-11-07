@@ -18,11 +18,9 @@
 
 package solid.isp.solution;
 
-public interface EngineSwitch {
+interface EngineSwitch {
 
     void startEngine();
-
-    void shutDownEngine();
 
 }
 

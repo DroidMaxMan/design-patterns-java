@@ -18,7 +18,7 @@
 
 package solid.srp.solution;
 
-public class Vehicle {
+class Vehicle {
 
     private final int maxFuel;
     private int remainingFuel;
@@ -43,4 +43,5 @@ public class Vehicle {
     public void accelerate() {
         remainingFuel--;
     }
+
 }

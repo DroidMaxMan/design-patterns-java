@@ -18,10 +18,11 @@
 
 package solid.isp.solution;
 
-public interface RadioSwitch {
+interface RadioSwitch extends EngineSwitch {
 
     void turnRadioOn();
 
     void turnRadioOff();
+
 }
 

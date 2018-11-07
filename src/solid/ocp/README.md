@@ -10,9 +10,9 @@ El mayor beneficio es que las interfaces introducen una capa extra de abstració
 
 En el caso de que fuera beneficioso el compartir código sería mejor optar por la herencia o la composición.
 
-En el ejemplo tenemos la clase [EventHandler](violation/EventHandler.java) con un método _changeDrivingMode_ que permite cambiar ciertos parámetros de la clase [Vehicle](violation/Vehicle.java) según el modo de conducción. Este modo de conducción se codifica en una enumeración.
+En el ejemplo tenemos la clase [EventHandler](violation/EventHandler.java) con un método _changeDrivingMode()_ que permite cambiar ciertos parámetros de la clase [Vehicle](violation/Vehicle.java) según el modo de conducción. Este modo de conducción se codifica en una enumeración.
 
-El **_Open/Closed Principle_** se incumple ya que si tenemos que añadir un nuevo modo de conducción, deberemos añadir el nuevo modo en la enumeración y deberemos modificar el método _changeDrivingMode_ para tener en cuenta este nuevo modo.  
+El **_Open/Closed Principle_** se incumple ya que si tenemos que añadir un nuevo modo de conducción, deberemos añadir el nuevo modo en la enumeración y deberemos modificar el método _changeDrivingMode()_ para tener en cuenta este nuevo modo.  
 ![Diagram](ocp_violation_diagram.png)
 
 Para cumplir el **_Open/Closed Principle_** deberemos refactorizar el código de forma que el método _changeDrivingMode(DrivingMode)_ no necesite ser modificado si se añade nueva funcionalidad. Por tanto debe permanecer cerrado a la modificación.

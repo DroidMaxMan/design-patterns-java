@@ -16,11 +16,12 @@
  * ***********************************************************************
  */
 
-package solid.lsp.solution;
+package solid.lsp.violation;
 
-public enum Gear {
-    P, // Parking
-    R, // Reverse
-    N, // Neutral
-    D // Drive
+class Ostrich extends Bird {
+
+    void fly() {
+        throw new UnsupportedOperationException();
+    }
+
 }

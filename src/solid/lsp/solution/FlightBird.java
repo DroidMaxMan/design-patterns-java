@@ -16,18 +16,10 @@
  * ***********************************************************************
  */
 
-package solid.lsp.violation;
+package solid.lsp.solution;
 
-public class Vehicle {
+public class FlightBird extends Bird {
 
-    private Gear gear;
-
-    public Gear getGear() {
-        return gear;
-    }
-
-    public void changeGear(final Gear gear) {
-        this.gear = gear;
-    }
+    void fly() {}
 
 }

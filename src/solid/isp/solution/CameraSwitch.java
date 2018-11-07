@@ -18,10 +18,11 @@
 
 package solid.isp.solution;
 
-public interface CameraSwitch {
+interface CameraSwitch extends EngineSwitch {
 
     void turnCameraOn();
 
     void turnCameraOff();
+
 }
 

@@ -18,15 +18,13 @@
 
 package solid.dip.solution;
 
-public class RacingCar implements Vehicle {
+class RacingCar implements Vehicle {
 
-    private final int maxFuel;
     private int remainingFuel;
     private int power;
 
-    public RacingCar(final int maxFuel) {
-        this.maxFuel = maxFuel;
-        remainingFuel = maxFuel;
+    public RacingCar(final int fuel) {
+        remainingFuel = fuel;
     }
 
     @Override
@@ -34,4 +32,5 @@ public class RacingCar implements Vehicle {
         power++;
         remainingFuel--;
     }
+
 }

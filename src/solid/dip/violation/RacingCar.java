@@ -18,18 +18,16 @@
 
 package solid.dip.violation;
 
-public class RacingCar {
+class RacingCar {
 
-    private final int maxFuel;
     private int remainingFuel;
     private int power;
 
-    public RacingCar(final int maxFuel) {
-        this.maxFuel = maxFuel;
-        remainingFuel = maxFuel;
+    public RacingCar(final int fuel) {
+        remainingFuel = fuel;
     }
 
-    public void accelerate() {
+    void accelerate() {
         power++;
         remainingFuel--;
     }

@@ -18,7 +18,7 @@
 
 package solid.dip.solution;
 
-public class Driver {
+class Driver {
 
     private Vehicle vehicle;
 
@@ -29,4 +29,5 @@ public class Driver {
     public void increaseSpeed() {
         vehicle.accelerate();
     }
+
 }

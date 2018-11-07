@@ -18,24 +18,24 @@
 
 package solid.ocp.violation;
 
-public class Vehicle {
+class Vehicle {
 
     private int power;
     private int suspensionHeight;
 
-    public int getPower() {
+    int getPower() {
         return power;
     }
 
-    public void setPower(final int power) {
+    void setPower(final int power) {
         this.power = power;
     }
 
-    public int getSuspensionHeight() {
+    int getSuspensionHeight() {
         return suspensionHeight;
     }
 
-    public void setSuspensionHeight(final int suspensionHeight) {
+    void setSuspensionHeight(final int suspensionHeight) {
         this.suspensionHeight = suspensionHeight;
     }
 

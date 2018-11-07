@@ -18,12 +18,13 @@
 
 package solid.isp.solution;
 
-public class Drone extends Vehicle implements CameraSwitch {
+class Drone implements CameraSwitch {
 
     private boolean cameraOn;
 
-    public boolean isCameraOn() {
-        return cameraOn;
+    @Override
+    public void startEngine() {
+        // ....
     }
 
     @Override
@@ -35,4 +36,5 @@ public class Drone extends Vehicle implements CameraSwitch {
     public void turnCameraOff() {
         cameraOn = false;
     }
+
 }

@@ -16,24 +16,28 @@
  * ***********************************************************************
  */
 
-package solid.isp.violation;
+package solid.lsp.violation;
 
-public abstract class Vehicle implements Switches {
+import java.util.ArrayList;
+import java.util.List;
 
-    private boolean engineRunning;
+class Bird {
 
-    public boolean isEngineRunning() {
-        return engineRunning;
+    void fly() {}
+
+    void eat() {}
+
+    public static void main(String[] args) {
+        List<Bird> birdList = new ArrayList<Bird>();
+        birdList.add(new Bird());
+        birdList.add(new Crow());
+        birdList.add(new Ostrich());
+        letTheBirdsFly(birdList);
     }
 
-    @Override
-    public void startEngine() {
-        engineRunning = true;
+    static void letTheBirdsFly(List<Bird> birdList) {
+        for (Bird b : birdList) {
+            b.fly();
+        }
     }
-
-    @Override
-    public void shutDownEngine() {
-        engineRunning = false;
-    }
-
 }

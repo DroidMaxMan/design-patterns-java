@@ -18,7 +18,7 @@
 
 package solid.ocp.solution;
 
-public class Sport implements DrivingMode {
+class Sport implements DrivingMode {
 
     private static final int POWER = 500;
     private static final int SUSPENSION_HEIGHT = 10;
@@ -32,4 +32,5 @@ public class Sport implements DrivingMode {
     public int getSuspensionHeight() {
         return SUSPENSION_HEIGHT;
     }
+
 }

@@ -18,7 +18,7 @@
 
 package solid.dip.solution;
 
-public interface Vehicle {
+interface Vehicle {
 
     void accelerate();
 

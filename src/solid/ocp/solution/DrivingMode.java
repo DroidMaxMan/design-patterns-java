@@ -18,9 +18,10 @@
 
 package solid.ocp.solution;
 
-public interface DrivingMode {
+interface DrivingMode {
 
     int getPower();
 
     int getSuspensionHeight();
+
 }

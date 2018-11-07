@@ -18,7 +18,6 @@
 
 package solid.lsp.solution;
 
-public class Airplane extends Vehicle {
+public class NonFlight extends Bird {
 
-    // A plane can reverse engine gear while moving forward, no problem here
 }

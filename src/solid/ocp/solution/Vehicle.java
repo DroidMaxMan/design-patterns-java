@@ -18,7 +18,7 @@
 
 package solid.ocp.solution;
 
-public class Vehicle {
+class Vehicle {
 
     private int power;
     private int suspensionHeight;

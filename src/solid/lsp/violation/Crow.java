@@ -16,8 +16,8 @@
  * ***********************************************************************
  */
 
-package solid.ocp.violation;
+package solid.lsp.violation;
 
-public enum DrivingMode {
-    SPORT, COMFORT
+public class Crow extends Bird {
+
 }

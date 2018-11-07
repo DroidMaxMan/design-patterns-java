@@ -18,7 +18,7 @@
 
 package solid.dip.violation;
 
-public class Pilot {
+class Pilot {
 
     private RacingCar vehicle;
 
@@ -26,7 +26,8 @@ public class Pilot {
         this.vehicle = new RacingCar(100);
     }
 
-    public void increaseSpeed() {
+    void increaseSpeed() {
         vehicle.accelerate();
     }
+
 }
