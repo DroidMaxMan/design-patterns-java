@@ -81,32 +81,6 @@ Se definen como patrones de diseño software que ofrecen soluciones respecto a l
 
 * [MVC](https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador) - Separa los datos y la lógica de negocio de una aplicación de la interfaz de usuario y el módulo encargado de gestionar los eventos y las comunicaciones.
 
-## Principios SOLID
-
-* [Principio de Responsabilidad Única (Single responsability principle - SRP)](https://es.wikipedia.org/wiki/Principio_de_responsabilidad_%C3%BAnica)
-
-El principio de responsabilidad única u SRP (siglas del inglés (Single Responsibility Principle) en ingeniería de software establece que cada módulo o clase debe tener responsabilidad sobre una sola parte de la funcionalidad proporcionada por el software y esta responsabilidad debe estar encapsulada en su totalidad por la clase. Todos sus servicios deben estar estrechamente alineados con esa responsabilidad.
-
-* [Principio de Abierto/Cerrado (Open/closed principle - OCP)](https://es.wikipedia.org/wiki/Principio_de_abierto/cerrado)
-
-Dentro de la programación orientada a objetos, el principio de abierto/cerrado u OCP (siglas del inglés Open/Closed Principle) establece que «una entidad de software (clase, módulo, función, etc.) debe quedarse abierta para su extensión, pero cerrada para su modificación». Es decir, se debe poder extender el comportamiento de tal entidad pero sin modificar su código fuente.
-
-* [Principio de Substitución de Liskov (Liskov substitution principle - LSP)](https://es.wikipedia.org/wiki/Principio_de_sustituci%C3%B3n_de_Liskov)
-
-Principio de sustitución de Liskov o LSP (Liskov Substitution Principle) es un principio de la programación orientada a objetos. y puede definirse como: Cada clase que hereda de otra puede usarse como su padre sin necesidad de conocer las diferencias entre ellas.
-
-* [Principio de Segregración de la Interfaz (Interface segregation principle - ISP)](https://es.wikipedia.org/wiki/Principio_de_segregaci%C3%B3n_de_la_interfaz)
-
-El principio de segregación de la interfaz (ISP, por sus siglas del inglés «Interface Segregation Principle») establece que los clientes de un programa dado sólo deberían conocer de éste aquellos métodos que realmente usan, y no aquellos que no necesitan usar.
-
-* [Principio de Inversión de Dependencias (Dependency inversion principle - DIP)](https://es.wikipedia.org/wiki/Inyecci%C3%B3n_de_dependencias)
-
-El principio de inversión de dependencias (DIP, por sus siglas en inglés «Dependency Inversion Principle») consta de dos partes:
-
-  1. Módulos de alto nivel no deben depender de módulos de bajo nivel. Ambos deben depender de abstracciones.
-
-  2. Abstracciones no deberían depender de detalles. Los detalles debieran depender de abstracciones.
-
 ## License
 
 [![Licencia de Creative Commons](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-sa/4.0/)  
