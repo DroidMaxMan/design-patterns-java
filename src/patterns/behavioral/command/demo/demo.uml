@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="156.0" y="101.0">patterns.behavioral.command.demo.Undo</node>
+    <node x="0.0" y="101.0">patterns.behavioral.command.demo.Redo</node>
+    <node x="0.0" y="197.0">patterns.behavioral.command.demo.Receiver</node>
+    <node x="78.0" y="0.0">patterns.behavioral.command.demo.ICommand</node>
+    <node x="0.0" y="315.0">patterns.behavioral.command.demo.Invoker</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="patterns.behavioral.command.demo.Undo" target="patterns.behavioral.command.demo.ICommand">
+      <point x="0.0" y="-25.5" />
+      <point x="224.0" y="76.0" />
+      <point x="180.0" y="76.0" />
+      <point x="34.0" y="25.5" />
+    </edge>
+    <edge source="patterns.behavioral.command.demo.Redo" target="patterns.behavioral.command.demo.ICommand">
+      <point x="0.0" y="-25.5" />
+      <point x="68.0" y="76.0" />
+      <point x="112.0" y="76.0" />
+      <point x="-34.0" y="25.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="278.5" y="108.5" />
+  <SelectedNodes>
+    <node>patterns.behavioral.command.demo.ICommand</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

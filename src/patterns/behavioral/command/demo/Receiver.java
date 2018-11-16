@@ -16,26 +16,16 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command;
+package patterns.behavioral.command.demo;
 
+public class Receiver {
 
-import patterns.behavioral.command.example.Character;
-import patterns.behavioral.command.example.*;
+    void performUndo() {
+        System.out.println("Executing - Undo");
+    }
 
-public class Command {
-
-    public static void main(String[] args) {
-        System.out.println("***Command Pattern Example***\n");
-        // Receiver
-        Character character = new Character();
-
-        // Invoker
-        Engine engine = new Engine();
-
-        // Executing commands
-        engine.execute(new Jump(character));
-        engine.execute(new Run(character));
-        engine.execute(new Walk(character));
+    void performRedo() {
+        System.out.println("Executing - Redo");
     }
 
 }

@@ -18,18 +18,19 @@
 
 package patterns.behavioral.command.example;
 
+// RECEIVER
 public class Character {
 
     void walk() {
-        System.out.println("WALKING");
+        System.out.println("Executing 'walk()' in receiver (character");
     }
 
     void run() {
-        System.out.println("RUNNING");
+        System.out.println("Executing 'run()' in receiver (character)");
     }
 
     void jump() {
-        System.out.println("JUMPING");
+        System.out.println("Executing 'jump()' in receiver (character)");
     }
 
 }

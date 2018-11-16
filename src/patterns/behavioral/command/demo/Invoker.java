@@ -16,26 +16,14 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command;
+package patterns.behavioral.command.demo;
 
+// Un invocador sólo conoce la interfaz de comandos ('ICommand')
+// Desconoce los comandos.
+public class Invoker {
 
-import patterns.behavioral.command.example.Character;
-import patterns.behavioral.command.example.*;
-
-public class Command {
-
-    public static void main(String[] args) {
-        System.out.println("***Command Pattern Example***\n");
-        // Receiver
-        Character character = new Character();
-
-        // Invoker
-        Engine engine = new Engine();
-
-        // Executing commands
-        engine.execute(new Jump(character));
-        engine.execute(new Run(character));
-        engine.execute(new Walk(character));
+    public void execute(ICommand cmd) {
+        cmd.action();
     }
 
 }

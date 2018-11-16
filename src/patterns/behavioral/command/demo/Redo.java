@@ -16,26 +16,20 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command;
+package patterns.behavioral.command.demo;
 
+public class Redo implements ICommand {
 
-import patterns.behavioral.command.example.Character;
-import patterns.behavioral.command.example.*;
+    private Receiver receiver;
 
-public class Command {
+    public Redo(Receiver recv) {
+        receiver = recv;
+    }
 
-    public static void main(String[] args) {
-        System.out.println("***Command Pattern Example***\n");
-        // Receiver
-        Character character = new Character();
-
-        // Invoker
-        Engine engine = new Engine();
-
-        // Executing commands
-        engine.execute(new Jump(character));
-        engine.execute(new Run(character));
-        engine.execute(new Walk(character));
+    @Override
+    public void action() {
+        //Call redo in receiver
+        receiver.performRedo();
     }
 
 }

@@ -18,50 +18,12 @@
 
 package patterns.behavioral.command.example;
 
+// INVOKER
 public class Engine {
 
-    private Command jump;
-    private Command walk;
-    private Command run;
-
-    private long shortDelay = 2000;
-    private long mediumDelay = shortDelay * 4;
-    private long longDelay = shortDelay * 6;
-    private long savedTime;
-
-    public Engine(Command jump, Command walk, Command run) {
-        this.jump = jump;
-        this.walk = walk;
-        this.run = run;
-
-        savedTime = System.currentTimeMillis();
-    }
-
-    public void jump() {
-        while (true) {
-            if (System.currentTimeMillis() >= savedTime + shortDelay) {
-                jump.execute();
-                break;
-            }
-        }
-    }
-
-    public void walk() {
-        while (true) {
-            if (System.currentTimeMillis() >= savedTime + mediumDelay) {
-                walk.execute();
-                break;
-            }
-        }
-    }
-
-    public void run() {
-        while (true) {
-            if (System.currentTimeMillis() >= savedTime + longDelay) {
-                run.execute();
-                break;
-            }
-        }
+    // Execute
+    public void execute(Command command) {
+        command.execute();
     }
 
 }
