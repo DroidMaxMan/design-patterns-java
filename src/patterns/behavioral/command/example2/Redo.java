@@ -16,10 +16,20 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command.demo;
+package patterns.behavioral.command.example2;
 
-interface ICommand {
+class Redo implements ICommand {
 
-    void action();
+    private Receiver receiver;
+
+    Redo(Receiver recv) {
+        receiver = recv;
+    }
+
+    @Override
+    public void action() {
+        //Call redo in receiver
+        receiver.performRedo();
+    }
 
 }

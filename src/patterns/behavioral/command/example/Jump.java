@@ -18,11 +18,11 @@
 
 package patterns.behavioral.command.example;
 
-public class Jump implements Command {
+class Jump implements Command {
 
     private Character character;
 
-    public Jump(Character character) {
+    Jump(Character character) {
         this.character = character;
     }
 

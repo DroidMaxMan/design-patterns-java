@@ -18,17 +18,19 @@
 
 package patterns.behavioral.command.example;
 
-class Walk implements Command {
+public class CommandPatternEx {
 
-    private Character character;
+    public static void main(String[] args) {
+        // Receiver
+        Character character = new Character();
 
-    Walk(Character character) {
-        this.character = character;
-    }
+        // Invoker
+        Engine engine = new Engine();
 
-    @Override
-    public void execute() {
-        character.walk();
+        // Executing commands
+        engine.execute(new Jump(character));
+        engine.execute(new Run(character));
+        engine.execute(new Walk(character));
     }
 
 }

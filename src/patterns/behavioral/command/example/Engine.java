@@ -19,10 +19,10 @@
 package patterns.behavioral.command.example;
 
 // INVOKER
-public class Engine {
+class Engine {
 
     // Execute
-    public void execute(Command command) {
+    void execute(Command command) {
         command.execute();
     }
 

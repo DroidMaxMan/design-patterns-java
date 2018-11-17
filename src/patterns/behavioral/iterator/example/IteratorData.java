@@ -18,7 +18,7 @@
 
 package patterns.behavioral.iterator.example;
 
-public class IteratorData {
+class IteratorData {
     private int[] data;
     private int pos;
 
@@ -27,11 +27,11 @@ public class IteratorData {
         pos = 0;
     }
 
-    public boolean hasNext() {
+    boolean hasNext() {
         return pos < data.length;
     }
 
-    public Object next() {
+    Object next() {
         int valor = data[pos];
         pos++;
         return valor;

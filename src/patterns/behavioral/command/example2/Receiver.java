@@ -16,19 +16,16 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command.example;
+package patterns.behavioral.command.example2;
 
-class Walk implements Command {
+class Receiver {
 
-    private Character character;
-
-    Walk(Character character) {
-        this.character = character;
+    void performUndo() {
+        System.out.println("Executing - Undo");
     }
 
-    @Override
-    public void execute() {
-        character.walk();
+    void performRedo() {
+        System.out.println("Executing - Redo");
     }
 
 }

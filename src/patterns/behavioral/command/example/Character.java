@@ -19,7 +19,7 @@
 package patterns.behavioral.command.example;
 
 // RECEIVER
-public class Character {
+class Character {
 
     void walk() {
         System.out.println("Executing 'walk()' in receiver (character");

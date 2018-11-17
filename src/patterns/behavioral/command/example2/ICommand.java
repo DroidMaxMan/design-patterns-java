@@ -16,19 +16,10 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command.example;
+package patterns.behavioral.command.example2;
 
-class Walk implements Command {
+interface ICommand {
 
-    private Character character;
-
-    Walk(Character character) {
-        this.character = character;
-    }
-
-    @Override
-    public void execute() {
-        character.walk();
-    }
+    void action();
 
 }

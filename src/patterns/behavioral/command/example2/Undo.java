@@ -16,14 +16,20 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command.demo;
+package patterns.behavioral.command.example2;
 
-// Un invocador sólo conoce la interfaz de comandos ('ICommand')
-// Desconoce los comandos.
-public class Invoker {
+class Undo implements ICommand {
 
-    public void execute(ICommand cmd) {
-        cmd.action();
+    private Receiver receiver;
+
+    Undo(Receiver recv) {
+        receiver = recv;
+    }
+
+    @Override
+    public void action() {
+        //Call undo in receiver
+        receiver.performUndo();
     }
 
 }

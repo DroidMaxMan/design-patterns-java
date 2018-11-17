@@ -16,20 +16,16 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command.demo;
+package patterns.behavioral.iterator.example2;
 
-public class Undo implements ICommand {
+interface IIterator {
 
-    private Receiver receiver;
+    void first();//Reset to first element
 
-    public Undo(Receiver recv) {
-        receiver = recv;
-    }
+    String next();//get next element
 
-    @Override
-    public void action() {
-        //Call undo in receiver
-        receiver.performUndo();
-    }
+    Boolean isDone();//End of collection check
+
+    String currentItem();//Retrieve Current Item
 
 }

@@ -16,20 +16,25 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.iterator;
+package patterns.behavioral.iterator.example2;
 
-import patterns.behavioral.iterator.example.IteratorData;
-import patterns.behavioral.iterator.example.RandomData;
-
-public class Iterator {
+class IteratorPatternEx {
 
     public static void main(String[] args) {
-        RandomData vector = new RandomData(5);
+        IIterator scienceIterator = new Science().createIterator();
+        IIterator artsIterator = new Arts().createIterator();
 
-        IteratorData iterator = vector.iterator();
+        System.out.println("\nScience subjects :");
+        print(scienceIterator);
 
-        while (iterator.hasNext())
+        System.out.println("\nArts subjects :");
+        print(artsIterator);
+    }
+
+    private static void print(IIterator iterator) {
+        while (!iterator.isDone()) {
             System.out.println(iterator.next());
+        }
     }
 
 }

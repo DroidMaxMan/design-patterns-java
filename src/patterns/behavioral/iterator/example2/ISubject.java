@@ -16,16 +16,10 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command.demo;
+package patterns.behavioral.iterator.example2;
 
-public class Receiver {
+interface ISubject {
 
-    void performUndo() {
-        System.out.println("Executing - Undo");
-    }
-
-    void performRedo() {
-        System.out.println("Executing - Redo");
-    }
+    IIterator createIterator();
 
 }

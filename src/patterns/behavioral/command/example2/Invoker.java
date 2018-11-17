@@ -16,19 +16,14 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command.example;
+package patterns.behavioral.command.example2;
 
-class Walk implements Command {
+// Un invocador sólo conoce la interfaz de comandos ('ICommand')
+// Desconoce los comandos.
+class Invoker {
 
-    private Character character;
-
-    Walk(Character character) {
-        this.character = character;
-    }
-
-    @Override
-    public void execute() {
-        character.walk();
+    void execute(ICommand cmd) {
+        cmd.action();
     }
 
 }

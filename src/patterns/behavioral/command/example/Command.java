@@ -18,7 +18,7 @@
 
 package patterns.behavioral.command.example;
 
-public interface Command {
+interface Command {
 
     void execute();
 

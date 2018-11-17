@@ -20,18 +20,18 @@ package patterns.behavioral.iterator.example;
 
 import java.util.Random;
 
-public class RandomData {
+class RandomData {
 
     int[] data;
 
-    public RandomData(int length) {
+    RandomData(int length) {
         data = new int[length];
         for (int i = 0; i < data.length; i++) {
             data[i] = new Random().nextInt(500);
         }
     }
 
-    public IteratorData iterator() {
+    IteratorData iterator() {
         return new IteratorData(this);
     }
 

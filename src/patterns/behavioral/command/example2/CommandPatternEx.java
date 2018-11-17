@@ -16,20 +16,20 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command.demo;
+package patterns.behavioral.command.example2;
 
-public class Redo implements ICommand {
+class CommandPatternEx {
 
-    private Receiver receiver;
+    public static void main(String[] args) {
+        Receiver intendedreceiver = new Receiver();
 
-    public Redo(Receiver recv) {
-        receiver = recv;
-    }
+        Undo unCmd = new Undo(intendedreceiver);
+        Redo reCmd = new Redo(intendedreceiver);
 
-    @Override
-    public void action() {
-        //Call redo in receiver
-        receiver.performRedo();
+        /*Client holds Invoker and Command Objects*/
+        Invoker inv = new Invoker();
+        inv.execute(unCmd);
+        inv.execute(reCmd);
     }
 
 }

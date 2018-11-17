@@ -18,11 +18,11 @@
 
 package patterns.behavioral.command.example;
 
-public class Run implements Command {
+class Run implements Command {
 
     private Character character;
 
-    public Run(Character character) {
+    Run(Character character) {
         this.character = character;
     }
 

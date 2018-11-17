@@ -16,26 +16,17 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.command;
+package patterns.behavioral.iterator.example;
 
-
-import patterns.behavioral.command.example.Character;
-import patterns.behavioral.command.example.*;
-
-public class Command {
+public class IteratorPatternEx {
 
     public static void main(String[] args) {
-        System.out.println("***Command Pattern Example***\n");
-        // Receiver
-        Character character = new Character();
+        RandomData vector = new RandomData(5);
 
-        // Invoker
-        Engine engine = new Engine();
+        IteratorData iterator = vector.iterator();
 
-        // Executing commands
-        engine.execute(new Jump(character));
-        engine.execute(new Run(character));
-        engine.execute(new Walk(character));
+        while (iterator.hasNext())
+            System.out.println(iterator.next());
     }
 
 }
