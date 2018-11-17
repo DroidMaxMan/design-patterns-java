@@ -31,4 +31,5 @@ public class Iterator {
         while (iterator.hasNext())
             System.out.println(iterator.next());
     }
+
 }

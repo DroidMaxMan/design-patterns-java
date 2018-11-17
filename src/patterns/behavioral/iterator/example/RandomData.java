@@ -24,7 +24,6 @@ public class RandomData {
 
     int[] data;
 
-
     public RandomData(int length) {
         data = new int[length];
         for (int i = 0; i < data.length; i++) {
@@ -32,8 +31,8 @@ public class RandomData {
         }
     }
 
-
     public IteratorData iterator() {
         return new IteratorData(this);
     }
+
 }
