@@ -18,16 +18,14 @@
 
 package patterns.behavioral.observer.example;
 
-public class ConcreteObserver implements Observador {
+class ConcreteObserver implements Observador {
 
     private String code;
 
-
-    public ConcreteObserver(String code) {
+    ConcreteObserver(String code) {
         super();
         this.code = code;
     }
-
 
     public void update() {
         System.out.println("ConcreteObserver with code " + code + " is notified!!");

@@ -31,8 +31,6 @@ Los patrones de comportamiento son _Chain of Responsibility_, _Command_, _Interp
 
 * [Memento](https://es.wikipedia.org/wiki/Memento_(patr%C3%B3n_de_dise%C3%B1o)) - Es un patrón de diseño cuya finalidad es almacenar el estado de un objeto (o del sistema completo) en un momento dado de manera que se pueda restaurar en ese punto de manera sencilla. Para ello se mantiene almacenado el estado del objeto para un instante de tiempo en una clase independiente de aquella a la que pertenece el objeto (pero sin romper la encapsulación), de forma que ese recuerdo permita que el objeto sea modificado y pueda volver a su estado anterior.
 
-* [Observer](https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29) - Se utiliza para definir relaciones 1 a *n* de forma que un objeto pueda notificar y/o actualizar el estado de otros automáticamente.
-
 * [State](https://es.wikipedia.org/wiki/State_%28patr%C3%B3n_de_dise%C3%B1o%29) - Permite que un objeto modifique su comportamiento cada vez que cambie su estado interno.
 
 * [Strategy](https://es.wikipedia.org/wiki/Strategy_%28patr%C3%B3n_de_dise%C3%B1o%29) - Se utiliza para encapsular el funcionamiento de una familia de algoritmos, de forma que se pueda intercambiar su uso sin necesidad de modificar los clientes.
@@ -41,13 +39,13 @@ Los patrones de comportamiento son _Chain of Responsibility_, _Command_, _Interp
 
 * [Visitor](https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29) - Proporciona un mecanismo para realizar diferentes operaciones sobre una jerarquía de objetos de forma que añadir nuevas operaciones no haga necesario cambiar las clases de los objetos sobre los que se realizan las operaciones.
 
-### *__Command__*
+### - *__Command__* -
 
 **Gof**: Encapsule una solicitud como un objeto, lo que le permite parametrizar a los clientes con diferentes solicitudes, solicitudes de cola o registro y admite operaciones que no se pueden deshacer.
 
-El patrón *__'Command'__* permite solicitar una operación a un objeto sin conocer realmente el contenido de esta operación ni el receptor real de la misma. Para ello se encapsula la petición como un objeto, con lo que además facilita la parametrización de los métodos.
-
 #### Concepto
+
+El patrón *__'Command'__* permite solicitar una operación a un objeto sin conocer realmente el contenido de esta operación ni el receptor real de la misma. Para ello se encapsula la petición como un objeto, con lo que además facilita la parametrización de los métodos.
 
 En general, se asocian cuatro términos: **invocador**, **cliente**, **comando** y **receptor**.
 
@@ -59,9 +57,7 @@ Un objeto de **comando** es capaz de llamar a un método particular en el recept
 
 ![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/command.png)
 
-#### Problema
-
-Existe un gran número de situaciones y escenarios en las que la relación directa entre el emisor de una orden y el receptor de la misma es insuficiente:
+El uso del patrón *__Command__* puede ser productivo en aquellas situaciones y escenarios en las que la relación directa entre el emisor de una orden y el receptor de la misma es insuficiente:
 
 * La invocación directa afecta sólo a emisor y receptor por lo que resulta complicado ampliar dicha relación a otros actores, como por ejemplo barras de progreso, ayuda contextual, etc...
 
@@ -135,7 +131,7 @@ public class Invoker {
 
 <https://es.wikipedia.org/wiki/Command_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
-### *__Iterator__*
+### - *__Iterator__* -
 
 **GoF**: Proporcionar una forma de acceder a los elementos de un objeto agregado de forma secuencial sin exponer su representación subyacente.
 
@@ -153,7 +149,7 @@ Diferentes iteradores pueden presentar diferentes tipos de recorrido sobre la es
 
 #### Problema
 
-Manejar colecciones de datos es algo muy habitual en el desarrollo de aplicaciones. Listas, pilas y, sobre todo, árboles son ejemplos de estructuras de datos muy presentes en los juegos y se utilizan de forma intensiva.
+El uso del patrón *__Iterator__* es muy común ya que manejar colecciones de datos es algo muy habitual en el desarrollo de aplicaciones. Listas, pilas y, sobre todo, árboles son ejemplos de estructuras de datos muy presentes en los juegos y se utilizan de forma intensiva.
 
 Una operación muy habitual es recorrer las estructuras para analizar y/o buscar los datos que contienen. Es posible que sea necesario recorrer la estructura de forma secuencial, de dos en dos o, simplemente, de forma aleatoria. Los clientes suelen implementar el método concreto con el que desean recorrer la estructura por lo que puede ser un problema si, por ejemplo, se desea recorrer una misma estructura de datos de varias formas distintas. Conforme aumenta las combinaciones entre los tipos de estructuras y métodos de acceso, el problema se agrava.
 
@@ -215,6 +211,78 @@ public class Client {
 
 <https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
+### - *__Observer__* -
+
+**GoF**: Define una dependencia de uno a muchos entre objetos para que cuando un objeto cambie de estado, todos sus dependientes sean notificados y actualizados automáticamente.
+
+#### Concepto
+
+El patrón *__Observer__* se utiliza para definir relaciones 1 a *n* de forma que un objeto pueda notificar y/o actualizar el estado de otros automáticamente.
+
+El patrón *__Observer__* proporciona un diseño con **poco acomplamiento** entre los *observadores* y el objeto *observado*.
+
+Siguiendo la filosofía de *publicación/suscripción*, los objetos observadores se deben registrar en el objeto observado llamado **sujeto** pasándole una referencia de si mismo. El sujeto mantiene una lista de de las referencias de los observadores. Cuando un observador ya no necesita ser notificado simplemente se borra de la lista de observadores.
+
+Además, los observadores a su vez están obligados a implementar unos métodos determinados mediante los cuales el **sujeto** es capaz de notificar a los observadores suscritos los cambios que sufre para que todos ellos tengan constancia. Por tanto, cuando el evento oportuno, el sujeto recibirá una invocación y será el encargado de "notificar" a todos los elementos suscritos a él.
+
+Los observadores que reciben la invocación pueden realizar las acciones pertinentes como consultar el estado del dominio para obtener nuevos valores.
+
+![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/observer.png)
+
+Puede pensarse en aplicar este patrón cuando una modificación en el estado de un objeto requiere cambios de otros, y no se desea que se conozca el número de objetos que deben ser cambiados. También cuando queremos que un objeto sea capaz de notificar a otros objetos sin hacer ninguna suposición acerca de los objetos notificados y cuando una abstracción tiene dos aspectos diferentes, que dependen uno del otro; si encapsulamos estos aspectos en objetos separados permitiremos su variación y reutilización de modo independiente.
+
+#### Implementación
+
+El siguiente ejemplo es una situación en que tenemos un único observador y un único sujeto. El patrón se puede adaptar para los casos en que haya uno o varios observadores y uno o varios sujetos.
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/behavioral/observer/example2/diagram.png)
+
+```java
+interface ISubject {
+    void register(Observer observer);
+    void unregister(Observer observer);
+    void notifyObservers();
+}
+
+class Subject implements ISubject {
+    private List<Observer> observerList = new ArrayList<>();
+    private int flag;
+
+    void setFlag(int flag) {
+        this.flag = flag;
+        //flag value changed. So notify observer(s)
+        notifyObservers();
+    }
+
+    @Override
+    public void register(Observer o) {
+        observerList.add(o);
+    }
+
+    @Override
+    public void unregister(Observer o) {
+        observerList.remove(o);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observerList) {
+            observer.update();
+        }
+    }
+}
+
+class Observer {
+    void update() {
+        System.out.println("flag value changed in Subject");
+    }
+}
+```
+
+#### Reference
+
+<https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29>
+
 ## Creational Patterns
 
 Los patrones creacionales corresponden a patrones de diseño de software que solucionan problemas de creación de instancias. Nos ayudan a encapsular y abstraer dicha creación.
@@ -223,7 +291,7 @@ Los patrones creacionales son _Abstract Factory_, _Builder_, _Factory Method_, _
 
 * [Abstract Factory](https://es.wikipedia.org/wiki/Abstract_Factory) - permite trabajar con objetos de distintas familias de manera que las familias no se mezclen entre sí y haciendo transparente el tipo de familia concreta que se esté usando.
 
-* [Builer](https://es.wikipedia.org/wiki/Builder_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es usado para permitir la creación de una variedad de objetos complejos desde un objeto fuente (Producto), el objeto fuente se compone de una variedad de partes que contribuyen individualmente a la creación de cada objeto complejo a través de un conjunto de llamadas a interfaces comunes de la clase Abstract Builder.
+* [Builder](https://es.wikipedia.org/wiki/Builder_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es usado para permitir la creación de una variedad de objetos complejos desde un objeto fuente (Producto), el objeto fuente se compone de una variedad de partes que contribuyen individualmente a la creación de cada objeto complejo a través de un conjunto de llamadas a interfaces comunes de la clase Abstract Builder.
 
 * [Factory Method](https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29) - consiste en utilizar una clase constructora (al estilo del Abstract Factory) abstracta con unos cuantos métodos definidos y otro(s) abstracto(s): el dedicado a la construcción de objetos de un subtipo de un tipo determinado.
 
@@ -288,6 +356,8 @@ Sin embargo, es la estructura más utilizada en los videojuegos: la interfaz gr�
 <https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador>
 
 ---
+
+Versión en PDF: [Design_Patterns_Java.pdf](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/design-patterns-java.pdf)
 
 ## License
 

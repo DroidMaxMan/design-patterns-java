@@ -16,34 +16,13 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.observer.example;
+package patterns.behavioral.observer.example3;
 
-import java.util.ArrayList;
+class Observer1 implements IObserver {
 
-class Observable {
-
-    private ArrayList<Observador> observadores;
-
-
-    Observable() {
-        observadores = new ArrayList<>();
-    }
-
-
-    void agregarObservador(Observador observador) {
-        observadores.add(observador);
-    }
-
-
-    void eliminarObservador(Observador observador) {
-        observadores.remove(observador);
-    }
-
-
-    void notificarObservadores() {
-        for (Observador observador : observadores) {
-            observador.update();
-        }
+    @Override
+    public void update(int i) {
+        System.out.println("Observer1: myValue in Subject is now: " + i);
     }
 
 }

@@ -16,30 +16,27 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.observer;
+package patterns.behavioral.observer.example3;
 
-import patterns.behavioral.observer.example.ConcreteObserver;
-import patterns.behavioral.observer.example.Observable;
-
-public class Observer {
+class ObserverPatternEx {
 
     public static void main(String[] args) {
+        Subject sub = new Subject();
+        Observer1 ob1 = new Observer1();
+        Observer2 ob2 = new Observer2();
 
-        Observable observable = new Observable();
+        sub.register(ob1);
+        sub.register(ob2);
 
-        ConcreteObserver concreteObserver = new ConcreteObserver("UA4844");
-        ConcreteObserver concreteObserver2 = new ConcreteObserver("CG9840");
-        ConcreteObserver concreteObserver3 = new ConcreteObserver("YR3089");
+        sub.setMyValue(5);
+        System.out.println();
+        sub.setMyValue(25);
+        System.out.println();
 
-        observable.agregarObservador(concreteObserver);
-        observable.agregarObservador(concreteObserver2);
-        observable.agregarObservador(concreteObserver3);
-
-        observable.notificarObservadores();
-
-        observable.eliminarObservador(concreteObserver);
-
-        observable.notificarObservadores();
-
+        //unregister ob1 only
+        sub.unregister(ob1);
+        //Now only ob2 will observe the change
+        sub.setMyValue(100);
     }
+
 }

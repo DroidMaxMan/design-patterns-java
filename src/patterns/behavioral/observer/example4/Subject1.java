@@ -16,33 +16,41 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.observer.example;
+package patterns.behavioral.observer.example4;
 
 import java.util.ArrayList;
+import java.util.List;
 
-class Observable {
+class Subject1 implements ISubject {
 
-    private ArrayList<Observador> observadores;
+    List<IObserver> observersList = new ArrayList<>();
+    private int myValue;
 
-
-    Observable() {
-        observadores = new ArrayList<>();
+    public int getMyValue() {
+        return myValue;
     }
 
-
-    void agregarObservador(Observador observador) {
-        observadores.add(observador);
+    public void setMyValue(int myValue) {
+        this.myValue = myValue;
+        //Notify observers
+        notifyObservers(myValue);
     }
 
-
-    void eliminarObservador(Observador observador) {
-        observadores.remove(observador);
+    @Override
+    public void register(IObserver o) {
+        observersList.add(o);
     }
 
+    @Override
+    public void unregister(IObserver o) {
+        observersList.remove(o);
+    }
 
-    void notificarObservadores() {
-        for (Observador observador : observadores) {
-            observador.update();
+    @Override
+    public void notifyObservers(int updatedValue) {
+        for (IObserver iObserver : observersList) {
+            iObserver.update(this.getClass().getSimpleName(),
+                    updatedValue);
         }
     }
 

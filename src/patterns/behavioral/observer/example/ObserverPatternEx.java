@@ -18,32 +18,28 @@
 
 package patterns.behavioral.observer.example;
 
-import java.util.ArrayList;
+import patterns.behavioral.observer.example.ConcreteObserver;
+import patterns.behavioral.observer.example.Observable;
 
-class Observable {
+public class ObserverPatternEx {
 
-    private ArrayList<Observador> observadores;
+    public static void main(String[] args) {
 
+        Observable observable = new Observable();
 
-    Observable() {
-        observadores = new ArrayList<>();
+        ConcreteObserver concreteObserver = new ConcreteObserver("UA4844");
+        ConcreteObserver concreteObserver2 = new ConcreteObserver("CG9840");
+        ConcreteObserver concreteObserver3 = new ConcreteObserver("YR3089");
+
+        observable.agregarObservador(concreteObserver);
+        observable.agregarObservador(concreteObserver2);
+        observable.agregarObservador(concreteObserver3);
+
+        observable.notificarObservadores();
+
+        observable.eliminarObservador(concreteObserver);
+
+        observable.notificarObservadores();
+
     }
-
-
-    void agregarObservador(Observador observador) {
-        observadores.add(observador);
-    }
-
-
-    void eliminarObservador(Observador observador) {
-        observadores.remove(observador);
-    }
-
-
-    void notificarObservadores() {
-        for (Observador observador : observadores) {
-            observador.update();
-        }
-    }
-
 }

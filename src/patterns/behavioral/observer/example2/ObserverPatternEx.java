@@ -16,34 +16,26 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.observer.example;
+package patterns.behavioral.observer.example2;
 
-import java.util.ArrayList;
+class ObserverPatternEx {
 
-class Observable {
+    public static void main(String[] args) {
+        Observer o1 = new Observer();
+        Subject sub1 = new Subject();
+        sub1.register(o1);
 
-    private ArrayList<Observador> observadores;
+        System.out.println("Setting Flag = 5 ");
+        sub1.setFlag(5);
 
+        System.out.println("Setting Flag = 25 ");
+        sub1.setFlag(25);
 
-    Observable() {
-        observadores = new ArrayList<>();
-    }
+        sub1.unregister(o1);
+        //No notification this time to o1 .Since it is unregistered.
 
-
-    void agregarObservador(Observador observador) {
-        observadores.add(observador);
-    }
-
-
-    void eliminarObservador(Observador observador) {
-        observadores.remove(observador);
-    }
-
-
-    void notificarObservadores() {
-        for (Observador observador : observadores) {
-            observador.update();
-        }
+        System.out.println("Setting Flag = 50 ");
+        sub1.setFlag(50);
     }
 
 }

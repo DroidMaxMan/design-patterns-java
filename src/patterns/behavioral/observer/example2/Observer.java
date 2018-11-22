@@ -16,34 +16,12 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.observer.example;
+package patterns.behavioral.observer.example2;
 
-import java.util.ArrayList;
+class Observer {
 
-class Observable {
-
-    private ArrayList<Observador> observadores;
-
-
-    Observable() {
-        observadores = new ArrayList<>();
-    }
-
-
-    void agregarObservador(Observador observador) {
-        observadores.add(observador);
-    }
-
-
-    void eliminarObservador(Observador observador) {
-        observadores.remove(observador);
-    }
-
-
-    void notificarObservadores() {
-        for (Observador observador : observadores) {
-            observador.update();
-        }
+    void update() {
+        System.out.println("flag value changed in Subject");
     }
 
 }
