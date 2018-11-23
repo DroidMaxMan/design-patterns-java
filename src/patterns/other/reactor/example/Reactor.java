@@ -16,11 +16,7 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.reactor;
-
-import patterns.behavioral.reactor.example.ConcreteEventHandler;
-import patterns.behavioral.reactor.example.Event;
-import patterns.behavioral.reactor.example.EventHandler;
+package patterns.other.reactor.example;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,4 +48,5 @@ public class Reactor {
             }
         }
     }
+
 }

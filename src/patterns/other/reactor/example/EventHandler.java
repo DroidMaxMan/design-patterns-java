@@ -16,13 +16,10 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.reactor.example;
+package patterns.other.reactor.example;
 
-public class ConcreteEventHandler implements EventHandler {
+interface EventHandler {
 
-    @Override
-    public void handle(Event event) {
-        event.getInfo();
-    }
+    void handle(Event event);
 
 }

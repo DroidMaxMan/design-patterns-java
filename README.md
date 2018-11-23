@@ -127,7 +127,7 @@ public class Invoker {
 
 * Una función de devolución de llamada se puede diseñar con este patrón.
 
-#### Reference
+#### Referencia
 
 <https://es.wikipedia.org/wiki/Command_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
@@ -146,8 +146,6 @@ El problema de introducir este objeto iterador reside en que los clientes necesi
 Diferentes iteradores pueden presentar diferentes tipos de recorrido sobre la estructura. No sólo eso, sino que podrían incorporar funcionalidad extra como por ejemplo filtrado de elementos, etc..
 
 ![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/iterador.png)
-
-#### Problema
 
 El uso del patrón *__Iterator__* es muy común ya que manejar colecciones de datos es algo muy habitual en el desarrollo de aplicaciones. Listas, pilas y, sobre todo, árboles son ejemplos de estructuras de datos muy presentes en los juegos y se utilizan de forma intensiva.
 
@@ -207,7 +205,7 @@ public class Client {
 }
 ```
 
-#### Reference
+#### Referencia
 
 <https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
@@ -279,7 +277,7 @@ class Observer {
 }
 ```
 
-#### Reference
+#### Referencia
 
 <https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
@@ -321,7 +319,55 @@ Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _F
 
 ## Otros patrones
 
-* [Reactor](https://es.wikipedia.org/wiki/Reactor_%28patr%C3%B3n_de_dise%C3%B1o%29) - Es un patrón de programación concurrente para manejar los pedidos de servicio entregados de forma concurrente a un manejador de servicio desde una o más entradas. El manejador de servicio demultiplexa los pedidos entrantes y los entrega de forma sincrónica a los manejadores de pedidos asociados.
+### - *__Reactor__* -
+
+El patrón *__Reactor__* es un patrón de programación concurrente para manejar los pedidos de servicio entregados de forma concurrente a un manejador de servicio desde una o más entradas. El manejador de servicio demultiplexa los pedidos entrantes y los entrega de forma sincrónica a los manejadores de pedidos asociados.
+
+#### Concepto
+
+El **patrón Reactor** es un patrón arquitectural para resolver el problema de cómo atender peticiones concurrentes a través de señales y manejadores de señales.
+
+Existen aplicaciones, como los servidores web, cuyo comportamiento es *reactivo*, es decir, a partir de la ocurrencia de un evento externo se realizan todas las operaciones necesarias para atender a ese evento externo. En el caso del servidor web, una conexión entrante **(evento)** dispararía la ejecución del código pertinente que crearía un hilo de ejecución para atender a dicha conexión. Pero también pueden tener comportamiento *proactivo*. Por ejemplo, una señal interna puede indicar cuándo destruir una conexión con un cliente que lleva demasiado tiempo sin estar accesible.
+
+En los videojuegos ocurre algo muy similar: diferentes entidades pueden lanzar eventos que deben ser tratados en el momento en el que se producen. Por ejemplo, la pulsación de un botón en el joystick de un jugador es un evento que debe ejecutar el código pertinente para que la acción tenga efecto en el juego.
+
+#### Implementación
+
+El patrón *__Reactor__* se compone de **eventos**, **manejadores de eventos**, **recursos** y el **reactor**:
+
+* **Eventos** - los eventos externos que pueden ocurrir sobre los recursos **(Handles)**. Normalmente su ocurrencia es asíncrona y siempre está relacionada a un recurso determinado.
+
+* **Recursos (Handles)** - se refiere a los objetos sobre los que ocurren los eventos.
+
+* **Manejadores de Eventos** - Asociados a los recursos y a los eventos que se producen en ellos, se encuentran los manejadores de eventos **(EventHandler)** que reciben una invocación a través del método **handle()** con la información del evento que se ha producido.
+
+* **Reactor** - se trata de la clase que encapsula todo el comportamiento relativo a la desmultiplexación de los eventos en manejadores de eventos **(dispatching)**. Cuando ocurre cierto evento, se busca los manejadores asociados y se les invoca el método **handle()**.
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/other/reactor/example/diagram.png)
+
+#### Comportamiento
+
+1. Los manejadores se registran usando el método *regHandler()* del **Reactor**. De esta forma, el Reactor puede configurarse para esperar los eventos del recurso que el manejador espera. El manejador puede dejar de recibir notificaciones con *unregHandler()*
+
+1. A continuación, el Reactor entra en el bucle infinito *(loop())*, en el que se espera la ocurrencia de eventos.
+
+1. Utilizando alguna llamada al sistema, como puede ser *select()*, el Reactor espera a que se produzca algún evento sobre los recursos monitorizados.
+
+1. Cuando ocurre, busca los manejadores asociados a ese recurso y les invoca el método *handle()* con el evento que ha ocurrido como parámetro.
+
+1. El manejador recibe la invocación y ejecuta todo el código asociado al evento.
+
+#### Consideraciones
+
+Aunque los eventos puede ocurrir de forma concurrente, el **reactor** serializa las llamadas a los manejadores. Por lo tanto, la ejecución de los manejadores de eventos ocurre de forma **secuencial**
+
+Para evitar que el sistema quede inoperable, los manejadores de eventos no pueden consumir mucho tiempo. En general, cuanto mayor sea la frecuencia en que ocurren los eventos, menos tiempo deben consumir los manejadores.
+
+Desde un punto de vista general, el patrón *__Reactor__* tiene un comportamiento muy parecido al patrón *__Observer__*. Sin embargo, el patrón *__Reactor__* está pensado para las relaciones **1 a 1** mientras que en el caso del patrón *__Observer__* se producen relaciones **1 a n**.
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/Reactor_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
 ### *__MVC__*
 
@@ -341,7 +387,7 @@ Este patrón de arquitectura de software se basa en las ideas de reutilización 
 
 * **Modelo** - el modelo de la aplicación recibe las acciones a realizar por el usuario, pero ya independientes del tipo de interfaz utilizado porque se utilizan, únicamente, estructuras propias del dominio del modelo y llamadas desde el controlador.
 
-![Diagram](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/mvc.png)
+![MVC](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/mvc.png)
 
 Normalmente, la mayoría de las acciones que realiza el controlador sobre el modelo son operaciones de consulta de su estado para que pueda ser convenientemente representado por la vista.
 
@@ -351,7 +397,7 @@ El patrón *__MVC__* se utiliza en un gran número de entornos de ventanas y sob
 
 Sin embargo, es la estructura más utilizada en los videojuegos: la interfaz gráfica utilizando gráficos 2D/3D (vista), bucle de eventos (controlador) y las estructuras de datos internas (modelo).
 
-#### Reference
+#### Referencia
 
 <https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador>
 
