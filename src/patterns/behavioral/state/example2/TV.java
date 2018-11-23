@@ -16,38 +16,26 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.state.example;
+package patterns.behavioral.state.example2;
 
-class Character {
+class TV {
 
-    private CharacterState currentState;
+    private RemoteControl state;
 
-    Character() {
-        currentState = new CharacterStanding(this);
+    TV(RemoteControl state) {
+        this.state = state;
     }
 
-    CharacterState getState() {
-        return currentState;
+    RemoteControl getState() {
+        return state;
     }
 
-    void setState(CharacterState currentState) {
-        this.currentState = currentState;
+    void setState(RemoteControl state) {
+        this.state = state;
     }
 
-    public void walk() {
-        currentState.walk();
-    }
-
-    void getUp() {
-        currentState.getUp();
-    }
-
-    void getDown() {
-        currentState.getDown();
-    }
-
-    void jump() {
-        currentState.jump();
+    void pressButton() {
+        state.pressSwitch(this);
     }
 
 }

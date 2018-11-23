@@ -16,38 +16,14 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.state.example;
+package patterns.behavioral.state.example2;
 
-class Character {
+class Off extends RemoteControl {
 
-    private CharacterState currentState;
-
-    Character() {
-        currentState = new CharacterStanding(this);
-    }
-
-    CharacterState getState() {
-        return currentState;
-    }
-
-    void setState(CharacterState currentState) {
-        this.currentState = currentState;
-    }
-
-    public void walk() {
-        currentState.walk();
-    }
-
-    void getUp() {
-        currentState.getUp();
-    }
-
-    void getDown() {
-        currentState.getDown();
-    }
-
-    void jump() {
-        currentState.jump();
+    @Override
+    void pressSwitch(TV context) {
+        System.out.println("I am Off. Going to be On now");
+        context.setState(new On());
     }
 
 }

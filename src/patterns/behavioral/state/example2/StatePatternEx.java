@@ -16,38 +16,18 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.state.example;
+package patterns.behavioral.state.example2;
 
-class Character {
+class StatePatternEx {
 
-    private CharacterState currentState;
-
-    Character() {
-        currentState = new CharacterStanding(this);
-    }
-
-    CharacterState getState() {
-        return currentState;
-    }
-
-    void setState(CharacterState currentState) {
-        this.currentState = currentState;
-    }
-
-    public void walk() {
-        currentState.walk();
-    }
-
-    void getUp() {
-        currentState.getUp();
-    }
-
-    void getDown() {
-        currentState.getDown();
-    }
-
-    void jump() {
-        currentState.jump();
+    public static void main(String[] args) {
+        //Initially TV is Off
+        Off initialState = new Off();
+        TV tv = new TV(initialState);
+        //First time press
+        tv.pressButton();
+        //Second time press
+        tv.pressButton();
     }
 
 }

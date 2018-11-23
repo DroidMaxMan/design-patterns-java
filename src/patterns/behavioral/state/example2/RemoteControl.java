@@ -16,26 +16,10 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.state;
+package patterns.behavioral.state.example2;
 
-import patterns.behavioral.state.example.Character;
+abstract class RemoteControl {
 
-public class State {
-
-    public static void main(String[] args) {
-
-        Character character = new Character();
-        System.out.println(character.getState().toString());
-
-        character.walk();
-        System.out.println(character.getState().toString());
-
-        character.jump();
-        System.out.println(character.getState().toString());
-
-        character.getUp();
-        System.out.println(character.getState().toString());
-
-    }
+    abstract void pressSwitch(TV context);
 
 }

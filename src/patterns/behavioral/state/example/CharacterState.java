@@ -18,7 +18,7 @@
 
 package patterns.behavioral.state.example;
 
-public interface CharacterState {
+interface CharacterState {
 
     void walk();
 

@@ -18,25 +18,19 @@
 
 package patterns.behavioral.state.example;
 
-public class CharacterJump implements CharacterState {
+class CharacterJump implements CharacterState {
 
     private Character character;
 
-
-    public CharacterJump(Character character) {
+    CharacterJump(Character character) {
         this.character = character;
     }
-
 
     @Override
     public void walk() {
         throw new UnsupportedOperationException();
     }
 
-
-    /**
-     * Si el personaje está saltando, puede pasar a estado quieto
-     */
     @Override
     public void getUp() {
         System.out.println("Transición: Saltando -> Quieto");
@@ -44,21 +38,19 @@ public class CharacterJump implements CharacterState {
         character.setState(new CharacterStanding(character));
     }
 
-
     @Override
     public void getDown() {
         throw new UnsupportedOperationException();
     }
-
 
     @Override
     public void jump() {
         throw new UnsupportedOperationException();
     }
 
-
     @Override
     public String toString() {
         return CharacterJump.class.getSimpleName();
     }
+
 }

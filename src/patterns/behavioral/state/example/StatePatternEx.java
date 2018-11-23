@@ -18,36 +18,21 @@
 
 package patterns.behavioral.state.example;
 
-class Character {
+public class StatePatternEx {
 
-    private CharacterState currentState;
+    public static void main(String[] args) {
 
-    Character() {
-        currentState = new CharacterStanding(this);
-    }
+        Character character = new Character();
+        System.out.println(character.getState().toString());
 
-    CharacterState getState() {
-        return currentState;
-    }
+        character.walk();
+        System.out.println(character.getState().toString());
 
-    void setState(CharacterState currentState) {
-        this.currentState = currentState;
-    }
+        character.jump();
+        System.out.println(character.getState().toString());
 
-    public void walk() {
-        currentState.walk();
-    }
-
-    void getUp() {
-        currentState.getUp();
-    }
-
-    void getDown() {
-        currentState.getDown();
-    }
-
-    void jump() {
-        currentState.jump();
+        character.getUp();
+        System.out.println(character.getState().toString());
     }
 
 }

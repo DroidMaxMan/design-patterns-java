@@ -26,11 +26,9 @@ public class Reactor {
 
     private static List<EventHandler> registeredHandlers = new ArrayList<>();
 
-
     private static void registerHandler(EventHandler eventHandler) {
         registeredHandlers.add(eventHandler);
     }
-
 
     public static void main(String[] args) {
         // Handler registration

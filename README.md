@@ -31,8 +31,6 @@ Los patrones de comportamiento son _Chain of Responsibility_, _Command_, _Interp
 
 * [Memento](https://es.wikipedia.org/wiki/Memento_(patr%C3%B3n_de_dise%C3%B1o)) - Es un patrón de diseño cuya finalidad es almacenar el estado de un objeto (o del sistema completo) en un momento dado de manera que se pueda restaurar en ese punto de manera sencilla. Para ello se mantiene almacenado el estado del objeto para un instante de tiempo en una clase independiente de aquella a la que pertenece el objeto (pero sin romper la encapsulación), de forma que ese recuerdo permita que el objeto sea modificado y pueda volver a su estado anterior.
 
-* [State](https://es.wikipedia.org/wiki/State_%28patr%C3%B3n_de_dise%C3%B1o%29) - Permite que un objeto modifique su comportamiento cada vez que cambie su estado interno.
-
 * [Strategy](https://es.wikipedia.org/wiki/Strategy_%28patr%C3%B3n_de_dise%C3%B1o%29) - Se utiliza para encapsular el funcionamiento de una familia de algoritmos, de forma que se pueda intercambiar su uso sin necesidad de modificar los clientes.
 
 * [Template Method](https://es.wikipedia.org/wiki/Template_Method_%28patr%C3%B3n_de_dise%C3%B1o%29) - Se puede utilizar cuando es necesario redefinir algunos pasos de un determinado algoritmo utilizando herencia.
@@ -57,7 +55,7 @@ Un objeto de **comando** es capaz de llamar a un método particular en el recept
 
 ![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/command.png)
 
-El uso del patrón *__Command__* puede ser productivo en aquellas situaciones y escenarios en las que la relación directa entre el emisor de una orden y el receptor de la misma es insuficiente:
+El uso del patrón *__'Command'__* puede ser productivo en aquellas situaciones y escenarios en las que la relación directa entre el emisor de una orden y el receptor de la misma es insuficiente:
 
 * La invocación directa afecta sólo a emisor y receptor por lo que resulta complicado ampliar dicha relación a otros actores, como por ejemplo barras de progreso, ayuda contextual, etc...
 
@@ -137,9 +135,9 @@ public class Invoker {
 
 #### Concepto
 
-El patrón *__Iterator__* se utiliza para ofrecer una interfaz de acceso secuencial a una determinada estructura ocultando la representación interna y la forma en que realmente se accede, o lo que es lo mismo, permite realizar recorridos sobre objetos compuestos independientemente de la implementación de éstos.
+El patrón *__'Iterator'__* se utiliza para ofrecer una interfaz de acceso secuencial a una determinada estructura ocultando la representación interna y la forma en que realmente se accede, o lo que es lo mismo, permite realizar recorridos sobre objetos compuestos independientemente de la implementación de éstos.
 
-La solución que propone el patrón *__Iterator__* es añadir métodos que permitan recorrer la estructura sin referenciar explícitamente su representación, es decir, sin exponer su representación interna. La responsabilidad del recorrido se traslada a un objeto iterador.
+La solución que propone el patrón *__'Iterator'__* es añadir métodos que permitan recorrer la estructura sin referenciar explícitamente su representación, es decir, sin exponer su representación interna. La responsabilidad del recorrido se traslada a un objeto iterador.
 
 El problema de introducir este objeto iterador reside en que los clientes necesitan conocer la estructura para crear el iterador apropiado. Esto se soluciona generalizando los distintos iteradores en una abstracción y dotando a las estructuras de datos de un método de fabricación que cree un iterador concreto.
 
@@ -147,7 +145,7 @@ Diferentes iteradores pueden presentar diferentes tipos de recorrido sobre la es
 
 ![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/iterador.png)
 
-El uso del patrón *__Iterator__* es muy común ya que manejar colecciones de datos es algo muy habitual en el desarrollo de aplicaciones. Listas, pilas y, sobre todo, árboles son ejemplos de estructuras de datos muy presentes en los juegos y se utilizan de forma intensiva.
+El uso del patrón *__'Iterator'__* es muy común ya que manejar colecciones de datos es algo muy habitual en el desarrollo de aplicaciones. Listas, pilas y, sobre todo, árboles son ejemplos de estructuras de datos muy presentes en los juegos y se utilizan de forma intensiva.
 
 Una operación muy habitual es recorrer las estructuras para analizar y/o buscar los datos que contienen. Es posible que sea necesario recorrer la estructura de forma secuencial, de dos en dos o, simplemente, de forma aleatoria. Los clientes suelen implementar el método concreto con el que desean recorrer la estructura por lo que puede ser un problema si, por ejemplo, se desea recorrer una misma estructura de datos de varias formas distintas. Conforme aumenta las combinaciones entre los tipos de estructuras y métodos de acceso, el problema se agrava.
 
@@ -215,9 +213,9 @@ public class Client {
 
 #### Concepto
 
-El patrón *__Observer__* se utiliza para definir relaciones 1 a *n* de forma que un objeto pueda notificar y/o actualizar el estado de otros automáticamente.
+El patrón *__'Observer'__* se utiliza para definir relaciones 1 a *n* de forma que un objeto pueda notificar y/o actualizar el estado de otros automáticamente.
 
-El patrón *__Observer__* proporciona un diseño con **poco acomplamiento** entre los *observadores* y el objeto *observado*.
+El patrón *__'Observer'__* proporciona un diseño con **poco acomplamiento** entre los *observadores* y el objeto *observado*.
 
 Siguiendo la filosofía de *publicación/suscripción*, los objetos observadores se deben registrar en el objeto observado llamado **sujeto** pasándole una referencia de si mismo. El sujeto mantiene una lista de de las referencias de los observadores. Cuando un observador ya no necesita ser notificado simplemente se borra de la lista de observadores.
 
@@ -281,6 +279,151 @@ class Observer {
 
 <https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
+### - *__State__* -
+
+**GoF**: Permitir que un objeto altere su comportamiento cuando cambia su estado interno. El objeto aparecerá para cambiar su clase.
+
+#### Concepto
+
+El patrón *__'State'__* permite que un objeto modifique su comportamiento cada vez que cambie su estado interno.
+
+Es muy común que en cualquier aplicación, incluído los videojuegos, existan estructuras que pueden ser modeladas directamente como un autómata, es decir, una colección de estados y unas transiciones dependientes de una entrada. En este caso, la entrada pueden ser invocaciones y/o eventos recibidos.
+
+Por ejemplo, los estados de un personaje de un videojuego podrían ser: de pie, tumbado, andando y saltando. Dependiendo del estado en el que se encuentre y de la invocación recibida, el siguiente estado será uno u otro. Si por ejemplo, está de pie y recibe la orden de tumbarse, ésta se podrá realizar. Sin embargo, si ya está tumbado no tiene sentido volver a tumbarse, por lo que debe permanecer en ese estado.
+
+El patrón *__'State'__* permite encapsular el mecanismo de las transiciones que sufre un objeto a partir de los estímulos externos.
+
+#### Implementación
+
+A continuación se muestra un ejemplo de aplicación del mismo. La idea es crear una clase abstracta o interfaz que representa al estado del personaje (CharacterState). En ella se definen las mismas operaciones que puede recibir el personaje con una implementación por defecto. En este caso, la implementación es vacía.
+
+Por cada estado en el que puede encontrarse el personaje, se crea una clase que hereda de la clase abstracta anterior, de forma que en cada una de ellas se implementen los métodos que producen cambio de estado, es decir, contendrán un método por cada posible transición.
+
+Por ejemplo, según el diagrama, en el estado "de pie" se puede recibir la orden de caminar, tumbarse y saltar, pero no de levantarse. En caso de recibir esta última, se ejecutará la implementación por defecto, es decir, no hacer nada.
+
+En definitiva, la idea es que las clases que representan a los estados sean las encargadas de cambiar el estado del personaje, de forma que los cambios de estados quedan encapsulados y delegados al estado correspondiente.
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/state.png)
+
+```java
+interface CharacterState {
+    void walk();
+    void getUp();
+    void getDown();
+    void jump();
+}
+
+class CharacterStanding implements CharacterState {
+    private Character character;
+
+    CharacterStanding(Character character) {
+        this.character = character;
+    }
+
+    @Override
+    public void walk() {
+        System.out.println("Transición: De pie -> Andar");
+        character.setState(new CharacterWalk(character));
+    }
+
+    @Override
+    public void getUp() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void getDown() {
+        System.out.println("Transición: De pie -> Agachado");
+        character.setState(new CharacterLying(character));
+    }
+
+    @Override
+    public void jump() {
+        System.out.println("Transición: De pie -> Saltando");
+        character.setState(new CharacterJump(character));
+    }
+}
+
+class CharacterJump implements CharacterState {
+    private Character character;
+
+    CharacterJump(Character character) {
+        this.character = character;
+    }
+
+    @Override
+    public void walk() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void getUp() {
+        System.out.println("Transición: Saltando -> Quieto");
+
+        character.setState(new CharacterStanding(character));
+    }
+
+    @Override
+    public void getDown() {
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public void jump() {
+        throw new UnsupportedOperationException();
+    }
+}
+
+class Character {
+    private CharacterState currentState;
+
+    Character() {
+        currentState = new CharacterStanding(this);
+    }
+
+    CharacterState getState() {
+        return currentState;
+    }
+
+    void setState(CharacterState currentState) {
+        this.currentState = currentState;
+    }
+
+    public void walk() {
+        currentState.walk();
+    }
+
+    void getUp() {
+        currentState.getUp();
+    }
+
+    void getDown() {
+        currentState.getDown();
+    }
+
+    void jump() {
+        currentState.jump();
+    }
+}
+```
+
+#### Consideraciones
+
+Este patrón puede usarse cuando un determinado objeto tiene diferentes estados y también diferentes responsabilidades según el estado en que se encuentre en determinado instante. También puede utilizarse para simplificar casos en los que se tiene un complicado y extenso código de decisión que depende del estado del objeto.
+
+Los componentes de diseño que se comporten como autómatas son buenos candidatos a ser modelos con el patrón *__'State'__*.
+
+Es posible que una entrada provoque una situación de error estando en un determinado estado. Para ello es posible utilizar las excepciones para notificar dicho error.
+
+Las clases que representan los estados **no deben mantener un estado intrínseco**, es decir, no se debe hacer uso de variables que dependan de un contexto.
+
+Un sistema con muchos estados o si el número se incrementa significativamente se convierte en un sistema difícil de mantener.
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/State_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://danielggarcia.wordpress.com/2014/05/20/patrones-de-comportamiento-v-patron-state/>
+
 ## Creational Patterns
 
 Los patrones creacionales corresponden a patrones de diseño de software que solucionan problemas de creación de instancias. Nos ayudan a encapsular y abstraer dicha creación.
@@ -321,7 +464,7 @@ Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _F
 
 ### - *__Reactor__* -
 
-El patrón *__Reactor__* es un patrón de programación concurrente para manejar los pedidos de servicio entregados de forma concurrente a un manejador de servicio desde una o más entradas. El manejador de servicio demultiplexa los pedidos entrantes y los entrega de forma sincrónica a los manejadores de pedidos asociados.
+El patrón *__'Reactor'__* es un patrón de programación concurrente para manejar los pedidos de servicio entregados de forma concurrente a un manejador de servicio desde una o más entradas. El manejador de servicio demultiplexa los pedidos entrantes y los entrega de forma sincrónica a los manejadores de pedidos asociados.
 
 #### Concepto
 
@@ -331,9 +474,7 @@ Existen aplicaciones, como los servidores web, cuyo comportamiento es *reactivo*
 
 En los videojuegos ocurre algo muy similar: diferentes entidades pueden lanzar eventos que deben ser tratados en el momento en el que se producen. Por ejemplo, la pulsación de un botón en el joystick de un jugador es un evento que debe ejecutar el código pertinente para que la acción tenga efecto en el juego.
 
-#### Implementación
-
-El patrón *__Reactor__* se compone de **eventos**, **manejadores de eventos**, **recursos** y el **reactor**:
+El patrón *__'Reactor'__* se compone de **eventos**, **manejadores de eventos**, **recursos** y el **reactor**:
 
 * **Eventos** - los eventos externos que pueden ocurrir sobre los recursos **(Handles)**. Normalmente su ocurrencia es asíncrona y siempre está relacionada a un recurso determinado.
 
@@ -343,17 +484,64 @@ El patrón *__Reactor__* se compone de **eventos**, **manejadores de eventos**, 
 
 * **Reactor** - se trata de la clase que encapsula todo el comportamiento relativo a la desmultiplexación de los eventos en manejadores de eventos **(dispatching)**. Cuando ocurre cierto evento, se busca los manejadores asociados y se les invoca el método **handle()**.
 
+![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/others/reactor.png)
+
+#### Implementación
+
+```java
+interface EventHandler {
+    void handle(Event event);
+}
+
+class ConcreteEventHandler implements EventHandler {
+    @Override
+    public void handle(Event event) {
+        event.getInfo();
+    }
+}
+
+class Event {
+    void getInfo() {
+        System.out.println("Event occurs");
+    }
+}
+
+public class Reactor {
+    private static List<EventHandler> registeredHandlers = new ArrayList<>();
+
+    private static void registerHandler(EventHandler eventHandler) {
+        registeredHandlers.add(eventHandler);
+    }
+
+    public static void main(String[] args) {
+        // Handler registration
+        EventHandler eventHandler = new ConcreteEventHandler();
+        registerHandler(eventHandler);
+        while (true) {
+            // Simulate event
+            if (new Random().nextInt(10000000) == 50) {
+                Event event = new Event();
+
+                for (EventHandler handler : registeredHandlers) {
+                    handler.handle(event);
+                }
+            }
+        }
+    }
+}
+```
+
 ![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/other/reactor/example/diagram.png)
 
 #### Comportamiento
 
-1. Los manejadores se registran usando el método *regHandler()* del **Reactor**. De esta forma, el Reactor puede configurarse para esperar los eventos del recurso que el manejador espera. El manejador puede dejar de recibir notificaciones con *unregHandler()*
+1. Los manejadores se registran usando el método *'regHandler()'* del **reactor**. De esta forma, el Reactor puede configurarse para esperar los eventos del recurso que el manejador espera. El manejador puede dejar de recibir notificaciones con *'unregHandler()'*
 
-1. A continuación, el Reactor entra en el bucle infinito *(loop())*, en el que se espera la ocurrencia de eventos.
+1. A continuación, el **reactor** entra en el bucle infinito *'loop()'*, en el que se espera la ocurrencia de eventos.
 
-1. Utilizando alguna llamada al sistema, como puede ser *select()*, el Reactor espera a que se produzca algún evento sobre los recursos monitorizados.
+1. Utilizando alguna llamada al sistema, como puede ser *'select()'*, el **reactor** espera a que se produzca algún evento sobre los recursos monitorizados.
 
-1. Cuando ocurre, busca los manejadores asociados a ese recurso y les invoca el método *handle()* con el evento que ha ocurrido como parámetro.
+1. Cuando ocurre, busca los manejadores asociados a ese recurso y les invoca el método *'handle()'* con el evento que ha ocurrido como parámetro.
 
 1. El manejador recibe la invocación y ejecuta todo el código asociado al evento.
 
@@ -363,7 +551,7 @@ Aunque los eventos puede ocurrir de forma concurrente, el **reactor** serializa 
 
 Para evitar que el sistema quede inoperable, los manejadores de eventos no pueden consumir mucho tiempo. En general, cuanto mayor sea la frecuencia en que ocurren los eventos, menos tiempo deben consumir los manejadores.
 
-Desde un punto de vista general, el patrón *__Reactor__* tiene un comportamiento muy parecido al patrón *__Observer__*. Sin embargo, el patrón *__Reactor__* está pensado para las relaciones **1 a 1** mientras que en el caso del patrón *__Observer__* se producen relaciones **1 a n**.
+Desde un punto de vista general, el patrón *__'Reactor'__* tiene un comportamiento muy parecido al patrón *__'Observer'__*. Sin embargo, el patrón *__'Reactor'__* está pensado para las relaciones **1 a 1** mientras que en el caso del patrón *__'Observer'__* se producen relaciones **1 a n**.
 
 #### Referencia
 
@@ -373,9 +561,9 @@ Desde un punto de vista general, el patrón *__Reactor__* tiene un comportamient
 
 #### Concepto
 
-El patrón *__MVC__* separa los datos y la lógica de negocio de una aplicación de la interfaz de usuario y el módulo encargado de gestionar los eventos y las comunicaciones.
+El patrón *__'MVC'__* separa los datos y la lógica de negocio de una aplicación de la interfaz de usuario y el módulo encargado de gestionar los eventos y las comunicaciones.
 
-Para ello el patrón *__MVC__* propone la construcción de tres componentes distintos que son el modelo, la vista y el controlador, es decir, por un lado define componentes para la representación de la información, y por otro lado para la interacción del usuario.
+Para ello el patrón *__'MVC'__* propone la construcción de tres componentes distintos que son el modelo, la vista y el controlador, es decir, por un lado define componentes para la representación de la información, y por otro lado para la interacción del usuario.
 
 Este patrón de arquitectura de software se basa en las ideas de reutilización de código y la separación de conceptos, características que buscan facilitar la tarea de desarrollo de aplicaciones y su posterior mantenimiento.
 
@@ -387,13 +575,13 @@ Este patrón de arquitectura de software se basa en las ideas de reutilización 
 
 * **Modelo** - el modelo de la aplicación recibe las acciones a realizar por el usuario, pero ya independientes del tipo de interfaz utilizado porque se utilizan, únicamente, estructuras propias del dominio del modelo y llamadas desde el controlador.
 
-![MVC](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/mvc.png)
+![MVC](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/others/mvc.png)
 
 Normalmente, la mayoría de las acciones que realiza el controlador sobre el modelo son operaciones de consulta de su estado para que pueda ser convenientemente representado por la vista.
 
-El patrón *__MVC__* no es un patrón con una separación rígida. Es posible encontrar implementaciones en las que, por ejemplo, el modelo notifique directamente a las interfaces de forma asíncrona eventos producidos en sus estructuras y que deber ser representados en la vista (siempre y cuando exista una aceptable independencia entre capas). Para ello es de gran utilidad el patrón *__'Observer'__*.
+El patrón *__'MVC'__* no es un patrón con una separación rígida. Es posible encontrar implementaciones en las que, por ejemplo, el modelo notifique directamente a las interfaces de forma asíncrona eventos producidos en sus estructuras y que deber ser representados en la vista (siempre y cuando exista una aceptable independencia entre capas). Para ello es de gran utilidad el patrón *__'Observer'__*.
 
-El patrón *__MVC__* se utiliza en un gran número de entornos de ventanas y sobretodo en entornos web.
+El patrón *__'MVC'__* se utiliza en un gran número de entornos de ventanas y sobretodo en entornos web.
 
 Sin embargo, es la estructura más utilizada en los videojuegos: la interfaz gráfica utilizando gráficos 2D/3D (vista), bucle de eventos (controlador) y las estructuras de datos internas (modelo).
 

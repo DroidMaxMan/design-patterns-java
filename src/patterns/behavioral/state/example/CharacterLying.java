@@ -18,25 +18,19 @@
 
 package patterns.behavioral.state.example;
 
-public class CharacterLying implements CharacterState {
+class CharacterLying implements CharacterState {
 
     private Character character;
 
-
-    public CharacterLying(Character character) {
+    CharacterLying(Character character) {
         this.character = character;
     }
-
 
     @Override
     public void walk() {
         throw new UnsupportedOperationException();
     }
 
-
-    /**
-     * Si el personaje está tumbado, puede pasar a estado de pie
-     */
     @Override
     public void getUp() {
         System.out.println("Transición: Tumbado -> De pie");
@@ -44,21 +38,19 @@ public class CharacterLying implements CharacterState {
         character.setState(new CharacterStanding(character));
     }
 
-
     @Override
     public void getDown() {
         throw new UnsupportedOperationException();
     }
-
 
     @Override
     public void jump() {
         throw new UnsupportedOperationException();
     }
 
-
     @Override
     public String toString() {
         return CharacterLying.class.getSimpleName();
     }
+
 }
