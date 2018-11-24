@@ -16,13 +16,9 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.strategy;
+package patterns.behavioral.strategy.example;
 
-import patterns.behavioral.strategy.example.GamePlayer;
-import patterns.behavioral.strategy.example.Movement;
-import patterns.behavioral.strategy.example.RandomMovement;
-
-public class Strategy {
+public class StrategyPatternEx {
 
     public static void main(String[] args) {
 

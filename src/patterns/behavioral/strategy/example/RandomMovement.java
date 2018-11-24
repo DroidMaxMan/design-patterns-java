@@ -18,10 +18,11 @@
 
 package patterns.behavioral.strategy.example;
 
-public class RandomMovement implements Movement {
+class RandomMovement implements Movement {
 
     @Override
     public void move() {
         System.out.println("Random movement");
     }
+
 }

@@ -18,7 +18,7 @@
 
 package patterns.behavioral.strategy.example;
 
-public interface Movement {
+interface Movement {
 
     void move();
 

@@ -16,13 +16,10 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.strategy.example;
+package patterns.behavioral.strategy.example2;
 
-class IAMovement implements Movement {
+public interface IChoice {
 
-    @Override
-    public void move() {
-        System.out.println("IA Movement");
-    }
+    void myChoice(String s1, String s2);
 
 }

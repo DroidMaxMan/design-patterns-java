@@ -18,15 +18,16 @@
 
 package patterns.behavioral.strategy.example;
 
-public class GamePlayer {
+class GamePlayer {
 
     private Movement movement;
 
-    public void setMovement(Movement movement) {
+    void setMovement(Movement movement) {
         this.movement = movement;
     }
 
-    public void doBestMove() {
+    void doBestMove() {
         movement.move();
     }
+
 }

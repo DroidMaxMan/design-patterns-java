@@ -16,13 +16,19 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.strategy.example;
+package patterns.behavioral.strategy.example2;
 
-class IAMovement implements Movement {
+class Context {
 
-    @Override
-    public void move() {
-        System.out.println("IA Movement");
+    IChoice myC;
+
+    // Set a Strategy or algorithm in the Context
+    void SetChoice(IChoice ic) {
+        myC = ic;
+    }
+
+    void ShowChoice(String s1, String s2) {
+        myC.myChoice(s1, s2);
     }
 
 }
