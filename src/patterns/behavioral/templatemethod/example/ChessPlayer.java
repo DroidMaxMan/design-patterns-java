@@ -18,7 +18,7 @@
 
 package patterns.behavioral.templatemethod.example;
 
-public class ChessPlayer extends GamePlayer {
+class ChessPlayer extends GamePlayer {
 
     private int movements = 0;
 

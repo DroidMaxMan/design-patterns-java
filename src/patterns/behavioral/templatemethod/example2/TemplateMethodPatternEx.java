@@ -16,33 +16,18 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.templatemethod.example;
+package patterns.behavioral.templatemethod.example2;
 
-class CheckersPlayer extends GamePlayer {
+class TemplateMethodPatternEx {
 
-    private int movements = 0;
-
-    @Override
-    void doBestMove() {
-        System.out.println("Moviendo ficha - Movimiento " + movements);
-        movements++;
-    }
-
-    @Override
-    boolean moveFirst() {
-        System.out.println("Movemos primero");
-        return true;
-    }
-
-    // Como convención para el ejemplo, la partida acaba al alcanzar 25 movimientos
-    @Override
-    boolean isOver() {
-        if (movements < 25) {
-            return false;
-        } else {
-            System.out.println("Fin de la partida - Alcanzado los " + movements + " como máximo");
-            return true;
-        }
+    public static void main(String[] args) {
+        BasicEngineering bs = new ComputerScience();
+        System.out.println("Computer Sc papers:");
+        bs.papers();
+        System.out.println();
+        bs = new Electronics();
+        System.out.println("Electronics papers:");
+        bs.papers();
     }
 
 }

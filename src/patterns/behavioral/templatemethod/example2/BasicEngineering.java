@@ -16,33 +16,29 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.templatemethod.example;
+package patterns.behavioral.templatemethod.example2;
 
-class CheckersPlayer extends GamePlayer {
+abstract class BasicEngineering {
 
-    private int movements = 0;
-
-    @Override
-    void doBestMove() {
-        System.out.println("Moviendo ficha - Movimiento " + movements);
-        movements++;
+    // papers() in the template method
+    void papers() {
+        //Common papers:
+        math();
+        softSkills();
+        //Specialized Paper:
+        specialPaper();
     }
 
-    @Override
-    boolean moveFirst() {
-        System.out.println("Movemos primero");
-        return true;
+    //Non-Abstract method math(), softSkills() are //already implemented by Template class
+    private void math() {
+        System.out.println("Mathematics");
     }
 
-    // Como convención para el ejemplo, la partida acaba al alcanzar 25 movimientos
-    @Override
-    boolean isOver() {
-        if (movements < 25) {
-            return false;
-        } else {
-            System.out.println("Fin de la partida - Alcanzado los " + movements + " como máximo");
-            return true;
-        }
+    private void softSkills() {
+        System.out.println("softSkills");
     }
+
+    //Abstract method specialPaper() must be implemented in derived classes
+    abstract void specialPaper();
 
 }

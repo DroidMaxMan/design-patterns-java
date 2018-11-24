@@ -16,13 +16,9 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.templatemethod;
+package patterns.behavioral.templatemethod.example;
 
-import patterns.behavioral.templatemethod.example.CheckersPlayer;
-import patterns.behavioral.templatemethod.example.ChessPlayer;
-import patterns.behavioral.templatemethod.example.GamePlayer;
-
-public class TemplateMethod {
+public class TemplateMethodPatternEx {
 
     public static void main(String[] args) {
 

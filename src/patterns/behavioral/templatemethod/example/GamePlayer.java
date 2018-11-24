@@ -18,9 +18,9 @@
 
 package patterns.behavioral.templatemethod.example;
 
-public abstract class GamePlayer {
+abstract class GamePlayer {
 
-    public void play() {
+    void play() {
         if (moveFirst()) {
             doBestMove();
         }
@@ -35,10 +35,10 @@ public abstract class GamePlayer {
         }
     }
 
-
     abstract void doBestMove();
 
     abstract boolean moveFirst();
 
     abstract boolean isOver();
+
 }

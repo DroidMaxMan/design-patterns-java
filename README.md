@@ -31,8 +31,6 @@ Los patrones de comportamiento son _Chain of Responsibility_, _Command_, _Interp
 
 * [Memento](https://es.wikipedia.org/wiki/Memento_(patr%C3%B3n_de_dise%C3%B1o)) - Es un patrón de diseño cuya finalidad es almacenar el estado de un objeto (o del sistema completo) en un momento dado de manera que se pueda restaurar en ese punto de manera sencilla. Para ello se mantiene almacenado el estado del objeto para un instante de tiempo en una clase independiente de aquella a la que pertenece el objeto (pero sin romper la encapsulación), de forma que ese recuerdo permita que el objeto sea modificado y pueda volver a su estado anterior.
 
-* [Template Method](https://es.wikipedia.org/wiki/Template_Method_%28patr%C3%B3n_de_dise%C3%B1o%29) - Se puede utilizar cuando es necesario redefinir algunos pasos de un determinado algoritmo utilizando herencia.
-
 * [Visitor](https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29) - Proporciona un mecanismo para realizar diferentes operaciones sobre una jerarquía de objetos de forma que añadir nuevas operaciones no haga necesario cambiar las clases de los objetos sobre los que se realizan las operaciones.
 
 ### - *__Command__* -
@@ -419,7 +417,7 @@ Un sistema con muchos estados o si el número se incrementa significativamente s
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/State_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/State_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/05/20/patrones-de-comportamiento-v-patron-state/>
 
 ### - *__Strategy__* -
@@ -492,7 +490,7 @@ public class Client {
 }
 ```
 
-#### Consideración
+#### Consideraciones
 
 El patrón *__'Strategy'__* es una buena alternativa a realizar subclases en las entidades que deben comportarse de forma diferente en función del algoritmo utilizado. Al extraer la heurística a una familia de algoritmos externos, obtenemos los siguientes beneficios:
 
@@ -504,8 +502,130 @@ Este patrón es aconsejable, como ya hemos comentado, en situaciones en los que 
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Strategy_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Strategy_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/05/12/patrones-de-comportamiento-iv-patron-strategy/>
+
+### - *__Template Method__* -
+
+**GoF**: Define el esqueleto de un algoritmo en una operación, aplazando algunos pasos a las subclases. El método de la plantilla permite subclases redefinir ciertos pasos de un algoritmo sin cambiar la estructura del algoritmo.
+
+#### Concepto
+
+El patrón *__'Template Method'__* define en una operación el esqueleto de un algoritmo, delegando en las subclases algunos de sus pasos. Esto permite que las subclases redefinan ciertos pasos de un algoritmo sin cambiar su estructura.
+
+En un buen diseño los algoritmos complejos se dividen en funciones más pequeñas, de forma que si se llama a dichas funciones en un determinado orden se consigue implementar el algoritmo completo. Conforme se diseña cada paso concreto, se suele ir detectando funcionalidad común con otros algoritmos.
+
+Por ejemplo, supongamos que tenemos dos tipos de jugadores de juegos de mesa: ajedrez y damas. En esencia, ambos juegan igual; lo que cambia son las reglas del juego que, obviamente, condiciona su estrategia y su forma de jugar concreta. Sin embargo, en ambos juegos, los jugadores mueven en su turno, esperan al rival y esto se repite hasta que acaba la partida.
+
+El patrón *__'Template Method'__* consiste extraer este comportamiento común en una clase padre y definir en las clases hijas la funcionalidad concreta.
+
+Si el patrón *__'Command'__* nos permite encapsular una invocación a un método, el patrón *__'Template Method'__* establece una forma de encapsular algoritmos. Este patrón se basa en un principio muy sencillo: si un algoritmo puede aplicarse a varios supuestos en los que únicamente cambie un pequeño número de operaciones, la idea será utilizar una clase para modelarlo a través de sus operaciones. Esta clase base se encargará de definir los pasos comunes del algoritmo, mientras que las clases que hereden de ella implementarán los detalles propios de cada caso concreto, es decir, el código específico para cada caso.
+
+#### Implementación
+
+* Se declara una clase abstracta, que será la plantilla o modelo. Esta clase definirá una serie de funciones y métodos. Aquellas que sean comunes estarán implementadas. Aquellas que dependan de cada caso concreto, se declararán como abstractas, obligando a las clases hijas a implementarlas.
+
+* Cada clase derivada implementará los métodos específicos, acudiendo a la clase base para ejecutar el código común.
+
+* La clase base también se encargará de la lógica del algoritmo, ejecutando los pasos en un orden preestablecido (las clases hijas no deberían poder modificar el algoritmo, únicamente definir la funcionalidad específica que tienen que implementar).
+
+Dado que la clase padre es la que se encarga de llamar los métodos de las clases derivadas (los pasos del algoritmo estarán implementado en la clase base), se trata de una aplicación manifiesta del principio de **inversión de dependencias**: la clase base no tiene por qué saber nada acerca de sus hijas, pero aún así, se encargará de invocar su funcionalidad cuando sea necesario. El **principio de Hollywood** (“no nos llames, nosotros te llamaremos”) vuelve a entrar en escena.
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/template_method.png)
+
+La clase *GamePlayer* es la que implementa el método *'play()'* que es el que invoca a los otros métodos que son implementados por las clases hijas. Este método es el **método plantilla**.
+
+```java
+abstract class GamePlayer {
+    void play() {
+        if (moveFirst()) {
+            doBestMove();
+        }
+
+        while (!isOver()) {
+            // Movimiento del rival
+            //....
+
+            if (!isOver()) {
+                doBestMove();
+            }
+        }
+    }
+
+    abstract void doBestMove();
+
+    abstract boolean moveFirst();
+
+    abstract boolean isOver();
+}
+
+class ChessPlayer extends GamePlayer {
+    private int movements = 0;
+
+    @Override
+    boolean moveFirst() {
+        System.out.println("El rival mueve primero");
+        return false;
+    }
+
+    @Override
+    void doBestMove() {
+        System.out.println("Moviendo ficha - Movimiento " + movements);
+        movements++;
+    }
+
+    // Como convención para el ejemplo, la partida acaba al alcanzar 50 movimientos
+    @Override
+    boolean isOver() {
+        if (movements < 50) {
+            return false;
+        } else {
+            System.out.println("Fin de la partida - Alcanzado los " + movements + " como máximo");
+            return true;
+        }
+    }
+}
+
+class CheckersPlayer extends GamePlayer {
+    private int movements = 0;
+
+    @Override
+    void doBestMove() {
+        System.out.println("Moviendo ficha - Movimiento " + movements);
+        movements++;
+    }
+
+    @Override
+    boolean moveFirst() {
+        System.out.println("Movemos primero");
+        return true;
+    }
+
+    // Como convención para el ejemplo, la partida acaba al alcanzar 25 movimientos
+    @Override
+    boolean isOver() {
+        if (movements < 25) {
+            return false;
+        } else {
+            System.out.println("Fin de la partida - Alcanzado los " + movements + " como máximo");
+            return true;
+        }
+    }
+}
+```
+
+#### Consideraciones
+
+* Utilizando el patrón *__'Template Method'__* se suelen obtener estructuras altamente reutilizables. Esta reutilización de código es el objetivo primordial de este patrón. Es por ello que es ampliamente utilizado en librerías de clases.
+
+* Introduce el concepto de operaciones *'hook'* que, en caso de no estar implementadas en las clases hijas, tienen una implementación por defecto. Las clases hijas pueden sobreescribirlas para añadir su propia funcionalidad.
+
+* Hay que minimizar el número de métodos abstractos (métodos sin cuerpo). De lo contrario, cada una de las subclases debe sobreescribirlos y el proceso global perderá la efectividad de este patrón de diseño.
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/Template_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://danielggarcia.wordpress.com/2014/05/05/patrones-de-comportamiento-iii-template-method/>
 
 ## Creational Patterns
 
