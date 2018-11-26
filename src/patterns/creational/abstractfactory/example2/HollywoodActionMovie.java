@@ -16,18 +16,13 @@
  * ***********************************************************************
  */
 
-package patterns.creational.abstractfactory.example;
+package patterns.creational.abstractfactory.example2;
 
-class OrcFactory implements SoldierFactory {
-
-    @Override
-    public Archer makeArcher() {
-        return new Archer("Orc Archer", 200);
-    }
+class HollywoodActionMovie implements IHollywoodMovie {
 
     @Override
-    public Rider makeRider() {
-        return new Rider("Orc Rider", 250);
+    public String movieName() {
+        return "Kranti is a Tollywood Action Movie";
     }
 
 }

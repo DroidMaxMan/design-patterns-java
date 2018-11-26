@@ -16,18 +16,10 @@
  * ***********************************************************************
  */
 
-package patterns.creational.abstractfactory.example;
+package patterns.creational.abstractfactory.example2;
 
-class OrcFactory implements SoldierFactory {
+interface IHollywoodMovie {
 
-    @Override
-    public Archer makeArcher() {
-        return new Archer("Orc Archer", 200);
-    }
-
-    @Override
-    public Rider makeRider() {
-        return new Rider("Orc Rider", 250);
-    }
+    String movieName();
 
 }

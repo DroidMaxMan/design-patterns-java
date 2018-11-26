@@ -1,7 +1,7 @@
 /*
  * ************************************************************************
  *  Copyright (c) 2018 @alxgcrz <alxgcrz@outlook.com>
- *
+ *   
  *  Licensed under the Apache License, Version 2.0 (the "License");
  *  you may not use this file except in compliance with the License.
  *  You may obtain a copy of the License at
@@ -16,14 +16,9 @@
  * ***********************************************************************
  */
 
-package patterns.creational.abstractfactory;
+package patterns.creational.abstractfactory.example;
 
-import patterns.creational.abstractfactory.example.ManFactory;
-import patterns.creational.abstractfactory.example.OrcFactory;
-import patterns.creational.abstractfactory.example.Soldier;
-import patterns.creational.abstractfactory.example.SoldierFactory;
-
-public class AbstractFactory {
+public class AbstractFactoryPatternEx {
 
     public static void main(String[] args) {
         SoldierFactory factory = new ManFactory();
@@ -31,16 +26,16 @@ public class AbstractFactory {
         Soldier manArcher = factory.makeArcher();
         Soldier manRider = factory.makeRider();
 
-        System.out.println("Soldier 1: " + manArcher.getName());
-        System.out.println("Soldier 2: " + manRider.getName());
+        System.out.println("Soldier 1: " + manArcher.name);
+        System.out.println("Soldier 2: " + manRider.name);
 
         // Orcs
         factory = new OrcFactory();
         Soldier orcArcher = factory.makeArcher();
         Soldier orcRider = factory.makeRider();
 
-        System.out.println("Soldier 3: " + orcArcher.getName());
-        System.out.println("Soldier 4: " + orcRider.getName());
+        System.out.println("Soldier 3: " + orcArcher.name);
+        System.out.println("Soldier 4: " + orcRider.name);
     }
 
 }

@@ -716,8 +716,6 @@ Los patrones creacionales corresponden a patrones de diseño de software que sol
 
 Los patrones creacionales son _Abstract Factory_, _Builder_, _Factory Method_, _Prototype_ y _Singleton_.
 
-* [Abstract Factory](https://es.wikipedia.org/wiki/Abstract_Factory) - permite trabajar con objetos de distintas familias de manera que las familias no se mezclen entre sí y haciendo transparente el tipo de familia concreta que se esté usando.
-
 * [Builder](https://es.wikipedia.org/wiki/Builder_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es usado para permitir la creación de una variedad de objetos complejos desde un objeto fuente (Producto), el objeto fuente se compone de una variedad de partes que contribuyen individualmente a la creación de cada objeto complejo a través de un conjunto de llamadas a interfaces comunes de la clase Abstract Builder.
 
 * [Factory Method](https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29) - consiste en utilizar una clase constructora (al estilo del Abstract Factory) abstracta con unos cuantos métodos definidos y otro(s) abstracto(s): el dedicado a la construcción de objetos de un subtipo de un tipo determinado.
@@ -725,6 +723,123 @@ Los patrones creacionales son _Abstract Factory_, _Builder_, _Factory Method_, _
 * [Prototype](https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29) -  crea nuevos objetos clonándolos de una instancia ya existente.
 
 * [Singleton](https://es.wikipedia.org/wiki/Singleton) - garantiza la existencia de una única instancia para una clase y la creación de un mecanismo de acceso global a dicha instancia. Restringe la instanciación de una clase o valor de un tipo a un solo objeto.
+
+### - *__Abstract Factory__* -
+
+**GoF**: Proporciona una interfaz para crear familias de objetos relacionados o dependientes sin especificar sus clases concretas.
+
+El patrón *__'Abstract Factory'__* permite crear diferentes tipos o familias de instancias, aislando al cliente sobre cómo se debe crear cada una de ellas.
+
+#### Concepto
+
+El patrón *__'Abstract Factory'__* recomienda crear las siguientes entidades:
+
+* **Factoría abstracta** que defina una interfaz para que los clientes puedan crear los distintos tipos de objetos.
+* **Factorías concretas** que realmente crean las instancias finales y que son hijas de la factoría abstracta.
+
+El patrón *__'Abstract Factory'__* puede ser aplicable cuando:
+
+* el sistema de creación de instancias debe aislarse.
+* es necesaria la creación de varias instancias de objetos para tener el sistema configurado.
+* cuando la creación de instancias implican la imposición de restricciones u otras particularidades propias de los objetos que se construyen.
+* los objetos que deben construirse en las factorías no cambian excesivamente en el tiempo.
+
+Añadir nuevos tipos implica cambiar todas las factorías. Por ello, se recomienda aplicar este patrón sobre diseños con un cierto grado de estabilidad.
+
+Un ejemplo de uso de este patrón podría ser las interfaces gráficas o UI. Las bibliotecas para crear interfaces gráficas suelen utilizar este patrón y cada familia sería un SO distinto. Así pues, el usuario declara un elemento como podría ser un _Button_ pero de forma más interna lo que está creando es un _WindowsButton_ o un _LinuxButton_ según el SO, siendo transparente para el cliente o usuario.
+
+Otro ejemplo podría ser la jerarquía de objetos existentes en cualquier juego.
+
+![Ejemplo](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/creational/abstract_factory_01.png)
+
+En ella, se muestra jerarquías de clases que modelan los diferentes tipos de personajes de un juego y algunas de sus armas. Para construir cada tipo de personaje es necesario saber cómo construirlo y con qué otro tipo de objetos tiene relación. Por ejemplo, restricciones del tipo "la gente del pueblo no puede llevar armas" o "los arqueros sólo pueden puede tener un arco", es conocimiento específico de la clase que se está construyendo.
+
+#### Implementación
+
+En primer lugar se define una factoría abstracta que será la que utilice el cliente *(Game)* para crear los diferentes objetos. _'CharFactory'_ es una factoría que sólo define métodos abstractos y que serán implementados por sus clases hijas.
+
+Éstas son factorías concretas de cada tipo de raza ( *'ManFactory'* y *'OrcFactory'* ) y ellas son las que crean las instancias concretas de objetos *'Archer'* y *'Rider'* para cada una de las razas.
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/creational/abstract_factory_02.png)
+
+El patrón *__'Abstract Factory'__* es de ayuda en este tipo de situaciones en las que es necesario crear diferentes tipos de objetos utilizando una jerarquía de componentes. Dada la complejidad que puede llegar a tener la creación de una instancia es deseable aislar la forma en que se construye cada clase de objeto.
+
+```java
+// Jerarquía de tipos
+abstract class Soldier {
+    String name;
+    int life;
+
+    abstract int shotsPerSecond();
+}
+
+class Rider extends Soldier {
+    Rider(String name, int life) {
+        this.name = name;
+        this.life = life;
+    }
+
+    @Override
+    public int shotsPerSecond() {
+        return 5;
+    }
+}
+
+class Archer extends Soldier {
+    Archer(String name, int life) {
+        this.name = name;
+        this.life = life;
+    }
+
+    @Override
+    public int shotsPerSecond() {
+        return 2;
+    }
+}
+
+// Factoría abstracta
+interface SoldierFactory {
+    Archer makeArcher();
+    Rider makeRider();
+}
+
+// Factoría concreta
+class OrcFactory implements SoldierFactory {
+    @Override
+    public Archer makeArcher() {
+        return new Archer("Orc Archer", 200);
+    }
+    @Override
+    public Rider makeRider() {
+        return new Rider("Orc Rider", 250);
+    }
+}
+
+// Factoría concreta
+class ManFactory implements SoldierFactory {
+    @Override
+    public Archer makeArcher() {
+        return new Archer("Man Archer", 100);
+    }
+
+    @Override
+    public Rider makeRider() {
+        return new Rider("Man Rider", 150);
+    }
+}
+```
+
+#### Consideraciones
+
+* Utilizamos este patrón cuando a nuestro sistema no le importa cómo se crearán o compondrán sus productos.
+
+* Usamos este patrón cuando necesitamos tratar con varias _factories_.
+
+* Este patrón separa las clases concretas y facilita el intercambio de productos. También puede mejorar la fiabilidad entre los productos. Pero, al mismo tiempo, debemos reconocer el hecho de que crear un nuevo producto es difícil con este patrón (porque necesitamos extender la interfaz y, como resultado, se requerirán cambios en todas las subclases que ya implementaron la interfaz).
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/Abstract_Factory>
 
 ## Structural Patterns
 

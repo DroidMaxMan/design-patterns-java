@@ -16,18 +16,13 @@
  * ***********************************************************************
  */
 
-package patterns.creational.abstractfactory.example;
+package patterns.creational.abstractfactory.example2;
 
-class OrcFactory implements SoldierFactory {
-
-    @Override
-    public Archer makeArcher() {
-        return new Archer("Orc Archer", 200);
-    }
+class BollywoodComedyMovie implements IBollywoodMovie {
 
     @Override
-    public Rider makeRider() {
-        return new Rider("Orc Rider", 250);
+    public String movieName() {
+        return "Munna Bhai MBBS is a Bollywood Comedy Movie";
     }
 
 }

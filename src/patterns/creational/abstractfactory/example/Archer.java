@@ -18,9 +18,9 @@
 
 package patterns.creational.abstractfactory.example;
 
-public class Archer extends Soldier {
+class Archer extends Soldier {
 
-    public Archer(String name, int life) {
+    Archer(String name, int life) {
         this.name = name;
         this.life = life;
     }

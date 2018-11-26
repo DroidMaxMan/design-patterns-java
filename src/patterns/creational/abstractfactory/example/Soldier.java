@@ -18,14 +18,10 @@
 
 package patterns.creational.abstractfactory.example;
 
-public abstract class Soldier {
+abstract class Soldier {
 
     String name;
     int life;
-
-    public String getName() {
-        return name;
-    }
 
     abstract int shotsPerSecond();
 

@@ -18,9 +18,10 @@
 
 package patterns.creational.abstractfactory.example;
 
-public interface SoldierFactory {
+interface SoldierFactory {
 
     Archer makeArcher();
 
     Rider makeRider();
+
 }

@@ -18,7 +18,7 @@
 
 package patterns.creational.abstractfactory.example;
 
-public class ManFactory implements SoldierFactory {
+class ManFactory implements SoldierFactory {
 
     @Override
     public Archer makeArcher() {
