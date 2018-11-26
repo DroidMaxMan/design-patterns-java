@@ -16,12 +16,14 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.visitor.example;
+package patterns.behavioral.visitor.example2;
 
-interface Visitor {
+class VisitorPatternEx {
 
-    void visitElementA(Element element);
-
-    void visitElementB(Element element);
+    public static void main(String[] args) {
+        IVisitor v = new Visitor();
+        MyClass myClass = new MyClass();
+        myClass.accept(v);
+    }
 
 }

@@ -16,12 +16,26 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.visitor.example;
+package patterns.behavioral.visitor.example2;
 
-interface Visitor {
+class MyClass implements IOriginalInterface {
 
-    void visitElementA(Element element);
+    //Initial or default value
+    private int myInt = 5;
 
-    void visitElementB(Element element);
+    public int getMyInt() {
+        return myInt;
+    }
+
+    public void setMyInt(int myInt) {
+        this.myInt = myInt;
+    }
+
+    @Override
+    public void accept(IVisitor visitor) {
+        System.out.println("Initial value of the integer: " + myInt);
+        visitor.visit(this);
+        System.out.println("\nValue of the integer now: " + myInt);
+    }
 
 }

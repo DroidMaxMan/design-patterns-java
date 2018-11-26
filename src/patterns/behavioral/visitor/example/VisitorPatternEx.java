@@ -16,14 +16,9 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.visitor;
+package patterns.behavioral.visitor.example;
 
-import patterns.behavioral.visitor.example.ConcreteVisitor1;
-import patterns.behavioral.visitor.example.ConcreteVisitor2;
-import patterns.behavioral.visitor.example.ElementA;
-import patterns.behavioral.visitor.example.ElementB;
-
-public class Visitor {
+public class VisitorPatternEx {
 
     public static void main(String[] args) {
         // Visitantes

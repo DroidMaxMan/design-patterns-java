@@ -18,7 +18,7 @@
 
 package patterns.behavioral.visitor.example;
 
-public class ElementA implements Element {
+class ElementA implements Element {
 
     @Override
     public void accept(Visitor visitor) {

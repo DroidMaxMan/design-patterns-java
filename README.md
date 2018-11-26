@@ -31,8 +31,6 @@ Los patrones de comportamiento son _Chain of Responsibility_, _Command_, _Interp
 
 * [Memento](https://es.wikipedia.org/wiki/Memento_(patr%C3%B3n_de_dise%C3%B1o)) - Es un patrón de diseño cuya finalidad es almacenar el estado de un objeto (o del sistema completo) en un momento dado de manera que se pueda restaurar en ese punto de manera sencilla. Para ello se mantiene almacenado el estado del objeto para un instante de tiempo en una clase independiente de aquella a la que pertenece el objeto (pero sin romper la encapsulación), de forma que ese recuerdo permita que el objeto sea modificado y pueda volver a su estado anterior.
 
-* [Visitor](https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29) - Proporciona un mecanismo para realizar diferentes operaciones sobre una jerarquía de objetos de forma que añadir nuevas operaciones no haga necesario cambiar las clases de los objetos sobre los que se realizan las operaciones.
-
 ### - *__Command__* -
 
 **Gof**: Encapsule una solicitud como un objeto, lo que le permite parametrizar a los clientes con diferentes solicitudes, solicitudes de cola o registro y admite operaciones que no se pueden deshacer.
@@ -626,6 +624,91 @@ class CheckersPlayer extends GamePlayer {
 
 <https://es.wikipedia.org/wiki/Template_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/05/05/patrones-de-comportamiento-iii-template-method/>
+
+### - *__Visitor__* -
+
+**GoF**: Representa una operación a realizar en los elementos de una estructura de objeto. Este patrón le permite definir una nueva operación sin cambiar las clases de los elementos sobre los que opera.
+
+El patrón *__'Visitor'__* proporciona un mecanismo para realizar diferentes operaciones sobre una jerarquía de objetos de forma que añadir nuevas operaciones no haga necesario cambiar las clases de los objetos sobre los que se realizan las operaciones.
+
+#### Concepto
+
+En el diseño de un programa, normalmente se obtienen jerarquías de objetos a través de herencia o utilizando el patrón *__'Composite'__*. Considerando una jerarquía de objetos que sea más o menos estable, es muy probable que necesitemos realizar operaciones sobre dicha jerarquía. Sin embargo, puede ser que cada objeto deba ser tratado de una forma diferente en función de su tipo. La complejidad de estas operaciones aumenta muchísimo.
+
+En el patrón *__'Visitor'__* se distinguen dos participantes:
+
+* **Visitables**: son los elementos de la estructura de objetos que aceptan a un determinado visitante y que le proporcionan toda la información a éste para realizar una determinada operación. Definen una operación "Accept" que toma un visitante como argumento.
+
+* **Visitantes:** jerarquía de objetos que realizan una operación determinada sobre dichos elementos.
+
+![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/visitor.png)
+
+Cada visitante concreto realiza una operación sobre la estructura de objetos. Es posible que al visitante no le interesen todos los objetos y, por lo tanto, la implementación de alguno de sus métodos sea vacía.
+
+Sin embargo, lo importante del patrón *__'Visitor'__* es que se pueden añadir nuevos tipos de visitantes concretos y, por lo tanto, realizar nuevas operaciones sobre la estructura sin la necesidad de modificar nada en la propia estructura. Por tanto se seguiría el **principio 'Open/Closes' (abierto a la extensión, cerrado a la modificación).
+
+#### Implementación
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/behavioral/visitor/example/diagram.png)
+
+```java
+interface Element {
+    void accept(Visitor visitor);
+}
+
+class ElementA implements Element {
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitElementA(this);
+    }
+}
+
+class ElementB implements Element {
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitElementB(this);
+    }
+}
+
+interface Visitor {
+    void visitElementA(Element element);
+    void visitElementB(Element element);
+}
+
+class ConcreteVisitor1 implements Visitor {
+    @Override
+    public void visitElementA(Element element) {
+        System.out.println("Visitando " + element.toString());
+    }
+    @Override
+    public void visitElementB(Element element) {
+        throw new UnsupportedOperationException();
+    }
+}
+
+class ConcreteVisitor2 implements Visitor {
+    @Override
+    public void visitElementA(Element element) {
+        throw new UnsupportedOperationException();
+    }
+    @Override
+    public void visitElementB(Element element) {
+        System.out.println("Visitando " + element.toString());
+    }
+}
+```
+
+#### Consideraciones
+
+* El patrón *__'Visitor'__* es muy conveniente para recorrer estructuras arbóreas y realizar operaciones en base a los datos almacenados.
+
+* La forma en que se recorra la estructura influirá notablemente en el rendimiento del análisis de la estructura. Se puede hacer uso del patrón *__'Iterator'__* para decidir cómo escoger el siguiente elemento.
+
+* Uno de los problemas de este patrón es que no es recomendable si la estructura  de objetos cambia frecuentemente o es necesario añadir nuevos tipos de objetos de forma habitual. Cada nuevo objeto que sea susceptible de ser visitado puede provocar grandes cambios en la jerarquía de los visitantes.
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
 ## Creational Patterns
 

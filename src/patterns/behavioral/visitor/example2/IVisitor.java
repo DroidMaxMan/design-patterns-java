@@ -16,12 +16,10 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.visitor.example;
+package patterns.behavioral.visitor.example2;
 
-interface Visitor {
+interface IVisitor {
 
-    void visitElementA(Element element);
-
-    void visitElementB(Element element);
+    void visit(MyClass myClassElement);
 
 }

@@ -18,8 +18,8 @@
 
 package patterns.behavioral.visitor.example;
 
-public interface Element {
+interface Element {
 
-    void accept( Visitor visitor );
+    void accept(Visitor visitor);
 
 }

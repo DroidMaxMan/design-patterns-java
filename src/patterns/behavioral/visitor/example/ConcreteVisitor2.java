@@ -18,7 +18,7 @@
 
 package patterns.behavioral.visitor.example;
 
-public class ConcreteVisitor2 implements Visitor {
+class ConcreteVisitor2 implements Visitor {
 
     @Override
     public void visitElementA(Element element) {

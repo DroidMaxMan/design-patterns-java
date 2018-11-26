@@ -16,12 +16,15 @@
  * ***********************************************************************
  */
 
-package patterns.behavioral.visitor.example;
+package patterns.behavioral.visitor.example2;
 
-interface Visitor {
+class Visitor implements IVisitor {
 
-    void visitElementA(Element element);
-
-    void visitElementB(Element element);
+    @Override
+    public void visit(MyClass myClassElement) {
+        System.out.println("Visitor is trying to change the integer value");
+        myClassElement.setMyInt(100);
+        System.out.println("Exiting from Visitor - visit");
+    }
 
 }
