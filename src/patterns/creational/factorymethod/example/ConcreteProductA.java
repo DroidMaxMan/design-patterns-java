@@ -18,7 +18,7 @@
 
 package patterns.creational.factorymethod.example;
 
-public class ConcreteProductA implements Product {
+class ConcreteProductA implements Product {
 
     @Override
     public void operacion() {

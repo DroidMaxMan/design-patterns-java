@@ -718,8 +718,6 @@ Los patrones creacionales son _Abstract Factory_, _Builder_, _Factory Method_, _
 
 * [Builder](https://es.wikipedia.org/wiki/Builder_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es usado para permitir la creación de una variedad de objetos complejos desde un objeto fuente (Producto), el objeto fuente se compone de una variedad de partes que contribuyen individualmente a la creación de cada objeto complejo a través de un conjunto de llamadas a interfaces comunes de la clase Abstract Builder.
 
-* [Factory Method](https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29) - consiste en utilizar una clase constructora (al estilo del Abstract Factory) abstracta con unos cuantos métodos definidos y otro(s) abstracto(s): el dedicado a la construcción de objetos de un subtipo de un tipo determinado.
-
 * [Prototype](https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29) -  crea nuevos objetos clonándolos de una instancia ya existente.
 
 * [Singleton](https://es.wikipedia.org/wiki/Singleton) - garantiza la existencia de una única instancia para una clase y la creación de un mecanismo de acceso global a dicha instancia. Restringe la instanciación de una clase o valor de un tipo a un solo objeto.
@@ -840,6 +838,76 @@ class ManFactory implements SoldierFactory {
 #### Referencia
 
 <https://es.wikipedia.org/wiki/Abstract_Factory>
+
+### - *__Factory Method__* -
+
+**GoF**: Defina una interfaz para crear un objeto, pero deje que las subclases decidan qué clase instanciar. Este patrón permite que una clase difiera la creación de instancias a subclases.
+
+#### Concepto
+
+El patrón *__'Factory Method'__* centraliza en una clase constructora la creación de objetos de un subtipo de un tipo determinado, ocultando al usuario la diversidad de casos particulares que se pueden preveer en la elección del subtipo.
+
+Al igual que ocurre con el patrón *__'Abstract Factory'__* el problema que se pretende resolver es la creación de diferentes instancias de objetos abstrayendo la forma en que realmente se crean.
+
+En el patrón *__'Factory Method'__* se utiliza una clase constructora abstracta con métodos definidos y otro(s) abstracto(s) dedicado(s) a la construcción de objetos de un subtipo de un tipo determinado. Es una simplificación del patrón *__'Abstract Factory'__* en la que la clase abstracta tiene métodos concretos.
+
+A diferencia del patrón *__'Abstract Factory'__* no es necesario tener una factoría o una jerarquía de factorías para la creación de objetos. Permite diseños más adaptados a la realidad.
+
+#### Implementación
+
+Las clases principales de este patrón son el **creador** y el **producto**. El creador necesita crear instancias de productos, pero el tipo concreto de producto no debe ser forzado en las subclases del creador porque las posibles subclases del creador deber poder especificar subclases del producto para utilizar.
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/creational/factory_method.png)
+
+La solución para esto es hacer un método abstracto (el método de la fábrica) que se define en el creador. Este método abstracto se define para que devuelva un producto. Las subclases del creador pueden sobreescribir este método para devolver subclases apropiadas del producto.
+
+```java
+interface Product {
+    void operacion();
+}
+
+class ConcreteProductA implements Product {
+    @Override
+    public void operacion() {
+        System.out.println("ConcreteProductA");
+    }
+}
+
+class ConcreteProductB implements Product {
+    @Override
+    public void operacion() {
+        System.out.println("ConcreteProductB");
+    }
+}
+
+abstract class Creator {
+    abstract Product factoryMethod();
+}
+
+class ConcreteCreatorA extends Creator {
+    @Override
+    Product factoryMethod() {
+        return new ConcreteProductA();
+    }
+}
+
+class ConcreteCreatorB extends Creator {
+    @Override
+    Product factoryMethod() {
+        return new ConcreteProductB();
+    }
+}
+```
+
+#### Consideraciones
+
+* Este patrón es útil cuando las clases delegan las responsabilidades de la creación de objetos a sus subclases.
+
+* Este patrón también es útil cuando se implementan jerarquías de clases paralelas (cuando algunas de las responsabilidades cambian de una clase a otra) y cuando es posible crear un sistema con acoplamiento débil.
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
 ## Structural Patterns
 

@@ -16,13 +16,13 @@
  * ***********************************************************************
  */
 
-package patterns.creational.factorymethod.example;
+package patterns.creational.factorymethod.example2;
 
-class ConcreteProductB implements Product {
+class Tiger implements IAnimal {
 
     @Override
-    public void operacion() {
-        System.out.println("ConcreteProductB");
+    public void speak() {
+        System.out.println("Tiger says: Halum..Halum");
     }
 
 }

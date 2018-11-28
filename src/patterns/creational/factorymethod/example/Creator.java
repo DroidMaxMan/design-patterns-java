@@ -18,8 +18,8 @@
 
 package patterns.creational.factorymethod.example;
 
-public abstract class Creator {
+abstract class Creator {
 
-    public abstract Product factoryMethod();
+    abstract Product factoryMethod();
 
 }

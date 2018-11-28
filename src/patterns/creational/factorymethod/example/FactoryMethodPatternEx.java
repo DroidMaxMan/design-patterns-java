@@ -18,11 +18,17 @@
 
 package patterns.creational.factorymethod.example;
 
-class ConcreteProductB implements Product {
+public class FactoryMethodPatternEx {
 
-    @Override
-    public void operacion() {
-        System.out.println("ConcreteProductB");
+    public static void main(String[] args) {
+        Creator creatorA = new ConcreteCreatorA();
+        Product productA = creatorA.factoryMethod();
+
+        Creator creatorB = new ConcreteCreatorB();
+        Product productB = creatorB.factoryMethod();
+
+        productA.operacion();
+        productB.operacion();
     }
 
 }

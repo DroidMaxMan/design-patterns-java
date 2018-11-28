@@ -16,13 +16,10 @@
  * ***********************************************************************
  */
 
-package patterns.creational.factorymethod.example;
+package patterns.creational.factorymethod.example2;
 
-class ConcreteProductB implements Product {
+abstract class IAnimalFactory {
 
-    @Override
-    public void operacion() {
-        System.out.println("ConcreteProductB");
-    }
+    public abstract IAnimal getAnimalType(String type) throws Exception;
 
 }

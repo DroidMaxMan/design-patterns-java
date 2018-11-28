@@ -16,13 +16,20 @@
  * ***********************************************************************
  */
 
-package patterns.creational.factorymethod.example;
+package patterns.creational.factorymethod.example2;
 
-class ConcreteProductB implements Product {
+class ConcreteFactory extends IAnimalFactory {
 
     @Override
-    public void operacion() {
-        System.out.println("ConcreteProductB");
+    public IAnimal getAnimalType(String type) throws Exception {
+        switch (type) {
+            case "Duck":
+                return new Duck();
+            case "Tiger":
+                return new Tiger();
+            default:
+                throw new Exception("Animal type : " + type + " cannot be instantiated");
+        }
     }
 
 }

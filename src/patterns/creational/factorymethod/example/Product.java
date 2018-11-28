@@ -18,7 +18,7 @@
 
 package patterns.creational.factorymethod.example;
 
-public interface Product {
+interface Product {
 
     void operacion();
 

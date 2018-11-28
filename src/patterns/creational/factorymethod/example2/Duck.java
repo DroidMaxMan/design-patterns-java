@@ -16,24 +16,13 @@
  * ***********************************************************************
  */
 
-package patterns.creational.factorymethod;
+package patterns.creational.factorymethod.example2;
 
-import patterns.creational.factorymethod.example.ConcreteCreatorA;
-import patterns.creational.factorymethod.example.ConcreteCreatorB;
-import patterns.creational.factorymethod.example.Creator;
-import patterns.creational.factorymethod.example.Product;
+class Duck implements IAnimal {
 
-public class FactoryMethod {
-
-    public static void main(String[] args) {
-        Creator creatorA = new ConcreteCreatorA();
-        Product productA = creatorA.factoryMethod();
-
-        Creator creatorB = new ConcreteCreatorB();
-        Product productB = creatorB.factoryMethod();
-
-        productA.operacion();
-        productB.operacion();
+    @Override
+    public void speak() {
+        System.out.println("Duck says Pack-pack");
     }
 
 }

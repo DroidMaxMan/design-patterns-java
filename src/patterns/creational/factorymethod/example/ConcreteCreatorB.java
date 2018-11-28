@@ -18,10 +18,10 @@
 
 package patterns.creational.factorymethod.example;
 
-public class ConcreteCreatorB extends Creator {
+class ConcreteCreatorB extends Creator {
 
     @Override
-    public Product factoryMethod() {
+    Product factoryMethod() {
         return new ConcreteProductB();
     }
 

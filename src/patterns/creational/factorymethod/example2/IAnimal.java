@@ -16,13 +16,10 @@
  * ***********************************************************************
  */
 
-package patterns.creational.factorymethod.example;
+package patterns.creational.factorymethod.example2;
 
-class ConcreteProductB implements Product {
+interface IAnimal {
 
-    @Override
-    public void operacion() {
-        System.out.println("ConcreteProductB");
-    }
+    void speak();
 
 }
