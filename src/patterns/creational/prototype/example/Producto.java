@@ -18,8 +18,8 @@
 
 package patterns.creational.prototype.example;
 
-public interface Producto extends Cloneable {
+interface Producto {
 
-    Object clone();
+    Producto copy();
 
 }

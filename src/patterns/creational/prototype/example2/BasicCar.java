@@ -16,18 +16,33 @@
  * ***********************************************************************
  */
 
-package patterns.creational.prototype.example;
+package patterns.creational.prototype.example2;
 
-class FactoriaPrototipo {
+import java.util.Random;
 
-    private Producto productoA;
+abstract class BasicCar implements Cloneable {
 
-    FactoriaPrototipo() {
-        productoA = new ProductoA();
+    String modelname;
+    int price;
+
+    static int setPrice() {
+        int price = 0;
+        Random r = new Random();
+        int p = r.nextInt(100000);
+        price = p;
+        return price;
     }
 
-    Producto create() {
-        return productoA.copy();
+    public String getModelname() {
+        return modelname;
+    }
+
+    public void setModelname(String modelname) {
+        this.modelname = modelname;
+    }
+
+    public BasicCar clone() throws CloneNotSupportedException {
+        return (BasicCar) super.clone();
     }
 
 }

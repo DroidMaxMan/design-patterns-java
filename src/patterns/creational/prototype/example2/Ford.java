@@ -16,18 +16,17 @@
  * ***********************************************************************
  */
 
-package patterns.creational.prototype.example;
+package patterns.creational.prototype.example2;
 
-class FactoriaPrototipo {
+public class Ford extends BasicCar {
 
-    private Producto productoA;
-
-    FactoriaPrototipo() {
-        productoA = new ProductoA();
+    Ford(String m) {
+        modelname = m;
     }
 
-    Producto create() {
-        return productoA.copy();
+    @Override
+    public BasicCar clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
 }

@@ -18,15 +18,14 @@
 
 package patterns.creational.prototype.example;
 
-public class ProductoA implements Producto {
+class ProductoA implements Producto {
 
     private String name = "ProductoA";
 
     @Override
-    public Object clone() {
+    public Producto copy() {
         return new ProductoA();
     }
-
 
     @Override
     public String toString() {

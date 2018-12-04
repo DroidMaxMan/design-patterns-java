@@ -16,17 +16,17 @@
  * ***********************************************************************
  */
 
-package patterns.creational.prototype;
+package patterns.creational.prototype.example2;
 
-import patterns.creational.prototype.example.FactoriaPrototipo;
-import patterns.creational.prototype.example.Producto;
+public class Nano extends BasicCar {
 
-public class Prototype {
+    Nano(String m) {
+        modelname = m;
+    }
 
-    public static void main(String[] args) {
-        FactoriaPrototipo factoriaPrototipo = new FactoriaPrototipo();
-        Producto producto = (Producto) factoriaPrototipo.create();
-        System.out.println(producto.toString());
+    @Override
+    public BasicCar clone() throws CloneNotSupportedException {
+        return super.clone();
     }
 
 }

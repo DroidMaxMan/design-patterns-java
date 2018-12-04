@@ -718,8 +718,6 @@ Los patrones creacionales son _Abstract Factory_, _Builder_, _Factory Method_, _
 
 * [Builder](https://es.wikipedia.org/wiki/Builder_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es usado para permitir la creación de una variedad de objetos complejos desde un objeto fuente (Producto), el objeto fuente se compone de una variedad de partes que contribuyen individualmente a la creación de cada objeto complejo a través de un conjunto de llamadas a interfaces comunes de la clase Abstract Builder.
 
-* [Prototype](https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29) -  crea nuevos objetos clonándolos de una instancia ya existente.
-
 * [Singleton](https://es.wikipedia.org/wiki/Singleton) - garantiza la existencia de una única instancia para una clase y la creación de un mecanismo de acceso global a dicha instancia. Restringe la instanciación de una clase o valor de un tipo a un solo objeto.
 
 ### - *__Abstract Factory__* -
@@ -908,6 +906,89 @@ class ConcreteCreatorB extends Creator {
 #### Referencia
 
 <https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>
+
+### - *__Prototype__* -
+
+**GoF**: Especifique los tipos de objetos para crear utilizando una instancia prototípica y cree nuevos objetos copiando este prototipo.
+
+#### Concepto
+
+El patrón *__'Prototype'__* proporciona abstracción a la hora de crear diferentes objetos en un contexto donde se desconoce cúantos y cuáles deben ser creados a priori. La idea principal es que los objetos deben poder clonarse o copiarse en tiempo de ejecución. Por tanto, este patrón tiene como finalidad crear nuevos objetos duplicándolos, clonando una instancia creada previamente. Dado que crear una nueva instancia normalmente suele ser una operación costosa, este patrón ayuda a lidiar con ese problema.
+
+Los patrones *__'Factory Method'__* y *__'Abstract Factory'__* tiene el problema de que se basan en la herencia e implementación de métodos abstractos por subclases para definir cómo se construye cada producto concreto. Para sistemas donde el número de productos concretos puede ser elevado o indeterminado esto puede ser un problema.
+
+La clase de los objetos que servirán de prototipo para la copia deberán incluir en su interfaz la manera de solicitar esa copia, que será desarrollada luego por las clases concretas de prototipos.
+
+Este patrón se utiliza en casos como:
+
+* Evitar las subclases de un objeto creador como hace el patrón *__'Abstract Factory'__*
+* Evitar el costo inherente a la creación de un objeto nuevo mediante el operador **new** cuando esto es demasiado costoso para la aplicación.
+* La decisión del tipo de objeto necesario se decide en tiempo de ejecución en función de determinados parámetros, configuraciones o condiciones en un momento dado.
+
+Este patrón, dicho de otro modo, propone la creación de distintas variantes de objetos que la aplicación necesite en el momento y contexto adecuados. Toda la lógica necesaria para la decisión sobre el tipo de objetos que usará la aplicación es su ejecución se hace independiente, de manera que el código que utiliza estos objetos solicitará una copia del objeto que necesite. En este contexto, una copia significa otra instancia del objeto. El único requisito que debe cumplir este objeto es suministrar la funcionalidad de clonarse.
+
+#### Implementación
+
+Para implementar este patrón se declara una clase base abstracta que tiene un método `clone()`. Cualquier clase que necesite un constructor deriva de la clase abstracta e implementa el método `clone()`.
+
+![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/creational/prototype.png)
+
+El cliente, en vez de escribir código que hace uso del generador `'new'` sobre una clase específica, llama al método `clone()` de la clase prototipo, o llama a un método factoría con un parámetro que especifíca la clase deseada, o invoca el método `clone()` de la clase de alguna otra forma.
+
+Por ejemplo, es posible usar un **gestor de prototipos** que permita cargar y descargar los prototipos disponibles en tiempo de ejecución.
+
+Aunque en un principio este patrón parece que entra en conflicto con *__'Abstract Factory'__* es posible utilizar ambas aproximaciones en una *__'Prototype Abstract Factory'__* de forma que la factoría se configura con los prototipos concretos que puede crear y ésta sólo invoca al método `clone()`.
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/creational/prototype/example/diagram.png)
+
+```java
+interface Producto {
+    Producto copy();
+}
+
+class ProductoA implements Producto {
+    private String name = "ProductoA";
+
+    @Override
+    public Producto copy() {
+        return new ProductoA();
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+}
+
+// Factoría que crea y copia los objetos
+class FactoriaPrototipo {
+    private Producto productoA;
+
+    FactoriaPrototipo() {
+        productoA = new ProductoA();
+    }
+
+    Producto create() {
+        return productoA.copy();
+    }
+}
+```
+
+#### Consideraciones
+
+* Este patrón es útil para implementar *plugins* o cuando se cargan en tiempo de ejecución liberías dinámicas.
+
+* Cuando el sistema no se preocupa por el mecanismo de creación de los productos, este patrón es muy útil.
+
+* Podemos usar este patrón cuando necesitamos instanciar clases en tiempo de ejecución.
+
+* Una de las ventajas de este patrón es que ayuda a crear nuevas instancias con un coste bajo.
+
+* Por el contrario, una de las desventajas es que cada subclase tiene que implementar el mecanismo de clonación. Implementar el mecanismo de clonación puede ser un desafío si los objetos en consideración no admiten la copia o si hay algún tipo de referencia circular.
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
 ## Structural Patterns
 
