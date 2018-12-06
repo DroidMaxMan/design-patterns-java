@@ -16,33 +16,17 @@
  * ***********************************************************************
  */
 
-package patterns.creational.singleton;
+package patterns.creational.singleton.example3;
 
 public class Singleton {
 
-    private static Singleton INSTANCE = null;
+    // Early initialization
+    private static Singleton INSTANCE = new Singleton();
 
-    // El constructor privado no permite que se genere un constructor por defecto.
-    private Singleton() {
-    }
+    private Singleton() {}
 
-    public static Singleton getINSTANCE() {
-        if (INSTANCE == null) {
-            INSTANCE = new Singleton();
-        }
+    public static Singleton getInstance() {
         return INSTANCE;
-    }
-
-    public static void main(String[] args) {
-        Singleton singleton = getINSTANCE();
-        System.out.println(singleton.toString());
-        singleton = getINSTANCE();
-        System.out.println(singleton.toString());
-    }
-
-    //El método "clone" es sobreescrito por el siguiente que arroja una excepción:
-    public Object clone() throws CloneNotSupportedException {
-        throw new CloneNotSupportedException();
     }
 
 }

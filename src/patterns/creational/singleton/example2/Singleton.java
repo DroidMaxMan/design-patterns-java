@@ -16,34 +16,25 @@
  * ***********************************************************************
  */
 
-package patterns.creational.singleton;
+package patterns.creational.singleton.example2;
 
-public class SingletonSyncronized {
+public class Singleton {
 
-    private static SingletonSyncronized INSTANCE = null;
+    private static Singleton INSTANCE = null;
 
-    // El constructor privado no permite que se genere un constructor por defecto.
-    private SingletonSyncronized() {
-    }
+    private Singleton() {}
 
-    // creador sincronizado para protegerse de posibles problemas  multi-hilo
-    // otra prueba para evitar instanciación múltiple
     private static synchronized void createInstance() {
-        if ( INSTANCE == null ) {
-            INSTANCE = new SingletonSyncronized();
+        if (INSTANCE == null) {
+            INSTANCE = new Singleton();
         }
     }
 
-    public static SingletonSyncronized getInstance() {
+    public static Singleton getInstance() {
         if (INSTANCE == null) {
             createInstance();
         }
         return INSTANCE;
-    }
-
-    //El método "clone" es sobreescrito por el siguiente que arroja una excepción:
-    public Object clone() throws CloneNotSupportedException {
-        throw new CloneNotSupportedException();
     }
 
 }
