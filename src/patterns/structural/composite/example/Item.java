@@ -18,14 +18,14 @@
 
 package patterns.structural.composite.example;
 
-public class Item {
+class Item {
 
-    public void value() {
-        // code
+    void value() {
+        // ...
     }
 
-    public void description() {
-        // code
+    void description() {
+        // ...
     }
 
 }

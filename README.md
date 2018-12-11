@@ -1087,8 +1087,6 @@ Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _F
 
 * [Bridge](https://es.wikipedia.org/wiki/Bridge_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es una técnica usada en programación para desacoplar una abstracción de su implementación, de manera que ambas puedan ser modificadas independientemente sin necesidad de alterar por ello la otra. Esto es, se desacopla una abstracción de su implementación para que puedan variar independientemente.
 
-* [Composite](https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29) - sirve para construir objetos complejos a partir de otros más simples y similares entre sí, gracias a la composición recursiva y a una estructura en forma de árbol.
-
 * [Decorator](https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29) - Añade funcionalidad a una clase dinámicamente.
 
 * [Facade](https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29) - Provee de una interfaz unificada simple para acceder a una interfaz o grupo de interfaces de un sistema.
@@ -1161,6 +1159,72 @@ public class Client {
 #### Referencia
 
 <https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29>
+
+### - *__Composite__* -
+
+**GoF**: Componer objetos en estructuras de árbol para representar jerarquías parciales. Este patrón permite a los clientes tratar objetos individuales y composiciones de objetos de manera uniforme.
+
+#### Concepto
+
+El patrón *__'Composite'__* sirve para construir objetos complejos a partir de otros más simples y similares entre sí gracias a la composición recursiva y a una estructura en forma de árbol.
+
+Esto simplifica el tratamiento de los objetos creados ya que al poseer todos ellos una interfaz común, se tratan todos de la misma manera. Un cliente puede tratar un objeto compuesto como si fuera un solo objeto.
+
+Una buena manera de identificar la situación en que se puede aplicar este patrón es cuando tengo "un X y tiene varios objetos X".
+
+#### Implementación
+
+Para ilustrar el problema supóngase un juego de estrategia en el que los jugadores pueden recoger objetos o items, los cuales tienen una serie de propiedades como "precio", "descripción", etc. Cada item, a su vez, puede contener otros items. Por ejemplo, un bolso de cuero puede contener una pequeña caja de madera que, a su vez, contiene un pequeño reloj dorado, etc..
+
+![Ejemplo](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/composite.png)
+
+En definitiva, el patrón *__'Composite'__* habla sobre cómo diseñar estructuras recursivas donde la composición homogénea de objetos recuerda a una estructura arbórea.
+
+Naturalmente, los objetos compuestos suelen ofrecer también operaciones para añadir, eliminar y actualizar.
+
+```java
+class Item {
+    void value() {
+        // ...
+    }
+
+    void description() {
+        // ...
+    }
+}
+
+class Clock extends Item {
+    @Override
+    void value() {
+        super.value();
+    }
+
+    @Override
+    void description() {
+        super.description();
+    }
+}
+
+class Bag extends Item {
+    private List<Item> bag = new ArrayList<>();
+
+    void addItem(Item item) {
+        bag.add(item);
+    }
+
+    boolean removeItem(Item item) {
+        return bag.contains(item) && bag.remove(item);
+    }
+}
+```
+
+#### Consideraciones
+
+* Los clientes pueden añadir nuevos tipos de componentes fácilmente.
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
 ## Otros patrones
 

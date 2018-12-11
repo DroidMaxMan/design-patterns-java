@@ -16,21 +16,38 @@
  * ***********************************************************************
  */
 
-package patterns.structural.composite.example;
+package patterns.structural.composite.example2;
 
 import java.util.ArrayList;
 import java.util.List;
 
-class Bag extends Item {
+class Teacher implements ITeacher {
 
-    private List<Item> bag = new ArrayList<>();
+    private String teacherName;
+    private String deptName;
+    private List<ITeacher> controls;
 
-    void addItem(Item item) {
-        bag.add(item);
+    Teacher(String teacherName, String deptName) {
+        this.teacherName = teacherName;
+        this.deptName = deptName;
+        controls = new ArrayList<>();
     }
 
-    boolean removeItem(Item item) {
-        return bag.contains(item) && bag.remove(item);
+    void add(Teacher teacher) {
+        controls.add(teacher);
+    }
+
+    void remove(Teacher teacher) {
+        controls.remove(teacher);
+    }
+
+    List<ITeacher> getControllingDepts() {
+        return controls;
+    }
+
+    @Override
+    public String getDetails() {
+        return (teacherName + " is the " + deptName);
     }
 
 }

@@ -16,12 +16,9 @@
  * ***********************************************************************
  */
 
-package patterns.structural.composite;
+package patterns.structural.composite.example;
 
-import patterns.structural.composite.example.Bag;
-import patterns.structural.composite.example.Clock;
-
-public class Composite {
+public class CompositePatternEx {
 
     public static void main(String[] args) {
         Clock analogClock = new Clock();

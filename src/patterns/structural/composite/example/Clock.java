@@ -18,16 +18,15 @@
 
 package patterns.structural.composite.example;
 
-public class Clock extends Item {
+class Clock extends Item {
 
     @Override
-    public void value() {
+    void value() {
         super.value();
     }
 
-
     @Override
-    public void description() {
+    void description() {
         super.description();
     }
 
