@@ -18,7 +18,7 @@
 
 package patterns.structural.adapter.example;
 
-public interface Target {
+interface Target {
 
     String method();
 

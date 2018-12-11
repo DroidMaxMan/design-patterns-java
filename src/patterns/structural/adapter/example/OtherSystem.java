@@ -18,9 +18,9 @@
 
 package patterns.structural.adapter.example;
 
-public class OtherSystem {
+class OtherSystem {
 
-    public String otherMethod() {
+    String otherMethod() {
         return OtherSystem.class.getSimpleName();
     }
 

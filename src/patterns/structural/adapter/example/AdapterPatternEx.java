@@ -18,13 +18,11 @@
 
 package patterns.structural.adapter.example;
 
-class Adapter implements Target {
+public class AdapterPatternEx {
 
-    @Override
-    public String method() {
-        OtherSystem otherSystem = new OtherSystem();
-
-        return otherSystem.otherMethod();
+    public static void main(String[] args) {
+        Target target = new patterns.structural.adapter.example.Adapter();
+        System.out.println("Método adaptado: " + target.method());
     }
 
 }

@@ -614,7 +614,7 @@ class CheckersPlayer extends GamePlayer {
 
 #### Consideraciones
 
-* Utilizando el patrón *__'Template Method'__* se suelen obtener estructuras altamente reutilizables. Esta reutilización de código es el objetivo primordial de este patrón. Es por ello que es ampliamente utilizado en librerías de clases.
+* Utilizando el patrón *__'Template Method'__* se suelen obtener estructuras altamente reutilizables. Esta reutilización de código es el objetivo primordial de este patrón. Es por ello que es ampliamente utilizado en bibliotecas de clases.
 
 * Introduce el concepto de operaciones *'hook'* que, en caso de no estar implementadas en las clases hijas, tienen una implementación por defecto. Las clases hijas pueden sobreescribirlas para añadir su propia funcionalidad.
 
@@ -1085,8 +1085,6 @@ Los patrones estructurales son los patrones de diseño software que solucionan p
 
 Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _Facade_, _Flyweight_ y _Proxy_.
 
-* [Adapter](https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29) - Este patrón se utiliza para proporcionar una interfaz que, por un lado, cumpla con las demandas de los clientes y, por otra, haga compatible otra interfaz que, a priori, no lo es.
-
 * [Bridge](https://es.wikipedia.org/wiki/Bridge_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es una técnica usada en programación para desacoplar una abstracción de su implementación, de manera que ambas puedan ser modificadas independientemente sin necesidad de alterar por ello la otra. Esto es, se desacopla una abstracción de su implementación para que puedan variar independientemente.
 
 * [Composite](https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29) - sirve para construir objetos complejos a partir de otros más simples y similares entre sí, gracias a la composición recursiva y a una estructura en forma de árbol.
@@ -1098,6 +1096,71 @@ Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _F
 * [Flyweight](https://es.wikipedia.org/wiki/Flyweight_(patr%C3%B3n_de_dise%C3%B1o)) - El patrón Flyweight (u objeto ligero) sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento (uso de recursos).
 
 * [Proxy](https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29) - Proporciona mecanismos de abstracción y control para acceder a un determinado objeto "simulando" que se trata del objeto real.
+
+### - *__Adapter__* -
+
+**GoF**: Convierte la interfaz de una clase en otra interfaz que los clientes esperan. Este patrón permite que las clases trabajen juntas que de otra manera no podrían hacerlo debido a interfaces incompatibles.
+
+#### Concepto
+
+El patrón *__'Adapter'__*, también conocido como *_'Wrapper'_* (envoltorio), se utiliza para proporcionar una interfaz que, por un lado, cumpla con las demandas de los clientes y, por otra, haga compatible otra interfaz que, a priori, no lo es. Dicho de otra forma, se utiliza para transformar una interfaz en otra, de tal modo que una clase que no pudiera utilizar la primera, haga uso de ella a través de la segunda.
+
+Conforme avanza la construcción de una aplicación, el diseño de las interfaces que ofrecen los componentes pueden no ser las adecuadas o, al menos, las esperadas por los usuarios de los mismos.
+
+Una solución rápida podría ser adaptar dichas interfaces a las necesidades de la aplicación. Sin embargo, esto no siempre es posible debido a que no se pueda modificar el código porque sea un requisito funcional, sea una biblioteca de terceros, etc...
+
+Usando el patrón *__'Adapter'__* es posible crear una nueva interfaz de acceso a un determinado objeto, por lo que proporciona un mecanismo de **adaptación** entre las demandas del objeto cliente y el objeto servidor que proporciona la funcionalidad.
+
+#### Implementación
+
+El cliente no utiliza el sistema adaptado, si no que hace uso del *adaptador*. Este es el que transforma la invocación a `'method()'` en `'otherMethod()'`.
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/adapter.png)
+
+Es posible que el adaptador también incluya nueva funcionalidad relacionada con la adaptación como por ejemplo:
+
+* Comprobación de la corrección de los parámetros.
+
+* Transformación de los parámetros para ser compatibles con el sistema adaptado.
+
+```java
+interface Target {
+    String method();
+}
+
+class Adapter implements Target {
+    @Override
+    public String method() {
+        OtherSystem otherSystem = new OtherSystem();
+        return otherSystem.otherMethod();
+    }
+}
+
+class OtherSystem {
+    String otherMethod() {
+        return OtherSystem.class.getSimpleName();
+    }
+}
+
+public class Client {
+    public static void main(String[] args) {
+        Target target = new patterns.structural.adapter.example.Adapter();
+        System.out.println("Método adaptado: " + target.method());
+    }
+}
+```
+
+#### Consideraciones
+
+* Tener sistemas muy reutilizables puede hacer que las interfaces no puedan ser compatibles con una interfaz en común. En ese caso el patrón *__'Adapter'__* es una buena solución.
+
+* Un mismo adaptador puede usarse en varios sistemas.
+
+* Este patrón se parece al patrón *__'Decorator'__*. Sin embargo, difieren en que la finalidad de éste es proporcionar una interfaz completa del objeto adaptador, mientras que el decorador pueden centrarse en una sola parte.
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
 ## Otros patrones
 

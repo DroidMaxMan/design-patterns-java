@@ -16,15 +16,16 @@
  * ***********************************************************************
  */
 
-package patterns.structural.adapter.example;
+package patterns.structural.adapter.example2;
 
-class Adapter implements Target {
+class Triangle {
 
-    @Override
-    public String method() {
-        OtherSystem otherSystem = new OtherSystem();
+    double base;
+    double height;
 
-        return otherSystem.otherMethod();
+    Triangle(int base, int height) {
+        this.base = base;
+        this.height = height;
     }
 
 }

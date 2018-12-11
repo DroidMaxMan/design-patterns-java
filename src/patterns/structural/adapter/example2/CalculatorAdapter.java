@@ -16,15 +16,18 @@
  * ***********************************************************************
  */
 
-package patterns.structural.adapter.example;
+package patterns.structural.adapter.example2;
 
-class Adapter implements Target {
+/*Calculate the area of a Triangle using CalculatorAdapter. */
+class CalculatorAdapter {
 
-    @Override
-    public String method() {
-        OtherSystem otherSystem = new OtherSystem();
-
-        return otherSystem.otherMethod();
+    double getArea(Triangle t) {
+        Calculator calculator = new Calculator();
+        Rect rect = new Rect();
+        //Area of Triangle=0.5*base*height
+        rect.height = t.base;
+        rect.width = 0.5 * t.height;
+        return calculator.getArea(rect);
     }
 
 }

@@ -16,15 +16,14 @@
  * ***********************************************************************
  */
 
-package patterns.structural.adapter;
+package patterns.structural.adapter.example2;
 
-import patterns.structural.adapter.example.Target;
-
-public class Adapter {
+public class AdapterPatternEx {
 
     public static void main(String[] args) {
-        Target target = new patterns.structural.adapter.example.Adapter();
-        System.out.println("Método adaptado: " + target.method());
+        CalculatorAdapter cal = new CalculatorAdapter();
+        Triangle triangle = new Triangle(20, 10);
+        System.out.println("Area of Triangle is :" + cal.getArea(triangle));
     }
 
 }

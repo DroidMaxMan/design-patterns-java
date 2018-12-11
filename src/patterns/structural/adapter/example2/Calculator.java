@@ -16,15 +16,13 @@
  * ***********************************************************************
  */
 
-package patterns.structural.adapter.example;
+package patterns.structural.adapter.example2;
 
-class Adapter implements Target {
+/*Calculator can calculate the area of a rectangle. To calculate the area we need a Rectangle input.*/
+class Calculator {
 
-    @Override
-    public String method() {
-        OtherSystem otherSystem = new OtherSystem();
-
-        return otherSystem.otherMethod();
+    double getArea(Rect rectangle) {
+        return rectangle.height * rectangle.width;
     }
 
 }

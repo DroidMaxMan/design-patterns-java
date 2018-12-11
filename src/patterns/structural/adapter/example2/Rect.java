@@ -16,15 +16,11 @@
  * ***********************************************************************
  */
 
-package patterns.structural.adapter.example;
+package patterns.structural.adapter.example2;
 
-class Adapter implements Target {
+class Rect {
 
-    @Override
-    public String method() {
-        OtherSystem otherSystem = new OtherSystem();
-
-        return otherSystem.otherMethod();
-    }
+    double height;
+    double width;
 
 }
