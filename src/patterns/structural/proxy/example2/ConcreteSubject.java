@@ -16,17 +16,13 @@
  * ***********************************************************************
  */
 
-package patterns.structural.proxy.example;
+package patterns.structural.proxy.example2;
 
-class Image extends Graphic {
+class ConcreteSubject extends Subject {
 
     @Override
-    String display() {
-        return "Display image";
-    }
-
-    void load() {
-        // ...
+    void doSomeWork() {
+        System.out.println(" I am from concrete subject");
     }
 
 }

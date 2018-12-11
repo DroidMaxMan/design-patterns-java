@@ -1089,8 +1089,6 @@ Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _F
 
 * [Flyweight](https://es.wikipedia.org/wiki/Flyweight_(patr%C3%B3n_de_dise%C3%B1o)) - El patrón Flyweight (u objeto ligero) sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento (uso de recursos).
 
-* [Proxy](https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29) - Proporciona mecanismos de abstracción y control para acceder a un determinado objeto "simulando" que se trata del objeto real.
-
 ### - *__Adapter__* -
 
 **GoF**: Convierte la interfaz de una clase en otra interfaz que los clientes esperan. Este patrón permite que las clases trabajen juntas que de otra manera no podrían hacerlo debido a interfaces incompatibles.
@@ -1408,6 +1406,72 @@ class Facade {
 #### Referencia
 
 <https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29>
+
+### - *__Proxy__* -
+
+**GoF**: Proporcione un sustituto o marcador de posición para que otro objeto controle el acceso a él.
+
+#### Concepto
+
+El patrón *__'Proxy'__* tiene como propósito proporcionar un sustituto o intermediario de un objeto para controlar su acceso. Proporciona mecanismos de abstracción y control para acceder a un determinado objeto "simulando" que se trata del objeto real.
+
+Muchos de los objetos que pueden integrar una aplicación pueden representar diferentes problemas a la hora de ser utilizados por la aplicación:
+
+* **Coste computacional** - Es posible que un objeto sea costoso de manipular y cargar.
+
+* **Acceso remoto** - el acceso por red es un componente cada vez más común.
+
+* **Acceso seguro** - es posible que para usar determinados objetos se necesiten determinados privilegios.
+
+* **Dobles de prueba** - a la hora de diseñar y probar el código se necesitan objetos *"dobles"* que simulen a los objetos reales.
+
+#### Implementación
+
+El coste de manipular y cargar una imagen puede ser importante según el sistema, tipo de manipulación, etc...Con el patrón *__'Proxy'__* se crea un objeto intermedio `'ImageProxy'` que represente al objeto real `'Image'` y que se utilice de la misma forma desde el punto de vista del cliente.
+
+De esta forma, el objeto `'proxy'` puede cargar una única vez la imagen y mostrarla tantas veces como el cliente lo solicite.
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/proxy.png)
+
+```java
+class Graphic {
+    String display() {
+        return "Graphic";
+    }
+}
+
+class Image extends Graphic {
+    @Override
+    String display() {
+        return "Display image";
+    }
+
+    void load() {
+        // ...
+    }
+}
+
+class ImageProxy extends Graphic {
+    private Image image;
+
+    @Override
+    String display() {
+        if (image == null) {
+            image = new Image();
+            image.load();
+        }
+        return image.display();
+    }
+}
+```
+
+#### Consideraciones
+
+* En los sistemas de autenticación, dependiendo de las credenciales presentadas por el cliente, se devuelve un proxy u otro que permiten realizar distintos tipos de operaciones, acceder a determinados recursos, etc...
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
 ## Otros patrones
 

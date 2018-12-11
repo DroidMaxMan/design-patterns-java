@@ -18,13 +18,13 @@
 
 package patterns.structural.proxy.example;
 
-public class ImageProxy extends Graphic {
+class ImageProxy extends Graphic {
 
     private Image image;
 
     @Override
-    public String display() {
-        if ( image == null ) {
+    String display() {
+        if (image == null) {
             image = new Image();
             image.load();
         }

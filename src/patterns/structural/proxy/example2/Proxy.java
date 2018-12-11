@@ -16,17 +16,20 @@
  * ***********************************************************************
  */
 
-package patterns.structural.proxy.example;
+package patterns.structural.proxy.example2;
 
-class Image extends Graphic {
+class Proxy extends Subject {
+
+    private ConcreteSubject cs;
 
     @Override
-    String display() {
-        return "Display image";
-    }
-
-    void load() {
-        // ...
+    void doSomeWork() {
+        System.out.println("Proxy call happening now");
+        //Lazy initialization
+        if (cs == null) {
+            cs = new ConcreteSubject();
+        }
+        cs.doSomeWork();
     }
 
 }

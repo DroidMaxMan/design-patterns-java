@@ -16,17 +16,10 @@
  * ***********************************************************************
  */
 
-package patterns.structural.proxy.example;
+package patterns.structural.proxy.example2;
 
-class Image extends Graphic {
+abstract class Subject {
 
-    @Override
-    String display() {
-        return "Display image";
-    }
-
-    void load() {
-        // ...
-    }
+    abstract void doSomeWork();
 
 }

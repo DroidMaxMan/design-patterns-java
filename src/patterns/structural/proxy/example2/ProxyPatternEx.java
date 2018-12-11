@@ -16,17 +16,13 @@
  * ***********************************************************************
  */
 
-package patterns.structural.proxy.example;
+package patterns.structural.proxy.example2;
 
-class Image extends Graphic {
+public class ProxyPatternEx {
 
-    @Override
-    String display() {
-        return "Display image";
-    }
-
-    void load() {
-        // ...
+    public static void main(String[] args) {
+        Proxy px = new Proxy();
+        px.doSomeWork();
     }
 
 }

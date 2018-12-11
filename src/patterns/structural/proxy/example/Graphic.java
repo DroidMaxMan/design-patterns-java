@@ -18,11 +18,10 @@
 
 package patterns.structural.proxy.example;
 
-public class Graphic {
+class Graphic {
 
-    public String display() {
-        // Code
-        return null;
+    String display() {
+        return "Graphic";
     }
 
 }

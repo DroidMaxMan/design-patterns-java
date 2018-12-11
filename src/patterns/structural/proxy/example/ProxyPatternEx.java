@@ -16,14 +16,11 @@
  * ***********************************************************************
  */
 
-package patterns.structural.proxy;
+package patterns.structural.proxy.example;
 
-import patterns.structural.proxy.example.Graphic;
-import patterns.structural.proxy.example.ImageProxy;
+public class ProxyPatternEx {
 
-public class Proxy {
-
-    public static void main( String[] args ) {
+    public static void main(String[] args) {
         Graphic image = new ImageProxy();
 
         System.out.println(image.display());
