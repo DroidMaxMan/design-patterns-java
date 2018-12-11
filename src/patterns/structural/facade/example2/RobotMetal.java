@@ -16,12 +16,15 @@
  * ***********************************************************************
  */
 
-package patterns.structural.facade.example;
+package patterns.structural.facade.example2;
 
-class ModuleC {
+class RobotMetal {
 
-    String getInfo() {
-        return ModuleC.class.getSimpleName();
+    private String metal;
+
+    void setMetal(String metal) {
+        this.metal = metal;
+        System.out.println("Metal is set to : " + this.metal);
     }
 
 }

@@ -16,12 +16,12 @@
  * ***********************************************************************
  */
 
-package patterns.structural.facade.example;
+package patterns.structural.facade.example2;
 
-class ModuleC {
+class RobotBody {
 
-    String getInfo() {
-        return ModuleC.class.getSimpleName();
+    void createBody() {
+        System.out.println("Body Creation done");
     }
 
 }

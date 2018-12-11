@@ -16,12 +16,27 @@
  * ***********************************************************************
  */
 
-package patterns.structural.facade.example;
+package patterns.structural.facade.example2;
 
-class ModuleC {
+class RobotFacade {
 
-    String getInfo() {
-        return ModuleC.class.getSimpleName();
+    private RobotColor rc;
+    private RobotMetal rm;
+    private RobotBody rb;
+
+    RobotFacade() {
+        rc = new RobotColor();
+        rm = new RobotMetal();
+        rb = new RobotBody();
+    }
+
+    void robotBuilder(String color, String metal) {
+        System.out.println("\nCreation of the Robot Start");
+        rc.setColor(color);
+        rm.setMetal(metal);
+        rb.createBody();
+        System.out.println("Robot Creation End");
+        System.out.println();
     }
 
 }

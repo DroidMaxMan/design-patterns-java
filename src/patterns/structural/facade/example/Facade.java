@@ -18,27 +18,27 @@
 
 package patterns.structural.facade.example;
 
-public class Facade {
+class Facade {
 
     private ModuleA moduleA;
     private ModuleB moduleB;
     private ModuleC moduleC;
 
-    public Facade() {
+    Facade() {
         moduleA = new ModuleA();
         moduleB = new ModuleB();
         moduleC = new ModuleC();
     }
 
-    public String getInfoA() {
+    String getInfoA() {
         return moduleA.getInfo();
     }
 
-    public String getInfoB() {
+    String getInfoB() {
         return moduleB.getInfo();
     }
 
-    public String getInfoC() {
+    String getInfoC() {
         return moduleC.getInfo();
     }
 

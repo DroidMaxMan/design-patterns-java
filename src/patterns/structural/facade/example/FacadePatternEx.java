@@ -16,12 +16,12 @@
  * ***********************************************************************
  */
 
-package patterns.structural.facade;
+package patterns.structural.facade.example;
 
-public class Facade {
+public class FacadePatternEx {
 
     public static void main(String[] args) {
-        patterns.structural.facade.example.Facade facade = new patterns.structural.facade.example.Facade();
+        Facade facade = new Facade();
 
         System.out.println(facade.getInfoA());
         System.out.println(facade.getInfoB());

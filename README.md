@@ -1087,8 +1087,6 @@ Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _F
 
 * [Bridge](https://es.wikipedia.org/wiki/Bridge_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es una técnica usada en programación para desacoplar una abstracción de su implementación, de manera que ambas puedan ser modificadas independientemente sin necesidad de alterar por ello la otra. Esto es, se desacopla una abstracción de su implementación para que puedan variar independientemente.
 
-* [Facade](https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29) - Provee de una interfaz unificada simple para acceder a una interfaz o grupo de interfaces de un sistema.
-
 * [Flyweight](https://es.wikipedia.org/wiki/Flyweight_(patr%C3%B3n_de_dise%C3%B1o)) - El patrón Flyweight (u objeto ligero) sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento (uso de recursos).
 
 * [Proxy](https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29) - Proporciona mecanismos de abstracción y control para acceder a un determinado objeto "simulando" que se trata del objeto real.
@@ -1332,6 +1330,84 @@ class Bag extends Item {
 #### Referencia
 
 <https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29>
+
+### - *__Facade__* -
+
+**GoF**:  Proporcionar una interfaz unificada a un conjunto de interfaces en un sistema. Este patrón define una interfaz de nivel superior que facilita el uso del subsistema.
+
+#### Concepto
+
+El patrón *__'Facade'__* eleva el nivel de abstracción de un determinado sistema para ocultar ciertos detalles de implementación y hacer más sencillo su uso.
+
+Este patrón se aplica para proveer de una interfaz unificada simple que permita acceder a una interfaz o grupo de interfaces de un sistema complejo o cuando se quiera estructurar varios subsistemas en capas ya que las fachadas serían el punto de entrada a cada nivel.
+
+Otro escenario proclive para su aplicación surge de la necesidad de desacoplar un sistema de sus clientes y de otros subsistemas, haciéndolo más independiente, portable y reutilizable.
+
+También es útil cuando haya que controlar el acceso y la forma en que se utiliza un sistema determinado.
+
+Este patrón se relaciona con el patrón *__'Singleton'__** ya que normalmente las fachadas suelen ser instancias únicas.
+
+#### Implementación
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/facade.png)
+
+* **Fachada** - conoce qué clases del subsistema son responsables de una determinada peticíón y delega esas peticiones de los clientes a los objetos apropiados del subsistema. Los clientes no acceden directamente a las subclases.
+
+* **Subclases** (ModuleA, ModuleB, ModuleC...) - implementan la funcionalidad del subsistema. Realizan el trabajo solicitado por la fachada. No conocen la existencia de la fachada.
+
+```java
+class ModuleA {
+    String getInfo() {
+        return ModuleA.class.getSimpleName();
+    }
+}
+
+class ModuleB {
+    String getInfo() {
+        return ModuleB.class.getSimpleName();
+    }
+}
+
+class ModuleC {
+    String getInfo() {
+        return ModuleC.class.getSimpleName();
+    }
+}
+
+class Facade {
+    private ModuleA moduleA;
+    private ModuleB moduleB;
+    private ModuleC moduleC;
+
+    Facade() {
+        moduleA = new ModuleA();
+        moduleB = new ModuleB();
+        moduleC = new ModuleC();
+    }
+
+    String getInfoA() {
+        return moduleA.getInfo();
+    }
+
+    String getInfoB() {
+        return moduleB.getInfo();
+    }
+
+    String getInfoC() {
+        return moduleC.getInfo();
+    }
+}
+```
+
+#### Consideraciones
+
+* La principal ventaja al utilizar este patrón consiste en que para modificar las clases del subsistema sólo hay que realizar los cambios en la interfaz/fachada. Los clientes pueden permanecer ajenos a ello. Esto permite el desacople de los clientes y eleva el nivel de abstracción.
+
+* Un problema derivado del uso de este patrón es que si no se dividen correctamente las responsabilidades se crean clases fachada con un tamaño desproporcionado al incluir demasiada funcionalidad.
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
 ## Otros patrones
 
