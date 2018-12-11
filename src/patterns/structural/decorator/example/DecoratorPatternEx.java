@@ -16,27 +16,19 @@
  * ***********************************************************************
  */
 
-package patterns.structural.decorator;
+package patterns.structural.decorator.example;
 
-import patterns.structural.decorator.example.Firearm;
-import patterns.structural.decorator.example.Magazine;
-import patterns.structural.decorator.example.Rifle;
-import patterns.structural.decorator.example.Silencer;
-
-public class Decorator {
+public class DecoratorPatternEx {
 
     public static void main(String[] args) {
         Firearm rifle = new Rifle();
-        System.out.println("Noise: " + rifle.noise());
-        System.out.println("Bullets: " + rifle.bullets());
+        System.out.println("Rifle: " + rifle.toString());
 
         Firearm rifleWithSilencer = new Silencer(rifle);
-        System.out.println("\nSilencer (noise): " + rifleWithSilencer.noise());
-        System.out.println("Silencer (bullets): " + rifleWithSilencer.bullets());
+        System.out.println("Rifle + Silencer: " + rifleWithSilencer.toString());
 
         Firearm rifleWithSilencerExtraCapacity = new Magazine(rifleWithSilencer);
-        System.out.println("\nSilencer & Magazine (noise): " + rifleWithSilencerExtraCapacity.noise());
-        System.out.println("Silencer & Magazine (bullets): " + rifleWithSilencerExtraCapacity.bullets());
+        System.out.println("Rifle + Silencer + Magazine: " + rifleWithSilencerExtraCapacity.toString());
     }
 
 }

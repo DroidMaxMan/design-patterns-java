@@ -18,21 +18,21 @@
 
 package patterns.structural.decorator.example;
 
-public class FirearmDecorator extends Firearm {
+class FirearmDecorator extends Firearm {
 
     private Firearm gun;
 
-    public FirearmDecorator(Firearm gun) {
+    FirearmDecorator(Firearm gun) {
         this.gun = gun;
     }
 
     @Override
-    public float noise() {
+    float noise() {
         return gun.noise();
     }
 
     @Override
-    public int bullets() {
+    int bullets() {
         return gun.bullets();
     }
 

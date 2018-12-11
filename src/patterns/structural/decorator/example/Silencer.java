@@ -18,19 +18,19 @@
 
 package patterns.structural.decorator.example;
 
-public class Silencer extends FirearmDecorator {
+class Silencer extends FirearmDecorator {
 
-    public Silencer(Firearm gun) {
+    Silencer(Firearm gun) {
         super(gun);
     }
 
     @Override
-    public float noise() {
+    float noise() {
         return super.noise() - 55;
     }
 
     @Override
-    public int bullets() {
+    int bullets() {
         return super.bullets();
     }
 

@@ -18,17 +18,22 @@
 
 package patterns.structural.decorator.example;
 
-public class Firearm {
+class Firearm {
 
     private static final int MAX_BULLETS = 5;
     private static final float GENERIC_NOISE = 150.0f;
 
-    public float noise() {
+    float noise() {
         return GENERIC_NOISE;
     }
 
-    public int bullets() {
+    int bullets() {
         return MAX_BULLETS;
+    }
+
+    @Override
+    public String toString() {
+        return "{Noise: " + noise() + " - Bullets: " + bullets() + "}";
     }
 
 }

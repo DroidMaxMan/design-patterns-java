@@ -18,15 +18,15 @@
 
 package patterns.structural.decorator.example;
 
-public class Rifle extends Firearm {
+class Rifle extends Firearm {
 
     @Override
-    public float noise() {
+    float noise() {
         return super.noise();
     }
 
     @Override
-    public int bullets() {
+    int bullets() {
         return super.bullets();
     }
 

@@ -1087,8 +1087,6 @@ Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _F
 
 * [Bridge](https://es.wikipedia.org/wiki/Bridge_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es una técnica usada en programación para desacoplar una abstracción de su implementación, de manera que ambas puedan ser modificadas independientemente sin necesidad de alterar por ello la otra. Esto es, se desacopla una abstracción de su implementación para que puedan variar independientemente.
 
-* [Decorator](https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29) - Añade funcionalidad a una clase dinámicamente.
-
 * [Facade](https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29) - Provee de una interfaz unificada simple para acceder a una interfaz o grupo de interfaces de un sistema.
 
 * [Flyweight](https://es.wikipedia.org/wiki/Flyweight_(patr%C3%B3n_de_dise%C3%B1o)) - El patrón Flyweight (u objeto ligero) sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento (uso de recursos).
@@ -1159,6 +1157,115 @@ public class Client {
 #### Referencia
 
 <https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29>
+
+### - *__Decorator__* -
+
+**GoF**: Asignar responsabilidades adicionales a un objeto de forma dinámica. Los decoradores ofrecen una alternativa flexible a la subclasificación para ampliar la funcionalidad.
+
+#### Concepto
+
+El patrón *__'Decorator'__* sirve para añadir y/o modificar la responsabilidad, funcionalidad o propiedades de un objeto en tiempo de ejecución. Permite organizar el diseño de forma que la incorporación de nueva funcionalidad en tiempo de ejecución sea transparente desde el punto de vista del usuario de la **clase decorada**.
+
+Este patrón permite tener una jerarquía de clases compuestas, formando una estructura más dinámica y flexible que la herencia estática. Al utilizar este patrón, se pueden añadir y eliminar responsabilidades en tiempo de ejecución. Además, evita la utilización de la herencia con muchas clases y también, la herencia múltiple (si fuera posible en el lenguaje utilizado).
+
+#### Implementación
+
+Supongamos que el personaje de un videojuego porta un arma que utiliza para eliminar a sus enemigos. Dicha arma, por ser de un tipo determinado, tiene una serie de propiedades como podrían ser "radio de acción", "número de balas", etc.. Sin embargo, es posible que el personaje incorpore elementos al arma que pueden cambiar estas propiedades como un silenciador o un cargador extra.
+
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/decorator.png)
+
+Básicamente, los diferentes tipos de armas de fuego implementan una clase abstracta llamada *'Firearm'*. Una de sus subclases es *'FirearmDecorator'* que a su vez es la superclase de todos los componentes que _"decoran"_ a un objeto *'Firearm'*. Nótese que este decorador implementa la interfaz propuesta por *'Firearm'* y está compuesto por un objeto *'gun'*, el cual decora.
+
+```java
+class Firearm {
+    private static final int MAX_BULLETS = 5;
+    private static final float GENERIC_NOISE = 150.0f;
+
+    float noise() {
+        return GENERIC_NOISE;
+    }
+
+    int bullets() {
+        return MAX_BULLETS;
+    }
+}
+
+class Rifle extends Firearm {
+    @Override
+    float noise() {
+        return super.noise();
+    }
+
+    @Override
+    int bullets() {
+        return super.bullets();
+    }
+}
+
+class FirearmDecorator extends Firearm {
+    private Firearm gun;
+
+    FirearmDecorator(Firearm gun) {
+        this.gun = gun;
+    }
+
+    @Override
+    float noise() {
+        return gun.noise();
+    }
+
+    @Override
+    int bullets() {
+        return gun.bullets();
+    }
+}
+
+class Silencer extends FirearmDecorator {
+    Silencer(Firearm gun) {
+        super(gun);
+    }
+
+    @Override
+    float noise() {
+        return super.noise() - 55;
+    }
+
+    @Override
+    int bullets() {
+        return super.bullets();
+    }
+}
+
+class Magazine extends FirearmDecorator {
+    Magazine(Firearm gun) {
+        super(gun);
+    }
+
+    @Override
+    float noise() {
+        return super.noise();
+    }
+
+    @Override
+    int bullets() {
+        return super.bullets() + 5;
+    }
+}
+```
+
+#### Consideraciones
+
+* El patrón *__'Decorator'__* está más centrado en la extensión de la funcionalidad que en la composición de objetos para la generación de una jerarquía como ocurre con el patrón *__'Composite'__*.
+
+* Normalmente, sólo existe una objeto decorado y no un vector de objetos (aunque también es posible).
+
+* Este patrón puede generar gran cantidad de objetos pequeños y parecidos que dificulta su identificación.
+
+* Este patrón se diferencia de la simple herencia en que podemos añadir o quitar responsabilidades simplemente adjuntando o quitando decoradores. Pero únicamente con la herencia, necesitamos crear una nueva clase para nuevas responsabilidades. Por lo tanto, habrá muchas clases dentro del sistema, lo que a su vez puede hacer que el sistema sea complejo.
+
+#### Referencia
+
+<https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
 ### - *__Composite__* -
 
