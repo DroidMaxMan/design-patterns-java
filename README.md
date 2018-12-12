@@ -722,7 +722,7 @@ El patrón *__'Memento'__* define tres roles principales:
 
 * ***Memento***: Es un objeto de valor que actúa como una instantánea del estado del _'originator'_. Es una práctica común hacer que el _'memento'_ sea inmutable y pasar los datos solo una vez, a través del constructor.
 
-![Implementación](https://upload.wikimedia.org/wikipedia/commons/3/38/W3sDesign_Memento_Design_Pattern_UML.jpg)
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/memento.jpg)
 
 La clase `'Originator'` implementa el método `'createMemento()'` que crea y devuelve un objeto `'Memento'` que almacena el estado interno actual del objeto _'originator'_ y el método `'restore(memento)'` que restaura el estado a partir del objeto _'memento'_ pasado como argumento.
 
@@ -791,12 +791,12 @@ class Caretaker {
 
 * Este patrón se puede implementar utilizando la serialización, que es bastante común en Java. Si bien no es la única ni la forma más eficiente de hacer instantáneas del estado de un objeto, todavía permite almacenar copias de seguridad del estado mientras protege la estructura del _'originator'_ frente a otros objetos.
 
-#### Referencia
+#### Referencias
 
-<https://en.wikipedia.org/wiki/Memento_pattern>
-<https://es.wikipedia.org/wiki/Memento_(patr%C3%B3n_de_dise%C3%B1o)>
-<https://sourcemaking.com/design_patterns/memento>
-<https://refactoring.guru/design-patterns/memento>
+<https://en.wikipedia.org/wiki/Memento_pattern>  
+<https://es.wikipedia.org/wiki/Memento_(patr%C3%B3n_de_dise%C3%B1o)>  
+<https://sourcemaking.com/design_patterns/memento>  
+<https://refactoring.guru/design-patterns/memento>  
 
 ### - *__Mediator__* -
 
@@ -814,7 +814,7 @@ El patrón *__'Mediator'__* define un objeto que encapsula cómo un conjunto de 
 
 La esencia del patrón *__'Mediator'__* es "definir un objeto que encapsule cómo interactúa un conjunto de objetos". Promueve el acoplamiento débil evitando que los objetos se refieran entre sí explícitamente, y permite que su interacción se varíe de forma independiente. Las clases de clientes pueden usar el mediador para enviar mensajes a otros clientes y pueden recibir mensajes de otros clientes a través de un evento en la clase de mediadores.
 
-![Ejemplo](https://upload.wikimedia.org/wikipedia/commons/e/e4/Mediator_design_pattern.png)
+![Ejemplo](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/mediator.png)
 
 En el ejemplo participan:
 
@@ -879,12 +879,12 @@ class ConcreteColleague extends Colleague {
 
 * El patrón *__'Facade'__* y *__'Mediator'__* son muy similares ya que ambos tratan de organizar la colaboración entre un montón de clases estrechamente acopladas. Sin embargo en el patrón *__'Facade'__* los objetos pueden comunicarse entre sí mientras que en el patrón *__'Mediator'__* los objetos sólo se comunican con el mediador.
 
-#### Referencia
+#### Referencias
 
-<https://es.wikipedia.org/wiki/Mediator_(patr%C3%B3n_de_dise%C3%B1o)>
-<https://en.wikipedia.org/wiki/Mediator_pattern>
-<https://sourcemaking.com/design_patterns/mediator>
-<https://refactoring.guru/design-patterns/mediator>
+<https://es.wikipedia.org/wiki/Mediator_(patr%C3%B3n_de_dise%C3%B1o)>  
+<https://en.wikipedia.org/wiki/Mediator_pattern>  
+<https://sourcemaking.com/design_patterns/mediator>  
+<https://refactoring.guru/design-patterns/mediator>  
 
 ### - *__Interpreter__* -
 
@@ -926,19 +926,104 @@ Los patrones creacionales son _Abstract Factory_, _Builder_, _Factory Method_, _
 
 ### - *__Builder__* -
 
-(todo)
-
-* [Builder](https://es.wikipedia.org/wiki/Builder_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es usado para permitir la creación de una variedad de objetos complejos desde un objeto fuente (Producto), el objeto fuente se compone de una variedad de partes que contribuyen individualmente a la creación de cada objeto complejo a través de un conjunto de llamadas a interfaces comunes de la clase Abstract Builder.
+**GoF**: Separa la construcción de un objeto complejo de su representación para que los mismos procesos de construcción puedan crear diferentes representaciones.
 
 #### Concepto
 
+El patrón *__'Builder'__*  es útil para crear objetos complejos que tienen varias partes. El mecanismo creacional de un objeto debe ser independiente de estas partes ya que al proceso de construcción no le importa cómo se ensamblan estas piezas. El mismo proceso de construcción debe permitirnos crear diferentes representaciones de los objetos.
+
+Crear y ensamblar las partes de un objeto complejo directamente dentro de una clase es inflexible. Se compromete a la clase a crear una representación particular del objeto complejo y hace que sea imposible cambiar la representación más tarde de forma independiente de la clase sin tener que cambiarla.
+
+Ventajas de utilizar este patrón:
+
+* Reduce el acoplamiento.
+* Permite variar la representación interna de un producto.
+* Encapsula el código para la construcción y la representación.
+* Proporciona control sobre los pasos del proceso de construcción.
+
+Desventajas del patrón:
+
+* Requiere crear un constructor concreto para cada tipo diferente de producto.
+* Requiere que las clases del constructor sean mutables.
+* No se garantiza la inicialización de los datos de los miembros de la clase.
+* La inyección de dependencia puede ser menos compatible.
+
 #### Implementación
 
-#### Consideraciones
+![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/creational/builder.svg)
 
-#### Referencia
+* ***Builder***: Interfaz abstracta para crear objetos (producto).
+* ***ConcreteBuilder***: Proporciona implementación para _'Builder'_. Es un objeto capaz de construir otros objetos. Construye y ensambla partes para construir los objetos.
+* ***Product***: el objeto complejo que se construye.
+* ***Director***: invoca el objeto _'Builder'_ para la construcción del producto.
 
-<>
+```java
+interface Builder {
+    Product build();
+    ConcreteBuilder setName(String name);
+    ConcreteBuilder setColor(String color);
+}
+
+class ConcreteBuilder implements Builder {
+    private Product product;
+
+    ConcreteBuilder() {
+        product = new Product();
+    }
+
+    @Override
+    public Product build() {
+        Product product = new Product();
+        product.setColor(this.product.getColor());
+        product.setName(this.product.getName());
+        return product;
+    }
+
+    @Override
+    public ConcreteBuilder setColor(final String color) {
+        product.setColor(color);
+        return this;
+    }
+
+    @Override
+    public ConcreteBuilder setName(final String name) {
+        product.setName(name);
+        return this;
+    }
+}
+
+class Product {
+    // ...
+}
+
+public class Director {
+
+    private Builder builder;
+
+    private Director(final Builder builder) {
+        this.builder = builder;
+    }
+
+    public static void main(final String ... arguments) {
+        final Builder builder = new ConcreteBuilder();
+        final Director director = new Director(builder);
+        System.out.println(director.construct());
+    }
+
+    private Product construct() {
+        return builder.setName("ProductA")
+                .setColor("Red")
+                .build();
+    }
+}
+```
+
+#### Referencias
+
+<https://en.wikipedia.org/wiki/Builder_pattern>  
+<https://es.wikipedia.org/wiki/Builder_(patr%C3%B3n_de_dise%C3%B1o)>  
+<https://refactoring.guru/design-patterns/builder>  
+<https://sourcemaking.com/design_patterns/builder>  
 
 ### - *__Abstract Factory__* -
 
