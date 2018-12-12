@@ -800,19 +800,91 @@ class Caretaker {
 
 ### - *__Mediator__* -
 
-(todo)
-
-* [Mediator](https://es.wikipedia.org/wiki/Mediator_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón define un objeto que encapsula cómo un conjunto de objetos interactúan
+**GoF**: Defina un objeto que encapsule cómo interactúa un conjunto de objetos. El mediador promueve el acoplamiento débil evitando que los objetos se refieran entre sí explícitamente, y le permite variar su interacción de forma independiente.
 
 #### Concepto
 
+Normalmente los programas tienen un gran número de clases. A medida que se agregan más clases a un programa, especialmente durante el mantenimiento y/o refactorización, el problema de la comunicación entre estas clases puede volverse más complejo. Esto hace que el programa sea más difícil de leer y mantener. Además, puede resultar difícil cambiar el programa, ya que cualquier cambio puede afectar al código en otras clases.
+
+Definir un conjunto de objetos que interactúan accediendo y actualizándose entre ellos de forma directa es inflexible porque acopla estos objetos entre sí y hace imposible cambiar la interacción de forma independiente sin tener que modificarlos. Esto hace que los objetos sean poco reutilizables y difíciles de probar. Los objetos estrechamente acoplados son difíciles de implementar, cambiar, probar y reutilizar porque se refieren y conocen muchos objetos diferentes.
+
+El patrón *__'Mediator'__* define un objeto que encapsula cómo un conjunto de objetos interactúan. De esta forma los objetos no se comunican de forma directa entre ellos, sino que se comunican mediante el mediador. El mediador busca reducir el acoplamiento evitando que los objetos se relacionen entre ellos de forma explícita y permitiendo cambiar la interacción entre un conjunto de objetos de forma independiente.
+
 #### Implementación
+
+La esencia del patrón *__'Mediator'__* es "definir un objeto que encapsule cómo interactúa un conjunto de objetos". Promueve el acoplamiento débil evitando que los objetos se refieran entre sí explícitamente, y permite que su interacción se varíe de forma independiente. Las clases de clientes pueden usar el mediador para enviar mensajes a otros clientes y pueden recibir mensajes de otros clientes a través de un evento en la clase de mediadores.
+
+![Ejemplo](https://upload.wikimedia.org/wikipedia/commons/e/e4/Mediator_design_pattern.png)
+
+En el ejemplo participan:
+
+* ***Mediator***: Define la interfaz para la comunicación entre objetos de tipo `'Colleague'`.
+* ***ConcreteMediator***: implementa la interfaz del mediador y coordina la comunicación entre los objetos de tipo `'Colleague'`. Es consciente de todos los objetos y sus propósitos con respecto a la intercomunicación.
+* ***Colleague***: Define la interfaz para la comunicación con otros objetos `'Colleague'` a través de su mediador.
+* ***ConcreteColleague***: implementa la interfaz `'Colleague'`  y se comunica con otros objetos a través de su mediador
+
+```java
+interface Mediator {
+    void send(String message, Colleague colleague);
+}
+
+class ConcreteMediator implements Mediator {
+    private ArrayList<Colleague> colleagues;
+
+    ConcreteMediator() {
+        colleagues = new ArrayList<>();
+    }
+
+    void addColleague(Colleague colleague) {
+        colleagues.add(colleague);
+    }
+
+    public void send(String message, Colleague originator) {
+        for (Colleague colleague : colleagues) {
+            //don't tell ourselves
+            if (colleague != originator) {
+                colleague.receive(message);
+            }
+        }
+    }
+}
+
+abstract class Colleague {
+    private Mediator mediator;
+
+    Colleague(Mediator m) {
+        mediator = m;
+    }
+
+    //send a message via the mediator
+    void send(String message) {
+        mediator.send(message, this);
+    }
+
+    public abstract void receive(String message);
+}
+
+class ConcreteColleague extends Colleague {
+    ConcreteColleague(Mediator mediator) {
+        super(mediator);
+    }
+
+    public void receive(String message) {
+        System.out.println("Colleague Received: " + message);
+    }
+}
+```
 
 #### Consideraciones
 
+* El patrón *__'Facade'__* y *__'Mediator'__* son muy similares ya que ambos tratan de organizar la colaboración entre un montón de clases estrechamente acopladas. Sin embargo en el patrón *__'Facade'__* los objetos pueden comunicarse entre sí mientras que en el patrón *__'Mediator'__* los objetos sólo se comunican con el mediador.
+
 #### Referencia
 
-<>
+<https://es.wikipedia.org/wiki/Mediator_(patr%C3%B3n_de_dise%C3%B1o)>
+<https://en.wikipedia.org/wiki/Mediator_pattern>
+<https://sourcemaking.com/design_patterns/mediator>
+<https://refactoring.guru/design-patterns/mediator>
 
 ### - *__Interpreter__* -
 
