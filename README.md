@@ -23,14 +23,6 @@ Los patrones de comportamiento se definen como patrones de diseño software que 
 
 Los patrones de comportamiento son _Chain of Responsibility_, _Command_, _Interpreter_, _Iterator_, _Mediator_, _Memento_, _Observer_, _State_, _Strategy_, _Template Method_ y _Visitor_.
 
-* [Chain of Responsibility](https://es.wikipedia.org/wiki/Cadena_de_responsabilidad) - Este patrón es un patrón de comportamiento que evita acoplar el emisor de una petición a su receptor dando a más de un objeto la posibilidad de responder a una petición. Para ello, se encadenan los receptores y pasa la petición a través de la cadena hasta que es procesada por algún objeto.
-
-* [Interpreter](https://es.wikipedia.org/wiki/Interpreter_(patr%C3%B3n_de_dise%C3%B1o)) - Es un patrón de diseño que, dado un lenguaje, define una representación para su gramática junto con un intérprete del lenguaje. Se usa para definir un lenguaje para representar expresiones regulares que representen cadenas a buscar dentro de otras cadenas. Además, en general, para definir un lenguaje que permita representar las distintas instancias de una familia de problemas.
-
-* [Mediator](https://es.wikipedia.org/wiki/Mediator_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón define un objeto que encapsula cómo un conjunto de objetos interactúan
-
-* [Memento](https://es.wikipedia.org/wiki/Memento_(patr%C3%B3n_de_dise%C3%B1o)) - Es un patrón de diseño cuya finalidad es almacenar el estado de un objeto (o del sistema completo) en un momento dado de manera que se pueda restaurar en ese punto de manera sencilla. Para ello se mantiene almacenado el estado del objeto para un instante de tiempo en una clase independiente de aquella a la que pertenece el objeto (pero sin romper la encapsulación), de forma que ese recuerdo permita que el objeto sea modificado y pueda volver a su estado anterior.
-
 ### - *__Command__* -
 
 **Gof**: Encapsule una solicitud como un objeto, lo que le permite parametrizar a los clientes con diferentes solicitudes, solicitudes de cola o registro y admite operaciones que no se pueden deshacer.
@@ -710,13 +702,171 @@ class ConcreteVisitor2 implements Visitor {
 
 <https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
+### - *__Memento__* -
+
+**GoF**: Sin violar la encapsulación, captura y externaliza el estado interno de un objeto para que el objeto pueda restaurarse a este estado más adelante.
+
+#### Concepto
+
+Es un patrón de diseño cuya finalidad es almacenar el estado de un objeto (o del sistema completo) en un momento dado de manera que se pueda restaurar en ese punto de manera sencilla. Para ello se mantiene almacenado el estado del objeto para un instante de tiempo en una clase independiente de aquella a la que pertenece el objeto (pero sin romper la encapsulación), de forma que ese recuerdo permita que el objeto sea modificado y pueda volver a su estado anterior.
+
+Se usa este patrón cuando se quiere poder restaurar el sistema desde estados pasados y por otra parte, es usado cuando se desea facilitar el hacer y deshacer de determinadas operaciones, para lo que habrá que guardar los estados anteriores de los objetos sobre los que se opere (o bien recordar los cambios de forma incremental).
+
+#### Implementación
+
+El patrón *__'Memento'__* define tres roles principales:
+
+* ***Originator***: La clase _'originator'_ puede producir instantáneas de su propio estado, así como restaurar su estado a partir de las instantáneas cuando sea necesario.
+
+* ***Caretaker***: El _'caretaker'_ sabe no solo "cuándo" y "por qué" capturar el estado del originador, sino también cuándo debe restaurarse el estado. Puede realizar un seguimiento del historial del _'originator'_ almacenando una pila de _'mementos'_. Cuando el _'originator'_ tiene que retroceder en la historia, el _'caretaker'_ busca el recuerdo más alto de la pila y lo pasa al método de restauración del _'originator'_.
+
+* ***Memento***: Es un objeto de valor que actúa como una instantánea del estado del _'originator'_. Es una práctica común hacer que el _'memento'_ sea inmutable y pasar los datos solo una vez, a través del constructor.
+
+![Implementación](https://upload.wikimedia.org/wikipedia/commons/3/38/W3sDesign_Memento_Design_Pattern_UML.jpg)
+
+La clase `'Originator'` implementa el método `'createMemento()'` que crea y devuelve un objeto `'Memento'` que almacena el estado interno actual del objeto _'originator'_ y el método `'restore(memento)'` que restaura el estado a partir del objeto _'memento'_ pasado como argumento.
+
+Para guardar el estado original, la clase `'Caretaker'` invoca el método `'createMemento()'` que creará un objeto de tipo `'Memento'` con el estado actual y lo retornará al invocador que lo custodiará (sin alterar su estado ni acceder a él). Cuando sea necesario restaurar el estado anterior, el objeto `'Caretaker'`  invocará el método `'restore(memento)'` especificando el objeto `'Memento'` que guarda el estado que debe ser restaurado. El objeto _'originator'_ recupera el estado del método `'getState()'` del objeto `'Memento'`.  
+
+```java
+class Originator {
+    private String state;
+    // The class could also contain additional data that is not part of the
+    // state saved in the memento..
+
+    void set(String state) {
+        this.state = state;
+        System.out.println("Originator: Setting state to " + state);
+    }
+
+    Memento createMemento() {
+        System.out.println("Originator: Saving to Memento.");
+        return new Memento(this.state);
+    }
+
+    void restore(Memento memento) {
+        this.state = memento.getSavedState();
+        System.out.println("Originator: State after restoring from Memento: " + state);
+    }
+
+    static class Memento {
+        private final String state;
+
+        Memento(String stateToSave) {
+            state = stateToSave;
+        }
+
+        // accessible by outer class only
+        private String getSavedState() {
+            return state;
+        }
+    }
+}
+
+class Caretaker {
+    public static void main(String[] args) {
+        List<Originator.Memento> savedStates = new ArrayList<>();
+
+        Originator originator = new Originator();
+        originator.set("State1");
+        originator.set("State2");
+        savedStates.add(originator.createMemento());
+        originator.set("State3");
+        // We can request multiple mementos, and choose which one to roll back to.
+        savedStates.add(originator.createMemento());
+        originator.set("State4");
+
+        originator.restore(savedStates.get(1));
+    }
+}
+```
+
+#### Consideraciones
+
+* En un escenario real en que puede haber varios puntos de restauración o _'snapshots'_ del estado de un objeto en varias instancias de tiempo se puede emplear una estructura como un `'ArrayList'` o similares.
+
+* Este patrón se utiliza cuando queremos implementar operaciones como _'undo'_ o _'rollback'_.
+
+* Un número alto de puntos de restauración o _'snapshots'_ requiere espacio extra de almacenamiento.
+
+* Este patrón se puede implementar utilizando la serialización, que es bastante común en Java. Si bien no es la única ni la forma más eficiente de hacer instantáneas del estado de un objeto, todavía permite almacenar copias de seguridad del estado mientras protege la estructura del _'originator'_ frente a otros objetos.
+
+#### Referencia
+
+<https://en.wikipedia.org/wiki/Memento_pattern>
+<https://es.wikipedia.org/wiki/Memento_(patr%C3%B3n_de_dise%C3%B1o)>
+<https://sourcemaking.com/design_patterns/memento>
+<https://refactoring.guru/design-patterns/memento>
+
+### - *__Mediator__* -
+
+(todo)
+
+* [Mediator](https://es.wikipedia.org/wiki/Mediator_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón define un objeto que encapsula cómo un conjunto de objetos interactúan
+
+#### Concepto
+
+#### Implementación
+
+#### Consideraciones
+
+#### Referencia
+
+<>
+
+### - *__Interpreter__* -
+
+(todo)
+
+* [Interpreter](https://es.wikipedia.org/wiki/Interpreter_(patr%C3%B3n_de_dise%C3%B1o)) - Es un patrón de diseño que, dado un lenguaje, define una representación para su gramática junto con un intérprete del lenguaje. Se usa para definir un lenguaje para representar expresiones regulares que representen cadenas a buscar dentro de otras cadenas. Además, en general, para definir un lenguaje que permita representar las distintas instancias de una familia de problemas.
+
+#### Concepto
+
+#### Implementación
+
+#### Consideraciones
+
+#### Referencia
+
+<>
+
+### - *__Chain of Responsibility__* -
+
+(todo)
+
+* [Chain of Responsibility](https://es.wikipedia.org/wiki/Cadena_de_responsabilidad) - Este patrón es un patrón de comportamiento que evita acoplar el emisor de una petición a su receptor dando a más de un objeto la posibilidad de responder a una petición. Para ello, se encadenan los receptores y pasa la petición a través de la cadena hasta que es procesada por algún objeto.
+
+#### Concepto
+
+#### Implementación
+
+#### Consideraciones
+
+#### Referencia
+
+<>
+
 ## Creational Patterns
 
 Los patrones creacionales corresponden a patrones de diseño de software que solucionan problemas de creación de instancias. Nos ayudan a encapsular y abstraer dicha creación.
 
 Los patrones creacionales son _Abstract Factory_, _Builder_, _Factory Method_, _Prototype_ y _Singleton_.
 
+### - *__Builder__* -
+
+(todo)
+
 * [Builder](https://es.wikipedia.org/wiki/Builder_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es usado para permitir la creación de una variedad de objetos complejos desde un objeto fuente (Producto), el objeto fuente se compone de una variedad de partes que contribuyen individualmente a la creación de cada objeto complejo a través de un conjunto de llamadas a interfaces comunes de la clase Abstract Builder.
+
+#### Concepto
+
+#### Implementación
+
+#### Consideraciones
+
+#### Referencia
+
+<>
 
 ### - *__Abstract Factory__* -
 
@@ -1085,9 +1235,37 @@ Los patrones estructurales son los patrones de diseño software que solucionan p
 
 Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _Facade_, _Flyweight_ y _Proxy_.
 
+### - *__Bridge__* -
+
+(todo)
+
 * [Bridge](https://es.wikipedia.org/wiki/Bridge_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es una técnica usada en programación para desacoplar una abstracción de su implementación, de manera que ambas puedan ser modificadas independientemente sin necesidad de alterar por ello la otra. Esto es, se desacopla una abstracción de su implementación para que puedan variar independientemente.
 
+#### Concepto
+
+#### Implementación
+
+#### Consideraciones
+
+#### Referencia
+
+<>
+
+### - *__Flyweight__* -
+
+(todo)
+
 * [Flyweight](https://es.wikipedia.org/wiki/Flyweight_(patr%C3%B3n_de_dise%C3%B1o)) - El patrón Flyweight (u objeto ligero) sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento (uso de recursos).
+
+#### Concepto
+
+#### Implementación
+
+#### Consideraciones
+
+#### Referencia
+
+<>
 
 ### - *__Adapter__* -
 
