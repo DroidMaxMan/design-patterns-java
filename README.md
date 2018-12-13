@@ -888,35 +888,137 @@ class ConcreteColleague extends Colleague {
 
 ### - *__Interpreter__* -
 
-(todo)
-
-* [Interpreter](https://es.wikipedia.org/wiki/Interpreter_(patr%C3%B3n_de_dise%C3%B1o)) - Es un patrón de diseño que, dado un lenguaje, define una representación para su gramática junto con un intérprete del lenguaje. Se usa para definir un lenguaje para representar expresiones regulares que representen cadenas a buscar dentro de otras cadenas. Además, en general, para definir un lenguaje que permita representar las distintas instancias de una familia de problemas.
+**GoF**: Dado un lenguaje, defina una representación para su gramática junto con un intérprete que use la representación para interpretar oraciones en el lenguaje.
 
 #### Concepto
 
-#### Implementación
+Es un patrón de diseño que, dado un lenguaje, define una representación para su gramática junto con un intérprete del lenguaje.
 
-#### Consideraciones
+El patrón *__'Interpreter'__* habla de definir un lenguaje de dominio (es decir, la caracterización del problema) como una gramática de lenguaje simple, representar reglas de dominio como oraciones de lenguaje e interpretar estas oraciones para resolver el problema. El patrón usa una clase para representar cada regla gramatical. Y dado que las gramáticas suelen tener una estructura jerárquica, una jerarquía de herencia de las clases de reglas se comporta bien.
+
+El patrón sugiere modelar el dominio con una gramática recursiva.  El intérprete se basa en el recorrido recursivo del patrón *__'Composite'__* para interpretar las "oraciones" que se le solicita procesar.
+
+El patrón sugiere definir una gramática para un lenguaje simple definiendo una jerarquía de clases `'Expression'` e implementando una operación `'interpret()'`. Cada regla de la gramática es un 'compuesto' (una regla que hace referencia a otras reglas) o un terminal (un nodo de hoja en una estructura de árbol).
+
+La sentencia del lenguaje se representa mediante un árbol de sintaxis abstracta (AST) formado por instancias de `'Expression'`. Las sentencias se interpretan realizando un recorrido del AST e invocando '`interpret()`´.
+
+![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/interpreter.jpg)
 
 #### Referencia
 
-<>
+<https://es.wikipedia.org/wiki/Interpreter_(patr%C3%B3n_de_dise%C3%B1o)>  
+<https://en.wikipedia.org/wiki/Interpreter_pattern>  
+<https://sourcemaking.com/design_patterns/interpreter>  
 
 ### - *__Chain of Responsibility__* -
 
 (todo)
 
-* [Chain of Responsibility](https://es.wikipedia.org/wiki/Cadena_de_responsabilidad) - Este patrón es un patrón de comportamiento que evita acoplar el emisor de una petición a su receptor dando a más de un objeto la posibilidad de responder a una petición. Para ello, se encadenan los receptores y pasa la petición a través de la cadena hasta que es procesada por algún objeto.
+**GoF**: Evite acoplar el remitente de una solicitud a su receptor dándole a más de un objeto la oportunidad de manejar la solicitud. Encadene los objetos receptores y pase la solicitud a lo largo de la cadena hasta que un objeto la maneje.
 
 #### Concepto
 
+Este patrón evita acoplar el emisor de una petición a su receptor dando a más de un objeto la posibilidad de responder a una petición. Para ello, se encadenan los receptores y se pasa la petición a través de la cadena hasta que es procesada por algún objeto.
+
+![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/chain.png)
+
+Este patrón puede aplicarse cuando:
+
+* hay más de un objeto que puede manejar una petición, y el manejador no se conoce a priori, sino que debería determinarse automáticamente.
+
+* se quiere enviar una petición a un objeto entre varios sin especificar explícitamente el receptor.
+
+* el conjunto de objetos que pueden tratar una petición debería ser especificado dinámicamente.
+
+Las ventajas de este patrón son:
+
+* **Reduce el acoplamiento**. El patrón libera a un objeto de tener que saber qué otro objeto maneja una petición. Ni el receptor ni el emisor se conocen explícitamente entre ellos, y un objeto de la cadena tampoco tiene que conocer la estructura de ésta. Por lo tanto, simplifica las interconexiones entre objetos. En vez de que los objetos mantengan referencias a todos los posibles receptores, sólo tienen una única referencia a su sucesor.
+
+* **Añade flexibilidad para asignar responsabilidades a objetos**. Se pueden añadir o cambiar responsabilidades entre objetos para tratar una petición modificando la cadena de ejecución en tiempo de ejecución. Esto se puede combinar con la herencia para especializar los manejadores estáticamente.
+
+Por otra parte presenta el inconveniente de no garantizar la recepción. Dado que las peticiones no tienen un receptor explícito, no hay garantías de que sean manejadas. La petición puede alcanzar el final de la cadena sin haber sido procesada.
+
 #### Implementación
 
-#### Consideraciones
+En este patrón participan:
+
+* **Manejador**: define una interfaz para tratar las peticiones. Opcionalmente, implementa el enlace al sucesor.
+
+* **ManejadorConcreto**: trata las peticiones de las que es responsable; si puede manejar la petición, lo hace; en caso contrario la reenvía a su sucesor.
+
+* **Cliente**: inicializa la petición a un Manejador Concreto de la cadena.
+
+![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/chain.jpg)
+
+```java
+abstract class Manejador {
+    Manejador sucesor;
+
+    void setSucesor(Manejador sucesor) {
+        this.sucesor = sucesor;
+    }
+
+    abstract void manejarPeticion(Peticion peticion);
+}
+
+class ManejadorConcreto1 extends Manejador {
+    @Override
+    public void manejarPeticion(Peticion peticion) {
+        if (peticion.getValue() < 0) {
+            System.out.println("Los valores negativos son manejados por " + getClass().getSimpleName());
+            System.out.println("Valores peticion : " + peticion.getDescripcion() + peticion.getValue());
+        } else {
+            sucesor.manejarPeticion(peticion);
+        }
+    }
+
+}
+
+class ManejadorConcreto2 extends Manejador {
+    @Override
+    public void manejarPeticion(Peticion peticion) {
+        if (peticion.getValue() >= 0) {
+            System.out.println("Los valores mayores que 0 son manejados por " + getClass().getSimpleName());
+            System.out.println("Valores peticion : " + peticion.getDescripcion() + peticion.getValue());
+        } else {
+            sucesor.manejarPeticion(peticion);
+        }
+    }
+}
+
+class Peticion {
+    private int value;
+    private String descripcion;
+
+    Peticion(String descripcion, int value) {
+        this.value = value;
+        this.descripcion = descripcion;
+    }
+
+    int getValue() {
+        return value;
+    }
+
+    String getDescripcion() {
+        return descripcion;
+    }
+}
+```
+
+#### Aplicabilidad
+
+* Use el patrón cuando se espera que su programa procese diferentes tipos de solicitudes de varias maneras, pero los tipos exactos de solicitudes y sus secuencias son desconocidos de antemano. El patrón le permite vincular varios manejadores en una cadena y, al recibir una solicitud, "preguntar" a cada manejador si puede procesarlo. De esta manera todos los manejadores tienen la oportunidad de procesar la solicitud.
+
+* Cuando sea esencial ejecutar varios manejadores en un orden particular. Como los manejadores de la cadena pueden vincularse en cualquier orden, todas las solicitudes pasarán a través de la cadena exactamente como deben hacerlo.
+
+* Cuando el conjunto de manejadores y su orden deban cambiar en el tiempo de ejecución. Si se proporcionan _'setters'_ para un campo de referencia dentro de las clases de manejadores, podrá insertar, eliminar o ordenar los manejadores dinámicamente.
 
 #### Referencia
 
-<>
+<https://es.wikipedia.org/wiki/Cadena_de_responsabilidad>  
+<https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern>  
+<https://refactoring.guru/design-patterns/chain-of-responsibility>  
+<https://sourcemaking.com/design_patterns/chain_of_responsibility>
 
 ## Creational Patterns
 
