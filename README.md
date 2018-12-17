@@ -912,8 +912,6 @@ La sentencia del lenguaje se representa mediante un árbol de sintaxis abstracta
 
 ### - *__Chain of Responsibility__* -
 
-(todo)
-
 **GoF**: Evite acoplar el remitente de una solicitud a su receptor dándole a más de un objeto la oportunidad de manejar la solicitud. Encadene los objetos receptores y pase la solicitud a lo largo de la cadena hasta que un objeto la maneje.
 
 #### Concepto
@@ -1494,21 +1492,134 @@ Los patrones estructurales son los patrones de diseño software que solucionan p
 
 Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _Facade_, _Flyweight_ y _Proxy_.
 
-### - *__Bridge__* -
+### - Patrón *__Bridge__* -
 
-(todo)
+**GoF**: Desacoplar una abstracción de su implementación para que los dos puedan variar independientemente.
 
-* [Bridge](https://es.wikipedia.org/wiki/Bridge_(patr%C3%B3n_de_dise%C3%B1o)) - Este patrón es una técnica usada en programación para desacoplar una abstracción de su implementación, de manera que ambas puedan ser modificadas independientemente sin necesidad de alterar por ello la otra. Esto es, se desacopla una abstracción de su implementación para que puedan variar independientemente.
+<!-- markdownlint-disable MD033 -->
+<p align="center">
+    <img src="https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/bridge.png">
+</p>
+<!-- markdownlint-enable MD033 -->
 
 #### Concepto
 
+Este patrón es una técnica usada en programación para desacoplar una abstracción de su implementación, de manera que ambas puedan ser modificadas independientemente sin necesidad de alterar por ello la otra. Esto es, se desacopla una abstracción de su implementación para que puedan variar independientemente.
+
+Digamos que tenemos la clase `'Shape'` con un par de subclases: `'Circle'` y `'Square'`. Si incorporamos el color a la jerarquía de clases debemos combinar las subclases con el nuevo requisito creando subclases como `'BlueCircle'` o `'RedSquare'`. Si en un futuro es necesario incorporar una nueva forma o un nuevo color, deberemos combinar esta nueva subclase o color con las formas o colores ya existentes, aumentando exponencialmente el número de subclases.
+
+<!-- markdownlint-disable MD033 -->
+<p align="center">
+    <img src="https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/bridge01.png">
+</p>
+<!-- markdownlint-enable MD033 -->
+
+Este problema ocurre porque estamos tratando de extender las clases de formas en dos dimensiones independientes: por forma y por color. Ese es un problema muy común con la herencia de clases.
+
+El **patrón 'Bridge'** intenta resolver este problema cambiando de herencia a composición. Lo que esto significa es que extrae una de las dimensiones en una jerarquía de clases separada, de modo que las clases originales hagan referencia a un objeto de la nueva jerarquía, en lugar de tener todos sus estados y comportamientos dentro de una clase.
+
+<!-- markdownlint-disable MD033 -->
+<p align="center">
+    <img src="https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/bridge02.png">
+</p>
+<!-- markdownlint-enable MD033 -->
+
+En la definición de **GoF** se introducen los conceptos de _"abstración"_ e _"implementación"_. La abstracción y la implementación se pueden representar a través de una interfaz o una clase abstracta, pero la abstracción contiene una referencia a su implementador. Normalmente, un hijo de una abstracción se llama una _'refined abstraction'_ y un hijo de una implementación se llama _'concrete implementation'_.
+
+* ***Abstraction*** define una interfaz abstracta. Mantiene una referencia a un objeto de tipo Implementor.
+* ***RefinedAbstraction*** extiende la interfaz definida por _'Abstraction'_
+* ***Implementor*** define la interfaz para la implementación de clases. Esta interfaz no se tiene que corresponder exactamente con la interfaz de _'Abstraction'_; de hecho, las dos interfaces pueden ser bastante diferente. Típicamente la interfaz _'Implementor'_ provee sólo operaciones primitivas, y _'Abstraction'_ define operaciones de alto nivel basadas en estas primitivas.
+* ***ConcreteImplementor*** implementa la interfaz de Implementor y define su implementación concreta.
+
+<!-- markdownlint-disable MD033 -->
+<p align="center">
+    <img src="https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/bridge03.png">
+</p>
+<!-- markdownlint-enable MD033 -->
+
+Este patrón mejora la extensibilidad ya que permite que se puedan extender las jerarquías de clases de forma independientemente, sin afectarse entre sí.
+
+Esto se debe a que se desacopla la interfaz de la implementación. Una implementación no es limitada permanentemente a una interfaz. La implementación de una abstracción puede ser configurada en tiempo de ejecución. Además le es posible a un objeto cambiar su implementación en tiempo de ejecución.
+
+Desacoplando _'Abstraction'_ e _'Implementor'_ también elimina las dependencias sobre la implementación en tiempo de compilación. Cambiar una clase de implementación no requiere recompilar la clase _'Abstraction'_ ni sus clientes. Es más, este desacoplamiento fomenta las capas, que pueden conducir a un sistema mejor estructurado. La parte de alto nivel de un sistema sólo tiene que conocer _'Abstraction'_ e _'Implementor'_.
+
 #### Implementación
 
-#### Consideraciones
+1. Identificar las dimensiones independientes en tus clases. Estos conceptos independientes podrían ser: abstracción/plataforma, dominio/infraestructura, front-end/back-end o interfaz/implementación.
+
+1. Ver qué operaciones necesita el cliente y definirlas en la clase de abstracción base.
+
+1. Determinar las operaciones disponibles en todas las plataformas. Declare los que necesita la abstracción en la interfaz de implementación general.
+
+1. Para todas las plataformas en su dominio, cree clases de implementación concretas, pero asegúrese de que todas sigan la interfaz de implementación.
+
+1. Dentro de la clase de abstracción, agregue un campo de referencia para el tipo de implementación. La abstracción delega la mayor parte del trabajo al objeto de implementación al que se hace referencia en ese campo.
+
+1. Si tiene varias variantes de lógica de alto nivel, cree abstracciones refinadas para cada variante extendiendo la clase de abstracción base.
+
+1. El código del cliente debe pasar un objeto de implementación al constructor de la abstracción para asociar uno con el otro. Después de eso, el cliente puede olvidarse de la implementación y trabajar solo con el objeto de abstracción.
+
+```java
+interface Abstraccion {
+    void operacion();
+}
+
+interface Implementador {
+    void operacion();
+}
+
+class AbstraccionRefinada implements Abstraccion {
+    private Implementador implementador;
+
+    public AbstraccionRefinada(Implementador implementador) {
+        this.implementador = implementador;
+    }
+
+    public void operacion() {
+        implementador.operacion();
+    }
+}
+
+class ImplementacionA implements Implementador {
+    public void operacion() {
+        // ...
+    }
+}
+
+class ImplementacionB implements Implementador {
+    public void operacion() {
+        // ...
+    }
+}
+```
+
+#### Aplicabilidad
+
+Utilice el **patrón 'Bridge'** cuando desee dividir y organizar una clase monolítica que tenga varias variantes de alguna funcionalidad (por ejemplo, si la clase puede trabajar con varios servidores de bases de datos). Este patrón le permite dividir la clase monolítica en varias jerarquías de clase. Después de esto, puede cambiar las clases en cada jerarquía independientemente de las clases en las otras. Este enfoque simplifica el mantenimiento del código y minimiza el riesgo de romper el código existente.
+
+Use el patrón cuando necesite extender una clase en varias dimensiones ortogonales (independientes). El patrón sugiere que extraiga una jerarquía de clases separada para cada una de las dimensiones. La clase original delega el trabajo relacionado a los objetos que pertenecen a esas jerarquías en lugar de hacer todo por sí solo
+
+También cuando se necesite poder cambiar de implementación en tiempo de ejecución. Aunque es opcional, este patrón permite reemplazar el objeto de implementación dentro de la abstracción. Es tan fácil como asignar un nuevo valor a un campo.
+
+#### Pros and Cons
+
+Las ventajas de este patrón:
+
+* El código del cliente funciona con abstracciones de alto nivel. No está expuesto a los detalles de la plataforma.
+
+* **Open/Closed Principle**: Puedes introducir nuevas abstracciones e implementaciones independientemente unas de otras.
+
+* **Single Responsibilitiy Principle**: Puede centrarse en la lógica de alto nivel en la abstracción y en los detalles de la plataforma en la implementación.
+
+La desventaja de este patrón es que puede hacer que el código sea más complicado aplicando el patrón a una clase altamente cohesiva.
 
 #### Referencia
 
-<>
+<https://es.wikipedia.org/wiki/Bridge_(patr%C3%B3n_de_dise%C3%B1o)>  
+<https://danielggarcia.wordpress.com/2014/03/17/patrones-estructurales-iv-patron-bridge/>  
+<https://en.wikipedia.org/wiki/Bridge_pattern>  
+<https://sourcemaking.com/design_patterns/bridge>  
+<https://refactoring.guru/design-patterns/bridge>  
 
 ### - *__Flyweight__* -
 
