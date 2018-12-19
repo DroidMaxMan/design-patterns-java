@@ -1,4 +1,4 @@
-# Apuntes de [Patrones de diseño] en [Java] - WIP
+# Apuntes de [Patrones de diseño] en [Java]
 
 Los patrones de diseño son unas técnicas para resolver problemas comunes en el desarrollo de software y otros ámbitos referentes al diseño de interacción o interfaces.
 
@@ -23,7 +23,7 @@ Los patrones de comportamiento se definen como patrones de diseño software que 
 
 Los patrones de comportamiento son _Chain of Responsibility_, _Command_, _Interpreter_, _Iterator_, _Mediator_, _Memento_, _Observer_, _State_, _Strategy_, _Template Method_ y _Visitor_.
 
-### - *__Command__* -
+### - Patrón *__"Command"__* -
 
 **Gof**: Encapsule una solicitud como un objeto, lo que le permite parametrizar a los clientes con diferentes solicitudes, solicitudes de cola o registro y admite operaciones que no se pueden deshacer.
 
@@ -113,9 +113,10 @@ public class Invoker {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Command_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Command_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://danielggarcia.wordpress.com/2014/04/28/patrones-de-comportamiento-ii-patron-command/>  
 
-### - *__Iterator__* -
+### - Patrón *__"Iterator"__* -
 
 **GoF**: Proporcionar una forma de acceder a los elementos de un objeto agregado de forma secuencial sin exponer su representación subyacente.
 
@@ -191,9 +192,10 @@ public class Client {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://danielggarcia.wordpress.com/2014/04/14/patrones-de-comportamiento-i-patron-iterator/>  
 
-### - *__Observer__* -
+### - Patrón *__"Observer"__* -
 
 **GoF**: Define una dependencia de uno a muchos entre objetos para que cuando un objeto cambie de estado, todos sus dependientes sean notificados y actualizados automáticamente.
 
@@ -263,9 +265,10 @@ class Observer {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://danielggarcia.wordpress.com/2014/06/02/patrones-de-comportamiento-vi-patron-observer/>  
 
-### - *__State__* -
+### - Patrón *__"State"__* -
 
 **GoF**: Permitir que un objeto altere su comportamiento cuando cambia su estado interno. El objeto aparecerá para cambiar su clase.
 
@@ -410,7 +413,7 @@ Un sistema con muchos estados o si el número se incrementa significativamente s
 <https://es.wikipedia.org/wiki/State_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/05/20/patrones-de-comportamiento-v-patron-state/>
 
-### - *__Strategy__* -
+### - Patrón *__"Strategy"__* -
 
 **GoF**: Defina una familia de algoritmos, encapsule cada uno de ellos y hágalos intercambiables. Este patrón permite que el algoritmo varíe independientemente de cliente a cliente.
 
@@ -495,7 +498,7 @@ Este patrón es aconsejable, como ya hemos comentado, en situaciones en los que 
 <https://es.wikipedia.org/wiki/Strategy_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/05/12/patrones-de-comportamiento-iv-patron-strategy/>
 
-### - *__Template Method__* -
+### - Patrón *__"Template Method"__* -
 
 **GoF**: Define el esqueleto de un algoritmo en una operación, aplazando algunos pasos a las subclases. El método de la plantilla permite subclases redefinir ciertos pasos de un algoritmo sin cambiar la estructura del algoritmo.
 
@@ -617,7 +620,7 @@ class CheckersPlayer extends GamePlayer {
 <https://es.wikipedia.org/wiki/Template_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/05/05/patrones-de-comportamiento-iii-template-method/>
 
-### - *__Visitor__* -
+### - Patrón *__"Visitor"__* -
 
 **GoF**: Representa una operación a realizar en los elementos de una estructura de objeto. Este patrón le permite definir una nueva operación sin cambiar las clases de los elementos sobre los que opera.
 
@@ -702,7 +705,7 @@ class ConcreteVisitor2 implements Visitor {
 
 <https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
-### - *__Memento__* -
+### - Patrón *__"Memento"__* -
 
 **GoF**: Sin violar la encapsulación, captura y externaliza el estado interno de un objeto para que el objeto pueda restaurarse a este estado más adelante.
 
@@ -798,7 +801,7 @@ class Caretaker {
 <https://sourcemaking.com/design_patterns/memento>  
 <https://refactoring.guru/design-patterns/memento>  
 
-### - *__Mediator__* -
+### - Patrón *__"Mediator"__* -
 
 **GoF**: Defina un objeto que encapsule cómo interactúa un conjunto de objetos. El mediador promueve el acoplamiento débil evitando que los objetos se refieran entre sí explícitamente, y le permite variar su interacción de forma independiente.
 
@@ -886,7 +889,7 @@ class ConcreteColleague extends Colleague {
 <https://sourcemaking.com/design_patterns/mediator>  
 <https://refactoring.guru/design-patterns/mediator>  
 
-### - *__Interpreter__* -
+### - Patrón *__"Interpreter"__* -
 
 **GoF**: Dado un lenguaje, defina una representación para su gramática junto con un intérprete que use la representación para interpretar oraciones en el lenguaje.
 
@@ -910,7 +913,7 @@ La sentencia del lenguaje se representa mediante un árbol de sintaxis abstracta
 <https://en.wikipedia.org/wiki/Interpreter_pattern>  
 <https://sourcemaking.com/design_patterns/interpreter>  
 
-### - *__Chain of Responsibility__* -
+### - Patrón *__"Chain of Responsibility"__* -
 
 **GoF**: Evite acoplar el remitente de una solicitud a su receptor dándole a más de un objeto la oportunidad de manejar la solicitud. Encadene los objetos receptores y pase la solicitud a lo largo de la cadena hasta que un objeto la maneje.
 
@@ -1024,7 +1027,7 @@ Los patrones creacionales corresponden a patrones de diseño de software que sol
 
 Los patrones creacionales son _Abstract Factory_, _Builder_, _Factory Method_, _Prototype_ y _Singleton_.
 
-### - *__Builder__* -
+### - Patrón *__"Builder"__* -
 
 **GoF**: Separa la construcción de un objeto complejo de su representación para que los mismos procesos de construcción puedan crear diferentes representaciones.
 
@@ -1124,8 +1127,9 @@ public class Director {
 <https://es.wikipedia.org/wiki/Builder_(patr%C3%B3n_de_dise%C3%B1o)>  
 <https://refactoring.guru/design-patterns/builder>  
 <https://sourcemaking.com/design_patterns/builder>  
+<https://danielggarcia.wordpress.com/2014/02/19/patrones-de-creacion-ii-patron-builder-constructor/>  
 
-### - *__Abstract Factory__* -
+### - Patrón *__"Abstract Factory"__* -
 
 **GoF**: Proporciona una interfaz para crear familias de objetos relacionados o dependientes sin especificar sus clases concretas.
 
@@ -1240,9 +1244,10 @@ class ManFactory implements SoldierFactory {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Abstract_Factory>
+<https://es.wikipedia.org/wiki/Abstract_Factory>  
+<https://danielggarcia.wordpress.com/2014/02/15/patrones-de-creacion-i-factory-patterns/>  
 
-### - *__Factory Method__* -
+### - Patrón *__"Factory Method"__* -
 
 **GoF**: Defina una interfaz para crear un objeto, pero deje que las subclases decidan qué clase instanciar. Este patrón permite que una clase difiera la creación de instancias a subclases.
 
@@ -1310,9 +1315,10 @@ class ConcreteCreatorB extends Creator {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Factory_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://danielggarcia.wordpress.com/2014/02/15/patrones-de-creacion-i-factory-patterns/>  
 
-### - *__Prototype__* -
+### - Patrón *__"Prototype"__* -
 
 **GoF**: Especifique los tipos de objetos para crear utilizando una instancia prototípica y cree nuevos objetos copiando este prototipo.
 
@@ -1393,9 +1399,10 @@ class FactoriaPrototipo {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://danielggarcia.wordpress.com/2014/02/24/patrones-de-creacion-iii-patron-prototype/>  
 
-### - *__Singleton__* -
+### - Patrón *__"Singleton"__* -
 
 **GoF**: Asegúrese de que una clase solo tenga una instancia y proporcione un punto de acceso global a ella.
 
@@ -1484,7 +1491,8 @@ El patrón *__'Singleton'__* es un caso particular de un patrón de diseño más
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Singleton>
+<https://es.wikipedia.org/wiki/Singleton>  
+<https://danielggarcia.wordpress.com/2014/02/26/patrones-de-creacion-iv-patron-singleton/>  
 
 ## Structural Patterns
 
@@ -1492,7 +1500,7 @@ Los patrones estructurales son los patrones de diseño software que solucionan p
 
 Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _Facade_, _Flyweight_ y _Proxy_.
 
-### - Patrón *__Bridge__* -
+### - Patrón *__"Bridge"__* -
 
 **GoF**: Desacoplar una abstracción de su implementación para que los dos puedan variar independientemente.
 
@@ -1595,23 +1603,21 @@ class ImplementacionB implements Implementador {
 
 #### Aplicabilidad
 
-Utilice el **patrón 'Bridge'** cuando desee dividir y organizar una clase monolítica que tenga varias variantes de alguna funcionalidad (por ejemplo, si la clase puede trabajar con varios servidores de bases de datos). Este patrón le permite dividir la clase monolítica en varias jerarquías de clase. Después de esto, puede cambiar las clases en cada jerarquía independientemente de las clases en las otras. Este enfoque simplifica el mantenimiento del código y minimiza el riesgo de romper el código existente.
+Utilice el **patrón "Bridge"** cuando desee dividir y organizar una clase monolítica que tenga varias variantes de alguna funcionalidad (por ejemplo, si la clase puede trabajar con varios servidores de bases de datos). Este patrón le permite dividir la clase monolítica en varias jerarquías de clase. Después de esto, puede cambiar las clases en cada jerarquía independientemente de las clases en las otras. Este enfoque simplifica el mantenimiento del código y minimiza el riesgo de romper el código existente.
 
 Use el patrón cuando necesite extender una clase en varias dimensiones ortogonales (independientes). El patrón sugiere que extraiga una jerarquía de clases separada para cada una de las dimensiones. La clase original delega el trabajo relacionado a los objetos que pertenecen a esas jerarquías en lugar de hacer todo por sí solo
 
 También cuando se necesite poder cambiar de implementación en tiempo de ejecución. Aunque es opcional, este patrón permite reemplazar el objeto de implementación dentro de la abstracción. Es tan fácil como asignar un nuevo valor a un campo.
 
-#### Pros and Cons
+#### Ventajas e inconvenientes
 
-Las ventajas de este patrón:
+* [Ventaja] - El código del cliente funciona con abstracciones de alto nivel. No está expuesto a los detalles de la plataforma.
 
-* El código del cliente funciona con abstracciones de alto nivel. No está expuesto a los detalles de la plataforma.
+* [Ventaja] - **Open/Closed Principle**: Puedes introducir nuevas abstracciones e implementaciones independientemente unas de otras.
 
-* **Open/Closed Principle**: Puedes introducir nuevas abstracciones e implementaciones independientemente unas de otras.
+* [Ventaja] - **Single Responsibilitiy Principle**: Puede centrarse en la lógica de alto nivel en la abstracción y en los detalles de la plataforma en la implementación.
 
-* **Single Responsibilitiy Principle**: Puede centrarse en la lógica de alto nivel en la abstracción y en los detalles de la plataforma en la implementación.
-
-La desventaja de este patrón es que puede hacer que el código sea más complicado aplicando el patrón a una clase altamente cohesiva.
+* [Inconveniente] - La desventaja de este patrón es que puede hacer que el código sea más complicado aplicando el patrón a una clase altamente cohesiva.
 
 #### Referencia
 
@@ -1621,23 +1627,106 @@ La desventaja de este patrón es que puede hacer que el código sea más complic
 <https://sourcemaking.com/design_patterns/bridge>  
 <https://refactoring.guru/design-patterns/bridge>  
 
-### - *__Flyweight__* -
+### - Patrón *__"Flyweight"__* -
 
-(todo)
+**GoF**: Compartir una parte común del estado de un objeto para hacer más eficiente la gestión de un número elevado de objetos de grano más fino.
 
-* [Flyweight](https://es.wikipedia.org/wiki/Flyweight_(patr%C3%B3n_de_dise%C3%B1o)) - El patrón Flyweight (u objeto ligero) sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento (uso de recursos).
+<!-- markdownlint-disable MD033 -->
+<p align="center">
+    <img src="https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/flyweight.png">
+</p>
+<!-- markdownlint-enable MD033 -->
 
 #### Concepto
 
+El **patrón "Flyweight"** (u objeto ligero) es un patrón estructural que sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento (uso de recursos). Permite ajustar más objetos en la cantidad de RAM disponible al compartir partes comunes de estado entre múltiples objetos en lugar de mantener todos los datos en cada objeto.
+
+El patrón es útil cuando se necesita una gran cantidad de objetos similares que en general la mayoría de atributos son comunes pero son únicos en términos de solo unos pocos parámetros. Con lo cual se intenta minimizar el uso de la memoria compartiendo los datos tanto como sea posible con los otros objetos similares. Compartir objetos puede permitir su uso a granularidades finas con costos mínimos.
+
+Se utilizan dos términos comunes en este contexto: **"extrinsic"** e **"intrinsic"**. A grandes rasgos, se basa en dividir un objeto en dos partes: una parte “común” a un conjunto grande de los objetos de la clase (parte intrínseca), y una parte “privada” que será accesible y modificable únicamente por un objeto en concreto (parte extrínseca).
+
+El **patrón "Flyweight"** está íntimamente ligado al **patrón factoría o "Factory Pattern"**. El motivo no es otro que permitir que sea el objeto que implementa este patrón el que gestione la separación entre la parte “común” (denominada intrínseca) y la parte “privada” (denominada extrínseca), centralizando el proceso y evitando así que perdamos referencias por el camino si realizamos el proceso de una forma un poco más artesanal.
+
+Por lo tanto, dentro de un **patrón "Flyweight"**, distinguiremos entre estos dos tipos de datos:
+
+* **Intrínsecos**: son los datos compartidos por todos los objetos de un subtipo determinado. Por norma general, son datos que no cambiarán a lo largo del tiempo, y si cambian, alterarán el estado de todos los objetos que hagan uso de ellos.
+
+* **Extrínsecos**: se calculan “al vuelo” fuera del objeto _"Flyweight"_. Este cálculo suele realizarse a partir de los datos intrínsecos y de los parámetros recibidos por los métodos del objeto _"Flyweight"_. La idea detrás de los datos extrínsecos radica en que, o bien sean calculados a partir de los datos intrínsecos o bien ocupen una cantidad de memoria mínima en comparación a éstos.
+
 #### Implementación
 
-#### Consideraciones
+1. Dividir los campos de una clase que se convertirá en _'flyweight'_ en dos partes:
+
+    * **estado intrínseco**: los campos que contienen datos invariables duplicados en muchos objetos.
+
+    * **estado extrínseco**: los campos que contienen datos contextuales únicos para cada objeto.
+
+1. Dejar los campos que representan el estado intrínseco en la clase, pero asegurándose de que sean inmutables. Deben tomar sus valores iniciales solo dentro del constructor.
+
+1. Repasar los métodos que utilizan campos del estado extrínseco. Para cada campo utilizado en el método, introducir un nuevo parámetro y utilizarlo en lugar del campo.
+
+1. Opcionalmente, crear una clase _'Factory'_ para administrar un conjunto o _'pool'_ de objetos _'flyweight'_. Debe verificar si hay un objeto _'flyweight'_ existente antes de crear uno nuevo. Una vez que la _'factory'_ está en su lugar, los clientes solo deben solicitar los objetos _'flyweight'_ a través de ella. Deben describir el _'flyweight'_ deseado pasando su estado intrínseco a la _'factory'_.
+
+```java
+interface Bird {
+    void draw();
+}
+
+class AngryBird implements Bird {
+    private String color;
+
+    AngryBird(String color) {
+        this.color = color;
+    }
+
+    @Override
+    public void draw() {
+        System.out.println("Angry Bird: Draw() [Color : " + color + "]");
+    }
+}
+
+class BirdFactory {
+    private static final HashMap<String, Bird> angrybirdMap = new HashMap();
+
+    static Bird getAngryBird(String color) {
+        AngryBird angrybird = (AngryBird) angrybirdMap.get(color);
+
+        if (angrybird == null) {
+            angrybird = new AngryBird(color);
+            angrybirdMap.put(color, angrybird);
+            System.out.println("Creating Angry Bird of color : " + color);
+        }
+        return angrybird;
+    }
+}
+```
+
+#### Aplicabilidad
+
+Utilizar este patrón solo cuando el programa o código debe admitir una gran cantidad de objetos que apenas caben en la RAM disponible.
+
+El beneficio de aplicar el patrón depende en gran medida de cómo y dónde se usa. Es más útil cuando una aplicación necesita generar una gran cantidad de objetos similares y esto drena toda la RAM disponible en el dispositivo de destino. Además de esto, los objetos contienen estados duplicados que pueden extraerse y compartirse entre múltiples objetos.
+
+#### Ventajas e inconvenientes
+
+* [Ventaja] - Puede guardar una gran cantidad de RAM, asumiendo que su programa tiene toneladas de objetos similares.
+
+* [Inconveniente] - Es posible que esté intercambiando RAM a través de ciclos de CPU cuando algunos de los datos de contexto se deben recalcular cada vez que alguien llama a un método _'flyweight'_.
+
+* [Inconveniente] - El código se vuelve mucho más complicado.
 
 #### Referencia
 
-<>
+<https://es.wikipedia.org/wiki/Flyweight_(patr%C3%B3n_de_dise%C3%B1o)>  
+<https://en.wikipedia.org/wiki/Flyweight_pattern>  
+<https://danielggarcia.wordpress.com/2014/03/24/patrones-estructurales-v-patron-flyweight/>  
+<https://refactoring.guru/design-patterns/flyweight>  
+<https://sourcemaking.com/design_patterns/flyweight>  
+<https://www.baeldung.com/java-flyweight>  
+<https://www.tutorialspoint.com/design_pattern/flyweight_pattern.htm>  
+<https://examples.javacodegeeks.com/core-java/java-flyweight-design-pattern-example/>  
 
-### - *__Adapter__* -
+### - Patrón *__"Adapter"__* -
 
 **GoF**: Convierte la interfaz de una clase en otra interfaz que los clientes esperan. Este patrón permite que las clases trabajen juntas que de otra manera no podrían hacerlo debido a interfaces incompatibles.
 
@@ -1700,9 +1789,10 @@ public class Client {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://danielggarcia.wordpress.com/2014/02/28/patrones-estructurales-i-patron-adapter-wrapper/>  
 
-### - *__Decorator__* -
+### - Patrón *__"Decorator"__* -
 
 **GoF**: Asignar responsabilidades adicionales a un objeto de forma dinámica. Los decoradores ofrecen una alternativa flexible a la subclasificación para ampliar la funcionalidad.
 
@@ -1809,9 +1899,10 @@ class Magazine extends FirearmDecorator {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://danielggarcia.wordpress.com/2014/03/10/patrones-estructurales-iii-patron-decorator/>  
 
-### - *__Composite__* -
+### - Patrón *__"Composite"__* -
 
 **GoF**: Componer objetos en estructuras de árbol para representar jerarquías parciales. Este patrón permite a los clientes tratar objetos individuales y composiciones de objetos de manera uniforme.
 
@@ -1875,9 +1966,10 @@ class Bag extends Item {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://danielggarcia.wordpress.com/2014/03/31/patrones-estructurales-vi-patron-composite/>  
 
-### - *__Facade__* -
+### - Patrón *__"Facade"__* -
 
 **GoF**:  Proporcionar una interfaz unificada a un conjunto de interfaces en un sistema. Este patrón define una interfaz de nivel superior que facilita el uso del subsistema.
 
@@ -1953,9 +2045,10 @@ class Facade {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://danielggarcia.wordpress.com/2014/03/03/patrones-estructurales-ii-patron-facade/>  
 
-### - *__Proxy__* -
+### - Patrón *__"Proxy"__* -
 
 **GoF**: Proporcione un sustituto o marcador de posición para que otro objeto controle el acceso a él.
 
@@ -2019,11 +2112,12 @@ class ImageProxy extends Graphic {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://danielggarcia.wordpress.com/2014/04/07/patrones-estructurales-vii-patron-proxy/>  
 
-## Otros patrones
+## Otros patrones estructurales
 
-### - *__Reactor__* -
+### - Patrón *__"Reactor"__* -
 
 El patrón *__'Reactor'__* es un patrón de programación concurrente para manejar los pedidos de servicio entregados de forma concurrente a un manejador de servicio desde una o más entradas. El manejador de servicio demultiplexa los pedidos entrantes y los entrega de forma sincrónica a los manejadores de pedidos asociados.
 
@@ -2118,7 +2212,7 @@ Desde un punto de vista general, el patrón *__'Reactor'__* tiene un comportamie
 
 <https://es.wikipedia.org/wiki/Reactor_%28patr%C3%B3n_de_dise%C3%B1o%29>
 
-### *__MVC__*
+### Patrón *__"MVC"__*
 
 #### Concepto
 
@@ -2158,3 +2252,5 @@ Versión en PDF: [Design_Patterns_Java.pdf](https://raw.githubusercontent.com/al
 
 [![Licencia de Creative Commons](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-sa/4.0/)  
 Esta obra está bajo una [licencia de Creative Commons Reconocimiento-Compartir Igual 4.0 Internacional](http://creativecommons.org/licenses/by-sa/4.0/).
+
+Nota: las imágenes son propiedad de sus respectivos dueños.
