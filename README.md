@@ -1,4 +1,4 @@
-# Apuntes de [Patrones de diseño] en [Java]
+# Apuntes de [Patrones de diseño en Java]
 
 Los patrones de diseño son unas técnicas para resolver problemas comunes en el desarrollo de software y otros ámbitos referentes al diseño de interacción o interfaces.
 
@@ -17,7 +17,7 @@ Asimismo, no pretenden:
 
 No es obligatorio utilizar los patrones, solo es aconsejable en el caso de tener el mismo problema o similar que soluciona el patrón, siempre teniendo en cuenta que en un caso particular puede no ser aplicable. "Abusar o forzar el uso de los patrones puede ser un error".
 
-## "Behavioral Patterns"
+## _Behavioral Patterns_
 
 Los patrones de comportamiento se definen como patrones de diseño software que ofrecen soluciones respecto a la interacción y responsabilidades entre clases y objetos, así como los algoritmos que encapsulan.
 
@@ -1021,7 +1021,7 @@ class Peticion {
 <https://refactoring.guru/design-patterns/chain-of-responsibility>  
 <https://sourcemaking.com/design_patterns/chain_of_responsibility>
 
-## Creational Patterns
+## _Creational Patterns_
 
 Los patrones creacionales corresponden a patrones de diseño de software que solucionan problemas de creación de instancias. Nos ayudan a encapsular y abstraer dicha creación.
 
@@ -1494,7 +1494,7 @@ El patrón *__'Singleton'__* es un caso particular de un patrón de diseño más
 <https://es.wikipedia.org/wiki/Singleton>  
 <https://danielggarcia.wordpress.com/2014/02/26/patrones-de-creacion-iv-patron-singleton/>  
 
-## Structural Patterns
+## _Structural Patterns_
 
 Los patrones estructurales son los patrones de diseño software que solucionan problemas de composición (agregación) de clases y objetos.
 
@@ -2248,7 +2248,7 @@ Sin embargo, es la estructura más utilizada en los videojuegos: la interfaz gr�
 
 Versión en PDF: [Design_Patterns_Java.pdf](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/design-patterns-java.pdf)
 
-## License
+#### License
 
 [![Licencia de Creative Commons](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-sa/4.0/)  
 Esta obra está bajo una [licencia de Creative Commons Reconocimiento-Compartir Igual 4.0 Internacional](http://creativecommons.org/licenses/by-sa/4.0/).
