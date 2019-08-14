@@ -2246,11 +2246,9 @@ Sin embargo, es la estructura más utilizada en los videojuegos: la interfaz gr�
 
 ---
 
-Versión en PDF: [Design_Patterns_Java.pdf](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/design-patterns-java.pdf)
-
-#### License
+## License
 
 [![Licencia de Creative Commons](https://i.creativecommons.org/l/by-sa/4.0/80x15.png)](http://creativecommons.org/licenses/by-sa/4.0/)  
 Esta obra está bajo una [licencia de Creative Commons Reconocimiento-Compartir Igual 4.0 Internacional](http://creativecommons.org/licenses/by-sa/4.0/).
 
-Nota: las imágenes son propiedad de sus respectivos dueños.
+Disclaimer: All pictures copyright to their respective owner(s).
