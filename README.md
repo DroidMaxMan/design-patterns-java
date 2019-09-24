@@ -118,10 +118,12 @@ class Invoker {
 
 <https://es.wikipedia.org/wiki/Command_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/04/28/patrones-de-comportamiento-ii-patron-command/>  
-<https://refactoring.guru/design-patterns/command>
+<https://refactoring.guru/design-patterns/command>  
 <https://sourcemaking.com/design_patterns/command>
 
 ### - Patrón *__"Iterator"__* -
+
+![Iterator](.//media//patterns//behavioral//iterator_header.png)
 
 **GoF**: Proporcionar una forma de acceder a los elementos de un objeto agregado de forma secuencial sin exponer su representación subyacente.
 
@@ -135,35 +137,34 @@ El problema de introducir este objeto iterador reside en que los clientes necesi
 
 Diferentes iteradores pueden presentar diferentes tipos de recorrido sobre la estructura. No sólo eso, sino que podrían incorporar funcionalidad extra como por ejemplo filtrado de elementos, etc..
 
-![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/iterador.png)
+![Concepto](.//media//patterns//behavioral//iterator_example.png)
 
 El uso del patrón *__'Iterator'__* es muy común ya que manejar colecciones de datos es algo muy habitual en el desarrollo de aplicaciones. Listas, pilas y, sobre todo, árboles son ejemplos de estructuras de datos muy presentes en los juegos y se utilizan de forma intensiva.
 
 Una operación muy habitual es recorrer las estructuras para analizar y/o buscar los datos que contienen. Es posible que sea necesario recorrer la estructura de forma secuencial, de dos en dos o, simplemente, de forma aleatoria. Los clientes suelen implementar el método concreto con el que desean recorrer la estructura por lo que puede ser un problema si, por ejemplo, se desea recorrer una misma estructura de datos de varias formas distintas. Conforme aumenta las combinaciones entre los tipos de estructuras y métodos de acceso, el problema se agrava.
 
-#### Implementación
+#### Ejemplo de implementación
 
-La estructura de datos es la encargada de crear el iterador adecuado para ser accedida a través del método `'iterator()'`. Una vez que el cliente ha obtenido el  iterador, puede utilizar los métodos de acceso que ofrecen tales como `'next()'` (para obtener el siguiente elemento) o `'isDone()'` para comprobar si existen más elementos.
-
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/behavioral/iterator/example/diagram.png)
+La estructura de datos es la encargada de crear el iterador adecuado para ser accedida a través del método `iterator()`. Una vez que el cliente ha obtenido el iterador, puede utilizar los métodos de acceso que ofrecen tales como `next()` (para obtener el siguiente elemento) o `isDone()` para comprobar si existen más elementos.
 
 ```java
-public class RandomData {
+class RandomData {
     int[] data;
 
-    public RandomData(int length) {
+    RandomData(int length) {
         data = new int[length];
         for (int i = 0; i < data.length; i++) {
             data[i] = new Random().nextInt(500);
         }
     }
 
-    public IteratorData iterator() {
+    IteratorData iterator() {
         return new IteratorData(this);
     }
 }
 
-public class IteratorData {
+// Iterador que permite recorrer el objeto 'RandomData' sin conocer su implementación exacta
+class IteratorData {
     private int[] data;
     private int pos;
 
@@ -172,11 +173,11 @@ public class IteratorData {
         pos = 0;
     }
 
-    public boolean hasNext() {
+    boolean hasNext() {
         return pos < data.length;
     }
 
-    public Object next() {
+    Object next() {
         int valor = data[pos];
         pos++;
         return valor;
@@ -199,6 +200,8 @@ public class Client {
 
 <https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/04/14/patrones-de-comportamiento-i-patron-iterator/>  
+<https://refactoring.guru/design-patterns/iterator>  
+<https://sourcemaking.com/design_patterns/iterator>
 
 ### - Patrón *__"Observer"__* -
 
