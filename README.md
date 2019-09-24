@@ -831,6 +831,8 @@ class Caretaker {
 
 ### - Patrón *__"Mediator"__* -
 
+![Mediator](.//media//patterns//behavioral//mediator_header.png)
+
 **GoF**: Defina un objeto que encapsule cómo interactúa un conjunto de objetos. El mediador promueve el acoplamiento débil evitando que los objetos se refieran entre sí explícitamente, y le permite variar su interacción de forma independiente.
 
 #### Concepto
@@ -845,14 +847,14 @@ El patrón *__'Mediator'__* define un objeto que encapsula cómo un conjunto de 
 
 La esencia del patrón *__'Mediator'__* es "definir un objeto que encapsule cómo interactúa un conjunto de objetos". Promueve el acoplamiento débil evitando que los objetos se refieran entre sí explícitamente, y permite que su interacción se varíe de forma independiente. Las clases de clientes pueden usar el mediador para enviar mensajes a otros clientes y pueden recibir mensajes de otros clientes a través de un evento en la clase de mediadores.
 
-![Ejemplo](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/mediator.png)
+![Ejemplo](.//media//patterns//behavioral//mediator_diagram.png)
 
 En el ejemplo participan:
 
-* ***Mediator***: Define la interfaz para la comunicación entre objetos de tipo `'Colleague'`.
-* ***ConcreteMediator***: implementa la interfaz del mediador y coordina la comunicación entre los objetos de tipo `'Colleague'`. Es consciente de todos los objetos y sus propósitos con respecto a la intercomunicación.
-* ***Colleague***: Define la interfaz para la comunicación con otros objetos `'Colleague'` a través de su mediador.
-* ***ConcreteColleague***: implementa la interfaz `'Colleague'`  y se comunica con otros objetos a través de su mediador
+* ***Mediator***: Define la interfaz para la comunicación entre objetos de tipo `Colleague`.
+* ***ConcreteMediator***: implementa la interfaz del mediador y coordina la comunicación entre los objetos de tipo `Colleague`. Es consciente de todos los objetos y sus propósitos con respecto a la intercomunicación.
+* ***Colleague***: Define la interfaz para la comunicación con otros objetos `Colleague` a través de su mediador.
+* ***ConcreteColleague***: implementa la interfaz `Colleague` y se comunica con otros objetos a través de su mediador
 
 ```java
 interface Mediator {
