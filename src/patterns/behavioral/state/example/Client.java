@@ -1,6 +1,6 @@
 package patterns.behavioral.state.example;
 
-public class StatePatternEx {
+public class Client {
 
     public static void main(String[] args) {
 

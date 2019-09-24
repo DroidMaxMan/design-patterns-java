@@ -119,7 +119,7 @@ class Invoker {
 <https://es.wikipedia.org/wiki/Command_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/04/28/patrones-de-comportamiento-ii-patron-command/>  
 <https://refactoring.guru/design-patterns/command>  
-<https://sourcemaking.com/design_patterns/command>
+<https://sourcemaking.com/design_patterns/command>  
 
 ### - Patrón *__"Iterator"__* -
 
@@ -201,7 +201,7 @@ public class Client {
 <https://es.wikipedia.org/wiki/Iterador_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/04/14/patrones-de-comportamiento-i-patron-iterator/>  
 <https://refactoring.guru/design-patterns/iterator>  
-<https://sourcemaking.com/design_patterns/iterator>
+<https://sourcemaking.com/design_patterns/iterator>  
 
 ### - Patrón *__"Observer"__* -
 
@@ -276,9 +276,11 @@ class Observer {
 <https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/06/02/patrones-de-comportamiento-vi-patron-observer/>  
 <https://refactoring.guru/design-patterns/observer>  
-<https://sourcemaking.com/design_patterns/observer>
+<https://sourcemaking.com/design_patterns/observer>  
 
 ### - Patrón *__"State"__* -
+
+![State](.//media//patterns//behavioral//state_header.png)
 
 **GoF**: Permitir que un objeto altere su comportamiento cuando cambia su estado interno. El objeto aparecerá para cambiar su clase.
 
@@ -294,7 +296,7 @@ El patrón *__'State'__* permite encapsular el mecanismo de las transiciones que
 
 #### Ejemplo de implementación
 
-A continuación se muestra un ejemplo de aplicación del mismo. La idea es crear una clase abstracta o interfaz que representa al estado del personaje (CharacterState). En ella se definen las mismas operaciones que puede recibir el personaje con una implementación por defecto. En este caso, la implementación es vacía.
+A continuación se muestra un ejemplo de aplicación del mismo. La idea es crear una clase abstracta o interfaz que representa al estado del personaje. En ella se definen las mismas operaciones que puede recibir el personaje con una implementación por defecto. En este caso, la implementación es vacía.
 
 Por cada estado en el que puede encontrarse el personaje, se crea una clase que hereda de la clase abstracta anterior, de forma que en cada una de ellas se implementen los métodos que producen cambio de estado, es decir, contendrán un método por cada posible transición.
 
@@ -302,7 +304,7 @@ Por ejemplo, según el diagrama, en el estado "de pie" se puede recibir la orden
 
 En definitiva, la idea es que las clases que representan a los estados sean las encargadas de cambiar el estado del personaje, de forma que los cambios de estados quedan encapsulados y delegados al estado correspondiente.
 
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/state.png)
+![Diagrama](.//media//patterns//behavioral//state_diagram.png)
 
 ```java
 interface CharacterState {
@@ -406,11 +408,13 @@ class Character {
 }
 ```
 
+**NOTA**: Para que el ejemplo sea lo más claro posible se ha obviado de forma intencionada la aplicación del **Principio de Segregación de Interfaces** de los principos S.O.L.I.D que evitaría la obligación de implementar los métodos que lanzan `UnsupportedOperationException`.
+
 #### Consideraciones
 
-Este patrón puede usarse cuando un determinado objeto tiene diferentes estados y también diferentes responsabilidades según el estado en que se encuentre en determinado instante. También puede utilizarse para simplificar casos en los que se tiene un complicado y extenso código de decisión que depende del estado del objeto.
+Este patrón puede usarse cuando un determinado objeto tiene diferentes estados y también diferentes responsabilidades según el estado en que se encuentre en un determinado instante. También puede utilizarse para simplificar casos en los que se tiene un complicado y extenso código de decisión que depende del estado del objeto.
 
-Los componentes de diseño que se comporten como autómatas son buenos candidatos a ser modelos con el patrón *__'State'__*.
+Los componentes de diseño que se comporten como autómatas son buenos candidatos a ser modelados con el patrón *__'State'__*.
 
 Es posible que una entrada provoque una situación de error estando en un determinado estado. Para ello es posible utilizar las excepciones para notificar dicho error.
 
@@ -421,7 +425,9 @@ Un sistema con muchos estados o si el número se incrementa significativamente s
 #### Referencia
 
 <https://es.wikipedia.org/wiki/State_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/05/20/patrones-de-comportamiento-v-patron-state/>
+<https://danielggarcia.wordpress.com/2014/05/20/patrones-de-comportamiento-v-patron-state/>  
+<https://refactoring.guru/design-patterns/state>  
+<https://sourcemaking.com/design_patterns/state>  
 
 ### - Patrón *__"Strategy"__* -
 

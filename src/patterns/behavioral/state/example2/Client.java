@@ -1,6 +1,6 @@
 package patterns.behavioral.state.example2;
 
-class StatePatternEx {
+class Client {
 
     public static void main(String[] args) {
         //Initially TV is Off
