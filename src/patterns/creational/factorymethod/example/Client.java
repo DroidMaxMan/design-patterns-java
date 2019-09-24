@@ -1,6 +1,6 @@
 package patterns.creational.factorymethod.example;
 
-public class FactoryMethodPatternEx {
+public class Client {
 
     public static void main(String[] args) {
         Creator creatorA = new ConcreteCreatorA();

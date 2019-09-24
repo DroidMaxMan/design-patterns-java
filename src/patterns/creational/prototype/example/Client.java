@@ -1,6 +1,6 @@
 package patterns.creational.prototype.example;
 
-public class PrototypePatternEx {
+public class Client {
 
     public static void main(String[] args) {
         FactoriaPrototipo factoriaPrototipo = new FactoriaPrototipo();

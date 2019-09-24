@@ -1455,21 +1455,24 @@ class FactoriaPrototipo {
 
 ### - Patrón *__"Singleton"__* -
 
+![Singleton](.//media//patterns//creational//singleton_header.png)
+
 **GoF**: Asegúrese de que una clase solo tenga una instancia y proporcione un punto de acceso global a ella.
 
 #### Concepto
 
 El patrón *__'Singleton'__* garantiza la existencia de una única instancia para una clase y la creación de un mecanismo de acceso global a dicha instancia. Restringe la instanciación de una clase o valor de un tipo a un solo objeto.
 
-En Java, los objetos normalmente se crean con el operador `'new'`. Sin embargo, es posible que en un determinado momento sea necesario que sólo exista una instancia de una clase concreta (prevención de errores, seguridad, creación costosa, etc..).
+En Java, los objetos normalmente se crean con el operador `new`. Sin embargo, es posible que en un determinado momento sea necesario que sólo exista una instancia de una clase concreta (prevención de errores, seguridad, creación costosa, etc..).
 
-Para garantizar que sólo existe una instancia de una clase es necesario que los clientes no puedan acceder directamente al constructor. Por ello, cuando se aplica el patrón *__'Singleton'__* el constructor es, por lo menos, `'protected'` o inferior. A cambio se debe proporcionar un único punto controlado por el cual se pide la instancia única.
+Para garantizar que sólo existe una instancia de una clase es necesario que los clientes no puedan acceder directamente al constructor. Por ello, cuando se aplica el patrón *__'Singleton'__* el constructor es, por lo menos, `protected` o `private`. A cambio se debe proporcionar un único punto controlado por el cual se pide la instancia única.
 
 La instrumentación del patrón puede ser delicada en programas con múltiples hilos de ejecución. Si dos hilos de ejecución intentan crear la instancia al mismo tiempo y esta no existe todavía, sólo uno de ellos debe lograr crear el objeto.
 
 El patrón *__'Singleton'__* puede ser utilizado para modelar:
 
 * Gestores de acceso a base de datos, sistemas de ficheros, _render_ de gráficos, etc..
+
 * Estructuras que representan la configuración del programa para que sea accesible por todos los elementos en  cualquier instante.
 
 #### Ejemplo de implementación
@@ -1477,48 +1480,50 @@ El patrón *__'Singleton'__* puede ser utilizado para modelar:
 El patrón *_'Singleton'__* provee una única instancia global gracias a que:
 
 * La propia clase es responsable de crear la única instancia.
+
 * Permite el acceso global a dicha instancia mediante un método de clase.
+
 * Declara el contructor de clase como privado para que no sea instanciable directamente.
 
 En este ejemplo, primero hemos hecho que el constructor sea privado, de modo que no podemos crear instancias de manera normal. Además, al proporcionar un constructor privado, evitamos que el compilador genere un constructor por defecto. Cuando intentamos crear una instancia de la clase, estamos comprobando si ya tenemos una copia disponible. Si no tenemos una copia de ese tipo, la crearemos; de lo contrario, simplemente reutilizaremos la copia existente.
 
-La inicialización de la instancia se denomina _'lazy initialization'_ ya que la instancia no se crea hasta que el método `'getINSTANCE()'` se invoca.
+La inicialización de la instancia se denomina _'lazy initialization'_ ya que la instancia no se crea hasta que el método `getINSTANCE()` se invoca.
 
 ```java
 public class Singleton {
-    private static Singleton INSTANCE = null;
+    private static Singleton instance = null;
 
     // Constructor privado
     private Singleton() {}
 
     // Lazy initialization
-    public static Singleton getINSTANCE() {
-        if (INSTANCE == null) {
-            INSTANCE = new Singleton();
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
         }
-        return INSTANCE;
+        return instance;
     }
 }
 
-// Modo 'Lazy initialization'
-public class SingletonSyncronized {
-    private static SingletonSyncronized INSTANCE = null;
+// Modo 'Lazy Initialization'
+public class Singleton {
+    private static Singleton instance = null;
 
     // Constructor privado
     private SingletonSyncronized() {}
 
     // Creador sincronizado para protegerse de posibles problemas multi-hilo
     private static synchronized void createInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new SingletonSyncronized();
+        if (instance == null) {
+            instance = new Singleton();
         }
     }
 
-    public static SingletonSyncronized getInstance() {
-        if (INSTANCE == null) {
+    public static Singleton getInstance() {
+        if (instance == null) {
             createInstance();
         }
-        return INSTANCE;
+        return instance;
     }
 }
 
@@ -1526,12 +1531,12 @@ public class SingletonSyncronized {
 public class Singleton {
 
     // Early initialization
-    private static Singleton INSTANCE = new Singleton();
+    private static Singleton instance = new Singleton();
 
     private Singleton() {}
 
     public static Singleton getInstance() {
-        return INSTANCE;
+        return instance;
     }
 }
 ```
@@ -1544,10 +1549,12 @@ El patrón *__'Singleton'__* es un caso particular de un patrón de diseño más
 
 <https://es.wikipedia.org/wiki/Singleton>  
 <https://danielggarcia.wordpress.com/2014/02/26/patrones-de-creacion-iv-patron-singleton/>  
+<https://refactoring.guru/design-patterns/singleton>  
+<https://sourcemaking.com/design_patterns/singleton>  
 
 ## _Structural Patterns_
 
-Los patrones estructurales son los patrones de diseño software que solucionan problemas de composición (agregación) de clases y objetos.
+Los patrones estructurales son los patrones de diseño de software que solucionan problemas de composición (agregación) de clases y objetos.
 
 Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _Facade_, _Flyweight_ y _Proxy_.
 

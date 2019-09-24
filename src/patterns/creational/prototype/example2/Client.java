@@ -1,6 +1,6 @@
 package patterns.creational.prototype.example2;
 
-public class PrototypePatternEx {
+public class Client {
 
     public static void main(String[] args) throws CloneNotSupportedException {
         BasicCar chevrolet = new Nano("Green Nano");

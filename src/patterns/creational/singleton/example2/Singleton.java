@@ -2,21 +2,21 @@ package patterns.creational.singleton.example2;
 
 public class Singleton {
 
-    private static Singleton INSTANCE = null;
+    private static Singleton instance = null;
 
     private Singleton() {}
 
     private static synchronized void createInstance() {
-        if (INSTANCE == null) {
-            INSTANCE = new Singleton();
+        if (instance == null) {
+            instance = new Singleton();
         }
     }
 
     public static Singleton getInstance() {
-        if (INSTANCE == null) {
+        if (instance == null) {
             createInstance();
         }
-        return INSTANCE;
+        return instance;
     }
 
 }

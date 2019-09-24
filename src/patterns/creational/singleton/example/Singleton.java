@@ -2,15 +2,15 @@ package patterns.creational.singleton.example;
 
 public class Singleton {
 
-    private static Singleton INSTANCE = null;
+    private static Singleton instance = null;
 
     private Singleton() {}
 
-    public static Singleton getINSTANCE() {
-        if (INSTANCE == null) {
-            INSTANCE = new Singleton();
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
         }
-        return INSTANCE;
+        return instance;
     }
 
 }

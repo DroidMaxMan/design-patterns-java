@@ -1,6 +1,6 @@
 package patterns.creational.factorymethod.example2;
 
-class FactoryPatternEx {
+class Client {
 
     public static void main(String[] args) throws Exception {
         IAnimalFactory animalFactory = new ConcreteFactory();
