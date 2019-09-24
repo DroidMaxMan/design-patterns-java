@@ -852,8 +852,11 @@ La esencia del patrón *__'Mediator'__* es "definir un objeto que encapsule cóm
 En el ejemplo participan:
 
 * ***Mediator***: Define la interfaz para la comunicación entre objetos de tipo `Colleague`.
+
 * ***ConcreteMediator***: implementa la interfaz del mediador y coordina la comunicación entre los objetos de tipo `Colleague`. Es consciente de todos los objetos y sus propósitos con respecto a la intercomunicación.
+
 * ***Colleague***: Define la interfaz para la comunicación con otros objetos `Colleague` a través de su mediador.
+
 * ***ConcreteColleague***: implementa la interfaz `Colleague` y se comunica con otros objetos a través de su mediador
 
 ```java
@@ -945,13 +948,15 @@ La sentencia del lenguaje se representa mediante un árbol de sintaxis abstracta
 
 ### - Patrón *__"Chain of Responsibility"__* -
 
+![Chain of Responsibility](.//media//patterns//behavioral//chain-of-responsibility_diagram.png)
+
 **GoF**: Evite acoplar el remitente de una solicitud a su receptor dándole a más de un objeto la oportunidad de manejar la solicitud. Encadene los objetos receptores y pase la solicitud a lo largo de la cadena hasta que un objeto la maneje.
 
 #### Concepto
 
 Este patrón evita acoplar el emisor de una petición a su receptor dando a más de un objeto la posibilidad de responder a una petición. Para ello, se encadenan los receptores y se pasa la petición a través de la cadena hasta que es procesada por algún objeto.
 
-![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/chain.png)
+![Concepto](.//media//patterns//behavioral//chain-of-responsibility_concept.png)
 
 Este patrón puede aplicarse cuando:
 
@@ -977,9 +982,9 @@ En este patrón participan:
 
 * **ManejadorConcreto**: trata las peticiones de las que es responsable; si puede manejar la petición, lo hace; en caso contrario la reenvía a su sucesor.
 
-* **Cliente**: inicializa la petición a un Manejador Concreto de la cadena.
+* **Cliente**: inicializa la petición a un manejador concreto de la cadena.
 
-![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/chain.jpg)
+![Diagrama](.//media//patterns//behavioral//chain-of-responsibility_diagram.jpg)
 
 ```java
 abstract class Manejador {
@@ -1049,7 +1054,7 @@ class Peticion {
 <https://es.wikipedia.org/wiki/Cadena_de_responsabilidad>  
 <https://en.wikipedia.org/wiki/Chain-of-responsibility_pattern>  
 <https://refactoring.guru/design-patterns/chain-of-responsibility>  
-<https://sourcemaking.com/design_patterns/chain_of_responsibility>
+<https://sourcemaking.com/design_patterns/chain_of_responsibility>  
 
 ## _Creational Patterns_
 

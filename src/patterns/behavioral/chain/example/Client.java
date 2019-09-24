@@ -1,6 +1,6 @@
 package patterns.behavioral.chain.example;
 
-public class ChainDemo {
+public class Client {
 
     public static void main(String[] args) {
 
