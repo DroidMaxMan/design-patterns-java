@@ -733,6 +733,8 @@ class ConcreteVisitor2 implements Visitor {
 
 ### - Patrón *__"Memento"__* -
 
+![Memento](.//media//patterns//behavioral//memento_header.png)
+
 **GoF**: Sin violar la encapsulación, captura y externaliza el estado interno de un objeto para que el objeto pueda restaurarse a este estado más adelante.
 
 #### Concepto
@@ -745,15 +747,15 @@ Se usa este patrón cuando se quiere poder restaurar el sistema desde estados pa
 
 El patrón *__'Memento'__* define tres roles principales:
 
-* ***Originator***: La clase _'originator'_ puede producir instantáneas de su propio estado, así como restaurar su estado a partir de las instantáneas cuando sea necesario.
+* ***Originator***: El _'originator'_ puede producir instantáneas de su propio estado, así como restaurar su estado a partir de las instantáneas cuando sea necesario.
 
-* ***Caretaker***: El _'caretaker'_ sabe no solo "cuándo" y "por qué" capturar el estado del originador, sino también cuándo debe restaurarse el estado. Puede realizar un seguimiento del historial del _'originator'_ almacenando una pila de _'mementos'_. Cuando el _'originator'_ tiene que retroceder en la historia, el _'caretaker'_ busca el recuerdo más alto de la pila y lo pasa al método de restauración del _'originator'_.
+* ***Caretaker***: El _'caretaker'_ sabe no solo "cuándo" y "por qué" capturar el estado del _'originator'_, sino también cuándo debe restaurarse el estado. Puede realizar un seguimiento del historial del _'originator'_ almacenando una pila de _'mementos'_. Cuando el _'originator'_ tiene que retroceder en la historia, el _'caretaker'_ busca el recuerdo más alto de la pila y lo pasa al método de restauración del _'originator'_.
 
 * ***Memento***: Es un objeto de valor que actúa como una instantánea del estado del _'originator'_. Es una práctica común hacer que el _'memento'_ sea inmutable y pasar los datos solo una vez, a través del constructor.
 
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/memento.jpg)
+![Implementación](.//media//patterns//behavioral//memento_diagram.jpg)
 
-La clase `'Originator'` implementa el método `'createMemento()'` que crea y devuelve un objeto `'Memento'` que almacena el estado interno actual del objeto _'originator'_ y el método `'restore(memento)'` que restaura el estado a partir del objeto _'memento'_ pasado como argumento.
+La clase `Originator` implementa el método `createMemento()` que crea y devuelve un objeto de tipo `Memento` que almacena el estado interno actual del propio objeto de tipo `Originator` y el método `restore(Memento memento)` que restaura el estado a partir del objeto de tipo `Memento` pasado como argumento.
 
 Para guardar el estado original, la clase `'Caretaker'` invoca el método `'createMemento()'` que creará un objeto de tipo `'Memento'` con el estado actual y lo retornará al invocador que lo custodiará (sin alterar su estado ni acceder a él). Cuando sea necesario restaurar el estado anterior, el objeto `'Caretaker'`  invocará el método `'restore(memento)'` especificando el objeto `'Memento'` que guarda el estado que debe ser restaurado. El objeto _'originator'_ recupera el estado del método `'getState()'` del objeto `'Memento'`.  
 
@@ -812,7 +814,7 @@ class Caretaker {
 
 #### Consideraciones
 
-* En un escenario real en que puede haber varios puntos de restauración o _'snapshots'_ del estado de un objeto en varias instancias de tiempo se puede emplear una estructura como un `'ArrayList'` o similares.
+* En un escenario real en que puede haber varios puntos de restauración o _'snapshots'_ del estado de un objeto en varias instancias de tiempo se puede emplear una estructura como un `ArrayList` o similares.
 
 * Este patrón se utiliza cuando queremos implementar operaciones como _'undo'_ o _'rollback'_.
 
