@@ -431,6 +431,8 @@ Un sistema con muchos estados o si el número se incrementa significativamente s
 
 ### - Patrón *__"Strategy"__* -
 
+![Strategy](.//media//patterns//behavioral//strategy_header.png)
+
 **GoF**: Defina una familia de algoritmos, encapsule cada uno de ellos y hágalos intercambiables. Este patrón permite que el algoritmo varíe independientemente de cliente a cliente.
 
 #### Concepto
@@ -449,11 +451,11 @@ Da igual que nuestro soldado porte un rifle, una pistola o un fusil: los detalle
 
 Mediante el uso de la herencia, el patrón *__'Strategy'__* permite encapsular diferentes algoritmos para que los clientes puedan utilizarlos de forma transparente.
 
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/strategy.png)
+![Implementación](.//media//patterns//behavioral//strategy_diagram.png)
 
-La idea es extraer los métodos que conforman el comportamiento que puede ser intercambiado y encapsularlo en una familia de algoritmos. En este ejemplo, el movimiento del jugador se extrae para formar una jerarquía de diferentes movimientos. Todos ellos implementan el método *'move()'* que recibe un contexto que incluye toda la información necesaria para llevar a cabo el algoritmo.
+La idea es extraer los métodos que conforman el comportamiento que puede ser intercambiado y encapsularlo en una familia de algoritmos. En este ejemplo, el movimiento del jugador se extrae para formar una jerarquía de diferentes movimientos. Todos ellos implementan el método `move()` que recibe un contexto que incluye toda la información necesaria para llevar a cabo el algoritmo.
 
-Para el cliente todo se produce de forma transparente. Al configurarse cada jugador, ambos son del mismo tipo de cara al cliente aunque ambos se comportarán de forma diferente al invocar al método *'doBestMove()'*.
+Para el cliente todo se produce de forma transparente. Al configurarse cada jugador, ambos son del mismo tipo de cara al cliente aunque ambos se comportarán de forma diferente al invocar al método `doBestMove()`.
 
 ```java
 interface Movement {
@@ -512,7 +514,9 @@ Este patrón es aconsejable, como ya hemos comentado, en situaciones en los que 
 #### Referencia
 
 <https://es.wikipedia.org/wiki/Strategy_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/05/12/patrones-de-comportamiento-iv-patron-strategy/>
+<https://danielggarcia.wordpress.com/2014/05/12/patrones-de-comportamiento-iv-patron-strategy/>  
+<https://refactoring.guru/design-patterns/strategy>  
+<https://sourcemaking.com/design_patterns/strategy>  
 
 ### - Patrón *__"Template Method"__* -
 

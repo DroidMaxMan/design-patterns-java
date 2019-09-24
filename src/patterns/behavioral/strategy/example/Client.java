@@ -1,6 +1,6 @@
 package patterns.behavioral.strategy.example;
 
-public class StrategyPatternEx {
+public class Client {
 
     public static void main(String[] args) {
 
