@@ -1171,15 +1171,18 @@ public class Director {
 
 ### - Patrón *__"Abstract Factory"__* -
 
+![Abstract Factory](.//media//patterns//creational//abstract-factory_header.png)
+
 **GoF**: Proporciona una interfaz para crear familias de objetos relacionados o dependientes sin especificar sus clases concretas.
 
-El patrón *__'Abstract Factory'__* permite crear diferentes tipos o familias de instancias, aislando al cliente sobre cómo se debe crear cada una de ellas.
+El patrón *__'Abstract Factory'__* permite crear diferentes tipos o familias de instancias, aislando al cliente sobre como se debe crear cada una de ellas.
 
 #### Concepto
 
 El patrón *__'Abstract Factory'__* recomienda crear las siguientes entidades:
 
 * **Factoría abstracta** que defina una interfaz para que los clientes puedan crear los distintos tipos de objetos.
+
 * **Factorías concretas** que realmente crean las instancias finales y que son hijas de la factoría abstracta.
 
 El patrón *__'Abstract Factory'__* puede ser aplicable cuando:
@@ -1191,21 +1194,21 @@ El patrón *__'Abstract Factory'__* puede ser aplicable cuando:
 
 Añadir nuevos tipos implica cambiar todas las factorías. Por ello, se recomienda aplicar este patrón sobre diseños con un cierto grado de estabilidad.
 
-Un ejemplo de uso de este patrón podría ser las interfaces gráficas o UI. Las bibliotecas para crear interfaces gráficas suelen utilizar este patrón y cada familia sería un SO distinto. Así pues, el usuario declara un elemento como podría ser un _Button_ pero de forma más interna lo que está creando es un _WindowsButton_ o un _LinuxButton_ según el SO, siendo transparente para el cliente o usuario.
+Un ejemplo de uso de este patrón podría ser las interfaces gráficas o UI. Las bibliotecas para crear interfaces gráficas suelen utilizar este patrón. Cada familia aplica a un SO distinto. Así pues, el usuario declara un elemento como podría ser un _Button_ pero de forma más interna lo que está creando es un _WindowsButton_ o un _LinuxButton_ según el SO, siendo transparente para el cliente o usuario.
 
 Otro ejemplo podría ser la jerarquía de objetos existentes en cualquier juego.
 
-![Ejemplo](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/creational/abstract_factory_01.png)
+![Ejemplo](.//media//patterns//creational//abstract-factory_01.png)
 
 En ella, se muestra jerarquías de clases que modelan los diferentes tipos de personajes de un juego y algunas de sus armas. Para construir cada tipo de personaje es necesario saber cómo construirlo y con qué otro tipo de objetos tiene relación. Por ejemplo, restricciones del tipo "la gente del pueblo no puede llevar armas" o "los arqueros sólo pueden puede tener un arco", es conocimiento específico de la clase que se está construyendo.
 
 #### Ejemplo de implementación
 
-En primer lugar se define una factoría abstracta que será la que utilice el cliente *(Game)* para crear los diferentes objetos. _'CharFactory'_ es una factoría que sólo define métodos abstractos y que serán implementados por sus clases hijas.
+En primer lugar se define una factoría abstracta que será la que utilice el cliente `Game` para crear los diferentes objetos. La clase `SoldierFactory` es una factoría que sólo define métodos abstractos y que serán implementados por sus clases hijas.
 
-Éstas son factorías concretas de cada tipo de raza ( *'ManFactory'* y *'OrcFactory'* ) y ellas son las que crean las instancias concretas de objetos *'Archer'* y *'Rider'* para cada una de las razas.
+Las clases hijas son factorías concretas de cada tipo de raza, como por ejemplo `ManFactory` y `OrcFactory`. Estas factorías son las encargadas de crear las instancias concretas de objetos de tipo `Archer` y/o `Rider` para cada una de las razas.
 
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/creational/abstract_factory_02.png)
+![Implementación](.//media//patterns//creational//abstract-factory_02.png)
 
 El patrón *__'Abstract Factory'__* es de ayuda en este tipo de situaciones en las que es necesario crear diferentes tipos de objetos utilizando una jerarquía de componentes. Dada la complejidad que puede llegar a tener la creación de una instancia es deseable aislar la forma en que se construye cada clase de objeto.
 
@@ -1286,6 +1289,8 @@ class ManFactory implements SoldierFactory {
 
 <https://es.wikipedia.org/wiki/Abstract_Factory>  
 <https://danielggarcia.wordpress.com/2014/02/15/patrones-de-creacion-i-factory-patterns/>  
+<https://refactoring.guru/design-patterns/abstract-factory>  
+<https://sourcemaking.com/design_patterns/abstract_factory>  
 
 ### - Patrón *__"Factory Method"__* -
 
