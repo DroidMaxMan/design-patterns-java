@@ -41,7 +41,7 @@ Un **invocador** solo conoce la interfaz de comandos, pero desconoce totalmente 
 
 Un objeto de **comando** es capaz de llamar a un método particular en el receptor. La lógica de la acción a ejecutar está definida en el método en el **receptor** que es invocado por el **comando**.
 
-![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/command_example.png)
+![Concepto](.//media//patterns//behavioral//command_example.png)
 
 El uso del patrón *__'Command'__* puede ser productivo en aquellas situaciones y escenarios en las que la relación directa entre el emisor de una orden y el receptor de la misma es insuficiente:
 
@@ -57,11 +57,9 @@ El uso del patrón *__'Command'__* puede ser productivo en aquellas situaciones 
 
 * En el uso de macros también se hace necesario el uso de este patrón.
 
-* En el caso de los asistentes o *'wizards'* este patrón permite desacoplar el interfaz de usuario de las órdenes ya que una vez configurada la secuencia y tipo de órdenes desde el asistente, una vez sea aceptado por el usuario es cuando se emite el mensaje y se ejecutan dichas órdenes.
+* En el caso de los asistentes o *'wizards'* este patrón permite desacoplar el interfaz de usuario de las órdenes ya que una vez configurada la secuencia y tipo de órdenes desde el asistente, cuando el usuario las acepta  es cuando se emite el mensaje y se ejecutan dichas órdenes.
 
-#### Posible implementación
-
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/behavioral/command/example2/diagram.png)
+#### Ejemplo de implementación
 
 ```java
 interface ICommand {
@@ -69,7 +67,7 @@ interface ICommand {
 }
 
 // Command
-public class Redo implements ICommand {
+class Redo implements ICommand {
     private Receiver receiver;
 
     public Redo(Receiver recv) {
@@ -78,21 +76,24 @@ public class Redo implements ICommand {
 
     @Override
     public void action() {
-        //Call redo in receiver
+        // Invoca la acción en el receptor
         receiver.performRedo();
     }
 }
 
-// Receptor que contiene la lógica a ejecutar
-public class Receiver {
-    void performUndo() { System.out.println("Executing - Undo"); }
+// El receptor contiene la lógica a ejecutar
+class Receiver {
+    void performUndo() {
+        System.out.println("Executing - Undo");
+    }
 
-    void performRedo() { System.out.println("Executing - Redo"); }
-
+    void performRedo() {
+        System.out.println("Executing - Redo");
+    }
 }
 
-// Un invocador sólo conoce la interfaz de comandos ('ICommand')
-public class Invoker {
+// Un invocador sólo conoce la interfaz de comandos
+class Invoker {
     public void execute(ICommand cmd) {
         cmd.action();
     }

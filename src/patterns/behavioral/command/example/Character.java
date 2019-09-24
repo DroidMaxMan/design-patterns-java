@@ -1,6 +1,6 @@
 package patterns.behavioral.command.example;
 
-// RECEIVER
+// Receptor de la acción
 class Character {
 
     void walk() {

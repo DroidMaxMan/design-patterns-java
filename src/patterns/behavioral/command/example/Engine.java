@@ -1,6 +1,6 @@
 package patterns.behavioral.command.example;
 
-// INVOKER
+// Invocador
 class Engine {
 
     // Execute

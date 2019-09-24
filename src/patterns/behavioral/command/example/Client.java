@@ -1,15 +1,15 @@
 package patterns.behavioral.command.example;
 
-public class Sample {
+public class Client {
 
     public static void main(String[] args) {
-        // Receiver
+        // Receptor de la acción
         Character character = new Character();
 
-        // Invoker
+        // Invocador
         Engine engine = new Engine();
 
-        // Executing commands
+        // Ejecutar los comandos (acciones) sobre el receptor
         engine.execute(new Jump(character));
         engine.execute(new Run(character));
         engine.execute(new Walk(character));

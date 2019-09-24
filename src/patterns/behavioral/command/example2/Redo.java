@@ -1,6 +1,6 @@
 package patterns.behavioral.command.example2;
 
-class Redo implements ICommand {
+class Redo implements Command {
 
     private Receiver receiver;
 
