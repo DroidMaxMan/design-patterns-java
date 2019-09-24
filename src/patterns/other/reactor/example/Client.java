@@ -1,6 +1,6 @@
 package patterns.other.reactor.example;
 
-class ConcreteEventHandler implements EventHandler {
+class Client implements EventHandler {
 
     @Override
     public void handle(Event event) {

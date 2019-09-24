@@ -14,7 +14,7 @@ public class Reactor {
 
     public static void main(String[] args) {
         // Handler registration
-        EventHandler eventHandler = new ConcreteEventHandler();
+        EventHandler eventHandler = new Client();
         registerHandler(eventHandler);
 
         while (true) {
