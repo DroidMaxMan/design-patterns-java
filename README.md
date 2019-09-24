@@ -520,6 +520,8 @@ Este patrón es aconsejable, como ya hemos comentado, en situaciones en los que 
 
 ### - Patrón *__"Template Method"__* -
 
+![Template-Method](.//media//patterns//behavioral//template_method_header.png)
+
 **GoF**: Define el esqueleto de un algoritmo en una operación, aplazando algunos pasos a las subclases. El método de la plantilla permite subclases redefinir ciertos pasos de un algoritmo sin cambiar la estructura del algoritmo.
 
 #### Concepto
@@ -542,11 +544,11 @@ Si el patrón *__'Command'__* nos permite encapsular una invocación a un métod
 
 * La clase base también se encargará de la lógica del algoritmo, ejecutando los pasos en un orden preestablecido (las clases hijas no deberían poder modificar el algoritmo, únicamente definir la funcionalidad específica que tienen que implementar).
 
-Dado que la clase padre es la que se encarga de llamar los métodos de las clases derivadas (los pasos del algoritmo estarán implementado en la clase base), se trata de una aplicación manifiesta del principio de **inversión de dependencias**: la clase base no tiene por qué saber nada acerca de sus hijas, pero aún así, se encargará de invocar su funcionalidad cuando sea necesario. El **principio de Hollywood** (“no nos llames, nosotros te llamaremos”) vuelve a entrar en escena.
+Dado que la clase padre es la que se encarga de llamar los métodos de las clases derivadas (los pasos del algoritmo estarán implementado en la clase base), se trata de una aplicación manifiesta del **'Principio de Inversión de Dependencias'**: la clase base no tiene por qué saber nada acerca de sus hijas, pero aún así, se encargará de invocar su funcionalidad cuando sea necesario. El **'Principio de Hollywood'** (“no nos llames, nosotros te llamaremos”) vuelve a entrar en escena.
 
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/template_method.png)
+![Implementación](.//media//patterns//behavioral//template_method_diagram.png)
 
-La clase *GamePlayer* es la que implementa el método *'play()'* que es el que invoca a los otros métodos que son implementados por las clases hijas. Este método es el **método plantilla**.
+La clase `GamePlayer` es la que implementa el método `play()` que es el que invoca a los otros métodos que son implementados por las clases hijas. Este método es el **método plantilla**:
 
 ```java
 abstract class GamePlayer {
@@ -638,7 +640,9 @@ class CheckersPlayer extends GamePlayer {
 #### Referencia
 
 <https://es.wikipedia.org/wiki/Template_Method_%28patr%C3%B3n_de_dise%C3%B1o%29>  
-<https://danielggarcia.wordpress.com/2014/05/05/patrones-de-comportamiento-iii-template-method/>
+<https://danielggarcia.wordpress.com/2014/05/05/patrones-de-comportamiento-iii-template-method/>  
+<https://refactoring.guru/design-patterns/template-method>  
+<https://sourcemaking.com/design_patterns/template_method>  
 
 ### - Patrón *__"Visitor"__* -
 

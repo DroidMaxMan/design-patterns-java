@@ -1,6 +1,6 @@
 package patterns.behavioral.templatemethod.example;
 
-public class TemplateMethodPatternEx {
+public class Client {
 
     public static void main(String[] args) {
 

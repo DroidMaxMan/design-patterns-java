@@ -1,6 +1,6 @@
 package patterns.behavioral.templatemethod.example2;
 
-class TemplateMethodPatternEx {
+class Client {
 
     public static void main(String[] args) {
         BasicEngineering bs = new ComputerScience();
