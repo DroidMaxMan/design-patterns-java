@@ -1369,6 +1369,8 @@ class ConcreteCreatorB extends Creator {
 
 ### - Patrón *__"Prototype"__* -
 
+![Prototype](.//media//patterns//creational//prototype_header.png)
+
 **GoF**: Especifique los tipos de objetos para crear utilizando una instancia prototípica y cree nuevos objetos copiando este prototipo.
 
 #### Concepto
@@ -1382,7 +1384,7 @@ La clase de los objetos que servirán de prototipo para la copia deberán inclui
 Este patrón se utiliza en casos como:
 
 * Evitar las subclases de un objeto creador como hace el patrón *__'Abstract Factory'__*
-* Evitar el costo inherente a la creación de un objeto nuevo mediante el operador **new** cuando esto es demasiado costoso para la aplicación.
+* Evitar el costo inherente a la creación de un objeto nuevo mediante el operador `new` cuando esto es demasiado costoso para la aplicación.
 * La decisión del tipo de objeto necesario se decide en tiempo de ejecución en función de determinados parámetros, configuraciones o condiciones en un momento dado.
 
 Este patrón, dicho de otro modo, propone la creación de distintas variantes de objetos que la aplicación necesite en el momento y contexto adecuados. Toda la lógica necesaria para la decisión sobre el tipo de objetos que usará la aplicación es su ejecución se hace independiente, de manera que el código que utiliza estos objetos solicitará una copia del objeto que necesite. En este contexto, una copia significa otra instancia del objeto. El único requisito que debe cumplir este objeto es suministrar la funcionalidad de clonarse.
@@ -1391,15 +1393,13 @@ Este patrón, dicho de otro modo, propone la creación de distintas variantes de
 
 Para implementar este patrón se declara una clase base abstracta que tiene un método `clone()`. Cualquier clase que necesite un constructor deriva de la clase abstracta e implementa el método `clone()`.
 
-![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/creational/prototype.png)
+![Concepto](.//media//patterns//creational//prototype_diagram.png)
 
-El cliente, en vez de escribir código que hace uso del generador `'new'` sobre una clase específica, llama al método `clone()` de la clase prototipo, o llama a un método factoría con un parámetro que especifíca la clase deseada, o invoca el método `clone()` de la clase de alguna otra forma.
+El cliente, en vez de escribir código que hace uso del generador `new` sobre una clase específica, llama al método `clone()` de la clase prototipo, o llama a un método factoría con un parámetro que especifíca la clase deseada, o invoca el método `clone()` de la clase de alguna otra forma.
 
 Por ejemplo, es posible usar un **gestor de prototipos** que permita cargar y descargar los prototipos disponibles en tiempo de ejecución.
 
 Aunque en un principio este patrón parece que entra en conflicto con *__'Abstract Factory'__* es posible utilizar ambas aproximaciones en una *__'Prototype Abstract Factory'__* de forma que la factoría se configura con los prototipos concretos que puede crear y ésta sólo invoca al método `clone()`.
-
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/creational/prototype/example/diagram.png)
 
 ```java
 interface Producto {
@@ -1450,6 +1450,8 @@ class FactoriaPrototipo {
 
 <https://es.wikipedia.org/wiki/Prototype_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/02/24/patrones-de-creacion-iii-patron-prototype/>  
+<https://refactoring.guru/design-patterns/prototype>  
+<https://sourcemaking.com/design_patterns/prototype>  
 
 ### - Patrón *__"Singleton"__* -
 
