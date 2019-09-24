@@ -1,6 +1,6 @@
 package patterns.structural.facade.example;
 
-public class FacadePatternEx {
+public class Client {
 
     public static void main(String[] args) {
         Facade facade = new Facade();

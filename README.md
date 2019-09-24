@@ -2025,6 +2025,8 @@ class Bag extends Item {
 
 ### - Patrón *__"Facade"__* -
 
+![Facade](.//media//patterns//structural//facade_header.png)
+
 **GoF**:  Proporcionar una interfaz unificada a un conjunto de interfaces en un sistema. Este patrón define una interfaz de nivel superior que facilita el uso del subsistema.
 
 #### Concepto
@@ -2037,11 +2039,11 @@ Otro escenario proclive para su aplicación surge de la necesidad de desacoplar 
 
 También es útil cuando haya que controlar el acceso y la forma en que se utiliza un sistema determinado.
 
-Este patrón se relaciona con el patrón *__'Singleton'__** ya que normalmente las fachadas suelen ser instancias únicas.
+Este patrón se relaciona con el patrón *__'Singleton'__* ya que normalmente las fachadas suelen ser instancias únicas.
 
 #### Ejemplo de implementación
 
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/facade.png)
+![Implementación](.//media//patterns//structural//facade_diagram.png)
 
 * **Fachada** - conoce qué clases del subsistema son responsables de una determinada peticíón y delega esas peticiones de los clientes a los objetos apropiados del subsistema. Los clientes no acceden directamente a las subclases.
 
@@ -2101,6 +2103,8 @@ class Facade {
 
 <https://es.wikipedia.org/wiki/Facade_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/03/03/patrones-estructurales-ii-patron-facade/>  
+<https://refactoring.guru/design-patterns/facade>  
+<https://sourcemaking.com/design_patterns/facade>  
 
 ### - Patrón *__"Proxy"__* -
 

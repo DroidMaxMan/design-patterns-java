@@ -1,6 +1,6 @@
 package patterns.structural.facade.example2;
 
-class FacadePatternEx {
+class Client {
 
     public static void main(String[] args) {
         RobotFacade rf1 = new RobotFacade();
