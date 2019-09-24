@@ -1574,7 +1574,7 @@ Digamos que tenemos la clase `Shape` con un par de subclases: `Circle` y `Square
 
 Este problema ocurre porque estamos tratando de extender las clases de formas en dos dimensiones independientes: por forma y por color. Ese es un problema muy común con la herencia de clases.
 
-El **patrón 'Bridge'** intenta resolver este problema cambiando de herencia a composición. Lo que esto significa es que extrae una de las dimensiones en una jerarquía de clases separada, de modo que las clases originales hagan referencia a un objeto de la nueva jerarquía, en lugar de tener todos sus estados y comportamientos dentro de una clase.
+El patrón *__'Bridge'__* intenta resolver este problema cambiando de herencia a composición. Lo que esto significa es que extrae una de las dimensiones en una jerarquía de clases separada, de modo que las clases originales hagan referencia a un objeto de la nueva jerarquía, en lugar de tener todos sus estados y comportamientos dentro de una clase.
 
 ![Concept](.//media//patterns//structural//bridge_concept_02.png)
 
@@ -1650,7 +1650,7 @@ class ImplementorB implements Implementor {
 
 #### Aplicabilidad
 
-Utilice el **patrón "Bridge"** cuando desee dividir y organizar una clase monolítica que tenga varias variantes de alguna funcionalidad (por ejemplo, si la clase puede trabajar con varios servidores de bases de datos). Este patrón le permite dividir la clase monolítica en varias jerarquías de clase. Después de esto, puede cambiar las clases en cada jerarquía independientemente de las clases en las otras. Este enfoque simplifica el mantenimiento del código y minimiza el riesgo de romper el código existente.
+Utilice el patrón *__'Bridge'__* cuando desee dividir y organizar una clase monolítica que tenga varias variantes de alguna funcionalidad (por ejemplo, si la clase puede trabajar con varios servidores de bases de datos). Este patrón le permite dividir la clase monolítica en varias jerarquías de clase. Después de esto, puede cambiar las clases en cada jerarquía independientemente de las clases en las otras. Este enfoque simplifica el mantenimiento del código y minimiza el riesgo de romper el código existente.
 
 Use el patrón cuando necesite extender una clase en varias dimensiones ortogonales (independientes). El patrón sugiere que extraiga una jerarquía de clases separada para cada una de las dimensiones. La clase original delega el trabajo relacionado a los objetos que pertenecen a esas jerarquías en lugar de hacer todo por sí solo
 
@@ -1682,15 +1682,15 @@ También cuando se necesite poder cambiar de implementación en tiempo de ejecuc
 
 #### Concepto
 
-El **patrón "Flyweight"** (u objeto ligero) es un patrón estructural que sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento (uso de recursos). Permite ajustar más objetos en la cantidad de RAM disponible al compartir partes comunes de estado entre múltiples objetos en lugar de mantener todos los datos en cada objeto.
+El patrón *__'Flyweight'__* (u objeto ligero) es un patrón estructural que sirve para eliminar o reducir la redundancia cuando tenemos gran cantidad de objetos que contienen información idéntica, además de lograr un equilibrio entre flexibilidad y rendimiento (uso de recursos). Permite ajustar más objetos en la cantidad de RAM disponible al compartir partes comunes de estado entre múltiples objetos en lugar de mantener todos los datos en cada objeto.
 
 El patrón es útil cuando se necesita una gran cantidad de objetos similares que en general la mayoría de atributos son comunes pero son únicos en términos de solo unos pocos parámetros. Con lo cual se intenta minimizar el uso de la memoria compartiendo los datos tanto como sea posible con los otros objetos similares. Compartir objetos puede permitir su uso a granularidades finas con costos mínimos.
 
 Se utilizan dos términos comunes en este contexto: **"extrinsic"** e **"intrinsic"**. A grandes rasgos, se basa en dividir un objeto en dos partes: una parte “común” a un conjunto grande de los objetos de la clase (parte intrínseca), y una parte “privada” que será accesible y modificable únicamente por un objeto en concreto (parte extrínseca).
 
-El **patrón "Flyweight"** está íntimamente ligado al **patrón factoría o "Factory Pattern"**. El motivo no es otro que permitir que sea el objeto que implementa este patrón el que gestione la separación entre la parte “común” (denominada intrínseca) y la parte “privada” (denominada extrínseca), centralizando el proceso y evitando así que perdamos referencias por el camino si realizamos el proceso de una forma un poco más artesanal.
+El patrón *__'Flyweight'__* está íntimamente ligado al patrón *__'Factory'__*. El motivo no es otro que permitir que sea el objeto que implementa este patrón el que gestione la separación entre la parte “común” (denominada intrínseca) y la parte “privada” (denominada extrínseca), centralizando el proceso y evitando así que perdamos referencias por el camino si realizamos el proceso de una forma un poco más artesanal.
 
-Por lo tanto, dentro de un **patrón "Flyweight"**, distinguiremos entre estos dos tipos de datos:
+Por lo tanto, dentro de un patrón *__'Flyweight'__*, distinguiremos entre estos dos tipos de datos:
 
 * **Intrínsecos**: son los datos compartidos por todos los objetos de un subtipo determinado. Por norma general, son datos que no cambiarán a lo largo del tiempo, y si cambian, alterarán el estado de todos los objetos que hagan uso de ellos.
 
@@ -1840,6 +1840,8 @@ public class Client {
 
 ### - Patrón *__"Decorator"__* -
 
+![Decorator](.//media//patterns/structural//decorator_header.png)
+
 **GoF**: Asignar responsabilidades adicionales a un objeto de forma dinámica. Los decoradores ofrecen una alternativa flexible a la subclasificación para ampliar la funcionalidad.
 
 #### Concepto
@@ -1852,7 +1854,7 @@ Este patrón permite tener una jerarquía de clases compuestas, formando una est
 
 Supongamos que el personaje de un videojuego porta un arma que utiliza para eliminar a sus enemigos. Dicha arma, por ser de un tipo determinado, tiene una serie de propiedades como podrían ser "radio de acción", "número de balas", etc.. Sin embargo, es posible que el personaje incorpore elementos al arma que pueden cambiar estas propiedades como un silenciador o un cargador extra.
 
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/decorator.png)
+![Implementación](.//media//patterns//structural//decorator_diagram.png)
 
 Básicamente, los diferentes tipos de armas de fuego implementan una clase abstracta llamada *'Firearm'*. Una de sus subclases es *'FirearmDecorator'* que a su vez es la superclase de todos los componentes que _"decoran"_ a un objeto *'Firearm'*. Nótese que este decorador implementa la interfaz propuesta por *'Firearm'* y está compuesto por un objeto *'gun'*, el cual decora.
 
@@ -1947,6 +1949,8 @@ class Magazine extends FirearmDecorator {
 
 <https://es.wikipedia.org/wiki/Decorator_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/03/10/patrones-estructurales-iii-patron-decorator/>  
+<https://refactoring.guru/design-patterns/adapter>  
+<https://sourcemaking.com/design_patterns/adapter>  
 
 ### - Patrón *__"Composite"__* -
 

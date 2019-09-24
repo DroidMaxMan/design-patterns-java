@@ -1,6 +1,6 @@
 package patterns.structural.decorator.example;
 
-public class DecoratorPatternEx {
+public class Client {
 
     public static void main(String[] args) {
         Firearm rifle = new Rifle();
