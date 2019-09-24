@@ -2108,6 +2108,8 @@ class Facade {
 
 ### - Patrón *__"Proxy"__* -
 
+![Proxy](.//media//patterns//structural//proxy_header.png)
+
 **GoF**: Proporcione un sustituto o marcador de posición para que otro objeto controle el acceso a él.
 
 #### Concepto
@@ -2126,11 +2128,11 @@ Muchos de los objetos que pueden integrar una aplicación pueden representar dif
 
 #### Ejemplo de implementación
 
-El coste de manipular y cargar una imagen puede ser importante según el sistema, tipo de manipulación, etc...Con el patrón *__'Proxy'__* se crea un objeto intermedio `'ImageProxy'` que represente al objeto real `'Image'` y que se utilice de la misma forma desde el punto de vista del cliente.
+El coste de manipular y cargar una imagen puede ser importante según el sistema, tipo de manipulación, etc... Con el patrón *__'Proxy'__* se crea un objeto intermedio `ImageProxy` que represente al objeto real `Image` y que se utilice de la misma forma desde el punto de vista del cliente.
 
-De esta forma, el objeto `'proxy'` puede cargar una única vez la imagen y mostrarla tantas veces como el cliente lo solicite.
+De esta forma, el objeto `Proxy` puede cargar una única vez la imagen y mostrarla tantas veces como el cliente lo solicite.
 
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/proxy.png)
+![Implementación](.//media//patterns//structural//proxy_diagram.png)
 
 ```java
 class Graphic {
@@ -2172,6 +2174,8 @@ class ImageProxy extends Graphic {
 
 <https://es.wikipedia.org/wiki/Proxy_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/04/07/patrones-estructurales-vii-patron-proxy/>  
+<https://refactoring.guru/design-patterns/proxy>  
+<https://sourcemaking.com/design_patterns/proxy>  
 
 ## Otros patrones estructurales
 
