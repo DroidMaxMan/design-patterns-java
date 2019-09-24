@@ -1058,17 +1058,19 @@ class Peticion {
 
 ## _Creational Patterns_
 
-Los patrones creacionales corresponden a patrones de diseño de software que solucionan problemas de creación de instancias. Nos ayudan a encapsular y abstraer dicha creación.
+Los patrones de creación corresponden a patrones de diseño de software que solucionan problemas de creación de instancias. Nos ayudan a encapsular y abstraer dicha creación.
 
 Los patrones creacionales son _Abstract Factory_, _Builder_, _Factory Method_, _Prototype_ y _Singleton_.
 
 ### - Patrón *__"Builder"__* -
 
+![Builder](.//media//patterns//creational//builder_header.png)
+
 **GoF**: Separa la construcción de un objeto complejo de su representación para que los mismos procesos de construcción puedan crear diferentes representaciones.
 
 #### Concepto
 
-El patrón *__'Builder'__*  es útil para crear objetos complejos que tienen varias partes. El mecanismo creacional de un objeto debe ser independiente de estas partes ya que al proceso de construcción no le importa cómo se ensamblan estas piezas. El mismo proceso de construcción debe permitirnos crear diferentes representaciones de los objetos.
+El patrón *__'Builder'__*  es útil para crear objetos complejos que tienen varias partes. El mecanismo de creación de un objeto debe ser independiente de estas partes ya que al proceso de construcción no le importa como se ensamblan estas piezas. El mismo proceso de construcción debe permitirnos crear diferentes representaciones de los objetos.
 
 Crear y ensamblar las partes de un objeto complejo directamente dentro de una clase es inflexible. Se compromete a la clase a crear una representación particular del objeto complejo y hace que sea imposible cambiar la representación más tarde de forma independiente de la clase sin tener que cambiarla.
 
@@ -1088,11 +1090,14 @@ Desventajas del patrón:
 
 #### Ejemplo de implementación
 
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/creational/builder.svg)
+![Implementación](.//media//patterns//creational//builder_diagram.png)
 
 * ***Builder***: Interfaz abstracta para crear objetos (producto).
+
 * ***ConcreteBuilder***: Proporciona implementación para _'Builder'_. Es un objeto capaz de construir otros objetos. Construye y ensambla partes para construir los objetos.
+
 * ***Product***: el objeto complejo que se construye.
+
 * ***Director***: invoca el objeto _'Builder'_ para la construcción del producto.
 
 ```java
