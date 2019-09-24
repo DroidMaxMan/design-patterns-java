@@ -41,7 +41,7 @@ Un **invocador** solo conoce la interfaz de comandos, pero desconoce totalmente 
 
 Un objeto de **comando** es capaz de llamar a un método particular en el receptor. La lógica de la acción a ejecutar está definida en el método en el **receptor** que es invocado por el **comando**.
 
-![Concepto](.//media//patterns//behavioral//command_example.png)
+![Concepto](.//media//patterns//behavioral//command_diagram.png)
 
 El uso del patrón *__'Command'__* puede ser productivo en aquellas situaciones y escenarios en las que la relación directa entre el emisor de una orden y el receptor de la misma es insuficiente:
 
@@ -137,7 +137,7 @@ El problema de introducir este objeto iterador reside en que los clientes necesi
 
 Diferentes iteradores pueden presentar diferentes tipos de recorrido sobre la estructura. No sólo eso, sino que podrían incorporar funcionalidad extra como por ejemplo filtrado de elementos, etc..
 
-![Concepto](.//media//patterns//behavioral//iterator_example.png)
+![Concepto](.//media//patterns//behavioral//iterator_diagram.png)
 
 El uso del patrón *__'Iterator'__* es muy común ya que manejar colecciones de datos es algo muy habitual en el desarrollo de aplicaciones. Listas, pilas y, sobre todo, árboles son ejemplos de estructuras de datos muy presentes en los juegos y se utilizan de forma intensiva.
 
@@ -205,6 +205,8 @@ public class Client {
 
 ### - Patrón *__"Observer"__* -
 
+![Observer](.//media//patterns//behavioral//observer_header.png)
+
 **GoF**: Define una dependencia de uno a muchos entre objetos para que cuando un objeto cambie de estado, todos sus dependientes sean notificados y actualizados automáticamente.
 
 #### Concepto
@@ -213,21 +215,19 @@ El patrón *__'Observer'__* se utiliza para definir relaciones 1 a *n* de forma 
 
 El patrón *__'Observer'__* proporciona un diseño con **poco acomplamiento** entre los *observadores* y el objeto *observado*.
 
-Siguiendo la filosofía de *publicación/suscripción*, los objetos observadores se deben registrar en el objeto observado llamado **sujeto** pasándole una referencia de si mismo. El sujeto mantiene una lista de de las referencias de los observadores. Cuando un observador ya no necesita ser notificado simplemente se borra de la lista de observadores.
+Siguiendo la filosofía de *publicación/suscripción*, los objetos observadores se deben registrar en el objeto observado llamado **sujeto** pasándole una referencia de si mismo. El sujeto mantiene una lista de las referencias de los observadores. Cuando un observador ya no necesita ser notificado simplemente se borra de la lista de observadores.
 
-Además, los observadores a su vez están obligados a implementar unos métodos determinados mediante los cuales el **sujeto** es capaz de notificar a los observadores suscritos los cambios que sufre para que todos ellos tengan constancia. Por tanto, cuando el evento oportuno, el sujeto recibirá una invocación y será el encargado de "notificar" a todos los elementos suscritos a él.
+Además, los observadores a su vez están obligados a implementar unos métodos determinados mediante los cuales el **sujeto** es capaz de notificar a los observadores suscritos los cambios que sufre para que todos ellos tengan constancia. Por tanto, cuando el evento oportuno suceda, el sujeto recibirá una invocación y será el encargado de "notificar" a todos los elementos suscritos a él.
 
-Los observadores que reciben la invocación pueden realizar las acciones pertinentes como consultar el estado del dominio para obtener nuevos valores.
+Los observadores que reciben la invocación pueden realizar las acciones pertinentes.
 
-![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/observer.png)
+![Concepto](.//media//patterns//behavioral//observer_diagram.png)
 
 Puede pensarse en aplicar este patrón cuando una modificación en el estado de un objeto requiere cambios de otros, y no se desea que se conozca el número de objetos que deben ser cambiados. También cuando queremos que un objeto sea capaz de notificar a otros objetos sin hacer ninguna suposición acerca de los objetos notificados y cuando una abstracción tiene dos aspectos diferentes, que dependen uno del otro; si encapsulamos estos aspectos en objetos separados permitiremos su variación y reutilización de modo independiente.
 
-#### Implementación
+#### Ejemplo de implementación
 
 El siguiente ejemplo es una situación en que tenemos un único observador y un único sujeto. El patrón se puede adaptar para los casos en que haya uno o varios observadores y uno o varios sujetos.
-
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/behavioral/observer/example2/diagram.png)
 
 ```java
 interface ISubject {
@@ -275,6 +275,8 @@ class Observer {
 
 <https://es.wikipedia.org/wiki/Observer_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/06/02/patrones-de-comportamiento-vi-patron-observer/>  
+<https://refactoring.guru/design-patterns/observer>  
+<https://sourcemaking.com/design_patterns/observer>
 
 ### - Patrón *__"State"__* -
 
@@ -290,7 +292,7 @@ Por ejemplo, los estados de un personaje de un videojuego podrían ser: de pie, 
 
 El patrón *__'State'__* permite encapsular el mecanismo de las transiciones que sufre un objeto a partir de los estímulos externos.
 
-#### Implementación
+#### Ejemplo de implementación
 
 A continuación se muestra un ejemplo de aplicación del mismo. La idea es crear una clase abstracta o interfaz que representa al estado del personaje (CharacterState). En ella se definen las mismas operaciones que puede recibir el personaje con una implementación por defecto. En este caso, la implementación es vacía.
 
@@ -437,7 +439,7 @@ Otro ejemplo para entender este patrón es el de un protagonista de un videojueg
 
 Da igual que nuestro soldado porte un rifle, una pistola o un fusil: los detalles de cada estrategia estarán encapsulados dentro de cada una de las clases intercambiables que representan las armas. Nuestra clase cliente (el soldado) únicamente debe preocuparse de las acciones comunes a todas ellas: atacar, recargar y cambiar de arma. Éste último método, de hecho, será el encargado de realizar la operación de "cambio de estrategia" que forma parte del patrón.
 
-#### Implementación
+#### Ejemplo de implementación
 
 Mediante el uso de la herencia, el patrón *__'Strategy'__* permite encapsular diferentes algoritmos para que los clientes puedan utilizarlos de forma transparente.
 
@@ -522,7 +524,7 @@ El patrón *__'Template Method'__* consiste extraer este comportamiento común e
 
 Si el patrón *__'Command'__* nos permite encapsular una invocación a un método, el patrón *__'Template Method'__* establece una forma de encapsular algoritmos. Este patrón se basa en un principio muy sencillo: si un algoritmo puede aplicarse a varios supuestos en los que únicamente cambie un pequeño número de operaciones, la idea será utilizar una clase para modelarlo a través de sus operaciones. Esta clase base se encargará de definir los pasos comunes del algoritmo, mientras que las clases que hereden de ella implementarán los detalles propios de cada caso concreto, es decir, el código específico para cada caso.
 
-#### Implementación
+#### Ejemplo de implementación
 
 * Se declara una clase abstracta, que será la plantilla o modelo. Esta clase definirá una serie de funciones y métodos. Aquellas que sean comunes estarán implementadas. Aquellas que dependan de cada caso concreto, se declararán como abstractas, obligando a las clases hijas a implementarlas.
 
@@ -650,7 +652,7 @@ Cada visitante concreto realiza una operación sobre la estructura de objetos. E
 
 Sin embargo, lo importante del patrón *__'Visitor'__* es que se pueden añadir nuevos tipos de visitantes concretos y, por lo tanto, realizar nuevas operaciones sobre la estructura sin la necesidad de modificar nada en la propia estructura. Por tanto se seguiría el **principio 'Open/Closes' (abierto a la extensión, cerrado a la modificación).
 
-#### Implementación
+#### Ejemplo de implementación
 
 ![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/behavioral/visitor/example/diagram.png)
 
@@ -723,7 +725,7 @@ Es un patrón de diseño cuya finalidad es almacenar el estado de un objeto (o d
 
 Se usa este patrón cuando se quiere poder restaurar el sistema desde estados pasados y por otra parte, es usado cuando se desea facilitar el hacer y deshacer de determinadas operaciones, para lo que habrá que guardar los estados anteriores de los objetos sobre los que se opere (o bien recordar los cambios de forma incremental).
 
-#### Implementación
+#### Ejemplo de implementación
 
 El patrón *__'Memento'__* define tres roles principales:
 
@@ -821,7 +823,7 @@ Definir un conjunto de objetos que interactúan accediendo y actualizándose ent
 
 El patrón *__'Mediator'__* define un objeto que encapsula cómo un conjunto de objetos interactúan. De esta forma los objetos no se comunican de forma directa entre ellos, sino que se comunican mediante el mediador. El mediador busca reducir el acoplamiento evitando que los objetos se relacionen entre ellos de forma explícita y permitiendo cambiar la interacción entre un conjunto de objetos de forma independiente.
 
-#### Implementación
+#### Ejemplo de implementación
 
 La esencia del patrón *__'Mediator'__* es "definir un objeto que encapsule cómo interactúa un conjunto de objetos". Promueve el acoplamiento débil evitando que los objetos se refieran entre sí explícitamente, y permite que su interacción se varíe de forma independiente. Las clases de clientes pueden usar el mediador para enviar mensajes a otros clientes y pueden recibir mensajes de otros clientes a través de un evento en la clase de mediadores.
 
@@ -947,7 +949,7 @@ Las ventajas de este patrón son:
 
 Por otra parte presenta el inconveniente de no garantizar la recepción. Dado que las peticiones no tienen un receptor explícito, no hay garantías de que sean manejadas. La petición puede alcanzar el final de la cadena sin haber sido procesada.
 
-#### Implementación
+#### Ejemplo de implementación
 
 En este patrón participan:
 
@@ -1059,7 +1061,7 @@ Desventajas del patrón:
 * No se garantiza la inicialización de los datos de los miembros de la clase.
 * La inyección de dependencia puede ser menos compatible.
 
-#### Implementación
+#### Ejemplo de implementación
 
 ![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/creational/builder.svg)
 
@@ -1167,7 +1169,7 @@ Otro ejemplo podría ser la jerarquía de objetos existentes en cualquier juego.
 
 En ella, se muestra jerarquías de clases que modelan los diferentes tipos de personajes de un juego y algunas de sus armas. Para construir cada tipo de personaje es necesario saber cómo construirlo y con qué otro tipo de objetos tiene relación. Por ejemplo, restricciones del tipo "la gente del pueblo no puede llevar armas" o "los arqueros sólo pueden puede tener un arco", es conocimiento específico de la clase que se está construyendo.
 
-#### Implementación
+#### Ejemplo de implementación
 
 En primer lugar se define una factoría abstracta que será la que utilice el cliente *(Game)* para crear los diferentes objetos. _'CharFactory'_ es una factoría que sólo define métodos abstractos y que serán implementados por sus clases hijas.
 
@@ -1269,7 +1271,7 @@ En el patrón *__'Factory Method'__* se utiliza una clase constructora abstracta
 
 A diferencia del patrón *__'Abstract Factory'__* no es necesario tener una factoría o una jerarquía de factorías para la creación de objetos. Permite diseños más adaptados a la realidad.
 
-#### Implementación
+#### Ejemplo de implementación
 
 Las clases principales de este patrón son el **creador** y el **producto**. El creador necesita crear instancias de productos, pero el tipo concreto de producto no debe ser forzado en las subclases del creador porque las posibles subclases del creador deber poder especificar subclases del producto para utilizar.
 
@@ -1346,7 +1348,7 @@ Este patrón se utiliza en casos como:
 
 Este patrón, dicho de otro modo, propone la creación de distintas variantes de objetos que la aplicación necesite en el momento y contexto adecuados. Toda la lógica necesaria para la decisión sobre el tipo de objetos que usará la aplicación es su ejecución se hace independiente, de manera que el código que utiliza estos objetos solicitará una copia del objeto que necesite. En este contexto, una copia significa otra instancia del objeto. El único requisito que debe cumplir este objeto es suministrar la funcionalidad de clonarse.
 
-#### Implementación
+#### Ejemplo de implementación
 
 Para implementar este patrón se declara una clase base abstracta que tiene un método `clone()`. Cualquier clase que necesite un constructor deriva de la clase abstracta e implementa el método `clone()`.
 
@@ -1429,7 +1431,7 @@ El patrón *__'Singleton'__* puede ser utilizado para modelar:
 * Gestores de acceso a base de datos, sistemas de ficheros, _render_ de gráficos, etc..
 * Estructuras que representan la configuración del programa para que sea accesible por todos los elementos en  cualquier instante.
 
-#### Implementación
+#### Ejemplo de implementación
 
 El patrón *_'Singleton'__* provee una única instancia global gracias a que:
 
@@ -1559,7 +1561,7 @@ Esto se debe a que se desacopla la interfaz de la implementación. Una implement
 
 Desacoplando _'Abstraction'_ e _'Implementor'_ también elimina las dependencias sobre la implementación en tiempo de compilación. Cambiar una clase de implementación no requiere recompilar la clase _'Abstraction'_ ni sus clientes. Es más, este desacoplamiento fomenta las capas, que pueden conducir a un sistema mejor estructurado. La parte de alto nivel de un sistema sólo tiene que conocer _'Abstraction'_ e _'Implementor'_.
 
-#### Implementación
+#### Ejemplo de implementación
 
 1. Identificar las dimensiones independientes en tus clases. Estos conceptos independientes podrían ser: abstracción/plataforma, dominio/infraestructura, front-end/back-end o interfaz/implementación.
 
@@ -1661,7 +1663,7 @@ Por lo tanto, dentro de un **patrón "Flyweight"**, distinguiremos entre estos d
 
 * **Extrínsecos**: se calculan “al vuelo” fuera del objeto _"Flyweight"_. Este cálculo suele realizarse a partir de los datos intrínsecos y de los parámetros recibidos por los métodos del objeto _"Flyweight"_. La idea detrás de los datos extrínsecos radica en que, o bien sean calculados a partir de los datos intrínsecos o bien ocupen una cantidad de memoria mínima en comparación a éstos.
 
-#### Implementación
+#### Ejemplo de implementación
 
 1. Dividir los campos de una clase que se convertirá en _'flyweight'_ en dos partes:
 
@@ -1748,7 +1750,7 @@ Una solución rápida podría ser adaptar dichas interfaces a las necesidades de
 
 Usando el patrón *__'Adapter'__* es posible crear una nueva interfaz de acceso a un determinado objeto, por lo que proporciona un mecanismo de **adaptación** entre las demandas del objeto cliente y el objeto servidor que proporciona la funcionalidad.
 
-#### Implementación
+#### Ejemplo de implementación
 
 El cliente no utiliza el sistema adaptado, si no que hace uso del *adaptador*. Este es el que transforma la invocación a `'method()'` en `'otherMethod()'`.
 
@@ -1810,7 +1812,7 @@ El patrón *__'Decorator'__* sirve para añadir y/o modificar la responsabilidad
 
 Este patrón permite tener una jerarquía de clases compuestas, formando una estructura más dinámica y flexible que la herencia estática. Al utilizar este patrón, se pueden añadir y eliminar responsabilidades en tiempo de ejecución. Además, evita la utilización de la herencia con muchas clases y también, la herencia múltiple (si fuera posible en el lenguaje utilizado).
 
-#### Implementación
+#### Ejemplo de implementación
 
 Supongamos que el personaje de un videojuego porta un arma que utiliza para eliminar a sus enemigos. Dicha arma, por ser de un tipo determinado, tiene una serie de propiedades como podrían ser "radio de acción", "número de balas", etc.. Sin embargo, es posible que el personaje incorpore elementos al arma que pueden cambiar estas propiedades como un silenciador o un cargador extra.
 
@@ -1922,7 +1924,7 @@ Esto simplifica el tratamiento de los objetos creados ya que al poseer todos ell
 
 Una buena manera de identificar la situación en que se puede aplicar este patrón es cuando tengo "un X y tiene varios objetos X".
 
-#### Implementación
+#### Ejemplo de implementación
 
 Para ilustrar el problema supóngase un juego de estrategia en el que los jugadores pueden recoger objetos o items, los cuales tienen una serie de propiedades como "precio", "descripción", etc. Cada item, a su vez, puede contener otros items. Por ejemplo, un bolso de cuero puede contener una pequeña caja de madera que, a su vez, contiene un pequeño reloj dorado, etc..
 
@@ -1993,7 +1995,7 @@ También es útil cuando haya que controlar el acceso y la forma en que se utili
 
 Este patrón se relaciona con el patrón *__'Singleton'__** ya que normalmente las fachadas suelen ser instancias únicas.
 
-#### Implementación
+#### Ejemplo de implementación
 
 ![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/facade.png)
 
@@ -2074,7 +2076,7 @@ Muchos de los objetos que pueden integrar una aplicación pueden representar dif
 
 * **Dobles de prueba** - a la hora de diseñar y probar el código se necesitan objetos *"dobles"* que simulen a los objetos reales.
 
-#### Implementación
+#### Ejemplo de implementación
 
 El coste de manipular y cargar una imagen puede ser importante según el sistema, tipo de manipulación, etc...Con el patrón *__'Proxy'__* se crea un objeto intermedio `'ImageProxy'` que represente al objeto real `'Image'` y que se utilice de la misma forma desde el punto de vista del cliente.
 
@@ -2149,7 +2151,7 @@ El patrón *__'Reactor'__* se compone de **eventos**, **manejadores de eventos**
 
 ![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/others/reactor.png)
 
-#### Implementación
+#### Ejemplo de implementación
 
 ```java
 interface EventHandler {
@@ -2230,7 +2232,7 @@ Para ello el patrón *__'MVC'__* propone la construcción de tres componentes di
 
 Este patrón de arquitectura de software se basa en las ideas de reutilización de código y la separación de conceptos, características que buscan facilitar la tarea de desarrollo de aplicaciones y su posterior mantenimiento.
 
-#### Implementación
+#### Ejemplo de implementación
 
 * **Vista** - se trata de la interfaz de usuario que interactúa con el usuario y recibe las órdenes (pulsar un botón, introducir texto, etc...). También recibe órdenes desde el controlador para mostrar información o realizar un cambio en la interfaz.
 
