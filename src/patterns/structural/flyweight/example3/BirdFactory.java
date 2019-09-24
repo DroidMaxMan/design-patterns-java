@@ -4,7 +4,7 @@ import java.util.HashMap;
 
 class BirdFactory {
 
-    private static final HashMap<String, Bird> angrybirdMap = new HashMap();
+    private static final HashMap<String, Bird> angrybirdMap = new HashMap<>();
 
     static Bird getAngryBird(String color) {
         AngryBird angrybird = (AngryBird) angrybirdMap.get(color);

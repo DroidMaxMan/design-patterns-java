@@ -2,7 +2,7 @@ package patterns.structural.flyweight.example2;
 
 import java.awt.*;
 
-public class FlyweightPatternDemo {
+public class Client {
 
     static int CANVAS_SIZE = 500;
     static int TREES_TO_DRAW = 1000000;

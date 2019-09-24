@@ -1676,13 +1676,9 @@ También cuando se necesite poder cambiar de implementación en tiempo de ejecuc
 
 ### - Patrón *__"Flyweight"__* -
 
-**GoF**: Compartir una parte común del estado de un objeto para hacer más eficiente la gestión de un número elevado de objetos de grano más fino.
+![Flyweight](.//media//patterns//structural//flyweight_header.png)
 
-<!-- markdownlint-disable MD033 -->
-<p align="center">
-    <img src="https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/flyweight.png">
-</p>
-<!-- markdownlint-enable MD033 -->
+**GoF**: Compartir una parte común del estado de un objeto para hacer más eficiente la gestión de un número elevado de objetos de grano más fino.
 
 #### Concepto
 
@@ -1704,9 +1700,9 @@ Por lo tanto, dentro de un **patrón "Flyweight"**, distinguiremos entre estos d
 
 1. Dividir los campos de una clase que se convertirá en _'flyweight'_ en dos partes:
 
-    * **estado intrínseco**: los campos que contienen datos invariables duplicados en muchos objetos.
+    * **Estado intrínseco**: los campos que contienen datos invariables duplicados en muchos objetos.
 
-    * **estado extrínseco**: los campos que contienen datos contextuales únicos para cada objeto.
+    * **Estado extrínseco**: los campos que contienen datos contextuales únicos para cada objeto.
 
 1. Dejar los campos que representan el estado intrínseco en la clase, pero asegurándose de que sean inmutables. Deben tomar sus valores iniciales solo dentro del constructor.
 
@@ -1733,7 +1729,7 @@ class AngryBird implements Bird {
 }
 
 class BirdFactory {
-    private static final HashMap<String, Bird> angrybirdMap = new HashMap();
+    private static final HashMap<String, Bird> angrybirdMap = new HashMap<>();
 
     static Bird getAngryBird(String color) {
         AngryBird angrybird = (AngryBird) angrybirdMap.get(color);
@@ -1756,11 +1752,11 @@ El beneficio de aplicar el patrón depende en gran medida de cómo y dónde se u
 
 #### Ventajas e inconvenientes
 
-* [Ventaja] - Puede guardar una gran cantidad de RAM, asumiendo que su programa tiene toneladas de objetos similares.
+* **Ventaja** - Puede guardar una gran cantidad de RAM, asumiendo que su programa tiene toneladas de objetos similares.
 
-* [Inconveniente] - Es posible que esté intercambiando RAM a través de ciclos de CPU cuando algunos de los datos de contexto se deben recalcular cada vez que alguien llama a un método _'flyweight'_.
+* **Inconveniente** - Es posible que esté intercambiando RAM a través de ciclos de CPU cuando algunos de los datos de contexto se deben recalcular cada vez que alguien llama a un método _'flyweight'_.
 
-* [Inconveniente] - El código se vuelve mucho más complicado.
+* **Inconveniente** - El código se vuelve mucho más complicado.
 
 #### Referencia
 

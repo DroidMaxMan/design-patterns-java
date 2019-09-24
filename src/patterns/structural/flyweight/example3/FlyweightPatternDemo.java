@@ -2,7 +2,7 @@ package patterns.structural.flyweight.example3;
 
 public class FlyweightPatternDemo {
 
-    private static final String colors[] = {"Red", "Orange", "Blue", "Yellow", "Pink"};
+    private static final String[] colors = {"Red", "Orange", "Blue", "Yellow", "Pink"};
 
     public static void main(String[] args) {
 

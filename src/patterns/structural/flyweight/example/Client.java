@@ -1,8 +1,8 @@
 package patterns.structural.flyweight.example;
 
-public class FlyweightPatternDemo {
+public class Client {
 
-    private static final String colors[] = {"Red", "Green", "Blue", "White", "Black"};
+    private static final String[] colors = {"Red", "Green", "Blue", "White", "Black"};
 
     public static void main(String[] args) {
 
