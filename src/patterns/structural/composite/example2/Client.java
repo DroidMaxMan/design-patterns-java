@@ -2,7 +2,7 @@ package patterns.structural.composite.example2;
 
 import java.util.List;
 
-class CompositePatternEx {
+class Client {
 
     public static void main(String[] args) {
         Teacher principal = new Teacher("Dr.S.Som", "Principal");

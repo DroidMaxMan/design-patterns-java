@@ -1954,6 +1954,8 @@ class Magazine extends FirearmDecorator {
 
 ### - Patrón *__"Composite"__* -
 
+![Composite](.//media//patterns//structural//composite_header.png)
+
 **GoF**: Componer objetos en estructuras de árbol para representar jerarquías parciales. Este patrón permite a los clientes tratar objetos individuales y composiciones de objetos de manera uniforme.
 
 #### Concepto
@@ -1968,7 +1970,7 @@ Una buena manera de identificar la situación en que se puede aplicar este patr�
 
 Para ilustrar el problema supóngase un juego de estrategia en el que los jugadores pueden recoger objetos o items, los cuales tienen una serie de propiedades como "precio", "descripción", etc. Cada item, a su vez, puede contener otros items. Por ejemplo, un bolso de cuero puede contener una pequeña caja de madera que, a su vez, contiene un pequeño reloj dorado, etc..
 
-![Ejemplo](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/composite.png)
+![Ejemplo](.//media//patterns//structural//composite_diagram.png)
 
 En definitiva, el patrón *__'Composite'__* habla sobre cómo diseñar estructuras recursivas donde la composición homogénea de objetos recuerda a una estructura arbórea.
 
@@ -2018,6 +2020,8 @@ class Bag extends Item {
 
 <https://es.wikipedia.org/wiki/Composite_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/03/31/patrones-estructurales-vi-patron-composite/>  
+<https://refactoring.guru/design-patterns/composite>  
+<https://sourcemaking.com/design_patterns/composite>  
 
 ### - Patrón *__"Facade"__* -
 

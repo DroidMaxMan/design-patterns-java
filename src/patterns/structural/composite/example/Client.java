@@ -1,6 +1,6 @@
 package patterns.structural.composite.example;
 
-public class CompositePatternEx {
+public class Client {
 
     public static void main(String[] args) {
         Clock analogClock = new Clock();
