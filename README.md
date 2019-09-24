@@ -1771,6 +1771,8 @@ El beneficio de aplicar el patrón depende en gran medida de cómo y dónde se u
 
 ### - Patrón *__"Adapter"__* -
 
+![Adapter](.//media//patterns//structural//adapter_header.png)
+
 **GoF**: Convierte la interfaz de una clase en otra interfaz que los clientes esperan. Este patrón permite que las clases trabajen juntas que de otra manera no podrían hacerlo debido a interfaces incompatibles.
 
 #### Concepto
@@ -1785,14 +1787,13 @@ Usando el patrón *__'Adapter'__* es posible crear una nueva interfaz de acceso 
 
 #### Ejemplo de implementación
 
-El cliente no utiliza el sistema adaptado, si no que hace uso del *adaptador*. Este es el que transforma la invocación a `'method()'` en `'otherMethod()'`.
+El cliente no utiliza el sistema adaptado, sino que hace uso del *adaptador*. Este es el que transforma la invocación a `method()` en `otherMethod()`.
 
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/adapter.png)
+![Implementación](.//media//patterns//structural//adapter_diagram.png)
 
 Es posible que el adaptador también incluya nueva funcionalidad relacionada con la adaptación como por ejemplo:
 
 * Comprobación de la corrección de los parámetros.
-
 * Transformación de los parámetros para ser compatibles con el sistema adaptado.
 
 ```java
@@ -1834,6 +1835,8 @@ public class Client {
 
 <https://es.wikipedia.org/wiki/Adapter_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/02/28/patrones-estructurales-i-patron-adapter-wrapper/>  
+<https://refactoring.guru/design-patterns/adapter>  
+<https://sourcemaking.com/design_patterns/adapter>  
 
 ### - Patrón *__"Decorator"__* -
 

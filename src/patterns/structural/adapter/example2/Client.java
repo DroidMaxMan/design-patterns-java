@@ -1,6 +1,6 @@
 package patterns.structural.adapter.example2;
 
-public class AdapterPatternEx {
+public class Client {
 
     public static void main(String[] args) {
         CalculatorAdapter cal = new CalculatorAdapter();
