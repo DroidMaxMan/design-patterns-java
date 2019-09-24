@@ -1,7 +1,7 @@
 package patterns.structural.bridge.example;
 
-interface Abstraccion {
+interface Implementor {
 
-    void operacion();
+    void operation();
 
 }

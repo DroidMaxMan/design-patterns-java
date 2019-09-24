@@ -1560,48 +1560,35 @@ Los patrones estructurales son _Adapter_, _Bridge_, _Composite_, _Decorator_, _F
 
 ### - Patrón *__"Bridge"__* -
 
-**GoF**: Desacoplar una abstracción de su implementación para que los dos puedan variar independientemente.
+![Bridge](.//media//patterns/structural//bridge_header.png)
 
-<!-- markdownlint-disable MD033 -->
-<p align="center">
-    <img src="https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/bridge.png">
-</p>
-<!-- markdownlint-enable MD033 -->
+**GoF**: Desacoplar una abstracción de su implementación para que ambos puedan variar independientemente.
 
 #### Concepto
 
 Este patrón es una técnica usada en programación para desacoplar una abstracción de su implementación, de manera que ambas puedan ser modificadas independientemente sin necesidad de alterar por ello la otra. Esto es, se desacopla una abstracción de su implementación para que puedan variar independientemente.
 
-Digamos que tenemos la clase `'Shape'` con un par de subclases: `'Circle'` y `'Square'`. Si incorporamos el color a la jerarquía de clases debemos combinar las subclases con el nuevo requisito creando subclases como `'BlueCircle'` o `'RedSquare'`. Si en un futuro es necesario incorporar una nueva forma o un nuevo color, deberemos combinar esta nueva subclase o color con las formas o colores ya existentes, aumentando exponencialmente el número de subclases.
+Digamos que tenemos la clase `Shape` con un par de subclases: `Circle` y `Square`. Si incorporamos el color a la jerarquía de clases debemos combinar las subclases con el nuevo requisito creando subclases como `BlueCircle` o `RedSquare`. Si en un futuro es necesario incorporar una nueva forma o un nuevo color, deberemos combinar esta nueva subclase o color con las formas o colores ya existentes, aumentando exponencialmente el número de subclases.
 
-<!-- markdownlint-disable MD033 -->
-<p align="center">
-    <img src="https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/bridge01.png">
-</p>
-<!-- markdownlint-enable MD033 -->
+![Concept](.//media//patterns//structural//bridge_concept_01.png)
 
 Este problema ocurre porque estamos tratando de extender las clases de formas en dos dimensiones independientes: por forma y por color. Ese es un problema muy común con la herencia de clases.
 
 El **patrón 'Bridge'** intenta resolver este problema cambiando de herencia a composición. Lo que esto significa es que extrae una de las dimensiones en una jerarquía de clases separada, de modo que las clases originales hagan referencia a un objeto de la nueva jerarquía, en lugar de tener todos sus estados y comportamientos dentro de una clase.
 
-<!-- markdownlint-disable MD033 -->
-<p align="center">
-    <img src="https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/bridge02.png">
-</p>
-<!-- markdownlint-enable MD033 -->
+![Concept](.//media//patterns//structural//bridge_concept_02.png)
 
 En la definición de **GoF** se introducen los conceptos de _"abstración"_ e _"implementación"_. La abstracción y la implementación se pueden representar a través de una interfaz o una clase abstracta, pero la abstracción contiene una referencia a su implementador. Normalmente, un hijo de una abstracción se llama una _'refined abstraction'_ y un hijo de una implementación se llama _'concrete implementation'_.
 
-* ***Abstraction*** define una interfaz abstracta. Mantiene una referencia a un objeto de tipo Implementor.
-* ***RefinedAbstraction*** extiende la interfaz definida por _'Abstraction'_
+* ***Abstraction*** define una interfaz abstracta. Mantiene una referencia a un objeto de tipo _'Implementor'_.
+
+* ***RefinedAbstraction*** extiende la interfaz definida por _'Abstraction'_.
+
 * ***Implementor*** define la interfaz para la implementación de clases. Esta interfaz no se tiene que corresponder exactamente con la interfaz de _'Abstraction'_; de hecho, las dos interfaces pueden ser bastante diferente. Típicamente la interfaz _'Implementor'_ provee sólo operaciones primitivas, y _'Abstraction'_ define operaciones de alto nivel basadas en estas primitivas.
+
 * ***ConcreteImplementor*** implementa la interfaz de Implementor y define su implementación concreta.
 
-<!-- markdownlint-disable MD033 -->
-<p align="center">
-    <img src="https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/structural/bridge03.png">
-</p>
-<!-- markdownlint-enable MD033 -->
+![Concept](.//media//patterns//structural//bridge_concept_03.png)
 
 Este patrón mejora la extensibilidad ya que permite que se puedan extender las jerarquías de clases de forma independientemente, sin afectarse entre sí.
 
@@ -1626,34 +1613,36 @@ Desacoplando _'Abstraction'_ e _'Implementor'_ también elimina las dependencias
 1. El código del cliente debe pasar un objeto de implementación al constructor de la abstracción para asociar uno con el otro. Después de eso, el cliente puede olvidarse de la implementación y trabajar solo con el objeto de abstracción.
 
 ```java
-interface Abstraccion {
-    void operacion();
+interface Abstraction {
+    void operation();
 }
 
-interface Implementador {
-    void operacion();
+interface Implementor {
+    void operation();
 }
 
-class AbstraccionRefinada implements Abstraccion {
-    private Implementador implementador;
+class RefinedAbstraction implements Abstraction {
+    private Implementor implementor;
 
-    public AbstraccionRefinada(Implementador implementador) {
-        this.implementador = implementador;
+    RefinedAbstraction(Implementor implementor) {
+        this.implementor = implementor;
     }
 
-    public void operacion() {
-        implementador.operacion();
+    public void operation() {
+        implementor.operation();
     }
 }
 
-class ImplementacionA implements Implementador {
-    public void operacion() {
+class ImplementorA implements Implementor {
+    @Override
+    public void operation() {
         // ...
     }
 }
 
-class ImplementacionB implements Implementador {
-    public void operacion() {
+class ImplementorB implements Implementor {
+    @Override
+    public void operation() {
         // ...
     }
 }
@@ -1669,13 +1658,13 @@ También cuando se necesite poder cambiar de implementación en tiempo de ejecuc
 
 #### Ventajas e inconvenientes
 
-* [Ventaja] - El código del cliente funciona con abstracciones de alto nivel. No está expuesto a los detalles de la plataforma.
+* **Ventaja** - El código del cliente funciona con abstracciones de alto nivel. No está expuesto a los detalles de la plataforma.
 
-* [Ventaja] - **Open/Closed Principle**: Puedes introducir nuevas abstracciones e implementaciones independientemente unas de otras.
+* **Ventaja** - **Open/Closed Principle**: Puedes introducir nuevas abstracciones e implementaciones independientemente unas de otras.
 
-* [Ventaja] - **Single Responsibilitiy Principle**: Puede centrarse en la lógica de alto nivel en la abstracción y en los detalles de la plataforma en la implementación.
+* **Ventaja** - **Single Responsibilitiy Principle**: Puede centrarse en la lógica de alto nivel en la abstracción y en los detalles de la plataforma en la implementación.
 
-* [Inconveniente] - La desventaja de este patrón es que puede hacer que el código sea más complicado aplicando el patrón a una clase altamente cohesiva.
+* **Inconveniente** - La desventaja de este patrón es que puede hacer que el código sea más complicado aplicando el patrón a una clase altamente cohesiva.
 
 #### Referencia
 

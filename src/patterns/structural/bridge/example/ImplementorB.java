@@ -1,8 +1,9 @@
 package patterns.structural.bridge.example;
 
-class ImplementacionB implements Implementador {
+class ImplementorB implements Implementor {
 
-    public void operacion() {
+    @Override
+    public void operation() {
         System.out.println("Esta es una implementacion de B");
     }
 

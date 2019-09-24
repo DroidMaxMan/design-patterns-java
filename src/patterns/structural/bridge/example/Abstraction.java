@@ -1,7 +1,7 @@
 package patterns.structural.bridge.example;
 
-interface Implementador {
+interface Abstraction {
 
-    void operacion();
+    void operation();
 
 }
