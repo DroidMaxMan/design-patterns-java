@@ -2290,7 +2290,7 @@ Este patrón de arquitectura de software se basa en las ideas de reutilización 
 
 * **Modelo** - el modelo de la aplicación recibe las acciones a realizar por el usuario, pero ya independientes del tipo de interfaz utilizado porque se utilizan, únicamente, estructuras propias del dominio del modelo y llamadas desde el controlador.
 
-![MVC](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/others/mvc.png)
+![MVC](.//media//patterns//others//mvc_concept.png)
 
 Normalmente, la mayoría de las acciones que realiza el controlador sobre el modelo son operaciones de consulta de su estado para que pueda ser convenientemente representado por la vista.
 
