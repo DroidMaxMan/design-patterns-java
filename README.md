@@ -931,11 +931,11 @@ El patrón *__'Interpreter'__* habla de definir un lenguaje de dominio (es decir
 
 El patrón sugiere modelar el dominio con una gramática recursiva.  El intérprete se basa en el recorrido recursivo del patrón *__'Composite'__* para interpretar las "oraciones" que se le solicita procesar.
 
-El patrón sugiere definir una gramática para un lenguaje simple definiendo una jerarquía de clases `'Expression'` e implementando una operación `'interpret()'`. Cada regla de la gramática es un 'compuesto' (una regla que hace referencia a otras reglas) o un terminal (un nodo de hoja en una estructura de árbol).
+El patrón sugiere definir una gramática para un lenguaje simple definiendo una jerarquía de clases `Expression` e implementando una operación `interpret()`. Cada regla de la gramática es un 'compuesto' (una regla que hace referencia a otras reglas) o un terminal (un nodo de hoja en una estructura de árbol).
 
-La sentencia del lenguaje se representa mediante un árbol de sintaxis abstracta (AST) formado por instancias de `'Expression'`. Las sentencias se interpretan realizando un recorrido del AST e invocando '`interpret()`´.
+La sentencia del lenguaje se representa mediante un árbol de sintaxis abstracta (AST) formado por instancias de `Expression`. Las sentencias se interpretan realizando un recorrido del AST e invocando `interpret()`.
 
-![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/interpreter.jpg)
+![Concepto](.//media//patterns//behavioral//interpreter_diagram.png)
 
 #### Referencia
 
