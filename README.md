@@ -1,6 +1,6 @@
 # Apuntes de [Patrones de diseño en Java]
 
-Los patrones de diseño son unas técnicas para resolver problemas comunes en el desarrollo de software y otros ámbitos referentes al diseño de interacción o interfaces.
+Los patrones de diseño son técnicas que permiten resolver problemas comunes en el desarrollo de software y en otros ámbitos referentes al diseño de interacción o interfaces.
 
 Los patrones de diseño pretenden:
 
@@ -15,15 +15,17 @@ Asimismo, no pretenden:
 * Imponer ciertas alternativas de diseño frente a otras.
 * Eliminar la creatividad inherente al proceso de diseño.
 
-No es obligatorio utilizar los patrones, solo es aconsejable en el caso de tener el mismo problema o similar que soluciona el patrón, siempre teniendo en cuenta que en un caso particular puede no ser aplicable. "Abusar o forzar el uso de los patrones puede ser un error".
+Por tanto no es obligatorio utilizar los patrones. Sólo es aconsejable en el caso de detectar el mismo problema o uno similar para el cual existe un patrón que proporciona una solución probada, siempre teniendo en cuenta que en un caso particular puede no ser aplicable. Abusar o forzar el uso de los patrones puede ser contraproducente.
 
-## _Behavioral Patterns_
+## _'Behavioral Patterns'_
 
-Los patrones de comportamiento se definen como patrones de diseño software que ofrecen soluciones respecto a la interacción y responsabilidades entre clases y objetos, así como los algoritmos que encapsulan.
+Los patrones de comportamiento se definen como patrones de diseño de software que ofrecen soluciones respecto a la interacción y responsabilidades entre clases y objetos, así como los algoritmos que encapsulan.
 
 Los patrones de comportamiento son _Chain of Responsibility_, _Command_, _Interpreter_, _Iterator_, _Mediator_, _Memento_, _Observer_, _State_, _Strategy_, _Template Method_ y _Visitor_.
 
 ### - Patrón *__"Command"__* -
+
+![Command](.//media//patterns//behavioral//command_header.png)
 
 **Gof**: Encapsule una solicitud como un objeto, lo que le permite parametrizar a los clientes con diferentes solicitudes, solicitudes de cola o registro y admite operaciones que no se pueden deshacer.
 
@@ -39,7 +41,7 @@ Un **invocador** solo conoce la interfaz de comandos, pero desconoce totalmente 
 
 Un objeto de **comando** es capaz de llamar a un método particular en el receptor. La lógica de la acción a ejecutar está definida en el método en el **receptor** que es invocado por el **comando**.
 
-![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/command.png)
+![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/command_example.png)
 
 El uso del patrón *__'Command'__* puede ser productivo en aquellas situaciones y escenarios en las que la relación directa entre el emisor de una orden y el receptor de la misma es insuficiente:
 
@@ -57,7 +59,7 @@ El uso del patrón *__'Command'__* puede ser productivo en aquellas situaciones 
 
 * En el caso de los asistentes o *'wizards'* este patrón permite desacoplar el interfaz de usuario de las órdenes ya que una vez configurada la secuencia y tipo de órdenes desde el asistente, una vez sea aceptado por el usuario es cuando se emite el mensaje y se ejecutan dichas órdenes.
 
-#### Implementación
+#### Posible implementación
 
 ![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/behavioral/command/example2/diagram.png)
 
@@ -115,6 +117,8 @@ public class Invoker {
 
 <https://es.wikipedia.org/wiki/Command_%28patr%C3%B3n_de_dise%C3%B1o%29>  
 <https://danielggarcia.wordpress.com/2014/04/28/patrones-de-comportamiento-ii-patron-command/>  
+<https://refactoring.guru/design-patterns/command>
+<https://sourcemaking.com/design_patterns/command>
 
 ### - Patrón *__"Iterator"__* -
 

@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CommandPatternEx",
+            "request": "launch",
+            "mainClass": "patterns.behavioral.command.example2.CommandPatternEx",
+            "projectName": "_design-patterns-java__830919ae"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - CommandPatternEx",
+            "request": "launch",
+            "mainClass": "patterns.behavioral.command.example.CommandPatternEx",
+            "projectName": "_design-patterns-java__830919ae"
+        }
+    ]
+}
