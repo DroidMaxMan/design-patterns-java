@@ -1,6 +1,6 @@
 package patterns.behavioral.visitor.example;
 
-public class VisitorPatternEx {
+public class Client {
 
     public static void main(String[] args) {
         // Visitantes

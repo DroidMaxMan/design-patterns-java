@@ -646,6 +646,8 @@ class CheckersPlayer extends GamePlayer {
 
 ### - Patrón *__"Visitor"__* -
 
+![Visitor](.//media//patterns//behavioral//visitor_header.png)
+
 **GoF**: Representa una operación a realizar en los elementos de una estructura de objeto. Este patrón le permite definir una nueva operación sin cambiar las clases de los elementos sobre los que opera.
 
 El patrón *__'Visitor'__* proporciona un mecanismo para realizar diferentes operaciones sobre una jerarquía de objetos de forma que añadir nuevas operaciones no haga necesario cambiar las clases de los objetos sobre los que se realizan las operaciones.
@@ -656,19 +658,17 @@ En el diseño de un programa, normalmente se obtienen jerarquías de objetos a t
 
 En el patrón *__'Visitor'__* se distinguen dos participantes:
 
-* **Visitables**: son los elementos de la estructura de objetos que aceptan a un determinado visitante y que le proporcionan toda la información a éste para realizar una determinada operación. Definen una operación "Accept" que toma un visitante como argumento.
+* **Visitables**: son los elementos de la estructura de objetos que aceptan a un determinado visitante y que le proporcionan toda la información a éste para realizar una determinada operación. Definen una operación `accept(v:Visitor)` que toma un visitante como argumento.
 
 * **Visitantes:** jerarquía de objetos que realizan una operación determinada sobre dichos elementos.
 
-![Concepto](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/media/patterns/behavioral/visitor.png)
+![Concepto](.//media//patterns//behavioral//visitor_diagram.png)
 
 Cada visitante concreto realiza una operación sobre la estructura de objetos. Es posible que al visitante no le interesen todos los objetos y, por lo tanto, la implementación de alguno de sus métodos sea vacía.
 
-Sin embargo, lo importante del patrón *__'Visitor'__* es que se pueden añadir nuevos tipos de visitantes concretos y, por lo tanto, realizar nuevas operaciones sobre la estructura sin la necesidad de modificar nada en la propia estructura. Por tanto se seguiría el **principio 'Open/Closes' (abierto a la extensión, cerrado a la modificación).
+Sin embargo, lo importante del patrón *__'Visitor'__* es que se pueden añadir nuevos tipos de visitantes concretos y, por lo tanto, realizar nuevas operaciones sobre la estructura sin la necesidad de modificar nada en la propia estructura. Por tanto se seguiría el **Principio 'Open/Closed'** (abierto a la extensión, cerrado a la modificación).
 
 #### Ejemplo de implementación
-
-![Implementación](https://raw.githubusercontent.com/alxgcrz/design-patterns-java/master/src/patterns/behavioral/visitor/example/diagram.png)
 
 ```java
 interface Element {
@@ -727,7 +727,9 @@ class ConcreteVisitor2 implements Visitor {
 
 #### Referencia
 
-<https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29>
+<https://es.wikipedia.org/wiki/Visitor_%28patr%C3%B3n_de_dise%C3%B1o%29>  
+<https://refactoring.guru/design-patterns/visitor>  
+<https://sourcemaking.com/design_patterns/visitor>  
 
 ### - Patrón *__"Memento"__* -
 
