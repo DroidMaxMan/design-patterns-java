@@ -1,5 +1,9 @@
 # Apuntes de [Patrones de diseño en Java]
 
+**Proyecto archivado.** Nueva localización en [apuntes-general](https://github.com/alxgcrz/apuntes-general).
+
+----
+
 Los patrones de diseño son técnicas que permiten resolver problemas comunes en el desarrollo de software y en otros ámbitos referentes al diseño de interacción o interfaces.
 
 Los patrones de diseño pretenden:
@@ -2304,7 +2308,7 @@ Sin embargo, es la estructura más utilizada en los videojuegos: la interfaz gr�
 
 <https://es.wikipedia.org/wiki/Modelo%E2%80%93vista%E2%80%93controlador>
 
----
+----
 
 ## License
 
